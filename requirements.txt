@@ -1,0 +1,5 @@
+# Dev-only tooling (pin lightly; keep it boring)
+markdown==3.3.7
+
+# YAGNI, but for when we validate
+# jsonschema==4.17.3

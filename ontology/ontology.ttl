@@ -1,0 +1,85 @@
+@prefix eco: <https://example.org/eco#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+eco:Ontology a owl:Ontology ;
+  rdfs:label "Eco Rules Ontology" ;
+  rdfs:comment "Ontology for software inefficiency patterns and their impacts, detection, and remediation." .
+
+### Classes
+eco:Rule a owl:Class .
+eco:ResourceImpact a owl:Class .
+eco:Mechanism a owl:Class .
+eco:SystemLayer a owl:Class .
+eco:DetectionMethod a owl:Class .
+eco:RemediationPattern a owl:Class .
+eco:Severity a owl:Class .
+
+### Properties
+eco:affects a owl:ObjectProperty ;
+  rdfs:domain eco:Rule ;
+  rdfs:range eco:ResourceImpact .
+
+eco:causedBy a owl:ObjectProperty ;
+  rdfs:domain eco:Rule ;
+  rdfs:range eco:Mechanism .
+
+eco:occursIn a owl:ObjectProperty ;
+  rdfs:domain eco:Rule ;
+  rdfs:range eco:SystemLayer .
+
+eco:detectedBy a owl:ObjectProperty ;
+  rdfs:domain eco:Rule ;
+  rdfs:range eco:DetectionMethod .
+
+eco:correctedBy a owl:ObjectProperty ;
+  rdfs:domain eco:Rule ;
+  rdfs:range eco:RemediationPattern .
+
+### Data properties
+eco:ruleId a owl:DatatypeProperty ;
+  rdfs:domain eco:Rule ;
+  rdfs:range xsd:string .
+
+eco:title a owl:DatatypeProperty ;
+  rdfs:domain eco:Rule ;
+  rdfs:range xsd:string .
+
+eco:summary a owl:DatatypeProperty ;
+  rdfs:domain eco:Rule ;
+  rdfs:range xsd:string .
+
+eco:tier a owl:DatatypeProperty ;
+  rdfs:domain eco:Rule ;
+  rdfs:range xsd:integer .
+
+eco:family a owl:DatatypeProperty ;
+  rdfs:domain eco:Rule ;
+  rdfs:range xsd:string .
+
+eco:layer a owl:DatatypeProperty ;
+  rdfs:domain eco:Rule ;
+  rdfs:range xsd:string .
+
+eco:severity a owl:DatatypeProperty ;
+  rdfs:domain eco:Rule ;
+  rdfs:range xsd:string .
+
+### Controlled vocab (examples)
+eco:CPU a eco:ResourceImpact ; rdfs:label "CPU" .
+eco:Memory a eco:ResourceImpact ; rdfs:label "Memory" .
+eco:Network a eco:ResourceImpact ; rdfs:label "Network" .
+eco:Storage a eco:ResourceImpact ; rdfs:label "Storage" .
+eco:Energy a eco:ResourceImpact ; rdfs:label "Energy" .
+eco:Latency a eco:ResourceImpact ; rdfs:label "Latency" .
+eco:InfraCost a eco:ResourceImpact ; rdfs:label "Infrastructure Cost" .
+eco:DeveloperTime a eco:ResourceImpact ; rdfs:label "Developer Time" .
+
+eco:CodeLayer a eco:SystemLayer ; rdfs:label "Code" .
+eco:DataLayer a eco:SystemLayer ; rdfs:label "Data" .
+eco:NetworkLayer a eco:SystemLayer ; rdfs:label "Network" .
+eco:ArchitectureLayer a eco:SystemLayer ; rdfs:label "Architecture" .
+eco:AILayer a eco:SystemLayer ; rdfs:label "AI/ML" .
+eco:OrgLayer a eco:SystemLayer ; rdfs:label "Organizational" .

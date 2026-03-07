@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Eco Rules Catalog",
+  "type": "object",
+  "required": ["catalog_version", "rules"],
+  "properties": {
+    "catalog_version": {
+      "type": "string"
+    },
+    "generated_at": {
+      "type": "string"
+    },
+    "publisher": {
+      "type": "object"
+    },
+    "rules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "family",
+          "layer",
+          "tier"
+        ],
+        "properties": {
+          "id": { "type": "string" },
+          "title": { "type": "string" },
+          "summary": { "type": "string" },
+          "family": { "type": "string" },
+          "layer": { "type": "string" },
+          "tier": { "type": "integer" },
+          "severity": { "type": "string" },
+          "tags": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "rationale": { "type": "string" },
+          "impact": { "type": "object" },
+          "detection": { "type": "object" },
+          "remediation": { "type": "object" }
+        }
+      }
+    }
+  }
+}
