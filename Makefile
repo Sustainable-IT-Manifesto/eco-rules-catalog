@@ -123,3 +123,37 @@ clean-venv:
 	@rm -rf "$(VENV_DIR)"
 	@echo "Removed venv: $(VENV_DIR)"
 
+validate-catalog:
+	@$(VENV_PY) tools/validate_catalog.py \
+		--catalog "$(CATALOG)" \
+		--categories ontology/categories.json \
+		--families ontology/families.json
+
+validate-catalog-strict:
+	@$(VENV_PY) tools/validate_catalog.py \
+		--catalog "$(CATALOG)" \
+		--categories ontology/categories.json \
+		--families ontology/families.json \
+		--strict
+
+ci-strict:
+	@$(VENV_PY) tools/check_all.py \
+		--catalog "$(CATALOG)" \
+		--categories "$(CATEGORIES)" \
+		--families "$(FAMILIES)" \
+		--strict
+	@echo "Strict CI checks passed."
+
+
+check-all-script:
+	@$(VENV_PY) tools/check_all.py \
+		--catalog "$(CATALOG)" \
+		--categories "$(CATEGORIES)" \
+		--families "$(FAMILIES)"
+
+check-all-script-strict:
+	@$(VENV_PY) tools/check_all.py \
+		--catalog "$(CATALOG)" \
+		--categories "$(CATEGORIES)" \
+		--families "$(FAMILIES)" \
+		--strict

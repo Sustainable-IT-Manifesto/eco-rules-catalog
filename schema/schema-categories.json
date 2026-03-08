@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Eco Category Registry",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "name",
+      "code",
+      "description"
+    ],
+    "properties": {
+      "name": {
+        "type": "string",
+        "minLength": 1
+      },
+      "code": {
+        "type": "string",
+        "pattern": "^[A-Z]{3}$"
+      },
+      "description": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "additionalProperties": false
+  }
+}
