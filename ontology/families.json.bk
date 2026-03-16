@@ -1,0 +1,158 @@
+[
+  {
+    "name": "Python",
+    "code": "PY",
+    "category": "Computation",
+    "description": "Python language and common Python runtime/library inefficiencies."
+  },
+  {
+    "name": "JavaScript",
+    "code": "JS",
+    "category": "Computation",
+    "description": "JavaScript and browser or Node.js inefficiencies."
+  },
+  {
+    "name": "Java",
+    "code": "JAVA",
+    "category": "Computation",
+    "description": "Java language, JVM, and common Java ecosystem inefficiencies."
+  },
+  {
+    "name": "SQL",
+    "code": "SQL",
+    "category": "Data",
+    "description": "Database query and relational data inefficiencies."
+  },
+  {
+    "name": "HTTP",
+    "code": "HTTP",
+    "category": "Networking",
+    "description": "HTTP transport and API interaction inefficiencies."
+  },
+  {
+    "name": "Queues",
+    "code": "QUEUE",
+    "category": "Concurrency",
+    "description": "Queue, messaging, and backpressure inefficiencies."
+  },
+  {
+    "name": "Containers",
+    "code": "CTR",
+    "category": "Infrastructure",
+    "description": "Container image, runtime, and orchestration inefficiencies."
+  },
+  {
+    "name": "Kubernetes",
+    "code": "K8S",
+    "category": "Infrastructure",
+    "description": "Kubernetes-specific inefficiencies in scheduling, limits, scaling, and cluster usage."
+  },
+  {
+    "name": "Cloud",
+    "code": "CLD",
+    "category": "Infrastructure",
+    "description": "General cloud resource inefficiencies independent of a single provider."
+  },
+  {
+    "name": "AWS",
+    "code": "AWS",
+    "category": "Infrastructure",
+    "description": "AWS-specific inefficiencies."
+  },
+  {
+    "name": "Azure",
+    "code": "AZ",
+    "category": "Infrastructure",
+    "description": "Azure-specific inefficiencies."
+  },
+  {
+    "name": "GCP",
+    "code": "GCP",
+    "category": "Infrastructure",
+    "description": "Google Cloud-specific inefficiencies."
+  },
+  {
+    "name": "Storage Systems",
+    "code": "STG",
+    "category": "Storage",
+    "description": "Storage services, object stores, tiers, and retention inefficiencies."
+  },
+  {
+    "name": "AI Inference",
+    "code": "AINF",
+    "category": "AI/ML",
+    "description": "Inference-time inefficiencies in model serving and request handling."
+  },
+  {
+    "name": "AI Training",
+    "code": "ATRN",
+    "category": "AI/ML",
+    "description": "Training-time inefficiencies in data preparation, scheduling, and retraining."
+  },
+  {
+    "name": "Embeddings",
+    "code": "EMB",
+    "category": "AI/ML",
+    "description": "Embedding generation, storage, and retrieval inefficiencies."
+  },
+  {
+    "name": "Architecture General",
+    "code": "ARCH",
+    "category": "Architecture",
+    "description": "Cross-platform architectural inefficiencies."
+  },
+  {
+    "name": "Operations General",
+    "code": "OPS",
+    "category": "Operations",
+    "description": "Cross-platform operational inefficiencies."
+  },
+  {
+    "name": "Organizational General",
+    "code": "GEN",
+    "category": "Organizational",
+    "description": "Cross-functional governance and policy inefficiencies."
+  },
+  {
+    "name": "AI",
+    "code": "AI",
+    "category": "AI/ML",
+    "description": "General AI and machine learning inefficiencies."
+  },
+  {
+    "name": "Data",
+    "code": "DATA",
+    "category": "Data",
+    "description": "General data inefficiencies."
+  },
+  {
+    "name": "Network",
+    "code": "NET",
+    "category": "Networking",
+    "description": "General networking inefficiencies."
+  },
+  {
+    "name": "Architecture",
+    "code": "ARCH",
+    "category": "Architecture",
+    "description": "General architectural inefficiencies."
+  },
+  {
+    "name": "Operations",
+    "code": "OPS",
+    "category": "Operations",
+    "description": "General operational inefficiencies."
+  },
+  {
+    "name": "Infrastructure",
+    "code": "INF",
+    "category": "Infrastructure",
+    "description": "General infrastructure inefficiencies."
+  },
+  {
+    "name": "Organizational",
+    "code": "ORG",
+    "category": "Organizational",
+    "description": "General organizational inefficiencies."
+  }
+]

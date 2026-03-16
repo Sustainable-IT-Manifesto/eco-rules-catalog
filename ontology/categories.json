@@ -1,0 +1,52 @@
+[
+  {
+    "name": "Computation",
+    "code": "CMP",
+    "description": "Inefficiencies caused by unnecessary, repeated, or inefficient computation."
+  },
+  {
+    "name": "Data",
+    "code": "DAT",
+    "description": "Inefficiencies in data access, query behavior, data transfer, persistence, and lifecycle."
+  },
+  {
+    "name": "Networking",
+    "code": "NET",
+    "description": "Inefficiencies caused by communication patterns, transport overhead, retries, and payload design."
+  },
+  {
+    "name": "Storage",
+    "code": "STO",
+    "description": "Inefficiencies related to storage growth, retention, archival, and storage-tier misuse."
+  },
+  {
+    "name": "Concurrency",
+    "code": "CON",
+    "description": "Inefficiencies caused by thread, process, queue, lock, or async misuse."
+  },
+  {
+    "name": "AI/ML",
+    "code": "AIM",
+    "description": "Inefficiencies in model choice, inference, training, embeddings, token usage, and accelerator utilization."
+  },
+  {
+    "name": "Architecture",
+    "code": "ARC",
+    "description": "Structural inefficiencies in system design, service boundaries, scaling, and resource topology."
+  },
+  {
+    "name": "Operations",
+    "code": "OPS",
+    "description": "Operational inefficiencies in observability, deployment, CI/CD, support, and recurring platform activity."
+  },
+  {
+    "name": "Infrastructure",
+    "code": "INF",
+    "description": "Inefficiencies in compute, containers, cloud resources, provisioning, and platform configuration."
+  },
+  {
+    "name": "Organizational",
+    "code": "ORG",
+    "description": "Governance, policy, lifecycle, and accountability inefficiencies that institutionalize waste."
+  }
+]
