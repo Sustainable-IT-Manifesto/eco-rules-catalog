@@ -8,11 +8,23 @@ on:
 jobs:
   validate:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
-      - run: pip install jsonschema
-      - run: python tools/validate_registry.py
-      - run: python tools/validate_rules_v2.py catalog/master.json
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install jsonschema
+
+      - name: Build catalog
+        run: python tools/build_catalog.py
+
+      - name: Validate registry
+        run: python tools/validate_registry.py
+
+      - name: Validate rules
+        run: python tools/validate_rules_v2.py catalog/master.json
