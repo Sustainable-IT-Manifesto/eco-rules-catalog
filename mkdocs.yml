@@ -1,0 +1,14 @@
+site_name: Eco Rules Catalog
+site_description: SITM standard for identifying software inefficiency
+site_url: https://sustainable-it-manifesto.github.io/eco-rules-catalog/
+
+theme:
+  name: material
+
+nav:
+  - Home: index.md
+  - Standard: standard.md
+  - Contributing: contributing.md
+  - Rule Checklist: rule-checklist.md
+  - Releases:
+      - v0.2.0: releases/v0.2.0.md
