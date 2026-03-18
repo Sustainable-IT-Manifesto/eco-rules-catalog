@@ -1,0 +1,334 @@
+{
+  "version": "0.2.0",
+  "generated_at": "2026-03-18",
+  "id_pattern": "^ECO-[A-Z0-9]+-[A-Z0-9]+-[0-9]{3}$",
+  "categories": {
+    "CMP": {
+      "name": "Computation",
+      "description": "Inefficiencies caused by unnecessary, repeated, or inefficient computation.",
+      "status": "active",
+      "aliases": []
+    },
+    "DAT": {
+      "name": "Data",
+      "description": "Inefficiencies in data access, query behavior, data transfer, persistence, and lifecycle.",
+      "status": "active",
+      "aliases": []
+    },
+    "NET": {
+      "name": "Networking",
+      "description": "Inefficiencies caused by communication patterns, transport overhead, retries, and payload design.",
+      "status": "active",
+      "aliases": [
+        "Network"
+      ]
+    },
+    "STO": {
+      "name": "Storage",
+      "description": "Inefficiencies related to storage growth, retention, archival, and storage-tier misuse.",
+      "status": "active",
+      "aliases": []
+    },
+    "CON": {
+      "name": "Concurrency",
+      "description": "Inefficiencies caused by thread, process, queue, lock, or async misuse.",
+      "status": "active",
+      "aliases": []
+    },
+    "AIM": {
+      "name": "AI/ML",
+      "description": "Inefficiencies in model choice, inference, training, embeddings, token usage, and accelerator utilization.",
+      "status": "active",
+      "aliases": [
+        "AI",
+        "ML"
+      ]
+    },
+    "ARC": {
+      "name": "Architecture",
+      "description": "Structural inefficiencies in system design, service boundaries, scaling, and resource topology.",
+      "status": "active",
+      "aliases": []
+    },
+    "OPS": {
+      "name": "Operations",
+      "description": "Operational inefficiencies in observability, deployment, CI/CD, support, and recurring platform activity.",
+      "status": "active",
+      "aliases": []
+    },
+    "INF": {
+      "name": "Infrastructure",
+      "description": "Inefficiencies in compute, containers, cloud resources, provisioning, and platform configuration.",
+      "status": "active",
+      "aliases": []
+    },
+    "ORG": {
+      "name": "Organizational",
+      "description": "Governance, policy, lifecycle, and accountability inefficiencies that institutionalize waste.",
+      "status": "active",
+      "aliases": []
+    }
+  },
+  "families": {
+    "PY": {
+      "name": "Python",
+      "category_code": "CMP",
+      "description": "Python language and common Python runtime/library inefficiencies.",
+      "status": "active",
+      "aliases": []
+    },
+    "JS": {
+      "name": "JavaScript",
+      "category_code": "CMP",
+      "description": "JavaScript and browser or Node.js inefficiencies.",
+      "status": "active",
+      "aliases": []
+    },
+    "JAVA": {
+      "name": "Java",
+      "category_code": "CMP",
+      "description": "Java language, JVM, and common Java ecosystem inefficiencies.",
+      "status": "active",
+      "aliases": []
+    },
+    "AI": {
+      "name": "AI",
+      "category_code": "AIM",
+      "description": "General AI and machine learning inefficiencies.",
+      "status": "active",
+      "aliases": []
+    },
+    "AINF": {
+      "name": "AI Inference",
+      "category_code": "AIM",
+      "description": "Inference-time inefficiencies in model serving and request handling.",
+      "status": "active",
+      "aliases": []
+    },
+    "ATRN": {
+      "name": "AI Training",
+      "category_code": "AIM",
+      "description": "Training-time inefficiencies in data preparation, scheduling, and retraining.",
+      "status": "active",
+      "aliases": []
+    },
+    "EMB": {
+      "name": "Embeddings",
+      "category_code": "AIM",
+      "description": "Embedding generation, storage, and retrieval inefficiencies.",
+      "status": "active",
+      "aliases": []
+    },
+    "DATA": {
+      "name": "Data",
+      "category_code": "DAT",
+      "description": "General data inefficiencies.",
+      "status": "active",
+      "aliases": []
+    },
+    "SQL": {
+      "name": "SQL",
+      "category_code": "DAT",
+      "description": "Database query and relational data inefficiencies.",
+      "status": "active",
+      "aliases": []
+    },
+    "HTTP": {
+      "name": "HTTP",
+      "category_code": "NET",
+      "description": "HTTP transport and API interaction inefficiencies.",
+      "status": "active",
+      "aliases": []
+    },
+    "NET": {
+      "name": "Network",
+      "category_code": "NET",
+      "description": "General networking inefficiencies.",
+      "status": "active",
+      "aliases": [
+        "Networking"
+      ]
+    },
+    "STO": {
+      "name": "Storage",
+      "category_code": "STO",
+      "description": "General storage inefficiencies.",
+      "status": "active",
+      "aliases": []
+    },
+    "STG": {
+      "name": "Storage Systems",
+      "category_code": "STO",
+      "description": "Storage services, object stores, tiers, and retention inefficiencies.",
+      "status": "active",
+      "aliases": []
+    },
+    "CON": {
+      "name": "Concurrency",
+      "category_code": "CON",
+      "description": "General concurrency inefficiencies.",
+      "status": "active",
+      "aliases": []
+    },
+    "QUEUE": {
+      "name": "Queues",
+      "category_code": "CON",
+      "description": "Queue, messaging, and backpressure inefficiencies.",
+      "status": "active",
+      "aliases": []
+    },
+    "ARCH": {
+      "name": "Architecture",
+      "category_code": "ARC",
+      "description": "General architectural inefficiencies.",
+      "status": "active",
+      "aliases": []
+    },
+    "ARCHGEN": {
+      "name": "Architecture General",
+      "category_code": "ARC",
+      "description": "Cross-platform architectural inefficiencies.",
+      "status": "active",
+      "aliases": []
+    },
+    "OPS": {
+      "name": "Operations",
+      "category_code": "OPS",
+      "description": "General operational inefficiencies.",
+      "status": "active",
+      "aliases": []
+    },
+    "OPSGEN": {
+      "name": "Operations General",
+      "category_code": "OPS",
+      "description": "Cross-platform operational inefficiencies.",
+      "status": "active",
+      "aliases": []
+    },
+    "INF": {
+      "name": "Infrastructure",
+      "category_code": "INF",
+      "description": "General infrastructure inefficiencies.",
+      "status": "active",
+      "aliases": []
+    },
+    "CLD": {
+      "name": "Cloud",
+      "category_code": "INF",
+      "description": "General cloud resource inefficiencies independent of a single provider.",
+      "status": "active",
+      "aliases": []
+    },
+    "CTR": {
+      "name": "Containers",
+      "category_code": "INF",
+      "description": "Container image, runtime, and orchestration inefficiencies.",
+      "status": "active",
+      "aliases": []
+    },
+    "K8S": {
+      "name": "Kubernetes",
+      "category_code": "INF",
+      "description": "Kubernetes-specific inefficiencies in scheduling, limits, scaling, and cluster usage.",
+      "status": "active",
+      "aliases": []
+    },
+    "AWS": {
+      "name": "AWS",
+      "category_code": "INF",
+      "description": "AWS-specific inefficiencies.",
+      "status": "active",
+      "aliases": []
+    },
+    "AZ": {
+      "name": "Azure",
+      "category_code": "INF",
+      "description": "Azure-specific inefficiencies.",
+      "status": "active",
+      "aliases": []
+    },
+    "GCP": {
+      "name": "GCP",
+      "category_code": "INF",
+      "description": "Google Cloud-specific inefficiencies.",
+      "status": "active",
+      "aliases": []
+    },
+    "GEN": {
+      "name": "Organizational General",
+      "category_code": "ORG",
+      "description": "Cross-functional governance and policy inefficiencies.",
+      "status": "active",
+      "aliases": []
+    },
+    "PROC": {
+      "name": "Process",
+      "category_code": "ORG",
+      "description": "Process and governance inefficiencies.",
+      "status": "active",
+      "aliases": []
+    }
+  },
+  "lifecycle_stages": [
+    "design",
+    "implementation",
+    "build",
+    "deploy",
+    "run",
+    "operate",
+    "retire"
+  ],
+  "system_layers": [
+    "ui",
+    "application",
+    "service",
+    "data",
+    "network",
+    "platform",
+    "infrastructure",
+    "organization"
+  ],
+  "statuses": [
+    "draft",
+    "active",
+    "deprecated",
+    "superseded"
+  ],
+  "severity_levels": [
+    "note",
+    "warning",
+    "error",
+    "info",
+    "low",
+    "medium",
+    "high",
+    "critical"
+  ],
+  "resource_impacts": [
+    "cpu",
+    "memory",
+    "network",
+    "storage",
+    "energy",
+    "latency",
+    "infrastructure_cost",
+    "developer_time"
+  ],
+  "detection_methods": [
+    "static_analysis",
+    "runtime_profiling",
+    "query_analysis",
+    "network_trace_analysis",
+    "log_pattern_detection",
+    "ci_pipeline_inspection"
+  ],
+  "remediation_patterns": [
+    "algorithmic_improvement",
+    "resource_reuse",
+    "caching",
+    "batching",
+    "event_driven_design",
+    "data_reduction",
+    "infrastructure_right_sizing"
+  ]
+}

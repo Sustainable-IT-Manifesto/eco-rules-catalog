@@ -1,0 +1,521 @@
+Here’s a fuller `tools/new_rule.py` that can:
+
+* create the JSON rule stub
+* create the Markdown rule stub
+* create the example stub in `examples/`
+* optionally append the rule directly into `master.json`
+* optionally sort rules by `id`
+
+## `tools/new_rule.py`
+
+````python
+#!/usr/bin/env python3
+"""
+new_rule.py
+
+Create a new Eco Rule stub and optionally append it directly to master.json.
+
+Outputs:
+- templates/staging/<RULE_ID>.json
+- templates/staging/<RULE_ID>.md
+- examples/<RULE_ID>.md
+
+Optional:
+- append rule into master.json with --append
+
+Examples:
+  python tools/new_rule.py \
+    --catalog master.json \
+    --categories ontology/categories.json \
+    --families ontology/families.json \
+    --family Python
+
+  python tools/new_rule.py \
+    --catalog master.json \
+    --categories ontology/categories.json \
+    --families ontology/families.json \
+    --family Python \
+    --append
+
+Python: 3.6+
+"""
+
+import argparse
+import json
+import os
+import re
+import sys
+
+
+VALID_LAYERS = [
+    "Code",
+    "Runtime",
+    "Data",
+    "Network",
+    "Architecture",
+    "AI/ML",
+    "Organizational",
+]
+
+VALID_SEVERITIES = [
+    "note",
+    "info",
+    "warning",
+    "error",
+    "low",
+    "medium",
+    "high",
+    "critical",
+]
+
+
+def load_json(path):
+    with open(path, "r", encoding="utf-8") as f:
+        return json.load(f)
+
+
+def dump_json(data):
+    return json.dumps(data, ensure_ascii=False, indent=2, sort_keys=True) + "\n"
+
+
+def ensure_dir(path):
+    if not os.path.isdir(path):
+        os.makedirs(path)
+
+
+def safe_filename(s):
+    return re.sub(r"[^A-Za-z0-9._-]+", "_", s or "UNKNOWN")
+
+
+def build_category_lookup(categories):
+    by_name = {}
+    by_code = {}
+    for item in categories:
+        name = item.get("name")
+        code = item.get("code")
+        if name:
+            by_name[name] = item
+        if code:
+            by_code[code] = item
+    return by_name, by_code
+
+
+def build_family_lookup(families):
+    by_name = {}
+    by_code = {}
+    for item in families:
+        name = item.get("name")
+        code = item.get("code")
+        if name:
+            by_name[name] = item
+        if code:
+            by_code[code] = item
+    return by_name, by_code
+
+
+def extract_sequence_from_id(rule_id):
+    if not isinstance(rule_id, str):
+        return None
+    parts = rule_id.split("-")
+    if not parts:
+        return None
+    seq = parts[-1]
+    if re.match(r"^\d{3}$", seq):
+        return seq
+    return None
+
+
+def next_sequence(rules, category_code, family_code):
+    """
+    Find the next sequence for ECO-<CATEGORY_CODE>-<FAMILY_CODE>-NNN.
+    Falls back to legacy family-only IDs if present.
+    """
+    pattern_new = re.compile(
+        r"^ECO-{}-{}-(\d{{3}})$".format(
+            re.escape(category_code),
+            re.escape(family_code)
+        )
+    )
+
+    max_seq = 0
+
+    for rule in rules:
+        for candidate in (
+            rule.get("id"),
+            rule.get("canonical_id"),
+            rule.get("legacy_id"),
+        ):
+            if not isinstance(candidate, str):
+                continue
+
+            m = pattern_new.match(candidate)
+            if m:
+                seq = int(m.group(1))
+                if seq > max_seq:
+                    max_seq = seq
+                continue
+
+            # old format ECO-PY-001
+            parts = candidate.split("-")
+            if len(parts) == 3 and re.match(r"^\d{3}$", parts[-1]):
+                legacy_family = parts[1]
+                if legacy_family == family_code:
+                    seq = int(parts[-1])
+                    if seq > max_seq:
+                        max_seq = seq
+
+    return "{:03d}".format(max_seq + 1)
+
+
+def make_rule_json(rule_id, category_name, category_code, family_name, family_code, layer, tier, severity):
+    return {
+        "id": rule_id,
+        "canonical_id": rule_id,
+        "category": category_name,
+        "category_code": category_code,
+        "family": family_name,
+        "family_code": family_code,
+        "title": "<Short descriptive title>",
+        "summary": "<1–2 sentence description>",
+        "layer": layer,
+        "tier": tier,
+        "severity": severity,
+        "tags": [],
+        "rationale": "<Explain why this inefficiency matters>",
+        "impact": {},
+        "detection": {},
+        "remediation": {},
+        "ontology": {
+            "resource_impacts": [],
+            "mechanisms": [],
+            "system_layers": [layer] if layer in VALID_LAYERS else [],
+            "detection_methods": [],
+            "remediation_patterns": []
+        }
+    }
+
+
+def make_rule_markdown(rule_id, category_name, family_name, layer, tier, severity):
+    return """# {rule_id} — <Short descriptive title>
+
+- **Category:** {category}
+- **Family:** {family}
+- **Layer:** {layer}
+- **Tier:** {tier}
+- **Severity:** {severity}
+
+## Summary
+
+<1–2 sentence description>
+
+## Rationale
+
+<Explain why this inefficiency matters>
+
+## Impact
+
+<Describe the resource and sustainability impact>
+
+## Detection
+
+<Describe how this pattern can be detected>
+
+## Remediation
+
+<Describe how the inefficiency can be corrected>
+
+## Ontology
+
+- **Resource impacts:** 
+- **Mechanisms:** 
+- **System layers:** {layer}
+- **Detection methods:** 
+- **Remediation patterns:** 
+""".format(
+        rule_id=rule_id,
+        category=category_name,
+        family=family_name,
+        layer=layer,
+        tier=tier,
+        severity=severity,
+    )
+
+
+def make_example_markdown():
+    return """## Bad
+
+```text
+<insert inefficient example>
+````
+
+## Better
+
+```text
+<insert improved example>
+```
+
+"""
+
+def append_rule_to_catalog(catalog_path, rule_obj, sort_rules=False):
+catalog = load_json(catalog_path)
+
+```
+rules = catalog.get("rules")
+if not isinstance(rules, list):
+    raise ValueError("catalog['rules'] must be a list")
+
+rule_id = rule_obj.get("id")
+existing_ids = set()
+for rule in rules:
+    if isinstance(rule, dict) and rule.get("id"):
+        existing_ids.add(rule["id"])
+
+if rule_id in existing_ids:
+    raise ValueError("rule id already exists in catalog: {}".format(rule_id))
+
+rules.append(rule_obj)
+
+if sort_rules:
+    rules.sort(key=lambda r: r.get("id", ""))
+
+catalog["rules"] = rules
+
+with open(catalog_path, "w", encoding="utf-8") as f:
+    f.write(dump_json(catalog))
+```
+
+def main():
+ap = argparse.ArgumentParser()
+ap.add_argument("--catalog", required=True, help="Path to master.json")
+ap.add_argument("--categories", required=True, help="Path to ontology/categories.json")
+ap.add_argument("--families", required=True, help="Path to ontology/families.json")
+
+```
+ap.add_argument("--category", help="Category name, e.g. Computation")
+ap.add_argument("--category-code", help="Category code, e.g. CMP")
+ap.add_argument("--family", required=True, help="Family name, e.g. Python")
+ap.add_argument("--family-code", help="Family code override, e.g. PY")
+
+ap.add_argument("--layer", default="Code", help="System layer")
+ap.add_argument("--tier", type=int, default=1, help="Rule tier")
+ap.add_argument("--severity", default="medium", help="Rule severity")
+
+ap.add_argument("--out-dir", default="templates/staging", help="Output directory for rule stubs")
+ap.add_argument("--examples-dir", default="examples", help="Output directory for example stubs")
+
+ap.add_argument("--append", action="store_true", help="Append the JSON rule directly into master.json")
+ap.add_argument("--sort-rules", action="store_true", help="Sort rules by id after append")
+args = ap.parse_args()
+
+if args.layer not in VALID_LAYERS:
+    print("ERROR: invalid layer '{}'. Choose one of: {}".format(
+        args.layer, ", ".join(VALID_LAYERS)
+    ))
+    return 2
+
+if args.severity not in VALID_SEVERITIES:
+    print("ERROR: invalid severity '{}'. Choose one of: {}".format(
+        args.severity, ", ".join(VALID_SEVERITIES)
+    ))
+    return 2
+
+try:
+    catalog = load_json(args.catalog)
+    categories = load_json(args.categories)
+    families = load_json(args.families)
+except Exception as e:
+    print("ERROR: failed to load input files: {}".format(e))
+    return 2
+
+rules = catalog.get("rules", [])
+if not isinstance(rules, list):
+    print("ERROR: catalog['rules'] must be a list")
+    return 2
+
+category_by_name, category_by_code = build_category_lookup(categories)
+family_by_name, family_by_code = build_family_lookup(families)
+
+# Resolve family
+if args.family not in family_by_name:
+    print("ERROR: unknown family '{}'. Known families include: {}".format(
+        args.family,
+        ", ".join(sorted(family_by_name.keys())[:30])
+    ))
+    return 2
+
+family_obj = family_by_name[args.family]
+family_name = family_obj["name"]
+family_code = args.family_code or family_obj["code"]
+inferred_category_name = family_obj["category"]
+
+# Resolve category
+if args.category and args.category_code:
+    category_name = args.category
+    category_code = args.category_code
+elif args.category:
+    if args.category not in category_by_name:
+        print("ERROR: unknown category '{}'".format(args.category))
+        return 2
+    category_name = args.category
+    category_code = category_by_name[args.category]["code"]
+elif args.category_code:
+    if args.category_code not in category_by_code:
+        print("ERROR: unknown category code '{}'".format(args.category_code))
+        return 2
+    category_name = category_by_code[args.category_code]["name"]
+    category_code = args.category_code
+else:
+    category_name = inferred_category_name
+    if category_name not in category_by_name:
+        print("ERROR: family '{}' points to unknown category '{}'".format(
+            family_name, category_name
+        ))
+        return 2
+    category_code = category_by_name[category_name]["code"]
+
+# Validate family/category relationship
+if inferred_category_name != category_name:
+    print("ERROR: family '{}' belongs to category '{}', not '{}'".format(
+        family_name, inferred_category_name, category_name
+    ))
+    return 2
+
+seq = next_sequence(rules, category_code, family_code)
+rule_id = "ECO-{}-{}-{}".format(category_code, family_code, seq)
+
+ensure_dir(args.out_dir)
+ensure_dir(args.examples_dir)
+
+json_path = os.path.join(args.out_dir, safe_filename(rule_id) + ".json")
+md_path = os.path.join(args.out_dir, safe_filename(rule_id) + ".md")
+example_path = os.path.join(args.examples_dir, safe_filename(rule_id) + ".md")
+
+# Avoid overwriting local stubs
+for path in (json_path, md_path, example_path):
+    if os.path.exists(path):
+        print("ERROR: output file already exists: {}".format(path))
+        return 1
+
+rule_json = make_rule_json(
+    rule_id=rule_id,
+    category_name=category_name,
+    category_code=category_code,
+    family_name=family_name,
+    family_code=family_code,
+    layer=args.layer,
+    tier=args.tier,
+    severity=args.severity,
+)
+
+rule_md = make_rule_markdown(
+    rule_id=rule_id,
+    category_name=category_name,
+    family_name=family_name,
+    layer=args.layer,
+    tier=args.tier,
+    severity=args.severity,
+)
+
+example_md = make_example_markdown()
+
+with open(json_path, "w", encoding="utf-8") as f:
+    json.dump(rule_json, f, ensure_ascii=False, indent=2, sort_keys=True)
+
+with open(md_path, "w", encoding="utf-8") as f:
+    f.write(rule_md)
+
+with open(example_path, "w", encoding="utf-8") as f:
+    f.write(example_md)
+
+appended = False
+if args.append:
+    try:
+        append_rule_to_catalog(args.catalog, rule_json, sort_rules=args.sort_rules)
+        appended = True
+    except Exception as e:
+        print("ERROR: failed to append rule to catalog: {}".format(e))
+        return 1
+
+print("Created:")
+print("- {}".format(json_path))
+print("- {}".format(md_path))
+print("- {}".format(example_path))
+
+if appended:
+    print("- appended to {}".format(args.catalog))
+
+print("")
+print("Rule ID: {}".format(rule_id))
+print("")
+print("Next steps:")
+print("1. Fill in the JSON, Markdown, and example stubs")
+if not appended:
+    print("2. Merge the JSON into master.json")
+    print("3. Run:")
+else:
+    print("2. Run:")
+print("   python tools/update_rules.py --catalog master.json --categories ontology/categories.json --families ontology/families.json --write --fill-system-layer --normalize-ontology")
+print("   python tools/check_all.py --strict")
+return 0
+```
+
+if **name** == "**main**":
+sys.exit(main())
+
+````
+
+## Suggested `Makefile` targets
+
+Add these:
+
+```makefile
+new-rule:
+	@$(VENV_PY) tools/new_rule.py \
+		--catalog "$(CATALOG)" \
+		--categories "$(CATEGORIES)" \
+		--families "$(FAMILIES)" \
+		--family "$(FAMILY)" \
+		--layer "$(LAYER)" \
+		--tier "$(TIER)" \
+		--severity "$(SEVERITY)"
+
+new-rule-append:
+	@$(VENV_PY) tools/new_rule.py \
+		--catalog "$(CATALOG)" \
+		--categories "$(CATEGORIES)" \
+		--families "$(FAMILIES)" \
+		--family "$(FAMILY)" \
+		--layer "$(LAYER)" \
+		--tier "$(TIER)" \
+		--severity "$(SEVERITY)" \
+		--append \
+		--sort-rules
+````
+
+## Example usage
+
+Create stubs only:
+
+```bash
+make new-rule FAMILY=Python LAYER=Code TIER=1 SEVERITY=medium
+```
+
+Create stubs and append to `master.json`:
+
+```bash
+make new-rule-append FAMILY=Python LAYER=Code TIER=1 SEVERITY=medium
+```
+
+## Recommended workflow
+
+I’d use this sequence:
+
+```bash
+make new-rule-append FAMILY=Python LAYER=Code TIER=1 SEVERITY=medium
+python tools/update_rules.py --catalog master.json --categories ontology/categories.json --families ontology/families.json --write --fill-system-layer --normalize-ontology
+python tools/check_all.py --strict
+make docs
+```
+
+If you want, I can also give you a companion `tools/merge_rule_stub.py` so contributors can edit the generated JSON stub first and merge it later without using `--append` up front.
+
