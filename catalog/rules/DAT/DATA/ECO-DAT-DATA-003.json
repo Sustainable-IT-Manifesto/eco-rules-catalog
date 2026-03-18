@@ -1,0 +1,39 @@
+{
+  "canonical_id": "ECO-DAT-DATA-003",
+  "category": "Data",
+  "category_code": "DAT",
+  "detection": {
+    "languages": [
+      "database"
+    ],
+    "method": "query"
+  },
+  "enabled_by_default": true,
+  "family": "Data",
+  "family_code": "DATA",
+  "id": "ECO-DAT-DATA-003",
+  "impact": {
+    "confidence": 0.6,
+    "notes": "Validate via usage stats.",
+    "type": "storage"
+  },
+  "layer": "data",
+  "legacy_id": "ECO-DATA-003",
+  "ontology": {
+    "system_layers": [
+      "data"
+    ]
+  },
+  "rationale": "Indexes are not free; they multiply storage and write cost.",
+  "remediation": {
+    "guidance": "Drop truly unused indexes; reassess queries.",
+    "tradeoffs": "Risk if usage stats incomplete."
+  },
+  "severity": "note",
+  "summary": "Unused indexes waste storage and slow writes.",
+  "tags": [
+    "indexes"
+  ],
+  "tier": 3,
+  "title": "Large unused indexes"
+}

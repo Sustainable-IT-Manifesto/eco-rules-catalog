@@ -1,0 +1,40 @@
+{
+  "canonical_id": "ECO-NET-NET-002",
+  "category": "Networking",
+  "category_code": "NET",
+  "detection": {
+    "languages": [
+      "infra"
+    ],
+    "method": "trace"
+  },
+  "enabled_by_default": true,
+  "family": "Network",
+  "family_code": "NET",
+  "id": "ECO-NET-NET-002",
+  "impact": {
+    "confidence": 0.8,
+    "notes": "High win for JSON/HTML/CSS/JS.",
+    "type": "network"
+  },
+  "layer": "network",
+  "legacy_id": "ECO-NET-002",
+  "ontology": {
+    "system_layers": [
+      "network"
+    ]
+  },
+  "rationale": "Compression is one of the simplest ways to reduce bytes transferred.",
+  "remediation": {
+    "guidance": "Enable gzip/brotli at CDN/load balancer/origin.",
+    "tradeoffs": "Minimal; watch CPU on origin if no CDN."
+  },
+  "severity": "warning",
+  "summary": "Serving text assets without compression increases bandwidth and energy use.",
+  "tags": [
+    "http",
+    "compression"
+  ],
+  "tier": 2,
+  "title": "No gzip/brotli compression"
+}

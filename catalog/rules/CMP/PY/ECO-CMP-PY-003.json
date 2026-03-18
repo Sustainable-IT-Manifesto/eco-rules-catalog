@@ -1,0 +1,40 @@
+{
+  "canonical_id": "ECO-CMP-PY-003",
+  "category": "Computation",
+  "category_code": "CMP",
+  "detection": {
+    "languages": [
+      "python"
+    ],
+    "method": "ast"
+  },
+  "enabled_by_default": true,
+  "family": "Python",
+  "family_code": "PY",
+  "id": "ECO-CMP-PY-003",
+  "impact": {
+    "confidence": 0.6,
+    "notes": "Best targeted when loop counts are high.",
+    "type": "cpu"
+  },
+  "layer": "code",
+  "legacy_id": "ECO-PY-003",
+  "ontology": {
+    "system_layers": [
+      "code"
+    ]
+  },
+  "rationale": "Small wasted work per iteration can become significant in hot loops.",
+  "remediation": {
+    "guidance": "Move invariant work outside the loop.",
+    "tradeoffs": "Minimal."
+  },
+  "severity": "note",
+  "summary": "Recomputing values that do not change inside a loop wastes CPU cycles.",
+  "tags": [
+    "python",
+    "cpu"
+  ],
+  "tier": 1,
+  "title": "Repeated invariant computation inside loop"
+}

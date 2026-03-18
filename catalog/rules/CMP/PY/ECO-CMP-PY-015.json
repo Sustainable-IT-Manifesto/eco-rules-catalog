@@ -1,0 +1,41 @@
+{
+  "canonical_id": "ECO-CMP-PY-015",
+  "category": "Computation",
+  "category_code": "CMP",
+  "detection": {
+    "languages": [
+      "python"
+    ],
+    "method": "hybrid"
+  },
+  "enabled_by_default": true,
+  "family": "Python",
+  "family_code": "PY",
+  "id": "ECO-CMP-PY-015",
+  "impact": {
+    "confidence": 0.85,
+    "notes": "High propagation; often causes outages.",
+    "type": "latency"
+  },
+  "layer": "code",
+  "legacy_id": "ECO-PY-015",
+  "ontology": {
+    "system_layers": [
+      "code"
+    ]
+  },
+  "rationale": "Connection setup is expensive and can overwhelm DB under load.",
+  "remediation": {
+    "guidance": "Use connection pooling and reuse sessions/clients.",
+    "tradeoffs": "Requires lifecycle management."
+  },
+  "severity": "error",
+  "summary": "Creating DB connections per request increases latency and resource churn.",
+  "tags": [
+    "python",
+    "database",
+    "connections"
+  ],
+  "tier": 2,
+  "title": "Recreating database connections per request"
+}

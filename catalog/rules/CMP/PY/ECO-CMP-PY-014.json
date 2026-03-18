@@ -1,0 +1,40 @@
+{
+  "canonical_id": "ECO-CMP-PY-014",
+  "category": "Computation",
+  "category_code": "CMP",
+  "detection": {
+    "languages": [
+      "python"
+    ],
+    "method": "ast"
+  },
+  "enabled_by_default": true,
+  "family": "Python",
+  "family_code": "PY",
+  "id": "ECO-CMP-PY-014",
+  "impact": {
+    "confidence": 0.5,
+    "notes": "Small individually; measurable in hot loops.",
+    "type": "cpu"
+  },
+  "layer": "code",
+  "legacy_id": "ECO-PY-014",
+  "ontology": {
+    "system_layers": [
+      "code"
+    ]
+  },
+  "rationale": "Load config once; don’t pay the lookup tax repeatedly.",
+  "remediation": {
+    "guidance": "Read env/config once during startup; pass config explicitly.",
+    "tradeoffs": "Slight architecture changes."
+  },
+  "severity": "note",
+  "summary": "Repeated env lookups in hot code paths add overhead and noise.",
+  "tags": [
+    "python",
+    "config"
+  ],
+  "tier": 1,
+  "title": "Redundant environment variable lookups"
+}

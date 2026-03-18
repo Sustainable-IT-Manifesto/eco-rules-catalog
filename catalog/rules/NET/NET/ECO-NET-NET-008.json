@@ -1,0 +1,40 @@
+{
+  "canonical_id": "ECO-NET-NET-008",
+  "category": "Networking",
+  "category_code": "NET",
+  "detection": {
+    "languages": [
+      "infra"
+    ],
+    "method": "trace"
+  },
+  "enabled_by_default": true,
+  "family": "Network",
+  "family_code": "NET",
+  "id": "ECO-NET-NET-008",
+  "impact": {
+    "confidence": 0.6,
+    "notes": "Often easy wins.",
+    "type": "network"
+  },
+  "layer": "network",
+  "legacy_id": "ECO-NET-008",
+  "ontology": {
+    "system_layers": [
+      "network"
+    ]
+  },
+  "rationale": "Extra bytes multiply across calls and users.",
+  "remediation": {
+    "guidance": "Use sparse fieldsets; avoid sending unused data.",
+    "tradeoffs": "API contract changes."
+  },
+  "severity": "note",
+  "summary": "Returning unnecessary fields increases payload size and processing.",
+  "tags": [
+    "api",
+    "payload"
+  ],
+  "tier": 1,
+  "title": "Over-fetching API fields"
+}

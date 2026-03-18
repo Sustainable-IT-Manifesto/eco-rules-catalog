@@ -1,0 +1,39 @@
+{
+  "canonical_id": "ECO-ARC-ARCH-004",
+  "category": "Architecture",
+  "category_code": "ARC",
+  "detection": {
+    "languages": [
+      "infra"
+    ],
+    "method": "config"
+  },
+  "enabled_by_default": true,
+  "family": "Architecture",
+  "family_code": "ARCH",
+  "id": "ECO-ARC-ARCH-004",
+  "impact": {
+    "confidence": 0.65,
+    "notes": "Both over- and under-provisioning risk.",
+    "type": "cost"
+  },
+  "layer": "architecture",
+  "legacy_id": "ECO-ARCH-004",
+  "ontology": {
+    "system_layers": [
+      "architecture"
+    ]
+  },
+  "rationale": "Static sizing is rarely correct across demand variability.",
+  "remediation": {
+    "guidance": "Add autoscaling with SLO guardrails and max limits.",
+    "tradeoffs": "Tuning required."
+  },
+  "severity": "warning",
+  "summary": "Without scaling policies, systems drift into waste or fragility.",
+  "tags": [
+    "autoscaling"
+  ],
+  "tier": 3,
+  "title": "No autoscaling policy"
+}

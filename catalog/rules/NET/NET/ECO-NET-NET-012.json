@@ -1,0 +1,40 @@
+{
+  "canonical_id": "ECO-NET-NET-012",
+  "category": "Networking",
+  "category_code": "NET",
+  "detection": {
+    "languages": [
+      "infra"
+    ],
+    "method": "config"
+  },
+  "enabled_by_default": true,
+  "family": "Network",
+  "family_code": "NET",
+  "id": "ECO-NET-NET-012",
+  "impact": {
+    "confidence": 0.5,
+    "notes": "Depends on traffic patterns and client support.",
+    "type": "latency"
+  },
+  "layer": "network",
+  "legacy_id": "ECO-NET-012",
+  "ontology": {
+    "system_layers": [
+      "network"
+    ]
+  },
+  "rationale": "Multiplexing and improved transport can reduce overhead and latency.",
+  "remediation": {
+    "guidance": "Enable HTTP/2+ on TLS endpoints; evaluate HTTP/3 at edge.",
+    "tradeoffs": "Operational complexity."
+  },
+  "severity": "note",
+  "summary": "Older HTTP versions may reduce efficiency for multiplexed workloads.",
+  "tags": [
+    "http2",
+    "http3"
+  ],
+  "tier": 2,
+  "title": "No HTTP/2 or HTTP/3 where applicable"
+}

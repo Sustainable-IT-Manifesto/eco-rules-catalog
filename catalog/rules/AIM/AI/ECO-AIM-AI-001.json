@@ -1,0 +1,41 @@
+{
+  "canonical_id": "ECO-AIM-AI-001",
+  "category": "AI/ML",
+  "category_code": "AIM",
+  "detection": {
+    "languages": [
+      "python",
+      "infra"
+    ],
+    "method": "config"
+  },
+  "enabled_by_default": true,
+  "family": "AI",
+  "family_code": "AI",
+  "id": "ECO-AIM-AI-001",
+  "impact": {
+    "confidence": 0.6,
+    "notes": "Workload-dependent.",
+    "type": "carbon"
+  },
+  "layer": "ai",
+  "legacy_id": "ECO-AI-001",
+  "ontology": {
+    "system_layers": [
+      "ai"
+    ]
+  },
+  "rationale": "Model size is a direct multiplier for compute and energy.",
+  "remediation": {
+    "guidance": "Benchmark smaller models and quantify tradeoffs before scaling.",
+    "tradeoffs": "May reduce marginal quality."
+  },
+  "severity": "warning",
+  "summary": "Using larger models than needed increases inference cost and emissions.",
+  "tags": [
+    "ai",
+    "model-selection"
+  ],
+  "tier": 3,
+  "title": "Oversized model selection"
+}

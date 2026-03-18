@@ -1,0 +1,41 @@
+{
+  "canonical_id": "ECO-CMP-JS-008",
+  "category": "Computation",
+  "category_code": "CMP",
+  "detection": {
+    "languages": [
+      "javascript"
+    ],
+    "method": "trace"
+  },
+  "enabled_by_default": true,
+  "family": "JavaScript",
+  "family_code": "JS",
+  "id": "ECO-CMP-JS-008",
+  "impact": {
+    "confidence": 0.7,
+    "notes": "Common in complex UI interactions.",
+    "type": "cpu"
+  },
+  "layer": "code",
+  "legacy_id": "ECO-JS-008",
+  "ontology": {
+    "system_layers": [
+      "code"
+    ]
+  },
+  "rationale": "Repeated measure/mutate cycles trigger expensive layout work.",
+  "remediation": {
+    "guidance": "Batch DOM reads/writes; use requestAnimationFrame patterns.",
+    "tradeoffs": "Refactor UI code."
+  },
+  "severity": "warning",
+  "summary": "Layout thrashing increases CPU and drains battery.",
+  "tags": [
+    "javascript",
+    "dom",
+    "performance"
+  ],
+  "tier": 1,
+  "title": "Excessive DOM reflow"
+}

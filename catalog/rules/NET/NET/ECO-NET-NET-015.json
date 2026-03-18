@@ -1,0 +1,41 @@
+{
+  "canonical_id": "ECO-NET-NET-015",
+  "category": "Networking",
+  "category_code": "NET",
+  "detection": {
+    "languages": [
+      "infra",
+      "org"
+    ],
+    "method": "config"
+  },
+  "enabled_by_default": true,
+  "family": "Network",
+  "family_code": "NET",
+  "id": "ECO-NET-NET-015",
+  "impact": {
+    "confidence": 0.75,
+    "notes": "High in distributed systems.",
+    "type": "reliability"
+  },
+  "layer": "network",
+  "legacy_id": "ECO-NET-015",
+  "ontology": {
+    "system_layers": [
+      "network"
+    ]
+  },
+  "rationale": "Circuit breakers prevent repeated failing calls and protect upstream capacity.",
+  "remediation": {
+    "guidance": "Implement circuit breakers; define fallbacks and budgets.",
+    "tradeoffs": "Requires clear SLO thinking."
+  },
+  "severity": "warning",
+  "summary": "Without circuit breakers, failures propagate and waste resources.",
+  "tags": [
+    "circuit-breaker",
+    "reliability"
+  ],
+  "tier": 3,
+  "title": "Missing circuit breaker patterns"
+}

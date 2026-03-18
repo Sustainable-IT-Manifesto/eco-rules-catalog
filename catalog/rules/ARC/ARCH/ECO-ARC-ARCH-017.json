@@ -1,0 +1,40 @@
+{
+  "canonical_id": "ECO-ARC-ARCH-017",
+  "category": "Architecture",
+  "category_code": "ARC",
+  "detection": {
+    "languages": [
+      "infra"
+    ],
+    "method": "trace"
+  },
+  "enabled_by_default": true,
+  "family": "Architecture",
+  "family_code": "ARCH",
+  "id": "ECO-ARC-ARCH-017",
+  "impact": {
+    "confidence": 0.55,
+    "notes": "Often quick win.",
+    "type": "network"
+  },
+  "layer": "architecture",
+  "legacy_id": "ECO-ARCH-017",
+  "ontology": {
+    "system_layers": [
+      "architecture"
+    ]
+  },
+  "rationale": "Slim images reduce bandwidth and speed deploys.",
+  "remediation": {
+    "guidance": "Use multi-stage builds and minimal base images.",
+    "tradeoffs": "Build refactor."
+  },
+  "severity": "note",
+  "summary": "Large images increase pull time and wasted storage/transfer.",
+  "tags": [
+    "containers",
+    "images"
+  ],
+  "tier": 2,
+  "title": "Inefficient container image size"
+}

@@ -1,0 +1,41 @@
+{
+  "canonical_id": "ECO-ARC-ARCH-012",
+  "category": "Architecture",
+  "category_code": "ARC",
+  "detection": {
+    "languages": [
+      "org",
+      "infra"
+    ],
+    "method": "hybrid"
+  },
+  "enabled_by_default": true,
+  "family": "Architecture",
+  "family_code": "ARCH",
+  "id": "ECO-ARC-ARCH-012",
+  "impact": {
+    "confidence": 0.7,
+    "notes": "High in distributed systems.",
+    "type": "reliability"
+  },
+  "layer": "architecture",
+  "legacy_id": "ECO-ARCH-012",
+  "ontology": {
+    "system_layers": [
+      "architecture"
+    ]
+  },
+  "rationale": "Graceful degradation prevents overload collapse and retry storms.",
+  "remediation": {
+    "guidance": "Define shedding, fallbacks, and priority paths.",
+    "tradeoffs": "Product decisions required."
+  },
+  "severity": "warning",
+  "summary": "Without degradation, overload becomes failure and waste.",
+  "tags": [
+    "reliability",
+    "degradation"
+  ],
+  "tier": 3,
+  "title": "No graceful degradation strategy"
+}

@@ -1,0 +1,40 @@
+{
+  "canonical_id": "ECO-ARC-ARCH-005",
+  "category": "Architecture",
+  "category_code": "ARC",
+  "detection": {
+    "languages": [
+      "infra"
+    ],
+    "method": "config"
+  },
+  "enabled_by_default": true,
+  "family": "Architecture",
+  "family_code": "ARCH",
+  "id": "ECO-ARC-ARCH-005",
+  "impact": {
+    "confidence": 0.75,
+    "notes": "Also drives over-provisioning for safety.",
+    "type": "reliability"
+  },
+  "layer": "architecture",
+  "legacy_id": "ECO-ARCH-005",
+  "ontology": {
+    "system_layers": [
+      "architecture"
+    ]
+  },
+  "rationale": "Limits are a boundary; without them, one workload can consume the cluster.",
+  "remediation": {
+    "guidance": "Set requests/limits; right-size with metrics.",
+    "tradeoffs": "Requires tuning to avoid throttling."
+  },
+  "severity": "warning",
+  "summary": "Missing CPU/memory limits causes noisy-neighbor waste and instability.",
+  "tags": [
+    "kubernetes",
+    "limits"
+  ],
+  "tier": 3,
+  "title": "No resource limits in containers"
+}

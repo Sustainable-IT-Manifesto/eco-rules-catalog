@@ -1,0 +1,40 @@
+{
+  "canonical_id": "ECO-ORG-PROC-006",
+  "category": "Organizational",
+  "category_code": "ORG",
+  "detection": {
+    "languages": [
+      "org"
+    ],
+    "method": "config"
+  },
+  "enabled_by_default": true,
+  "family": "Process",
+  "family_code": "PROC",
+  "id": "ECO-ORG-PROC-006",
+  "impact": {
+    "confidence": 0.85,
+    "notes": "Systemic.",
+    "type": "storage"
+  },
+  "layer": "process",
+  "legacy_id": "ECO-PROC-006",
+  "rationale": "Lifecycle policies keep data intentional and bounded.",
+  "remediation": {
+    "guidance": "Define retention/archival/deletion policies and owners.",
+    "tradeoffs": "Org alignment work."
+  },
+  "severity": "warning",
+  "summary": "Missing lifecycle policies cause unbounded storage and compliance risk.",
+  "tags": [
+    "data",
+    "lifecycle"
+  ],
+  "tier": 4,
+  "title": "No lifecycle data policy",
+  "ontology": {
+    "system_layers": [
+      "process"
+    ]
+  }
+}

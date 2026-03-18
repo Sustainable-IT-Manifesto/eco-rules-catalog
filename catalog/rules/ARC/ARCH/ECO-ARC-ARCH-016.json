@@ -1,0 +1,39 @@
+{
+  "canonical_id": "ECO-ARC-ARCH-016",
+  "category": "Architecture",
+  "category_code": "ARC",
+  "detection": {
+    "languages": [
+      "infra"
+    ],
+    "method": "hybrid"
+  },
+  "enabled_by_default": true,
+  "family": "Architecture",
+  "family_code": "ARCH",
+  "id": "ECO-ARC-ARCH-016",
+  "impact": {
+    "confidence": 0.65,
+    "notes": "Structural waste driver.",
+    "type": "cost"
+  },
+  "layer": "architecture",
+  "legacy_id": "ECO-ARCH-016",
+  "ontology": {
+    "system_layers": [
+      "architecture"
+    ]
+  },
+  "rationale": "Without isolation you overprovision to avoid incidents.",
+  "remediation": {
+    "guidance": "Add isolation, quotas, and per-tenant limits.",
+    "tradeoffs": "Complexity."
+  },
+  "severity": "warning",
+  "summary": "Lack of isolation causes noisy-neighbor waste and instability.",
+  "tags": [
+    "multi-tenant"
+  ],
+  "tier": 3,
+  "title": "Multi-tenant workloads without isolation"
+}

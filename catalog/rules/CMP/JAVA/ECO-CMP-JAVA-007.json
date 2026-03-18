@@ -1,0 +1,41 @@
+{
+  "canonical_id": "ECO-CMP-JAVA-007",
+  "category": "Computation",
+  "category_code": "CMP",
+  "detection": {
+    "languages": [
+      "java"
+    ],
+    "method": "hybrid"
+  },
+  "enabled_by_default": true,
+  "family": "Java",
+  "family_code": "JAVA",
+  "id": "ECO-CMP-JAVA-007",
+  "impact": {
+    "confidence": 0.9,
+    "notes": "High propagation risk.",
+    "type": "latency"
+  },
+  "layer": "code",
+  "legacy_id": "ECO-JAVA-007",
+  "ontology": {
+    "system_layers": [
+      "code"
+    ]
+  },
+  "rationale": "Reactive systems rely on non-blocking work to scale efficiently.",
+  "remediation": {
+    "guidance": "Use non-blocking APIs; isolate blocking work in bounded schedulers.",
+    "tradeoffs": "Complexity / tuning."
+  },
+  "severity": "error",
+  "summary": "Blocking in reactive code collapses concurrency and throughput.",
+  "tags": [
+    "java",
+    "reactive",
+    "blocking"
+  ],
+  "tier": 2,
+  "title": "Blocking calls in reactive pipeline"
+}

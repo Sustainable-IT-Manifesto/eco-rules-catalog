@@ -1,0 +1,41 @@
+{
+  "canonical_id": "ECO-CMP-JS-002",
+  "category": "Computation",
+  "category_code": "CMP",
+  "detection": {
+    "languages": [
+      "javascript"
+    ],
+    "method": "regex"
+  },
+  "enabled_by_default": true,
+  "family": "JavaScript",
+  "family_code": "JS",
+  "id": "ECO-CMP-JS-002",
+  "impact": {
+    "confidence": 0.7,
+    "notes": "Often significant at scale.",
+    "type": "network"
+  },
+  "layer": "network",
+  "legacy_id": "ECO-JS-002",
+  "ontology": {
+    "system_layers": [
+      "network"
+    ]
+  },
+  "rationale": "Polling wastes cycles when nothing changes; push shifts work to when it matters.",
+  "remediation": {
+    "guidance": "Use webhooks, SSE, websockets, or event-driven patterns.",
+    "tradeoffs": "More moving parts."
+  },
+  "severity": "warning",
+  "summary": "Polling increases unnecessary network traffic and compute.",
+  "tags": [
+    "javascript",
+    "polling",
+    "network"
+  ],
+  "tier": 2,
+  "title": "Polling instead of events"
+}

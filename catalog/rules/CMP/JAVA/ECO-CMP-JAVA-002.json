@@ -1,0 +1,41 @@
+{
+  "canonical_id": "ECO-CMP-JAVA-002",
+  "category": "Computation",
+  "category_code": "CMP",
+  "detection": {
+    "languages": [
+      "java"
+    ],
+    "method": "config"
+  },
+  "enabled_by_default": true,
+  "family": "Java",
+  "family_code": "JAVA",
+  "id": "ECO-CMP-JAVA-002",
+  "impact": {
+    "confidence": 0.85,
+    "notes": "High outage risk.",
+    "type": "memory"
+  },
+  "layer": "code",
+  "legacy_id": "ECO-JAVA-002",
+  "ontology": {
+    "system_layers": [
+      "code"
+    ]
+  },
+  "rationale": "Unbounded caches create memory bloat and instability.",
+  "remediation": {
+    "guidance": "Use bounded caches with eviction policies and TTL.",
+    "tradeoffs": "Possible cache misses; tune properly."
+  },
+  "severity": "error",
+  "summary": "Caches without limits grow until they become the problem.",
+  "tags": [
+    "java",
+    "cache",
+    "memory"
+  ],
+  "tier": 2,
+  "title": "Unbounded cache growth"
+}

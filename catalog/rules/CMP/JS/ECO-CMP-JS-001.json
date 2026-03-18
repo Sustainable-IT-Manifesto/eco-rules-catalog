@@ -1,0 +1,41 @@
+{
+  "canonical_id": "ECO-CMP-JS-001",
+  "category": "Computation",
+  "category_code": "CMP",
+  "detection": {
+    "languages": [
+      "javascript"
+    ],
+    "method": "ast"
+  },
+  "enabled_by_default": true,
+  "family": "JavaScript",
+  "family_code": "JS",
+  "id": "ECO-CMP-JS-001",
+  "impact": {
+    "confidence": 0.9,
+    "notes": "High propagation in Node services.",
+    "type": "latency"
+  },
+  "layer": "code",
+  "legacy_id": "ECO-JS-001",
+  "ontology": {
+    "system_layers": [
+      "code"
+    ]
+  },
+  "rationale": "One blocking FS call can stall all concurrent requests in the same process.",
+  "remediation": {
+    "guidance": "Use async fs APIs (promises/callbacks).",
+    "tradeoffs": "Refactor required."
+  },
+  "severity": "error",
+  "summary": "Sync FS calls block the event loop and reduce concurrency.",
+  "tags": [
+    "javascript",
+    "node",
+    "blocking"
+  ],
+  "tier": 2,
+  "title": "Synchronous filesystem calls in request path"
+}

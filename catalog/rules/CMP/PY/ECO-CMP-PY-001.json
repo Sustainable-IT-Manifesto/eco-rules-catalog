@@ -1,0 +1,41 @@
+{
+  "canonical_id": "ECO-CMP-PY-001",
+  "category": "Computation",
+  "category_code": "CMP",
+  "detection": {
+    "languages": [
+      "python"
+    ],
+    "method": "ast"
+  },
+  "enabled_by_default": true,
+  "family": "Python",
+  "family_code": "PY",
+  "id": "ECO-CMP-PY-001",
+  "impact": {
+    "confidence": 0.7,
+    "notes": "Most visible in tight loops / hot paths.",
+    "type": "cpu"
+  },
+  "layer": "code",
+  "legacy_id": "ECO-PY-001",
+  "ontology": {
+    "system_layers": [
+      "code"
+    ]
+  },
+  "rationale": "Avoids unnecessary intermediate string objects that compound under load.",
+  "remediation": {
+    "guidance": "Use list accumulation + join(), or StringIO.",
+    "tradeoffs": "Slightly more verbose."
+  },
+  "severity": "warning",
+  "summary": "Repeated string concatenation in a loop increases allocations and CPU.",
+  "tags": [
+    "python",
+    "allocations",
+    "hot-path"
+  ],
+  "tier": 1,
+  "title": "String concatenation in loops"
+}

@@ -1,0 +1,41 @@
+{
+  "canonical_id": "ECO-NET-NET-001",
+  "category": "Networking",
+  "category_code": "NET",
+  "detection": {
+    "languages": [
+      "infra",
+      "org"
+    ],
+    "method": "trace"
+  },
+  "enabled_by_default": true,
+  "family": "Network",
+  "family_code": "NET",
+  "id": "ECO-NET-NET-001",
+  "impact": {
+    "confidence": 0.75,
+    "notes": "Large impact for static and semi-static responses.",
+    "type": "network"
+  },
+  "layer": "network",
+  "legacy_id": "ECO-NET-001",
+  "ontology": {
+    "system_layers": [
+      "network"
+    ]
+  },
+  "rationale": "Caching prevents repeated network transfer and repeated compute.",
+  "remediation": {
+    "guidance": "Add Cache-Control/ETag; use immutable asset hashing where possible.",
+    "tradeoffs": "Requires cache invalidation discipline."
+  },
+  "severity": "warning",
+  "summary": "Missing cache headers causes repeated downloads and wasted work.",
+  "tags": [
+    "http",
+    "caching"
+  ],
+  "tier": 2,
+  "title": "Missing HTTP caching headers"
+}

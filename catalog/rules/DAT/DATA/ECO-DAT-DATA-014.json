@@ -1,0 +1,39 @@
+{
+  "canonical_id": "ECO-DAT-DATA-014",
+  "category": "Data",
+  "category_code": "DAT",
+  "detection": {
+    "languages": [
+      "org"
+    ],
+    "method": "hybrid"
+  },
+  "enabled_by_default": true,
+  "family": "Data",
+  "family_code": "DATA",
+  "id": "ECO-DAT-DATA-014",
+  "impact": {
+    "confidence": 0.5,
+    "notes": "Mostly complexity-driven waste.",
+    "type": "cpu"
+  },
+  "layer": "data",
+  "legacy_id": "ECO-DATA-014",
+  "ontology": {
+    "system_layers": [
+      "data"
+    ]
+  },
+  "rationale": "Stale flags increase cognitive load and sometimes runtime branching costs.",
+  "remediation": {
+    "guidance": "Set expiration dates and cleanup workflows.",
+    "tradeoffs": "Requires discipline."
+  },
+  "severity": "note",
+  "summary": "Feature flags left indefinitely add complexity and runtime overhead.",
+  "tags": [
+    "feature-flags"
+  ],
+  "tier": 2,
+  "title": "Stale feature flags accumulating"
+}

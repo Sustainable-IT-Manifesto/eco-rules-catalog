@@ -1,0 +1,39 @@
+{
+  "canonical_id": "ECO-DAT-DATA-013",
+  "category": "Data",
+  "category_code": "DAT",
+  "detection": {
+    "languages": [
+      "org"
+    ],
+    "method": "config"
+  },
+  "enabled_by_default": true,
+  "family": "Data",
+  "family_code": "DATA",
+  "id": "ECO-DAT-DATA-013",
+  "impact": {
+    "confidence": 0.85,
+    "notes": "Systemic.",
+    "type": "cost"
+  },
+  "layer": "data",
+  "legacy_id": "ECO-DATA-013",
+  "ontology": {
+    "system_layers": [
+      "data"
+    ]
+  },
+  "rationale": "Without governance, retention becomes accidental and expensive.",
+  "remediation": {
+    "guidance": "Define lifecycle owners, policies, and audits.",
+    "tradeoffs": "Org change work."
+  },
+  "severity": "warning",
+  "summary": "Lack of lifecycle governance leads to perpetual growth and shadow datasets.",
+  "tags": [
+    "governance"
+  ],
+  "tier": 4,
+  "title": "No data lifecycle governance"
+}

@@ -1,0 +1,41 @@
+{
+  "canonical_id": "ECO-CMP-PY-011",
+  "category": "Computation",
+  "category_code": "CMP",
+  "detection": {
+    "languages": [
+      "python"
+    ],
+    "method": "hybrid"
+  },
+  "enabled_by_default": true,
+  "family": "Python",
+  "family_code": "PY",
+  "id": "ECO-CMP-PY-011",
+  "impact": {
+    "confidence": 0.65,
+    "notes": "Often appears in middleware layers.",
+    "type": "cpu"
+  },
+  "layer": "code",
+  "legacy_id": "ECO-PY-011",
+  "ontology": {
+    "system_layers": [
+      "code"
+    ]
+  },
+  "rationale": "Avoid churn converting structures when you can pass objects directly.",
+  "remediation": {
+    "guidance": "Avoid unnecessary encode/decode; serialize once at boundaries.",
+    "tradeoffs": "May require interface changes."
+  },
+  "severity": "warning",
+  "summary": "Serializing/deserializing repeatedly wastes CPU and increases latency.",
+  "tags": [
+    "python",
+    "json",
+    "cpu"
+  ],
+  "tier": 1,
+  "title": "Repeated JSON serialization cycles"
+}

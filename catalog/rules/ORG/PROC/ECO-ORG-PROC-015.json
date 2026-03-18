@@ -1,0 +1,39 @@
+{
+  "canonical_id": "ECO-ORG-PROC-015",
+  "category": "Organizational",
+  "category_code": "ORG",
+  "detection": {
+    "languages": [
+      "org"
+    ],
+    "method": "config"
+  },
+  "enabled_by_default": true,
+  "family": "Process",
+  "family_code": "PROC",
+  "id": "ECO-ORG-PROC-015",
+  "impact": {
+    "confidence": 0.75,
+    "notes": "Systemic lever.",
+    "type": "cost"
+  },
+  "layer": "process",
+  "legacy_id": "ECO-PROC-015",
+  "rationale": "Ownership creates continuity and turns intent into action.",
+  "remediation": {
+    "guidance": "Assign clear ownership and decision rights for sustainability metrics.",
+    "tradeoffs": "Requires org buy-in."
+  },
+  "severity": "warning",
+  "summary": "Without ownership, sustainability work becomes optional and inconsistent.",
+  "tags": [
+    "ownership"
+  ],
+  "tier": 4,
+  "title": "No sustainability accountability owner",
+  "ontology": {
+    "system_layers": [
+      "process"
+    ]
+  }
+}

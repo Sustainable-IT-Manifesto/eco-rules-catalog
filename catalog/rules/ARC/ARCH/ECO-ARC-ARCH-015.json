@@ -1,0 +1,39 @@
+{
+  "canonical_id": "ECO-ARC-ARCH-015",
+  "category": "Architecture",
+  "category_code": "ARC",
+  "detection": {
+    "languages": [
+      "org"
+    ],
+    "method": "hybrid"
+  },
+  "enabled_by_default": true,
+  "family": "Architecture",
+  "family_code": "ARCH",
+  "id": "ECO-ARC-ARCH-015",
+  "impact": {
+    "confidence": 0.55,
+    "notes": "Architecture review item.",
+    "type": "reliability"
+  },
+  "layer": "architecture",
+  "legacy_id": "ECO-ARCH-015",
+  "ontology": {
+    "system_layers": [
+      "architecture"
+    ]
+  },
+  "rationale": "Coupling drives accidental complexity and multiplies work.",
+  "remediation": {
+    "guidance": "Clarify boundaries; reduce synchronous dependencies.",
+    "tradeoffs": "Refactoring effort."
+  },
+  "severity": "note",
+  "summary": "Coupling increases coordination cost and failure propagation.",
+  "tags": [
+    "coupling"
+  ],
+  "tier": 3,
+  "title": "Tight coupling across bounded contexts"
+}

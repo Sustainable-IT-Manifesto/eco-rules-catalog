@@ -1,0 +1,40 @@
+{
+  "canonical_id": "ECO-NET-NET-014",
+  "category": "Networking",
+  "category_code": "NET",
+  "detection": {
+    "languages": [
+      "infra"
+    ],
+    "method": "trace"
+  },
+  "enabled_by_default": true,
+  "family": "Network",
+  "family_code": "NET",
+  "id": "ECO-NET-NET-014",
+  "impact": {
+    "confidence": 0.7,
+    "notes": "Often a structural design issue.",
+    "type": "latency"
+  },
+  "layer": "network",
+  "legacy_id": "ECO-NET-014",
+  "ontology": {
+    "system_layers": [
+      "network"
+    ]
+  },
+  "rationale": "Distance multiplies latency and increases transfer cost.",
+  "remediation": {
+    "guidance": "Co-locate dependencies; async replicate; cache at edges.",
+    "tradeoffs": "Consistency tradeoffs."
+  },
+  "severity": "warning",
+  "summary": "Cross-region synchronous calls increase latency and cost.",
+  "tags": [
+    "cross-region",
+    "latency"
+  ],
+  "tier": 3,
+  "title": "Synchronous cross-region calls"
+}

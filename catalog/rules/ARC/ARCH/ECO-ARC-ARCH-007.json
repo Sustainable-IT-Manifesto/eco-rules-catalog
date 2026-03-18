@@ -1,0 +1,40 @@
+{
+  "canonical_id": "ECO-ARC-ARCH-007",
+  "category": "Architecture",
+  "category_code": "ARC",
+  "detection": {
+    "languages": [
+      "infra"
+    ],
+    "method": "trace"
+  },
+  "enabled_by_default": true,
+  "family": "Architecture",
+  "family_code": "ARCH",
+  "id": "ECO-ARC-ARCH-007",
+  "impact": {
+    "confidence": 0.65,
+    "notes": "Good target for quick savings.",
+    "type": "cost"
+  },
+  "layer": "architecture",
+  "legacy_id": "ECO-ARCH-007",
+  "ontology": {
+    "system_layers": [
+      "architecture"
+    ]
+  },
+  "rationale": "Many batch workloads run far more often than the business needs.",
+  "remediation": {
+    "guidance": "Right-size schedules; trigger on events; add change-detection.",
+    "tradeoffs": "More complex orchestration."
+  },
+  "severity": "warning",
+  "summary": "Over-scheduling batch jobs wastes compute and increases cost.",
+  "tags": [
+    "batch",
+    "scheduling"
+  ],
+  "tier": 3,
+  "title": "Batch jobs run too frequently"
+}

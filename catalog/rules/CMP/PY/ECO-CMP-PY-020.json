@@ -1,0 +1,41 @@
+{
+  "canonical_id": "ECO-CMP-PY-020",
+  "category": "Computation",
+  "category_code": "CMP",
+  "detection": {
+    "languages": [
+      "python"
+    ],
+    "method": "ast"
+  },
+  "enabled_by_default": true,
+  "family": "Python",
+  "family_code": "PY",
+  "id": "ECO-CMP-PY-020",
+  "impact": {
+    "confidence": 0.7,
+    "notes": "High variance; often spikes p99.",
+    "type": "latency"
+  },
+  "layer": "code",
+  "legacy_id": "ECO-PY-020",
+  "ontology": {
+    "system_layers": [
+      "code"
+    ]
+  },
+  "rationale": "External process calls are expensive and unpredictable under load.",
+  "remediation": {
+    "guidance": "Avoid subprocess in request paths; cache results or move to background jobs.",
+    "tradeoffs": "Added system complexity."
+  },
+  "severity": "warning",
+  "summary": "Blocking subprocess calls increase latency and consume resources.",
+  "tags": [
+    "python",
+    "subprocess",
+    "latency"
+  ],
+  "tier": 2,
+  "title": "Synchronous subprocess invocation in hot path"
+}

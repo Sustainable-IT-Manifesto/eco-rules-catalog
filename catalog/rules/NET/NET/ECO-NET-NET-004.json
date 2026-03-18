@@ -1,0 +1,40 @@
+{
+  "canonical_id": "ECO-NET-NET-004",
+  "category": "Networking",
+  "category_code": "NET",
+  "detection": {
+    "languages": [
+      "infra"
+    ],
+    "method": "trace"
+  },
+  "enabled_by_default": true,
+  "family": "Network",
+  "family_code": "NET",
+  "id": "ECO-NET-NET-004",
+  "impact": {
+    "confidence": 0.6,
+    "notes": "High when per-request introspection is used.",
+    "type": "latency"
+  },
+  "layer": "network",
+  "legacy_id": "ECO-NET-004",
+  "ontology": {
+    "system_layers": [
+      "network"
+    ]
+  },
+  "rationale": "Token validation and introspection can become a hidden multiplier.",
+  "remediation": {
+    "guidance": "Cache tokens/keys; prefer local validation when safe.",
+    "tradeoffs": "Must respect revocation semantics."
+  },
+  "severity": "note",
+  "summary": "Repeated auth calls waste CPU and network and add latency.",
+  "tags": [
+    "auth",
+    "caching"
+  ],
+  "tier": 2,
+  "title": "Redundant authentication calls"
+}

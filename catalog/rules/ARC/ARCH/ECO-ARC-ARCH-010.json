@@ -1,0 +1,41 @@
+{
+  "canonical_id": "ECO-ARC-ARCH-010",
+  "category": "Architecture",
+  "category_code": "ARC",
+  "detection": {
+    "languages": [
+      "infra",
+      "org"
+    ],
+    "method": "config"
+  },
+  "enabled_by_default": true,
+  "family": "Architecture",
+  "family_code": "ARCH",
+  "id": "ECO-ARC-ARCH-010",
+  "impact": {
+    "confidence": 0.85,
+    "notes": "Systemic maturity issue.",
+    "type": "cost"
+  },
+  "layer": "architecture",
+  "legacy_id": "ECO-ARCH-010",
+  "ontology": {
+    "system_layers": [
+      "architecture"
+    ]
+  },
+  "rationale": "You can’t reduce what you don’t see.",
+  "remediation": {
+    "guidance": "Instrument CPU/mem/QPS/latency; add dashboards and alerts.",
+    "tradeoffs": "Telemetry cost; requires curation."
+  },
+  "severity": "warning",
+  "summary": "Without utilization metrics, waste is invisible and persistent.",
+  "tags": [
+    "observability",
+    "metrics"
+  ],
+  "tier": 4,
+  "title": "No observability on utilization"
+}

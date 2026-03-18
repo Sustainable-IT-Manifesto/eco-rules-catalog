@@ -1,0 +1,40 @@
+{
+  "canonical_id": "ECO-ARC-ARCH-002",
+  "category": "Architecture",
+  "category_code": "ARC",
+  "detection": {
+    "languages": [
+      "infra"
+    ],
+    "method": "trace"
+  },
+  "enabled_by_default": true,
+  "family": "Architecture",
+  "family_code": "ARCH",
+  "id": "ECO-ARC-ARCH-002",
+  "impact": {
+    "confidence": 0.6,
+    "notes": "High if many services are idle.",
+    "type": "carbon"
+  },
+  "layer": "architecture",
+  "legacy_id": "ECO-ARCH-002",
+  "ontology": {
+    "system_layers": [
+      "architecture"
+    ]
+  },
+  "rationale": "Idle systems still consume energy and operational attention.",
+  "remediation": {
+    "guidance": "Evaluate scale-to-zero, serverless, or consolidation.",
+    "tradeoffs": "Cold starts / architecture changes."
+  },
+  "severity": "warning",
+  "summary": "Services running 24/7 with low utilization create baseline waste.",
+  "tags": [
+    "scale-to-zero",
+    "serverless"
+  ],
+  "tier": 3,
+  "title": "Always-on low-traffic service"
+}

@@ -1,0 +1,41 @@
+{
+  "canonical_id": "ECO-CMP-PY-006",
+  "category": "Computation",
+  "category_code": "CMP",
+  "detection": {
+    "languages": [
+      "python"
+    ],
+    "method": "ast"
+  },
+  "enabled_by_default": true,
+  "family": "Python",
+  "family_code": "PY",
+  "id": "ECO-CMP-PY-006",
+  "impact": {
+    "confidence": 0.85,
+    "notes": "High propagation under dependency slowness.",
+    "type": "reliability"
+  },
+  "layer": "network",
+  "legacy_id": "ECO-PY-006",
+  "ontology": {
+    "system_layers": [
+      "network"
+    ]
+  },
+  "rationale": "Without timeouts, partial outages become thread exhaustion and retry storms.",
+  "remediation": {
+    "guidance": "Set explicit connect/read timeouts; prefer client defaults + overrides.",
+    "tradeoffs": "Requires tuning per endpoint."
+  },
+  "severity": "error",
+  "summary": "Network calls without explicit timeouts can hang and cascade failures.",
+  "tags": [
+    "python",
+    "network",
+    "timeouts"
+  ],
+  "tier": 2,
+  "title": "Missing network timeout"
+}

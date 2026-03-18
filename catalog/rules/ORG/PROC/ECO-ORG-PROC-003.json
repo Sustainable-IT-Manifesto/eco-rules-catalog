@@ -1,0 +1,40 @@
+{
+  "canonical_id": "ECO-ORG-PROC-003",
+  "category": "Organizational",
+  "category_code": "ORG",
+  "detection": {
+    "languages": [
+      "org"
+    ],
+    "method": "config"
+  },
+  "enabled_by_default": true,
+  "family": "Process",
+  "family_code": "PROC",
+  "id": "ECO-ORG-PROC-003",
+  "impact": {
+    "confidence": 0.85,
+    "notes": "Systemic.",
+    "type": "cost"
+  },
+  "layer": "process",
+  "legacy_id": "ECO-PROC-003",
+  "rationale": "If teams can’t see cost per service, they can’t act on it.",
+  "remediation": {
+    "guidance": "Implement cost allocation, tagging, and service-level chargeback/showback.",
+    "tradeoffs": "Org/process change."
+  },
+  "severity": "warning",
+  "summary": "Without cost attribution, waste persists unmanaged.",
+  "tags": [
+    "finops",
+    "cost"
+  ],
+  "tier": 4,
+  "title": "No cost observability",
+  "ontology": {
+    "system_layers": [
+      "process"
+    ]
+  }
+}

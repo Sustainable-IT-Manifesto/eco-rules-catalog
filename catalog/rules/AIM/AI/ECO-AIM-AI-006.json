@@ -1,0 +1,41 @@
+{
+  "canonical_id": "ECO-AIM-AI-006",
+  "category": "AI/ML",
+  "category_code": "AIM",
+  "detection": {
+    "languages": [
+      "org",
+      "infra"
+    ],
+    "method": "trace"
+  },
+  "enabled_by_default": true,
+  "family": "AI",
+  "family_code": "AI",
+  "id": "ECO-AIM-AI-006",
+  "impact": {
+    "confidence": 0.75,
+    "notes": "Often the biggest controllable factor.",
+    "type": "cost"
+  },
+  "layer": "ai",
+  "legacy_id": "ECO-AI-006",
+  "ontology": {
+    "system_layers": [
+      "ai"
+    ]
+  },
+  "rationale": "Token usage is a direct multiplier for cost and energy.",
+  "remediation": {
+    "guidance": "Summarize, retrieve selectively, and cap context intentionally.",
+    "tradeoffs": "Requires prompt/pipeline design."
+  },
+  "severity": "warning",
+  "summary": "Excessive context increases token cost and latency.",
+  "tags": [
+    "ai",
+    "context-window"
+  ],
+  "tier": 2,
+  "title": "Unbounded context window usage"
+}

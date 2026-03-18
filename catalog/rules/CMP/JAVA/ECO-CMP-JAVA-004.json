@@ -1,0 +1,40 @@
+{
+  "canonical_id": "ECO-CMP-JAVA-004",
+  "category": "Computation",
+  "category_code": "CMP",
+  "detection": {
+    "languages": [
+      "java"
+    ],
+    "method": "ast"
+  },
+  "enabled_by_default": true,
+  "family": "Java",
+  "family_code": "JAVA",
+  "id": "ECO-CMP-JAVA-004",
+  "impact": {
+    "confidence": 0.6,
+    "notes": "Context-dependent.",
+    "type": "cpu"
+  },
+  "layer": "code",
+  "legacy_id": "ECO-JAVA-004",
+  "ontology": {
+    "system_layers": [
+      "code"
+    ]
+  },
+  "rationale": "Reflection is flexible, but expensive in tight loops.",
+  "remediation": {
+    "guidance": "Avoid reflection in hot paths; precompute accessors.",
+    "tradeoffs": "Reduced dynamism."
+  },
+  "severity": "note",
+  "summary": "Reflection adds overhead and can inflate latency and CPU usage.",
+  "tags": [
+    "java",
+    "cpu"
+  ],
+  "tier": 1,
+  "title": "Reflection in hot path"
+}

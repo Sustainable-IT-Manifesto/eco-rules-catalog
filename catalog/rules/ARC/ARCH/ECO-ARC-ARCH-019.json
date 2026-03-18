@@ -1,0 +1,39 @@
+{
+  "canonical_id": "ECO-ARC-ARCH-019",
+  "category": "Architecture",
+  "category_code": "ARC",
+  "detection": {
+    "languages": [
+      "infra"
+    ],
+    "method": "trace"
+  },
+  "enabled_by_default": true,
+  "family": "Architecture",
+  "family_code": "ARCH",
+  "id": "ECO-ARC-ARCH-019",
+  "impact": {
+    "confidence": 0.5,
+    "notes": "Needs measurement.",
+    "type": "cost"
+  },
+  "layer": "architecture",
+  "legacy_id": "ECO-ARCH-019",
+  "ontology": {
+    "system_layers": [
+      "architecture"
+    ]
+  },
+  "rationale": "Thrash wastes compute and destabilizes latency.",
+  "remediation": {
+    "guidance": "Add stabilization windows and sane thresholds.",
+    "tradeoffs": "Slower response to spikes."
+  },
+  "severity": "note",
+  "summary": "Aggressive scaling can cause thrash and wasted churn.",
+  "tags": [
+    "autoscaling"
+  ],
+  "tier": 3,
+  "title": "Overly aggressive autoscaling thresholds"
+}

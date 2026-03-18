@@ -1,0 +1,39 @@
+{
+  "canonical_id": "ECO-DAT-DATA-006",
+  "category": "Data",
+  "category_code": "DAT",
+  "detection": {
+    "languages": [
+      "infra"
+    ],
+    "method": "config"
+  },
+  "enabled_by_default": true,
+  "family": "Data",
+  "family_code": "DATA",
+  "id": "ECO-DAT-DATA-006",
+  "impact": {
+    "confidence": 0.55,
+    "notes": "Context-dependent; validate requirements.",
+    "type": "storage"
+  },
+  "layer": "data",
+  "legacy_id": "ECO-DATA-006",
+  "ontology": {
+    "system_layers": [
+      "data"
+    ]
+  },
+  "rationale": "Replication should match durability needs, not fear.",
+  "remediation": {
+    "guidance": "Right-size replication; use tiered durability patterns.",
+    "tradeoffs": "Risk if requirements misunderstood."
+  },
+  "severity": "note",
+  "summary": "High replication increases storage and write amplification.",
+  "tags": [
+    "replication"
+  ],
+  "tier": 3,
+  "title": "Excessive replication factor"
+}

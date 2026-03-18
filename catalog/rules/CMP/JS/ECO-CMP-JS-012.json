@@ -1,0 +1,41 @@
+{
+  "canonical_id": "ECO-CMP-JS-012",
+  "category": "Computation",
+  "category_code": "CMP",
+  "detection": {
+    "languages": [
+      "javascript"
+    ],
+    "method": "trace"
+  },
+  "enabled_by_default": true,
+  "family": "JavaScript",
+  "family_code": "JS",
+  "id": "ECO-CMP-JS-012",
+  "impact": {
+    "confidence": 0.7,
+    "notes": "Common in SPAs.",
+    "type": "network"
+  },
+  "layer": "network",
+  "legacy_id": "ECO-JS-012",
+  "ontology": {
+    "system_layers": [
+      "network"
+    ]
+  },
+  "rationale": "Chattiness often comes from accidental rerenders and missing caching.",
+  "remediation": {
+    "guidance": "Cache results; dedupe requests; stabilize dependencies.",
+    "tradeoffs": "State management changes."
+  },
+  "severity": "warning",
+  "summary": "Repeated fetches on rerender waste network and CPU.",
+  "tags": [
+    "javascript",
+    "frontend",
+    "network"
+  ],
+  "tier": 2,
+  "title": "Redundant API calls in component lifecycle"
+}

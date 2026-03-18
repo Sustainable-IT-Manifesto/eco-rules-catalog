@@ -1,0 +1,40 @@
+{
+  "canonical_id": "ECO-ORG-PROC-001",
+  "category": "Organizational",
+  "category_code": "ORG",
+  "detection": {
+    "languages": [
+      "org"
+    ],
+    "method": "config"
+  },
+  "enabled_by_default": true,
+  "family": "Process",
+  "family_code": "PROC",
+  "id": "ECO-ORG-PROC-001",
+  "impact": {
+    "confidence": 0.9,
+    "notes": "Systemic driver.",
+    "type": "cost"
+  },
+  "layer": "process",
+  "legacy_id": "ECO-PROC-001",
+  "rationale": "Budgets make efficiency intentional instead of accidental.",
+  "remediation": {
+    "guidance": "Define performance budgets per service and user journey.",
+    "tradeoffs": "Requires measurement agreement."
+  },
+  "severity": "warning",
+  "summary": "Without explicit budgets, performance and efficiency drift.",
+  "tags": [
+    "governance",
+    "budgets"
+  ],
+  "tier": 4,
+  "title": "No performance budget defined",
+  "ontology": {
+    "system_layers": [
+      "process"
+    ]
+  }
+}

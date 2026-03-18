@@ -1,0 +1,41 @@
+{
+  "canonical_id": "ECO-AIM-AI-002",
+  "category": "AI/ML",
+  "category_code": "AIM",
+  "detection": {
+    "languages": [
+      "python",
+      "infra"
+    ],
+    "method": "trace"
+  },
+  "enabled_by_default": true,
+  "family": "AI",
+  "family_code": "AI",
+  "id": "ECO-AIM-AI-002",
+  "impact": {
+    "confidence": 0.7,
+    "notes": "Often significant for GPU inference.",
+    "type": "cpu"
+  },
+  "layer": "ai",
+  "legacy_id": "ECO-AI-002",
+  "ontology": {
+    "system_layers": [
+      "ai"
+    ]
+  },
+  "rationale": "Batching improves throughput and reduces overhead per token/request.",
+  "remediation": {
+    "guidance": "Introduce batching at gateway/inference server.",
+    "tradeoffs": "Added latency for low volume; needs tuning."
+  },
+  "severity": "warning",
+  "summary": "No batching increases per-request overhead and lowers throughput.",
+  "tags": [
+    "ai",
+    "batching"
+  ],
+  "tier": 2,
+  "title": "No inference batching"
+}

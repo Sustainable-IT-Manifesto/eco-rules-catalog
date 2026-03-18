@@ -1,0 +1,40 @@
+{
+  "canonical_id": "ECO-AIM-AI-014",
+  "category": "AI/ML",
+  "category_code": "AIM",
+  "detection": {
+    "languages": [
+      "python"
+    ],
+    "method": "trace"
+  },
+  "enabled_by_default": true,
+  "family": "AI",
+  "family_code": "AI",
+  "id": "ECO-AIM-AI-014",
+  "impact": {
+    "confidence": 0.55,
+    "notes": "Measure and optimize hotspots.",
+    "type": "cpu"
+  },
+  "layer": "ai",
+  "legacy_id": "ECO-AI-014",
+  "ontology": {
+    "system_layers": [
+      "ai"
+    ]
+  },
+  "rationale": "Preprocessing is often a hidden cost multiplier.",
+  "remediation": {
+    "guidance": "Cache features; vectorize; batch transforms.",
+    "tradeoffs": "Complexity."
+  },
+  "severity": "note",
+  "summary": "Preprocessing waste increases training and inference cost.",
+  "tags": [
+    "ai",
+    "pipelines"
+  ],
+  "tier": 2,
+  "title": "Inefficient feature preprocessing pipelines"
+}

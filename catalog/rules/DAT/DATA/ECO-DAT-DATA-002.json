@@ -1,0 +1,41 @@
+{
+  "canonical_id": "ECO-DAT-DATA-002",
+  "category": "Data",
+  "category_code": "DAT",
+  "detection": {
+    "languages": [
+      "infra",
+      "org"
+    ],
+    "method": "config"
+  },
+  "enabled_by_default": true,
+  "family": "Data",
+  "family_code": "DATA",
+  "id": "ECO-DAT-DATA-002",
+  "impact": {
+    "confidence": 0.85,
+    "notes": "Systemic; large long-term cost driver.",
+    "type": "storage"
+  },
+  "layer": "data",
+  "legacy_id": "ECO-DATA-002",
+  "ontology": {
+    "system_layers": [
+      "data"
+    ]
+  },
+  "rationale": "Without retention, storage becomes the default memory of the organization.",
+  "remediation": {
+    "guidance": "Define retention tiers and lifecycle automation.",
+    "tradeoffs": "Compliance alignment required."
+  },
+  "severity": "warning",
+  "summary": "No TTL/lifecycle policy causes unbounded data growth.",
+  "tags": [
+    "retention",
+    "governance"
+  ],
+  "tier": 4,
+  "title": "Missing retention policy"
+}

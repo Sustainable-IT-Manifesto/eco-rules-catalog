@@ -1,0 +1,41 @@
+{
+  "canonical_id": "ECO-CMP-PY-004",
+  "category": "Computation",
+  "category_code": "CMP",
+  "detection": {
+    "languages": [
+      "python"
+    ],
+    "method": "ast"
+  },
+  "enabled_by_default": true,
+  "family": "Python",
+  "family_code": "PY",
+  "id": "ECO-CMP-PY-004",
+  "impact": {
+    "confidence": 0.9,
+    "notes": "High propagation in async servers.",
+    "type": "latency"
+  },
+  "layer": "code",
+  "legacy_id": "ECO-PY-004",
+  "ontology": {
+    "system_layers": [
+      "code"
+    ]
+  },
+  "rationale": "Blocking I/O defeats the purpose of async and can stall the entire event loop.",
+  "remediation": {
+    "guidance": "Use async-compatible libraries (e.g., async DB/HTTP clients).",
+    "tradeoffs": "Library and code changes."
+  },
+  "severity": "error",
+  "summary": "Blocking calls inside async functions reduce concurrency and inflate latency.",
+  "tags": [
+    "python",
+    "async",
+    "latency"
+  ],
+  "tier": 2,
+  "title": "Blocking I/O inside async context"
+}

@@ -1,0 +1,40 @@
+{
+  "canonical_id": "ECO-AIM-AI-007",
+  "category": "AI/ML",
+  "category_code": "AIM",
+  "detection": {
+    "languages": [
+      "infra"
+    ],
+    "method": "config"
+  },
+  "enabled_by_default": true,
+  "family": "AI",
+  "family_code": "AI",
+  "id": "ECO-AIM-AI-007",
+  "impact": {
+    "confidence": 0.55,
+    "notes": "Model-dependent.",
+    "type": "cost"
+  },
+  "layer": "ai",
+  "legacy_id": "ECO-AI-007",
+  "ontology": {
+    "system_layers": [
+      "ai"
+    ]
+  },
+  "rationale": "Quantization can reduce compute cost with acceptable quality tradeoffs.",
+  "remediation": {
+    "guidance": "Evaluate quantization for inference workloads.",
+    "tradeoffs": "Potential quality/compatibility changes."
+  },
+  "severity": "note",
+  "summary": "Failure to quantize when appropriate wastes inference compute.",
+  "tags": [
+    "ai",
+    "quantization"
+  ],
+  "tier": 3,
+  "title": "No model quantization"
+}

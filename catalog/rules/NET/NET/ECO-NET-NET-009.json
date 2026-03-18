@@ -1,0 +1,40 @@
+{
+  "canonical_id": "ECO-NET-NET-009",
+  "category": "Networking",
+  "category_code": "NET",
+  "detection": {
+    "languages": [
+      "infra"
+    ],
+    "method": "trace"
+  },
+  "enabled_by_default": true,
+  "family": "Network",
+  "family_code": "NET",
+  "id": "ECO-NET-NET-009",
+  "impact": {
+    "confidence": 0.55,
+    "notes": "Context-dependent.",
+    "type": "network"
+  },
+  "layer": "network",
+  "legacy_id": "ECO-NET-009",
+  "ontology": {
+    "system_layers": [
+      "network"
+    ]
+  },
+  "rationale": "Follow-up calls are hidden multiplicative cost.",
+  "remediation": {
+    "guidance": "Batch endpoints; design responses around common usage.",
+    "tradeoffs": "Bigger payloads in some cases."
+  },
+  "severity": "note",
+  "summary": "Responses missing needed data cause extra round trips.",
+  "tags": [
+    "api",
+    "chattiness"
+  ],
+  "tier": 1,
+  "title": "Under-fetching causing follow-up calls"
+}

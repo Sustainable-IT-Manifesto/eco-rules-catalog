@@ -1,0 +1,41 @@
+{
+  "canonical_id": "ECO-CMP-PY-005",
+  "category": "Computation",
+  "category_code": "CMP",
+  "detection": {
+    "languages": [
+      "python"
+    ],
+    "method": "hybrid"
+  },
+  "enabled_by_default": true,
+  "family": "Python",
+  "family_code": "PY",
+  "id": "ECO-CMP-PY-005",
+  "impact": {
+    "confidence": 0.8,
+    "notes": "Often severe at scale.",
+    "type": "network"
+  },
+  "layer": "code",
+  "legacy_id": "ECO-PY-005",
+  "ontology": {
+    "system_layers": [
+      "code"
+    ]
+  },
+  "rationale": "N+1 is a classic hidden multiplier for latency, cost, and carbon.",
+  "remediation": {
+    "guidance": "Use bulk queries, eager loading, or JOINs.",
+    "tradeoffs": "May increase memory use; tune carefully."
+  },
+  "severity": "warning",
+  "summary": "Queries executed inside iteration multiply round trips and load.",
+  "tags": [
+    "python",
+    "database",
+    "n+1"
+  ],
+  "tier": 2,
+  "title": "N+1 database query pattern"
+}

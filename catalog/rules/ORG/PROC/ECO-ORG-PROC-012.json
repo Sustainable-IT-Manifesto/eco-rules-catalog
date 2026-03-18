@@ -1,0 +1,40 @@
+{
+  "canonical_id": "ECO-ORG-PROC-012",
+  "category": "Organizational",
+  "category_code": "ORG",
+  "detection": {
+    "languages": [
+      "org"
+    ],
+    "method": "config"
+  },
+  "enabled_by_default": true,
+  "family": "Process",
+  "family_code": "PROC",
+  "id": "ECO-ORG-PROC-012",
+  "impact": {
+    "confidence": 0.65,
+    "notes": "Systemic practice.",
+    "type": "reliability"
+  },
+  "layer": "process",
+  "legacy_id": "ECO-PROC-012",
+  "rationale": "SLOs turn scaling from guesswork into evidence.",
+  "remediation": {
+    "guidance": "Define SLOs and validate scaling changes against them.",
+    "tradeoffs": "Requires observability maturity."
+  },
+  "severity": "note",
+  "summary": "Scaling without SLO validation often leads to overprovisioning or fragility.",
+  "tags": [
+    "slo",
+    "autoscaling"
+  ],
+  "tier": 4,
+  "title": "No SLO-based scaling validation",
+  "ontology": {
+    "system_layers": [
+      "process"
+    ]
+  }
+}

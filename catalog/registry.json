@@ -279,14 +279,12 @@
     "retire"
   ],
   "system_layers": [
-    "ui",
-    "application",
-    "service",
+    "ai",
+    "architecture",
+    "code",
     "data",
     "network",
-    "platform",
-    "infrastructure",
-    "organization"
+    "process"
   ],
   "statuses": [
     "draft",

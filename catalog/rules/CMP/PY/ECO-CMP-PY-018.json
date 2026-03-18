@@ -1,0 +1,40 @@
+{
+  "canonical_id": "ECO-CMP-PY-018",
+  "category": "Computation",
+  "category_code": "CMP",
+  "detection": {
+    "languages": [
+      "python"
+    ],
+    "method": "ast"
+  },
+  "enabled_by_default": true,
+  "family": "Python",
+  "family_code": "PY",
+  "id": "ECO-CMP-PY-018",
+  "impact": {
+    "confidence": 0.55,
+    "notes": "Depends on input size.",
+    "type": "cpu"
+  },
+  "layer": "code",
+  "legacy_id": "ECO-PY-018",
+  "ontology": {
+    "system_layers": [
+      "code"
+    ]
+  },
+  "rationale": "Recursion adds call overhead; unbounded recursion risks failure.",
+  "remediation": {
+    "guidance": "Consider iterative approaches or enforce depth limits.",
+    "tradeoffs": "Code rewrite."
+  },
+  "severity": "note",
+  "summary": "Recursion without depth safeguards risks overhead and runtime errors.",
+  "tags": [
+    "python",
+    "cpu"
+  ],
+  "tier": 1,
+  "title": "Recursive algorithm without safeguards"
+}

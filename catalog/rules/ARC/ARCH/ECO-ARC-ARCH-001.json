@@ -1,0 +1,42 @@
+{
+  "canonical_id": "ECO-ARC-ARCH-001",
+  "category": "Architecture",
+  "category_code": "ARC",
+  "detection": {
+    "languages": [
+      "infra"
+    ],
+    "method": "trace"
+  },
+  "enabled_by_default": true,
+  "family": "Architecture",
+  "family_code": "ARCH",
+  "id": "ECO-ARC-ARCH-001",
+  "impact": {
+    "confidence": 0.65,
+    "notes": "Best detected via utilization trends.",
+    "type": "cost"
+  },
+  "layer": "architecture",
+  "legacy_id": "ECO-ARCH-001",
+  "ontology": {
+    "system_layers": [
+      "architecture"
+    ]
+  },
+  "rationale": "Over-provisioning is continuous waste: cost and emissions without benefit.",
+  "remediation": {
+    "guidance": "Right-size; reduce replicas; add autoscaling with guardrails.",
+    "tradeoffs": "Must validate against SLOs."
+  },
+  "severity": "warning",
+  "summary": "Sustained low utilization suggests oversized instances or replicas.",
+  "tags": [
+    "rightsizing",
+    "utilization",
+    "cost",
+    "carbon"
+  ],
+  "tier": 3,
+  "title": "Over-provisioned compute"
+}

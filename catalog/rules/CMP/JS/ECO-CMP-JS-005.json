@@ -1,0 +1,41 @@
+{
+  "canonical_id": "ECO-CMP-JS-005",
+  "category": "Computation",
+  "category_code": "CMP",
+  "detection": {
+    "languages": [
+      "javascript"
+    ],
+    "method": "hybrid"
+  },
+  "enabled_by_default": true,
+  "family": "JavaScript",
+  "family_code": "JS",
+  "id": "ECO-CMP-JS-005",
+  "impact": {
+    "confidence": 0.75,
+    "notes": "Use workers for heavy CPU work.",
+    "type": "latency"
+  },
+  "layer": "code",
+  "legacy_id": "ECO-JS-005",
+  "ontology": {
+    "system_layers": [
+      "code"
+    ]
+  },
+  "rationale": "Event loop stalls propagate to all concurrent requests.",
+  "remediation": {
+    "guidance": "Move CPU-heavy crypto to worker threads or native async APIs.",
+    "tradeoffs": "Complexity increase."
+  },
+  "severity": "warning",
+  "summary": "CPU-heavy crypto blocks the event loop and inflates latency.",
+  "tags": [
+    "javascript",
+    "crypto",
+    "latency"
+  ],
+  "tier": 2,
+  "title": "Blocking crypto in event loop"
+}

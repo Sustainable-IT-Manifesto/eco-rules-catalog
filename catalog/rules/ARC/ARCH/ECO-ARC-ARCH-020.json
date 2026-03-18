@@ -1,0 +1,40 @@
+{
+  "canonical_id": "ECO-ARC-ARCH-020",
+  "category": "Architecture",
+  "category_code": "ARC",
+  "detection": {
+    "languages": [
+      "infra"
+    ],
+    "method": "trace"
+  },
+  "enabled_by_default": true,
+  "family": "Architecture",
+  "family_code": "ARCH",
+  "id": "ECO-ARC-ARCH-020",
+  "impact": {
+    "confidence": 0.65,
+    "notes": "High in AI workloads.",
+    "type": "cost"
+  },
+  "layer": "architecture",
+  "legacy_id": "ECO-ARCH-020",
+  "ontology": {
+    "system_layers": [
+      "architecture"
+    ]
+  },
+  "rationale": "GPU idle burn is expensive; schedule and batch workloads.",
+  "remediation": {
+    "guidance": "Consolidate workloads; enable autoscaling; batch inference.",
+    "tradeoffs": "Scheduling complexity."
+  },
+  "severity": "warning",
+  "summary": "Accelerators running idle waste significant power and cost.",
+  "tags": [
+    "gpu",
+    "ai"
+  ],
+  "tier": 3,
+  "title": "Underutilized GPU/accelerator resources"
+}

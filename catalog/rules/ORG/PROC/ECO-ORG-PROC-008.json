@@ -1,0 +1,40 @@
+{
+  "canonical_id": "ECO-ORG-PROC-008",
+  "category": "Organizational",
+  "category_code": "ORG",
+  "detection": {
+    "languages": [
+      "org"
+    ],
+    "method": "config"
+  },
+  "enabled_by_default": true,
+  "family": "Process",
+  "family_code": "PROC",
+  "id": "ECO-ORG-PROC-008",
+  "impact": {
+    "confidence": 0.65,
+    "notes": "Prevents Tier-3 waste.",
+    "type": "cost"
+  },
+  "layer": "process",
+  "legacy_id": "ECO-PROC-008",
+  "rationale": "High-impact decisions deserve lightweight review and documentation.",
+  "remediation": {
+    "guidance": "Add a lightweight architecture review for high-tier changes.",
+    "tradeoffs": "Process overhead if done poorly."
+  },
+  "severity": "note",
+  "summary": "Without review gates, high-propagation waste slips in unnoticed.",
+  "tags": [
+    "architecture",
+    "governance"
+  ],
+  "tier": 4,
+  "title": "No architectural review gate",
+  "ontology": {
+    "system_layers": [
+      "process"
+    ]
+  }
+}

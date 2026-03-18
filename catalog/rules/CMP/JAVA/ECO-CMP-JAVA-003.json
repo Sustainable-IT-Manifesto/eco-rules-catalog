@@ -1,0 +1,41 @@
+{
+  "canonical_id": "ECO-CMP-JAVA-003",
+  "category": "Computation",
+  "category_code": "CMP",
+  "detection": {
+    "languages": [
+      "java"
+    ],
+    "method": "trace"
+  },
+  "enabled_by_default": true,
+  "family": "Java",
+  "family_code": "JAVA",
+  "id": "ECO-CMP-JAVA-003",
+  "impact": {
+    "confidence": 0.7,
+    "notes": "Tune to workload and downstream limits.",
+    "type": "latency"
+  },
+  "layer": "architecture",
+  "legacy_id": "ECO-JAVA-003",
+  "ontology": {
+    "system_layers": [
+      "architecture"
+    ]
+  },
+  "rationale": "Too many threads = contention; too few = underutilization and queues.",
+  "remediation": {
+    "guidance": "Tune pools; add backpressure; align with DB/HTTP limits.",
+    "tradeoffs": "Requires measurement."
+  },
+  "severity": "warning",
+  "summary": "Incorrect thread pool sizing can waste CPU or cause latency collapse.",
+  "tags": [
+    "java",
+    "threads",
+    "latency"
+  ],
+  "tier": 2,
+  "title": "Thread pool misconfiguration"
+}

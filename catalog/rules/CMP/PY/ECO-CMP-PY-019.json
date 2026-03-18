@@ -1,0 +1,40 @@
+{
+  "canonical_id": "ECO-CMP-PY-019",
+  "category": "Computation",
+  "category_code": "CMP",
+  "detection": {
+    "languages": [
+      "python"
+    ],
+    "method": "hybrid"
+  },
+  "enabled_by_default": true,
+  "family": "Python",
+  "family_code": "PY",
+  "id": "ECO-CMP-PY-019",
+  "impact": {
+    "confidence": 0.65,
+    "notes": "Often misused for I/O that could be async.",
+    "type": "cpu"
+  },
+  "layer": "code",
+  "legacy_id": "ECO-PY-019",
+  "ontology": {
+    "system_layers": [
+      "code"
+    ]
+  },
+  "rationale": "Thread creation and contention can reduce throughput and increase CPU waste.",
+  "remediation": {
+    "guidance": "Use thread pools, async I/O, or bounded concurrency.",
+    "tradeoffs": "Requires concurrency redesign."
+  },
+  "severity": "warning",
+  "summary": "Creating many threads increases overhead and contention.",
+  "tags": [
+    "python",
+    "concurrency"
+  ],
+  "tier": 2,
+  "title": "Excessive thread spawning"
+}

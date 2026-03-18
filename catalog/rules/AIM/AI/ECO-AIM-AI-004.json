@@ -1,0 +1,41 @@
+{
+  "canonical_id": "ECO-AIM-AI-004",
+  "category": "AI/ML",
+  "category_code": "AIM",
+  "detection": {
+    "languages": [
+      "org",
+      "infra"
+    ],
+    "method": "hybrid"
+  },
+  "enabled_by_default": true,
+  "family": "AI",
+  "family_code": "AI",
+  "id": "ECO-AIM-AI-004",
+  "impact": {
+    "confidence": 0.6,
+    "notes": "Strong for templated workflows.",
+    "type": "cost"
+  },
+  "layer": "ai",
+  "legacy_id": "ECO-AI-004",
+  "ontology": {
+    "system_layers": [
+      "ai"
+    ]
+  },
+  "rationale": "Many prompts are repetitive; caching reduces repeated work.",
+  "remediation": {
+    "guidance": "Cache deterministic responses with TTL and safe scoping.",
+    "tradeoffs": "Risk of staleness; privacy considerations."
+  },
+  "severity": "note",
+  "summary": "Repeated prompts without caching waste tokens and compute.",
+  "tags": [
+    "ai",
+    "caching"
+  ],
+  "tier": 2,
+  "title": "No prompt caching"
+}

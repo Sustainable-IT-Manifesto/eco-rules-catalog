@@ -58,14 +58,12 @@
     "layer": {
       "type": "string",
       "enum": [
-        "ui",
-        "application",
-        "service",
+        "ai",
+        "architecture",
+        "code",
         "data",
         "network",
-        "platform",
-        "infrastructure",
-        "organization"
+        "process"
       ]
     },
     "tier": {

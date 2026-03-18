@@ -1,0 +1,40 @@
+{
+  "canonical_id": "ECO-CMP-JS-015",
+  "category": "Computation",
+  "category_code": "CMP",
+  "detection": {
+    "languages": [
+      "javascript"
+    ],
+    "method": "hybrid"
+  },
+  "enabled_by_default": true,
+  "family": "JavaScript",
+  "family_code": "JS",
+  "id": "ECO-CMP-JS-015",
+  "impact": {
+    "confidence": 0.55,
+    "notes": "Depends on render frequency.",
+    "type": "cpu"
+  },
+  "layer": "code",
+  "legacy_id": "ECO-JS-015",
+  "ontology": {
+    "system_layers": [
+      "code"
+    ]
+  },
+  "rationale": "Avoid unnecessary allocation churn in rendering loops.",
+  "remediation": {
+    "guidance": "Memoize stable objects; move creation outside render paths.",
+    "tradeoffs": "Potential for stale data if misused."
+  },
+  "severity": "note",
+  "summary": "Allocating large objects repeatedly increases GC churn and CPU.",
+  "tags": [
+    "javascript",
+    "allocations"
+  ],
+  "tier": 1,
+  "title": "Recreating large objects per render"
+}

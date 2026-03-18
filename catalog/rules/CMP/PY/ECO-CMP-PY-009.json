@@ -1,0 +1,41 @@
+{
+  "canonical_id": "ECO-CMP-PY-009",
+  "category": "Computation",
+  "category_code": "CMP",
+  "detection": {
+    "languages": [
+      "python"
+    ],
+    "method": "ast"
+  },
+  "enabled_by_default": true,
+  "family": "Python",
+  "family_code": "PY",
+  "id": "ECO-CMP-PY-009",
+  "impact": {
+    "confidence": 0.65,
+    "notes": "Common in parsing pipelines.",
+    "type": "cpu"
+  },
+  "layer": "code",
+  "legacy_id": "ECO-PY-009",
+  "ontology": {
+    "system_layers": [
+      "code"
+    ]
+  },
+  "rationale": "Regex compilation is non-trivial; repeated compilation is wasted work.",
+  "remediation": {
+    "guidance": "Precompile regex at module init or reuse compiled patterns.",
+    "tradeoffs": "Minimal."
+  },
+  "severity": "note",
+  "summary": "Compiling regex repeatedly wastes CPU; compile once and reuse.",
+  "tags": [
+    "python",
+    "regex",
+    "cpu"
+  ],
+  "tier": 1,
+  "title": "Repeated regex compilation"
+}

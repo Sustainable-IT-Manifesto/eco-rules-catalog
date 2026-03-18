@@ -1,0 +1,40 @@
+{
+  "canonical_id": "ECO-AIM-AI-009",
+  "category": "AI/ML",
+  "category_code": "AIM",
+  "detection": {
+    "languages": [
+      "org"
+    ],
+    "method": "config"
+  },
+  "enabled_by_default": true,
+  "family": "AI",
+  "family_code": "AI",
+  "id": "ECO-AIM-AI-009",
+  "impact": {
+    "confidence": 0.7,
+    "notes": "Common governance gap.",
+    "type": "cost"
+  },
+  "layer": "ai",
+  "legacy_id": "ECO-AI-009",
+  "ontology": {
+    "system_layers": [
+      "ai"
+    ]
+  },
+  "rationale": "Scale should follow evidence, not excitement.",
+  "remediation": {
+    "guidance": "Require eval gates before scaling model size/traffic.",
+    "tradeoffs": "Slower rollout."
+  },
+  "severity": "warning",
+  "summary": "Scaling without evaluation wastes resources and can degrade outcomes.",
+  "tags": [
+    "ai",
+    "evaluation"
+  ],
+  "tier": 3,
+  "title": "No evaluation before scaling model"
+}

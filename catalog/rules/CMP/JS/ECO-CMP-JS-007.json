@@ -1,0 +1,40 @@
+{
+  "canonical_id": "ECO-CMP-JS-007",
+  "category": "Computation",
+  "category_code": "CMP",
+  "detection": {
+    "languages": [
+      "javascript"
+    ],
+    "method": "trace"
+  },
+  "enabled_by_default": true,
+  "family": "JavaScript",
+  "family_code": "JS",
+  "id": "ECO-CMP-JS-007",
+  "impact": {
+    "confidence": 0.7,
+    "notes": "High on static assets.",
+    "type": "network"
+  },
+  "layer": "network",
+  "legacy_id": "ECO-JS-007",
+  "ontology": {
+    "system_layers": [
+      "network"
+    ]
+  },
+  "rationale": "Caching prevents repeated work; missing caching forces it.",
+  "remediation": {
+    "guidance": "Set Cache-Control/ETag; use immutable assets with hashes.",
+    "tradeoffs": "Requires proper build pipeline."
+  },
+  "severity": "warning",
+  "summary": "Missing cache headers causes repeated downloads and wasted bandwidth.",
+  "tags": [
+    "javascript",
+    "caching"
+  ],
+  "tier": 2,
+  "title": "Missing HTTP caching headers (client-side)"
+}

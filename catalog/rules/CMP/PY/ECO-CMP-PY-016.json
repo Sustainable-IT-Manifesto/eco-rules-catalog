@@ -1,0 +1,41 @@
+{
+  "canonical_id": "ECO-CMP-PY-016",
+  "category": "Computation",
+  "category_code": "CMP",
+  "detection": {
+    "languages": [
+      "python"
+    ],
+    "method": "config"
+  },
+  "enabled_by_default": true,
+  "family": "Python",
+  "family_code": "PY",
+  "id": "ECO-CMP-PY-016",
+  "impact": {
+    "confidence": 0.8,
+    "notes": "Especially important in serverless/short-lived contexts.",
+    "type": "latency"
+  },
+  "layer": "architecture",
+  "legacy_id": "ECO-PY-016",
+  "ontology": {
+    "system_layers": [
+      "architecture"
+    ]
+  },
+  "rationale": "Pooling stabilizes performance and reduces wasted setup cost.",
+  "remediation": {
+    "guidance": "Enable and tune pooling; set max connections.",
+    "tradeoffs": "Tuning required to avoid saturation."
+  },
+  "severity": "warning",
+  "summary": "Lack of pooling increases connection churn, latency, and DB load.",
+  "tags": [
+    "python",
+    "db",
+    "pooling"
+  ],
+  "tier": 2,
+  "title": "No connection pooling"
+}

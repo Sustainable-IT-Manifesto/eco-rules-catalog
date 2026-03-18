@@ -1,0 +1,39 @@
+{
+  "canonical_id": "ECO-DAT-DATA-015",
+  "category": "Data",
+  "category_code": "DAT",
+  "detection": {
+    "languages": [
+      "org"
+    ],
+    "method": "hybrid"
+  },
+  "enabled_by_default": true,
+  "family": "Data",
+  "family_code": "DATA",
+  "id": "ECO-DAT-DATA-015",
+  "impact": {
+    "confidence": 0.75,
+    "notes": "Often discovered during audits.",
+    "type": "cost"
+  },
+  "layer": "data",
+  "legacy_id": "ECO-DATA-015",
+  "ontology": {
+    "system_layers": [
+      "data"
+    ]
+  },
+  "rationale": "Shadow stores multiply cost and make lifecycle impossible to enforce.",
+  "remediation": {
+    "guidance": "Inventory data stores; establish canonical sources and policies.",
+    "tradeoffs": "Political and organizational effort."
+  },
+  "severity": "warning",
+  "summary": "Unofficial copies create duplicated storage and compliance risk.",
+  "tags": [
+    "shadow-it"
+  ],
+  "tier": 4,
+  "title": "Shadow data stores outside governance"
+}

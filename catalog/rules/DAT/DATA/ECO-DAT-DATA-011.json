@@ -1,0 +1,40 @@
+{
+  "canonical_id": "ECO-DAT-DATA-011",
+  "category": "Data",
+  "category_code": "DAT",
+  "detection": {
+    "languages": [
+      "infra"
+    ],
+    "method": "trace"
+  },
+  "enabled_by_default": true,
+  "family": "Data",
+  "family_code": "DATA",
+  "id": "ECO-DAT-DATA-011",
+  "impact": {
+    "confidence": 0.7,
+    "notes": "Especially strong for text/structured data.",
+    "type": "storage"
+  },
+  "layer": "data",
+  "legacy_id": "ECO-DATA-011",
+  "ontology": {
+    "system_layers": [
+      "data"
+    ]
+  },
+  "rationale": "Compression reduces stored bytes and transfer cost.",
+  "remediation": {
+    "guidance": "Compress at write; enforce content-encoding where appropriate.",
+    "tradeoffs": "CPU overhead at read/write."
+  },
+  "severity": "warning",
+  "summary": "Uncompressed objects waste storage and bandwidth.",
+  "tags": [
+    "compression",
+    "object-storage"
+  ],
+  "tier": 3,
+  "title": "Lack of compression in object storage"
+}

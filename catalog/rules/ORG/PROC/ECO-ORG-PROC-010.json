@@ -1,0 +1,40 @@
+{
+  "canonical_id": "ECO-ORG-PROC-010",
+  "category": "Organizational",
+  "category_code": "ORG",
+  "detection": {
+    "languages": [
+      "org"
+    ],
+    "method": "config"
+  },
+  "enabled_by_default": true,
+  "family": "Process",
+  "family_code": "PROC",
+  "id": "ECO-ORG-PROC-010",
+  "impact": {
+    "confidence": 0.6,
+    "notes": "Org-dependent.",
+    "type": "ewaste"
+  },
+  "layer": "process",
+  "legacy_id": "ECO-PROC-010",
+  "rationale": "Hardware policies shape embodied emissions and waste streams.",
+  "remediation": {
+    "guidance": "Define repair/reuse/recycle standards and vendor requirements.",
+    "tradeoffs": "Procurement coordination."
+  },
+  "severity": "note",
+  "summary": "Hardware lifecycle without sustainability policy increases e-waste risk.",
+  "tags": [
+    "hardware",
+    "ewaste"
+  ],
+  "tier": 4,
+  "title": "No hardware refresh sustainability policy",
+  "ontology": {
+    "system_layers": [
+      "process"
+    ]
+  }
+}

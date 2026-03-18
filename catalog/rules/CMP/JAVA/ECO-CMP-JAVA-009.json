@@ -1,0 +1,41 @@
+{
+  "canonical_id": "ECO-CMP-JAVA-009",
+  "category": "Computation",
+  "category_code": "CMP",
+  "detection": {
+    "languages": [
+      "java"
+    ],
+    "method": "trace"
+  },
+  "enabled_by_default": true,
+  "family": "Java",
+  "family_code": "JAVA",
+  "id": "ECO-CMP-JAVA-009",
+  "impact": {
+    "confidence": 0.7,
+    "notes": "Common in parsing/serialization bursts.",
+    "type": "latency"
+  },
+  "layer": "architecture",
+  "legacy_id": "ECO-JAVA-009",
+  "ontology": {
+    "system_layers": [
+      "architecture"
+    ]
+  },
+  "rationale": "Large allocations correlate strongly with p99 issues and waste.",
+  "remediation": {
+    "guidance": "Reduce allocations; stream processing; tune GC when needed.",
+    "tradeoffs": "Measurement required."
+  },
+  "severity": "warning",
+  "summary": "Heap spikes increase GC pauses and tail latency.",
+  "tags": [
+    "java",
+    "gc",
+    "latency"
+  ],
+  "tier": 2,
+  "title": "Large heap allocation spikes"
+}

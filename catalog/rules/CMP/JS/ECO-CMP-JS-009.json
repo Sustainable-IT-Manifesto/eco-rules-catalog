@@ -1,0 +1,40 @@
+{
+  "canonical_id": "ECO-CMP-JS-009",
+  "category": "Computation",
+  "category_code": "CMP",
+  "detection": {
+    "languages": [
+      "javascript"
+    ],
+    "method": "hybrid"
+  },
+  "enabled_by_default": true,
+  "family": "JavaScript",
+  "family_code": "JS",
+  "id": "ECO-CMP-JS-009",
+  "impact": {
+    "confidence": 0.55,
+    "notes": "Depends on implementation.",
+    "type": "memory"
+  },
+  "layer": "code",
+  "legacy_id": "ECO-JS-009",
+  "ontology": {
+    "system_layers": [
+      "code"
+    ]
+  },
+  "rationale": "Unbounded async chains may create retention and scheduling overhead.",
+  "remediation": {
+    "guidance": "Bound retries; avoid recursion; use iterative loops with limits.",
+    "tradeoffs": "Logic changes."
+  },
+  "severity": "note",
+  "summary": "Long or recursive promise chains can leak work and increase memory usage.",
+  "tags": [
+    "javascript",
+    "promises"
+  ],
+  "tier": 2,
+  "title": "Unbounded promise chains"
+}

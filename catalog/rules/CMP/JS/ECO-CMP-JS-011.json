@@ -1,0 +1,40 @@
+{
+  "canonical_id": "ECO-CMP-JS-011",
+  "category": "Computation",
+  "category_code": "CMP",
+  "detection": {
+    "languages": [
+      "javascript"
+    ],
+    "method": "ast"
+  },
+  "enabled_by_default": true,
+  "family": "JavaScript",
+  "family_code": "JS",
+  "id": "ECO-CMP-JS-011",
+  "impact": {
+    "confidence": 0.55,
+    "notes": "Context-dependent.",
+    "type": "cpu"
+  },
+  "layer": "code",
+  "legacy_id": "ECO-JS-011",
+  "ontology": {
+    "system_layers": [
+      "code"
+    ]
+  },
+  "rationale": "Map/filter/reduce chains can be fine, but in hot paths they add overhead.",
+  "remediation": {
+    "guidance": "Combine passes in hot paths; keep readability elsewhere.",
+    "tradeoffs": "Potential readability loss."
+  },
+  "severity": "note",
+  "summary": "Multiple passes over arrays increases CPU and GC overhead.",
+  "tags": [
+    "javascript",
+    "cpu"
+  ],
+  "tier": 1,
+  "title": "Inefficient array transformations (multi-pass)"
+}

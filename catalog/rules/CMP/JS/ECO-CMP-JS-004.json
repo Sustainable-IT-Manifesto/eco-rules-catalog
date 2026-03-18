@@ -1,0 +1,41 @@
+{
+  "canonical_id": "ECO-CMP-JS-004",
+  "category": "Computation",
+  "category_code": "CMP",
+  "detection": {
+    "languages": [
+      "javascript"
+    ],
+    "method": "hybrid"
+  },
+  "enabled_by_default": true,
+  "family": "JavaScript",
+  "family_code": "JS",
+  "id": "ECO-CMP-JS-004",
+  "impact": {
+    "confidence": 0.7,
+    "notes": "Often progressive and hard to notice.",
+    "type": "memory"
+  },
+  "layer": "code",
+  "legacy_id": "ECO-JS-004",
+  "ontology": {
+    "system_layers": [
+      "code"
+    ]
+  },
+  "rationale": "Leaks increase baseline memory and trigger more GC work.",
+  "remediation": {
+    "guidance": "Remove listeners on cleanup; use weak refs where appropriate.",
+    "tradeoffs": "Requires lifecycle discipline."
+  },
+  "severity": "warning",
+  "summary": "Unremoved listeners retain objects and increase memory over time.",
+  "tags": [
+    "javascript",
+    "memory",
+    "leak"
+  ],
+  "tier": 2,
+  "title": "Memory leaks via event listeners"
+}

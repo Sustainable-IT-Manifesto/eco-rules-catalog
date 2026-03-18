@@ -1,0 +1,40 @@
+{
+  "canonical_id": "ECO-NET-NET-003",
+  "category": "Networking",
+  "category_code": "NET",
+  "detection": {
+    "languages": [
+      "infra"
+    ],
+    "method": "trace"
+  },
+  "enabled_by_default": true,
+  "family": "Network",
+  "family_code": "NET",
+  "id": "ECO-NET-NET-003",
+  "impact": {
+    "confidence": 0.7,
+    "notes": "Common with naive service decomposition.",
+    "type": "latency"
+  },
+  "layer": "network",
+  "legacy_id": "ECO-NET-003",
+  "ontology": {
+    "system_layers": [
+      "network"
+    ]
+  },
+  "rationale": "Chattiness multiplies overhead and failure points.",
+  "remediation": {
+    "guidance": "Aggregate requests, introduce caching, or redesign boundaries.",
+    "tradeoffs": "May reduce separation or increase payload size."
+  },
+  "severity": "warning",
+  "summary": "Many small calls increase latency and cross-service overhead.",
+  "tags": [
+    "microservices",
+    "latency"
+  ],
+  "tier": 2,
+  "title": "Chatty microservice communication"
+}

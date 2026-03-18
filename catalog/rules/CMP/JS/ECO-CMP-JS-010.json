@@ -1,0 +1,40 @@
+{
+  "canonical_id": "ECO-CMP-JS-010",
+  "category": "Computation",
+  "category_code": "CMP",
+  "detection": {
+    "languages": [
+      "javascript"
+    ],
+    "method": "hybrid"
+  },
+  "enabled_by_default": true,
+  "family": "JavaScript",
+  "family_code": "JS",
+  "id": "ECO-CMP-JS-010",
+  "impact": {
+    "confidence": 0.85,
+    "notes": "High propagation risk.",
+    "type": "reliability"
+  },
+  "layer": "network",
+  "legacy_id": "ECO-JS-010",
+  "ontology": {
+    "system_layers": [
+      "network"
+    ]
+  },
+  "rationale": "Timeouts are a reliability boundary; missing them removes the boundary.",
+  "remediation": {
+    "guidance": "Use AbortController / client timeouts; set defaults.",
+    "tradeoffs": "Endpoint tuning."
+  },
+  "severity": "error",
+  "summary": "Requests without timeouts hang and create cascading latency.",
+  "tags": [
+    "javascript",
+    "timeouts"
+  ],
+  "tier": 2,
+  "title": "Missing request timeout"
+}

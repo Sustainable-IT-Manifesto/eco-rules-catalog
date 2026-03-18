@@ -1,0 +1,41 @@
+{
+  "canonical_id": "ECO-CMP-JS-003",
+  "category": "Computation",
+  "category_code": "CMP",
+  "detection": {
+    "languages": [
+      "javascript"
+    ],
+    "method": "trace"
+  },
+  "enabled_by_default": true,
+  "family": "JavaScript",
+  "family_code": "JS",
+  "id": "ECO-CMP-JS-003",
+  "impact": {
+    "confidence": 0.75,
+    "notes": "Affects every page view.",
+    "type": "network"
+  },
+  "layer": "code",
+  "legacy_id": "ECO-JS-003",
+  "ontology": {
+    "system_layers": [
+      "code"
+    ]
+  },
+  "rationale": "Users pay for bytes and CPU; so do battery and emissions.",
+  "remediation": {
+    "guidance": "Enable tree-shaking, code splitting, and remove dead deps.",
+    "tradeoffs": "Build config changes."
+  },
+  "severity": "warning",
+  "summary": "Large bundles increase transfer size, parse time, and energy use.",
+  "tags": [
+    "javascript",
+    "bundling",
+    "frontend"
+  ],
+  "tier": 1,
+  "title": "Large unoptimized bundles"
+}

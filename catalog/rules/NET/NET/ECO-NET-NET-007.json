@@ -1,0 +1,40 @@
+{
+  "canonical_id": "ECO-NET-NET-007",
+  "category": "Networking",
+  "category_code": "NET",
+  "detection": {
+    "languages": [
+      "infra"
+    ],
+    "method": "trace"
+  },
+  "enabled_by_default": true,
+  "family": "Network",
+  "family_code": "NET",
+  "id": "ECO-NET-NET-007",
+  "impact": {
+    "confidence": 0.85,
+    "notes": "High propagation risk.",
+    "type": "reliability"
+  },
+  "layer": "network",
+  "legacy_id": "ECO-NET-007",
+  "ontology": {
+    "system_layers": [
+      "network"
+    ]
+  },
+  "rationale": "Retries without backoff turn a small outage into a system-wide incident.",
+  "remediation": {
+    "guidance": "Use exponential backoff + jitter; add circuit breakers; cap retries.",
+    "tradeoffs": "May reduce immediate success rate during blips."
+  },
+  "severity": "error",
+  "summary": "Aggressive retries amplify failures and increase waste.",
+  "tags": [
+    "retries",
+    "circuit-breaker"
+  ],
+  "tier": 2,
+  "title": "Excessive retry storms"
+}

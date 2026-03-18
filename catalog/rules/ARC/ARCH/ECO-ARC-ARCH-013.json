@@ -1,0 +1,39 @@
+{
+  "canonical_id": "ECO-ARC-ARCH-013",
+  "category": "Architecture",
+  "category_code": "ARC",
+  "detection": {
+    "languages": [
+      "infra"
+    ],
+    "method": "trace"
+  },
+  "enabled_by_default": true,
+  "family": "Architecture",
+  "family_code": "ARCH",
+  "id": "ECO-ARC-ARCH-013",
+  "impact": {
+    "confidence": 0.65,
+    "notes": "Be careful with invalidation.",
+    "type": "cpu"
+  },
+  "layer": "architecture",
+  "legacy_id": "ECO-ARCH-013",
+  "ontology": {
+    "system_layers": [
+      "architecture"
+    ]
+  },
+  "rationale": "Caching reduces repeated work and improves latency.",
+  "remediation": {
+    "guidance": "Introduce caching at appropriate boundaries.",
+    "tradeoffs": "Invalidation complexity."
+  },
+  "severity": "warning",
+  "summary": "High-read systems without caching waste CPU and DB capacity.",
+  "tags": [
+    "caching"
+  ],
+  "tier": 3,
+  "title": "No caching layer for high-read workloads"
+}

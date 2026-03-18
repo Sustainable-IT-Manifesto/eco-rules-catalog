@@ -1,0 +1,41 @@
+{
+  "canonical_id": "ECO-CMP-JS-006",
+  "category": "Computation",
+  "category_code": "CMP",
+  "detection": {
+    "languages": [
+      "javascript"
+    ],
+    "method": "trace"
+  },
+  "enabled_by_default": true,
+  "family": "JavaScript",
+  "family_code": "JS",
+  "id": "ECO-CMP-JS-006",
+  "impact": {
+    "confidence": 0.6,
+    "notes": "Often easy win.",
+    "type": "network"
+  },
+  "layer": "network",
+  "legacy_id": "ECO-JS-006",
+  "ontology": {
+    "system_layers": [
+      "network"
+    ]
+  },
+  "rationale": "Extra bytes multiply across users and calls.",
+  "remediation": {
+    "guidance": "Return only needed fields; use pagination and sparse responses.",
+    "tradeoffs": "API contract changes."
+  },
+  "severity": "note",
+  "summary": "Returning unused fields increases payload size and wasted processing.",
+  "tags": [
+    "javascript",
+    "api",
+    "payload"
+  ],
+  "tier": 1,
+  "title": "Over-fetching API responses"
+}

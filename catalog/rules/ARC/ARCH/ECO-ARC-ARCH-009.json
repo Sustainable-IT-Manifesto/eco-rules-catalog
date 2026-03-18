@@ -1,0 +1,41 @@
+{
+  "canonical_id": "ECO-ARC-ARCH-009",
+  "category": "Architecture",
+  "category_code": "ARC",
+  "detection": {
+    "languages": [
+      "org",
+      "infra"
+    ],
+    "method": "hybrid"
+  },
+  "enabled_by_default": true,
+  "family": "Architecture",
+  "family_code": "ARCH",
+  "id": "ECO-ARC-ARCH-009",
+  "impact": {
+    "confidence": 0.6,
+    "notes": "Often found during audits.",
+    "type": "cost"
+  },
+  "layer": "architecture",
+  "legacy_id": "ECO-ARCH-009",
+  "ontology": {
+    "system_layers": [
+      "architecture"
+    ]
+  },
+  "rationale": "Duplication multiplies deploy, run, monitor, and patch overhead.",
+  "remediation": {
+    "guidance": "Consolidate responsibilities; retire redundant services.",
+    "tradeoffs": "Migration effort."
+  },
+  "severity": "warning",
+  "summary": "Duplicate services increase operational load and waste compute.",
+  "tags": [
+    "duplication",
+    "complexity"
+  ],
+  "tier": 3,
+  "title": "Duplicate services performing the same work"
+}

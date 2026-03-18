@@ -1,0 +1,40 @@
+{
+  "canonical_id": "ECO-DAT-DATA-004",
+  "category": "Data",
+  "category_code": "DAT",
+  "detection": {
+    "languages": [
+      "infra"
+    ],
+    "method": "config"
+  },
+  "enabled_by_default": true,
+  "family": "Data",
+  "family_code": "DATA",
+  "id": "ECO-DAT-DATA-004",
+  "impact": {
+    "confidence": 0.8,
+    "notes": "Often a top cost line item.",
+    "type": "storage"
+  },
+  "layer": "data",
+  "legacy_id": "ECO-DATA-004",
+  "ontology": {
+    "system_layers": [
+      "data"
+    ]
+  },
+  "rationale": "Logging without boundaries is a storage leak at organizational scale.",
+  "remediation": {
+    "guidance": "Set retention and tiering; sample where appropriate.",
+    "tradeoffs": "Less historical detail unless archived."
+  },
+  "severity": "warning",
+  "summary": "Indefinite log retention increases storage and cost without clear value.",
+  "tags": [
+    "logs",
+    "retention"
+  ],
+  "tier": 4,
+  "title": "Logs stored indefinitely"
+}

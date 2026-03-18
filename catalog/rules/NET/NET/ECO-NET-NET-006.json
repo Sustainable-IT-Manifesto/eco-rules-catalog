@@ -1,0 +1,40 @@
+{
+  "canonical_id": "ECO-NET-NET-006",
+  "category": "Networking",
+  "category_code": "NET",
+  "detection": {
+    "languages": [
+      "infra"
+    ],
+    "method": "trace"
+  },
+  "enabled_by_default": true,
+  "family": "Network",
+  "family_code": "NET",
+  "id": "ECO-NET-NET-006",
+  "impact": {
+    "confidence": 0.7,
+    "notes": "Big in high QPS services.",
+    "type": "latency"
+  },
+  "layer": "network",
+  "legacy_id": "ECO-NET-006",
+  "ontology": {
+    "system_layers": [
+      "network"
+    ]
+  },
+  "rationale": "Connection reuse reduces repeated TLS and TCP setup.",
+  "remediation": {
+    "guidance": "Enable keep-alive; tune pools and idle timeouts.",
+    "tradeoffs": "Requires proper pool sizing."
+  },
+  "severity": "warning",
+  "summary": "Disabling keep-alive increases handshake overhead and latency.",
+  "tags": [
+    "http",
+    "keep-alive"
+  ],
+  "tier": 2,
+  "title": "No connection reuse (keep-alive disabled)"
+}

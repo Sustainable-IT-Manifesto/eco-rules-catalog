@@ -1,0 +1,40 @@
+{
+  "canonical_id": "ECO-AIM-AI-010",
+  "category": "AI/ML",
+  "category_code": "AIM",
+  "detection": {
+    "languages": [
+      "org"
+    ],
+    "method": "trace"
+  },
+  "enabled_by_default": true,
+  "family": "AI",
+  "family_code": "AI",
+  "id": "ECO-AIM-AI-010",
+  "impact": {
+    "confidence": 0.55,
+    "notes": "Depends on pipeline.",
+    "type": "cost"
+  },
+  "layer": "ai",
+  "legacy_id": "ECO-AI-010",
+  "ontology": {
+    "system_layers": [
+      "ai"
+    ]
+  },
+  "rationale": "Tuning cycles should be justified by measurable benefit.",
+  "remediation": {
+    "guidance": "Set tuning cadence based on outcomes and drift.",
+    "tradeoffs": "May delay improvements."
+  },
+  "severity": "note",
+  "summary": "Frequent tuning without clear value wastes compute.",
+  "tags": [
+    "ai",
+    "finetuning"
+  ],
+  "tier": 3,
+  "title": "Overly frequent fine-tuning cycles"
+}

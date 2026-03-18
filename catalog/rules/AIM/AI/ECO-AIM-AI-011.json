@@ -1,0 +1,41 @@
+{
+  "canonical_id": "ECO-AIM-AI-011",
+  "category": "AI/ML",
+  "category_code": "AIM",
+  "detection": {
+    "languages": [
+      "infra"
+    ],
+    "method": "config"
+  },
+  "enabled_by_default": true,
+  "family": "AI",
+  "family_code": "AI",
+  "id": "ECO-AIM-AI-011",
+  "impact": {
+    "confidence": 0.7,
+    "notes": "Often overlooked.",
+    "type": "storage"
+  },
+  "layer": "ai",
+  "legacy_id": "ECO-AI-011",
+  "ontology": {
+    "system_layers": [
+      "ai"
+    ]
+  },
+  "rationale": "Embeddings are data; they need lifecycle rules too.",
+  "remediation": {
+    "guidance": "Apply retention and tiering; delete stale embeddings.",
+    "tradeoffs": "Must re-embed when needed."
+  },
+  "severity": "warning",
+  "summary": "Embedding stores without retention grow unbounded and expensive.",
+  "tags": [
+    "ai",
+    "embeddings",
+    "retention"
+  ],
+  "tier": 4,
+  "title": "Storing all embeddings indefinitely"
+}

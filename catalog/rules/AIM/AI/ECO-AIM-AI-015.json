@@ -1,0 +1,40 @@
+{
+  "canonical_id": "ECO-AIM-AI-015",
+  "category": "AI/ML",
+  "category_code": "AIM",
+  "detection": {
+    "languages": [
+      "infra"
+    ],
+    "method": "trace"
+  },
+  "enabled_by_default": true,
+  "family": "AI",
+  "family_code": "AI",
+  "id": "ECO-AIM-AI-015",
+  "impact": {
+    "confidence": 0.55,
+    "notes": "Depends on query load.",
+    "type": "cpu"
+  },
+  "layer": "ai",
+  "legacy_id": "ECO-AI-015",
+  "ontology": {
+    "system_layers": [
+      "ai"
+    ]
+  },
+  "rationale": "Batching reduces per-request overhead for retrieval.",
+  "remediation": {
+    "guidance": "Batch retrieval queries where possible.",
+    "tradeoffs": "May add slight latency."
+  },
+  "severity": "note",
+  "summary": "Unbatched vector queries increase overhead and reduce throughput.",
+  "tags": [
+    "ai",
+    "vector-search"
+  ],
+  "tier": 2,
+  "title": "No batching of vector search queries"
+}

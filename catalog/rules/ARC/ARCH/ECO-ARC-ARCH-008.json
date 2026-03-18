@@ -1,0 +1,40 @@
+{
+  "canonical_id": "ECO-ARC-ARCH-008",
+  "category": "Architecture",
+  "category_code": "ARC",
+  "detection": {
+    "languages": [
+      "infra"
+    ],
+    "method": "trace"
+  },
+  "enabled_by_default": true,
+  "family": "Architecture",
+  "family_code": "ARCH",
+  "id": "ECO-ARC-ARCH-008",
+  "impact": {
+    "confidence": 0.7,
+    "notes": "Often large savings.",
+    "type": "storage"
+  },
+  "layer": "architecture",
+  "legacy_id": "ECO-ARCH-008",
+  "ontology": {
+    "system_layers": [
+      "architecture"
+    ]
+  },
+  "rationale": "Tiering aligns cost and energy with access patterns.",
+  "remediation": {
+    "guidance": "Introduce lifecycle policies and cold tiers.",
+    "tradeoffs": "Retrieval latency and costs."
+  },
+  "severity": "warning",
+  "summary": "Keeping cold data in hot tiers wastes storage spend and energy.",
+  "tags": [
+    "storage",
+    "tiering"
+  ],
+  "tier": 3,
+  "title": "Hot storage used for cold data"
+}

@@ -1,0 +1,41 @@
+{
+  "canonical_id": "ECO-CMP-JS-013",
+  "category": "Computation",
+  "category_code": "CMP",
+  "detection": {
+    "languages": [
+      "javascript"
+    ],
+    "method": "trace"
+  },
+  "enabled_by_default": true,
+  "family": "JavaScript",
+  "family_code": "JS",
+  "id": "ECO-CMP-JS-013",
+  "impact": {
+    "confidence": 0.8,
+    "notes": "Big win for text assets.",
+    "type": "network"
+  },
+  "layer": "network",
+  "legacy_id": "ECO-JS-013",
+  "ontology": {
+    "system_layers": [
+      "network"
+    ]
+  },
+  "rationale": "Compression is one of the simplest bandwidth reductions.",
+  "remediation": {
+    "guidance": "Enable gzip/brotli; ensure proper caching.",
+    "tradeoffs": "Server/CDN config changes."
+  },
+  "severity": "warning",
+  "summary": "Serving assets without compression increases bandwidth and energy use.",
+  "tags": [
+    "javascript",
+    "assets",
+    "compression"
+  ],
+  "tier": 2,
+  "title": "Uncompressed static assets"
+}

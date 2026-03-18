@@ -207,6 +207,9 @@ def main() -> int:
     parser.add_argument("catalog", help="Path to master.json or a rules file")
     args = parser.parse_args()
 
+    print(f"Using schema: {SCHEMA_PATH}")
+    print(f"Using registry: {REGISTRY_PATH}")
+
     payload = load_json(Path(args.catalog))
     rules = iter_rules(payload)
     registry = Registry(load_json(REGISTRY_PATH))

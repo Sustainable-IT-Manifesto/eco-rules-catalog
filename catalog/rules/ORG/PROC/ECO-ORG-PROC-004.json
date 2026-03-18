@@ -1,0 +1,40 @@
+{
+  "canonical_id": "ECO-ORG-PROC-004",
+  "category": "Organizational",
+  "category_code": "ORG",
+  "detection": {
+    "languages": [
+      "org"
+    ],
+    "method": "config"
+  },
+  "enabled_by_default": true,
+  "family": "Process",
+  "family_code": "PROC",
+  "id": "ECO-ORG-PROC-004",
+  "impact": {
+    "confidence": 0.6,
+    "notes": "Depends on data availability.",
+    "type": "carbon"
+  },
+  "layer": "process",
+  "legacy_id": "ECO-PROC-004",
+  "rationale": "Carbon awareness is an input to better tradeoffs, not moral theater.",
+  "remediation": {
+    "guidance": "Add carbon estimates to reporting; tie to decision points.",
+    "tradeoffs": "Estimation uncertainty."
+  },
+  "severity": "note",
+  "summary": "Without carbon signals, teams can’t optimize responsibly.",
+  "tags": [
+    "carbon",
+    "governance"
+  ],
+  "tier": 4,
+  "title": "No carbon awareness",
+  "ontology": {
+    "system_layers": [
+      "process"
+    ]
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "canonical_id": "ECO-ARC-ARCH-018",
+  "category": "Architecture",
+  "category_code": "ARC",
+  "detection": {
+    "languages": [
+      "infra"
+    ],
+    "method": "trace"
+  },
+  "enabled_by_default": true,
+  "family": "Architecture",
+  "family_code": "ARCH",
+  "id": "ECO-ARC-ARCH-018",
+  "impact": {
+    "confidence": 0.5,
+    "notes": "Depends on platform.",
+    "type": "latency"
+  },
+  "layer": "architecture",
+  "legacy_id": "ECO-ARCH-018",
+  "ontology": {
+    "system_layers": [
+      "architecture"
+    ]
+  },
+  "rationale": "Poor cold starts often lead teams to keep things always-on.",
+  "remediation": {
+    "guidance": "Reduce init work; warm pools selectively; cache dependencies.",
+    "tradeoffs": "More tuning."
+  },
+  "severity": "note",
+  "summary": "Cold starts inflate latency and may force overprovisioning.",
+  "tags": [
+    "cold-start"
+  ],
+  "tier": 2,
+  "title": "No cold-start optimization"
+}

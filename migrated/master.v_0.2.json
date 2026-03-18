@@ -27,17 +27,20 @@
         "notes": "Most visible in tight loops / hot paths.",
         "type": "cpu"
       },
-      "layer": "code",
+      "layer": "application",
       "legacy_id": "ECO-PY-001",
       "ontology": {
         "system_layers": [
-          "Code"
-        ]
+          "application"
+        ],
+        "category_code": "CMP",
+        "family_code": "PY"
       },
       "rationale": "Avoids unnecessary intermediate string objects that compound under load.",
       "remediation": {
         "guidance": "Use list accumulation + join(), or StringIO.",
-        "tradeoffs": "Slightly more verbose."
+        "tradeoffs": "Slightly more verbose.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "Repeated string concatenation in a loop increases allocations and CPU.",
@@ -47,7 +50,12 @@
         "hot-path"
       ],
       "tier": 1,
-      "title": "String concatenation in loops"
+      "title": "String concatenation in loops",
+      "sequence": 1,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-CMP-PY-002",
@@ -68,17 +76,20 @@
         "notes": "Often shows up in ETL, batch jobs, API aggregation.",
         "type": "memory"
       },
-      "layer": "code",
+      "layer": "application",
       "legacy_id": "ECO-PY-002",
       "ontology": {
         "system_layers": [
-          "Code"
-        ]
+          "application"
+        ],
+        "category_code": "CMP",
+        "family_code": "PY"
       },
       "rationale": "Unbounded accumulation is a common cause of avoidable memory spikes and instability.",
       "remediation": {
         "guidance": "Use generators, pagination, batching, or streaming APIs.",
-        "tradeoffs": "May require refactoring call sites."
+        "tradeoffs": "May require refactoring call sites.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "Collections that grow without bounds increase memory pressure and GC churn.",
@@ -88,7 +99,12 @@
         "streaming"
       ],
       "tier": 2,
-      "title": "Unbounded list growth"
+      "title": "Unbounded list growth",
+      "sequence": 2,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-CMP-PY-003",
@@ -109,17 +125,20 @@
         "notes": "Best targeted when loop counts are high.",
         "type": "cpu"
       },
-      "layer": "code",
+      "layer": "application",
       "legacy_id": "ECO-PY-003",
       "ontology": {
         "system_layers": [
-          "Code"
-        ]
+          "application"
+        ],
+        "category_code": "CMP",
+        "family_code": "PY"
       },
       "rationale": "Small wasted work per iteration can become significant in hot loops.",
       "remediation": {
         "guidance": "Move invariant work outside the loop.",
-        "tradeoffs": "Minimal."
+        "tradeoffs": "Minimal.",
+        "examples": []
       },
       "severity": "note",
       "summary": "Recomputing values that do not change inside a loop wastes CPU cycles.",
@@ -128,7 +147,12 @@
         "cpu"
       ],
       "tier": 1,
-      "title": "Repeated invariant computation inside loop"
+      "title": "Repeated invariant computation inside loop",
+      "sequence": 3,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-CMP-PY-004",
@@ -149,17 +173,20 @@
         "notes": "High propagation in async servers.",
         "type": "latency"
       },
-      "layer": "code",
+      "layer": "application",
       "legacy_id": "ECO-PY-004",
       "ontology": {
         "system_layers": [
-          "Code"
-        ]
+          "application"
+        ],
+        "category_code": "CMP",
+        "family_code": "PY"
       },
       "rationale": "Blocking I/O defeats the purpose of async and can stall the entire event loop.",
       "remediation": {
         "guidance": "Use async-compatible libraries (e.g., async DB/HTTP clients).",
-        "tradeoffs": "Library and code changes."
+        "tradeoffs": "Library and code changes.",
+        "examples": []
       },
       "severity": "error",
       "summary": "Blocking calls inside async functions reduce concurrency and inflate latency.",
@@ -169,7 +196,12 @@
         "latency"
       ],
       "tier": 2,
-      "title": "Blocking I/O inside async context"
+      "title": "Blocking I/O inside async context",
+      "sequence": 4,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-CMP-PY-005",
@@ -190,17 +222,20 @@
         "notes": "Often severe at scale.",
         "type": "network"
       },
-      "layer": "code",
+      "layer": "application",
       "legacy_id": "ECO-PY-005",
       "ontology": {
         "system_layers": [
-          "Code"
-        ]
+          "application"
+        ],
+        "category_code": "CMP",
+        "family_code": "PY"
       },
       "rationale": "N+1 is a classic hidden multiplier for latency, cost, and carbon.",
       "remediation": {
         "guidance": "Use bulk queries, eager loading, or JOINs.",
-        "tradeoffs": "May increase memory use; tune carefully."
+        "tradeoffs": "May increase memory use; tune carefully.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "Queries executed inside iteration multiply round trips and load.",
@@ -210,7 +245,12 @@
         "n+1"
       ],
       "tier": 2,
-      "title": "N+1 database query pattern"
+      "title": "N+1 database query pattern",
+      "sequence": 5,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-CMP-PY-006",
@@ -235,13 +275,16 @@
       "legacy_id": "ECO-PY-006",
       "ontology": {
         "system_layers": [
-          "Network"
-        ]
+          "network"
+        ],
+        "category_code": "CMP",
+        "family_code": "PY"
       },
       "rationale": "Without timeouts, partial outages become thread exhaustion and retry storms.",
       "remediation": {
         "guidance": "Set explicit connect/read timeouts; prefer client defaults + overrides.",
-        "tradeoffs": "Requires tuning per endpoint."
+        "tradeoffs": "Requires tuning per endpoint.",
+        "examples": []
       },
       "severity": "error",
       "summary": "Network calls without explicit timeouts can hang and cascade failures.",
@@ -251,7 +294,12 @@
         "timeouts"
       ],
       "tier": 2,
-      "title": "Missing network timeout"
+      "title": "Missing network timeout",
+      "sequence": 6,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-CMP-PY-007",
@@ -272,17 +320,20 @@
         "notes": "Common in file processing / ETL.",
         "type": "memory"
       },
-      "layer": "code",
+      "layer": "application",
       "legacy_id": "ECO-PY-007",
       "ontology": {
         "system_layers": [
-          "Code"
-        ]
+          "application"
+        ],
+        "category_code": "CMP",
+        "family_code": "PY"
       },
       "rationale": "Streaming reduces peak memory and improves stability.",
       "remediation": {
         "guidance": "Stream/chunk reads; process iteratively.",
-        "tradeoffs": "May change downstream logic."
+        "tradeoffs": "May change downstream logic.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "Reading large files fully into memory increases peak RAM and risk of OOM.",
@@ -292,7 +343,12 @@
         "io"
       ],
       "tier": 2,
-      "title": "Loading entire file into memory"
+      "title": "Loading entire file into memory",
+      "sequence": 7,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-CMP-PY-008",
@@ -313,17 +369,20 @@
         "notes": "Worse with synchronous handlers.",
         "type": "io"
       },
-      "layer": "code",
+      "layer": "application",
       "legacy_id": "ECO-PY-008",
       "ontology": {
         "system_layers": [
-          "Code"
-        ]
+          "application"
+        ],
+        "category_code": "CMP",
+        "family_code": "PY"
       },
       "rationale": "Hot-path logging is a quiet tax on throughput and latency.",
       "remediation": {
         "guidance": "Reduce log volume; guard debug logs; sample where appropriate.",
-        "tradeoffs": "Less granular logs unless sampled."
+        "tradeoffs": "Less granular logs unless sampled.",
+        "examples": []
       },
       "severity": "note",
       "summary": "Logging in tight loops or request hot paths adds CPU and I/O overhead.",
@@ -333,7 +392,12 @@
         "io"
       ],
       "tier": 1,
-      "title": "Excessive logging in hot path"
+      "title": "Excessive logging in hot path",
+      "sequence": 8,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-CMP-PY-009",
@@ -354,17 +418,20 @@
         "notes": "Common in parsing pipelines.",
         "type": "cpu"
       },
-      "layer": "code",
+      "layer": "application",
       "legacy_id": "ECO-PY-009",
       "ontology": {
         "system_layers": [
-          "Code"
-        ]
+          "application"
+        ],
+        "category_code": "CMP",
+        "family_code": "PY"
       },
       "rationale": "Regex compilation is non-trivial; repeated compilation is wasted work.",
       "remediation": {
         "guidance": "Precompile regex at module init or reuse compiled patterns.",
-        "tradeoffs": "Minimal."
+        "tradeoffs": "Minimal.",
+        "examples": []
       },
       "severity": "note",
       "summary": "Compiling regex repeatedly wastes CPU; compile once and reuse.",
@@ -374,7 +441,12 @@
         "cpu"
       ],
       "tier": 1,
-      "title": "Repeated regex compilation"
+      "title": "Repeated regex compilation",
+      "sequence": 9,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-CMP-PY-010",
@@ -395,17 +467,20 @@
         "notes": "High impact when lookups are frequent.",
         "type": "cpu"
       },
-      "layer": "code",
+      "layer": "application",
       "legacy_id": "ECO-PY-010",
       "ontology": {
         "system_layers": [
-          "Code"
-        ]
+          "application"
+        ],
+        "category_code": "CMP",
+        "family_code": "PY"
       },
       "rationale": "O(n) lookups in loops are a common silent perf killer.",
       "remediation": {
         "guidance": "Use set/dict for membership-heavy operations.",
-        "tradeoffs": "Memory tradeoff for speed."
+        "tradeoffs": "Memory tradeoff for speed.",
+        "examples": []
       },
       "severity": "note",
       "summary": "Using lists for membership tests instead of sets/dicts increases CPU time.",
@@ -414,7 +489,12 @@
         "data-structures"
       ],
       "tier": 1,
-      "title": "Inefficient data structure choice"
+      "title": "Inefficient data structure choice",
+      "sequence": 10,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-CMP-PY-011",
@@ -435,17 +515,20 @@
         "notes": "Often appears in middleware layers.",
         "type": "cpu"
       },
-      "layer": "code",
+      "layer": "application",
       "legacy_id": "ECO-PY-011",
       "ontology": {
         "system_layers": [
-          "Code"
-        ]
+          "application"
+        ],
+        "category_code": "CMP",
+        "family_code": "PY"
       },
       "rationale": "Avoid churn converting structures when you can pass objects directly.",
       "remediation": {
         "guidance": "Avoid unnecessary encode/decode; serialize once at boundaries.",
-        "tradeoffs": "May require interface changes."
+        "tradeoffs": "May require interface changes.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "Serializing/deserializing repeatedly wastes CPU and increases latency.",
@@ -455,7 +538,12 @@
         "cpu"
       ],
       "tier": 1,
-      "title": "Repeated JSON serialization cycles"
+      "title": "Repeated JSON serialization cycles",
+      "sequence": 11,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-CMP-PY-012",
@@ -476,17 +564,20 @@
         "notes": "Often visible as p95/p99 regression.",
         "type": "latency"
       },
-      "layer": "code",
+      "layer": "application",
       "legacy_id": "ECO-PY-012",
       "ontology": {
         "system_layers": [
-          "Code"
-        ]
+          "application"
+        ],
+        "category_code": "CMP",
+        "family_code": "PY"
       },
       "rationale": "Requests should stay I/O bound when possible; CPU spikes reduce concurrency.",
       "remediation": {
         "guidance": "Offload CPU work to background jobs or optimize/compile hotspots.",
-        "tradeoffs": "Added system complexity."
+        "tradeoffs": "Added system complexity.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "CPU-heavy work in request handlers reduces throughput and increases latency.",
@@ -496,7 +587,12 @@
         "latency"
       ],
       "tier": 2,
-      "title": "CPU-bound work in request thread"
+      "title": "CPU-bound work in request thread",
+      "sequence": 12,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-CMP-PY-013",
@@ -517,17 +613,20 @@
         "notes": "High in analytics/ETL.",
         "type": "cpu"
       },
-      "layer": "code",
+      "layer": "application",
       "legacy_id": "ECO-PY-013",
       "ontology": {
         "system_layers": [
-          "Code"
-        ]
+          "application"
+        ],
+        "category_code": "CMP",
+        "family_code": "PY"
       },
       "rationale": "Vectorization reduces Python-level overhead dramatically.",
       "remediation": {
         "guidance": "Use vectorized ops or apply carefully; avoid iterrows in hot paths.",
-        "tradeoffs": "Learning curve / refactor time."
+        "tradeoffs": "Learning curve / refactor time.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "Row-wise pandas iteration is slow compared to vectorized operations.",
@@ -537,7 +636,12 @@
         "cpu"
       ],
       "tier": 1,
-      "title": "Inefficient pandas row iteration"
+      "title": "Inefficient pandas row iteration",
+      "sequence": 13,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-CMP-PY-014",
@@ -558,17 +662,20 @@
         "notes": "Small individually; measurable in hot loops.",
         "type": "cpu"
       },
-      "layer": "code",
+      "layer": "application",
       "legacy_id": "ECO-PY-014",
       "ontology": {
         "system_layers": [
-          "Code"
-        ]
+          "application"
+        ],
+        "category_code": "CMP",
+        "family_code": "PY"
       },
-      "rationale": "Load config once; don’t pay the lookup tax repeatedly.",
+      "rationale": "Load config once; don\u2019t pay the lookup tax repeatedly.",
       "remediation": {
         "guidance": "Read env/config once during startup; pass config explicitly.",
-        "tradeoffs": "Slight architecture changes."
+        "tradeoffs": "Slight architecture changes.",
+        "examples": []
       },
       "severity": "note",
       "summary": "Repeated env lookups in hot code paths add overhead and noise.",
@@ -577,7 +684,12 @@
         "config"
       ],
       "tier": 1,
-      "title": "Redundant environment variable lookups"
+      "title": "Redundant environment variable lookups",
+      "sequence": 14,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-CMP-PY-015",
@@ -598,17 +710,20 @@
         "notes": "High propagation; often causes outages.",
         "type": "latency"
       },
-      "layer": "code",
+      "layer": "application",
       "legacy_id": "ECO-PY-015",
       "ontology": {
         "system_layers": [
-          "Code"
-        ]
+          "application"
+        ],
+        "category_code": "CMP",
+        "family_code": "PY"
       },
       "rationale": "Connection setup is expensive and can overwhelm DB under load.",
       "remediation": {
         "guidance": "Use connection pooling and reuse sessions/clients.",
-        "tradeoffs": "Requires lifecycle management."
+        "tradeoffs": "Requires lifecycle management.",
+        "examples": []
       },
       "severity": "error",
       "summary": "Creating DB connections per request increases latency and resource churn.",
@@ -618,7 +733,12 @@
         "connections"
       ],
       "tier": 2,
-      "title": "Recreating database connections per request"
+      "title": "Recreating database connections per request",
+      "sequence": 15,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-CMP-PY-016",
@@ -639,17 +759,20 @@
         "notes": "Especially important in serverless/short-lived contexts.",
         "type": "latency"
       },
-      "layer": "architecture",
+      "layer": "service",
       "legacy_id": "ECO-PY-016",
       "ontology": {
         "system_layers": [
-          "Architecture"
-        ]
+          "service"
+        ],
+        "category_code": "CMP",
+        "family_code": "PY"
       },
       "rationale": "Pooling stabilizes performance and reduces wasted setup cost.",
       "remediation": {
         "guidance": "Enable and tune pooling; set max connections.",
-        "tradeoffs": "Tuning required to avoid saturation."
+        "tradeoffs": "Tuning required to avoid saturation.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "Lack of pooling increases connection churn, latency, and DB load.",
@@ -659,7 +782,12 @@
         "pooling"
       ],
       "tier": 2,
-      "title": "No connection pooling"
+      "title": "No connection pooling",
+      "sequence": 16,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-CMP-PY-017",
@@ -680,17 +808,20 @@
         "notes": "Often invisible until scale.",
         "type": "memory"
       },
-      "layer": "code",
+      "layer": "application",
       "legacy_id": "ECO-PY-017",
       "ontology": {
         "system_layers": [
-          "Code"
-        ]
+          "application"
+        ],
+        "category_code": "CMP",
+        "family_code": "PY"
       },
       "rationale": "Accidental retention prevents GC and inflates baseline memory footprint.",
       "remediation": {
         "guidance": "Avoid storing large payloads globally; use caching with eviction.",
-        "tradeoffs": "May require new cache strategy."
+        "tradeoffs": "May require new cache strategy.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "Long-lived globals can cause persistent memory bloat.",
@@ -699,7 +830,12 @@
         "memory"
       ],
       "tier": 2,
-      "title": "Large object retained in global scope"
+      "title": "Large object retained in global scope",
+      "sequence": 17,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-CMP-PY-018",
@@ -720,17 +856,20 @@
         "notes": "Depends on input size.",
         "type": "cpu"
       },
-      "layer": "code",
+      "layer": "application",
       "legacy_id": "ECO-PY-018",
       "ontology": {
         "system_layers": [
-          "Code"
-        ]
+          "application"
+        ],
+        "category_code": "CMP",
+        "family_code": "PY"
       },
       "rationale": "Recursion adds call overhead; unbounded recursion risks failure.",
       "remediation": {
         "guidance": "Consider iterative approaches or enforce depth limits.",
-        "tradeoffs": "Code rewrite."
+        "tradeoffs": "Code rewrite.",
+        "examples": []
       },
       "severity": "note",
       "summary": "Recursion without depth safeguards risks overhead and runtime errors.",
@@ -739,7 +878,12 @@
         "cpu"
       ],
       "tier": 1,
-      "title": "Recursive algorithm without safeguards"
+      "title": "Recursive algorithm without safeguards",
+      "sequence": 18,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-CMP-PY-019",
@@ -760,17 +904,20 @@
         "notes": "Often misused for I/O that could be async.",
         "type": "cpu"
       },
-      "layer": "code",
+      "layer": "application",
       "legacy_id": "ECO-PY-019",
       "ontology": {
         "system_layers": [
-          "Code"
-        ]
+          "application"
+        ],
+        "category_code": "CMP",
+        "family_code": "PY"
       },
       "rationale": "Thread creation and contention can reduce throughput and increase CPU waste.",
       "remediation": {
         "guidance": "Use thread pools, async I/O, or bounded concurrency.",
-        "tradeoffs": "Requires concurrency redesign."
+        "tradeoffs": "Requires concurrency redesign.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "Creating many threads increases overhead and contention.",
@@ -779,7 +926,12 @@
         "concurrency"
       ],
       "tier": 2,
-      "title": "Excessive thread spawning"
+      "title": "Excessive thread spawning",
+      "sequence": 19,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-CMP-PY-020",
@@ -800,17 +952,20 @@
         "notes": "High variance; often spikes p99.",
         "type": "latency"
       },
-      "layer": "code",
+      "layer": "application",
       "legacy_id": "ECO-PY-020",
       "ontology": {
         "system_layers": [
-          "Code"
-        ]
+          "application"
+        ],
+        "category_code": "CMP",
+        "family_code": "PY"
       },
       "rationale": "External process calls are expensive and unpredictable under load.",
       "remediation": {
         "guidance": "Avoid subprocess in request paths; cache results or move to background jobs.",
-        "tradeoffs": "Added system complexity."
+        "tradeoffs": "Added system complexity.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "Blocking subprocess calls increase latency and consume resources.",
@@ -820,7 +975,12 @@
         "latency"
       ],
       "tier": 2,
-      "title": "Synchronous subprocess invocation in hot path"
+      "title": "Synchronous subprocess invocation in hot path",
+      "sequence": 20,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-CMP-JS-001",
@@ -841,17 +1001,20 @@
         "notes": "High propagation in Node services.",
         "type": "latency"
       },
-      "layer": "code",
+      "layer": "application",
       "legacy_id": "ECO-JS-001",
       "ontology": {
         "system_layers": [
-          "Code"
-        ]
+          "application"
+        ],
+        "category_code": "CMP",
+        "family_code": "JS"
       },
       "rationale": "One blocking FS call can stall all concurrent requests in the same process.",
       "remediation": {
         "guidance": "Use async fs APIs (promises/callbacks).",
-        "tradeoffs": "Refactor required."
+        "tradeoffs": "Refactor required.",
+        "examples": []
       },
       "severity": "error",
       "summary": "Sync FS calls block the event loop and reduce concurrency.",
@@ -861,7 +1024,12 @@
         "blocking"
       ],
       "tier": 2,
-      "title": "Synchronous filesystem calls in request path"
+      "title": "Synchronous filesystem calls in request path",
+      "sequence": 1,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-CMP-JS-002",
@@ -886,13 +1054,16 @@
       "legacy_id": "ECO-JS-002",
       "ontology": {
         "system_layers": [
-          "Network"
-        ]
+          "network"
+        ],
+        "category_code": "CMP",
+        "family_code": "JS"
       },
       "rationale": "Polling wastes cycles when nothing changes; push shifts work to when it matters.",
       "remediation": {
         "guidance": "Use webhooks, SSE, websockets, or event-driven patterns.",
-        "tradeoffs": "More moving parts."
+        "tradeoffs": "More moving parts.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "Polling increases unnecessary network traffic and compute.",
@@ -902,7 +1073,12 @@
         "network"
       ],
       "tier": 2,
-      "title": "Polling instead of events"
+      "title": "Polling instead of events",
+      "sequence": 2,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-CMP-JS-003",
@@ -923,17 +1099,20 @@
         "notes": "Affects every page view.",
         "type": "network"
       },
-      "layer": "code",
+      "layer": "application",
       "legacy_id": "ECO-JS-003",
       "ontology": {
         "system_layers": [
-          "Code"
-        ]
+          "application"
+        ],
+        "category_code": "CMP",
+        "family_code": "JS"
       },
       "rationale": "Users pay for bytes and CPU; so do battery and emissions.",
       "remediation": {
         "guidance": "Enable tree-shaking, code splitting, and remove dead deps.",
-        "tradeoffs": "Build config changes."
+        "tradeoffs": "Build config changes.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "Large bundles increase transfer size, parse time, and energy use.",
@@ -943,7 +1122,12 @@
         "frontend"
       ],
       "tier": 1,
-      "title": "Large unoptimized bundles"
+      "title": "Large unoptimized bundles",
+      "sequence": 3,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-CMP-JS-004",
@@ -964,17 +1148,20 @@
         "notes": "Often progressive and hard to notice.",
         "type": "memory"
       },
-      "layer": "code",
+      "layer": "application",
       "legacy_id": "ECO-JS-004",
       "ontology": {
         "system_layers": [
-          "Code"
-        ]
+          "application"
+        ],
+        "category_code": "CMP",
+        "family_code": "JS"
       },
       "rationale": "Leaks increase baseline memory and trigger more GC work.",
       "remediation": {
         "guidance": "Remove listeners on cleanup; use weak refs where appropriate.",
-        "tradeoffs": "Requires lifecycle discipline."
+        "tradeoffs": "Requires lifecycle discipline.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "Unremoved listeners retain objects and increase memory over time.",
@@ -984,7 +1171,12 @@
         "leak"
       ],
       "tier": 2,
-      "title": "Memory leaks via event listeners"
+      "title": "Memory leaks via event listeners",
+      "sequence": 4,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-CMP-JS-005",
@@ -1005,17 +1197,20 @@
         "notes": "Use workers for heavy CPU work.",
         "type": "latency"
       },
-      "layer": "code",
+      "layer": "application",
       "legacy_id": "ECO-JS-005",
       "ontology": {
         "system_layers": [
-          "Code"
-        ]
+          "application"
+        ],
+        "category_code": "CMP",
+        "family_code": "JS"
       },
       "rationale": "Event loop stalls propagate to all concurrent requests.",
       "remediation": {
         "guidance": "Move CPU-heavy crypto to worker threads or native async APIs.",
-        "tradeoffs": "Complexity increase."
+        "tradeoffs": "Complexity increase.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "CPU-heavy crypto blocks the event loop and inflates latency.",
@@ -1025,7 +1220,12 @@
         "latency"
       ],
       "tier": 2,
-      "title": "Blocking crypto in event loop"
+      "title": "Blocking crypto in event loop",
+      "sequence": 5,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-CMP-JS-006",
@@ -1050,13 +1250,16 @@
       "legacy_id": "ECO-JS-006",
       "ontology": {
         "system_layers": [
-          "Network"
-        ]
+          "network"
+        ],
+        "category_code": "CMP",
+        "family_code": "JS"
       },
       "rationale": "Extra bytes multiply across users and calls.",
       "remediation": {
         "guidance": "Return only needed fields; use pagination and sparse responses.",
-        "tradeoffs": "API contract changes."
+        "tradeoffs": "API contract changes.",
+        "examples": []
       },
       "severity": "note",
       "summary": "Returning unused fields increases payload size and wasted processing.",
@@ -1066,7 +1269,12 @@
         "payload"
       ],
       "tier": 1,
-      "title": "Over-fetching API responses"
+      "title": "Over-fetching API responses",
+      "sequence": 6,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-CMP-JS-007",
@@ -1091,13 +1299,16 @@
       "legacy_id": "ECO-JS-007",
       "ontology": {
         "system_layers": [
-          "Network"
-        ]
+          "network"
+        ],
+        "category_code": "CMP",
+        "family_code": "JS"
       },
       "rationale": "Caching prevents repeated work; missing caching forces it.",
       "remediation": {
         "guidance": "Set Cache-Control/ETag; use immutable assets with hashes.",
-        "tradeoffs": "Requires proper build pipeline."
+        "tradeoffs": "Requires proper build pipeline.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "Missing cache headers causes repeated downloads and wasted bandwidth.",
@@ -1106,7 +1317,12 @@
         "caching"
       ],
       "tier": 2,
-      "title": "Missing HTTP caching headers (client-side)"
+      "title": "Missing HTTP caching headers (client-side)",
+      "sequence": 7,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-CMP-JS-008",
@@ -1127,17 +1343,20 @@
         "notes": "Common in complex UI interactions.",
         "type": "cpu"
       },
-      "layer": "code",
+      "layer": "application",
       "legacy_id": "ECO-JS-008",
       "ontology": {
         "system_layers": [
-          "Code"
-        ]
+          "application"
+        ],
+        "category_code": "CMP",
+        "family_code": "JS"
       },
       "rationale": "Repeated measure/mutate cycles trigger expensive layout work.",
       "remediation": {
         "guidance": "Batch DOM reads/writes; use requestAnimationFrame patterns.",
-        "tradeoffs": "Refactor UI code."
+        "tradeoffs": "Refactor UI code.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "Layout thrashing increases CPU and drains battery.",
@@ -1147,7 +1366,12 @@
         "performance"
       ],
       "tier": 1,
-      "title": "Excessive DOM reflow"
+      "title": "Excessive DOM reflow",
+      "sequence": 8,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-CMP-JS-009",
@@ -1168,17 +1392,20 @@
         "notes": "Depends on implementation.",
         "type": "memory"
       },
-      "layer": "code",
+      "layer": "application",
       "legacy_id": "ECO-JS-009",
       "ontology": {
         "system_layers": [
-          "Code"
-        ]
+          "application"
+        ],
+        "category_code": "CMP",
+        "family_code": "JS"
       },
       "rationale": "Unbounded async chains may create retention and scheduling overhead.",
       "remediation": {
         "guidance": "Bound retries; avoid recursion; use iterative loops with limits.",
-        "tradeoffs": "Logic changes."
+        "tradeoffs": "Logic changes.",
+        "examples": []
       },
       "severity": "note",
       "summary": "Long or recursive promise chains can leak work and increase memory usage.",
@@ -1187,7 +1414,12 @@
         "promises"
       ],
       "tier": 2,
-      "title": "Unbounded promise chains"
+      "title": "Unbounded promise chains",
+      "sequence": 9,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-CMP-JS-010",
@@ -1212,13 +1444,16 @@
       "legacy_id": "ECO-JS-010",
       "ontology": {
         "system_layers": [
-          "Network"
-        ]
+          "network"
+        ],
+        "category_code": "CMP",
+        "family_code": "JS"
       },
       "rationale": "Timeouts are a reliability boundary; missing them removes the boundary.",
       "remediation": {
         "guidance": "Use AbortController / client timeouts; set defaults.",
-        "tradeoffs": "Endpoint tuning."
+        "tradeoffs": "Endpoint tuning.",
+        "examples": []
       },
       "severity": "error",
       "summary": "Requests without timeouts hang and create cascading latency.",
@@ -1227,7 +1462,12 @@
         "timeouts"
       ],
       "tier": 2,
-      "title": "Missing request timeout"
+      "title": "Missing request timeout",
+      "sequence": 10,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-CMP-JS-011",
@@ -1248,17 +1488,20 @@
         "notes": "Context-dependent.",
         "type": "cpu"
       },
-      "layer": "code",
+      "layer": "application",
       "legacy_id": "ECO-JS-011",
       "ontology": {
         "system_layers": [
-          "Code"
-        ]
+          "application"
+        ],
+        "category_code": "CMP",
+        "family_code": "JS"
       },
       "rationale": "Map/filter/reduce chains can be fine, but in hot paths they add overhead.",
       "remediation": {
         "guidance": "Combine passes in hot paths; keep readability elsewhere.",
-        "tradeoffs": "Potential readability loss."
+        "tradeoffs": "Potential readability loss.",
+        "examples": []
       },
       "severity": "note",
       "summary": "Multiple passes over arrays increases CPU and GC overhead.",
@@ -1267,7 +1510,12 @@
         "cpu"
       ],
       "tier": 1,
-      "title": "Inefficient array transformations (multi-pass)"
+      "title": "Inefficient array transformations (multi-pass)",
+      "sequence": 11,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-CMP-JS-012",
@@ -1292,13 +1540,16 @@
       "legacy_id": "ECO-JS-012",
       "ontology": {
         "system_layers": [
-          "Network"
-        ]
+          "network"
+        ],
+        "category_code": "CMP",
+        "family_code": "JS"
       },
       "rationale": "Chattiness often comes from accidental rerenders and missing caching.",
       "remediation": {
         "guidance": "Cache results; dedupe requests; stabilize dependencies.",
-        "tradeoffs": "State management changes."
+        "tradeoffs": "State management changes.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "Repeated fetches on rerender waste network and CPU.",
@@ -1308,7 +1559,12 @@
         "network"
       ],
       "tier": 2,
-      "title": "Redundant API calls in component lifecycle"
+      "title": "Redundant API calls in component lifecycle",
+      "sequence": 12,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-CMP-JS-013",
@@ -1333,13 +1589,16 @@
       "legacy_id": "ECO-JS-013",
       "ontology": {
         "system_layers": [
-          "Network"
-        ]
+          "network"
+        ],
+        "category_code": "CMP",
+        "family_code": "JS"
       },
       "rationale": "Compression is one of the simplest bandwidth reductions.",
       "remediation": {
         "guidance": "Enable gzip/brotli; ensure proper caching.",
-        "tradeoffs": "Server/CDN config changes."
+        "tradeoffs": "Server/CDN config changes.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "Serving assets without compression increases bandwidth and energy use.",
@@ -1349,7 +1608,12 @@
         "compression"
       ],
       "tier": 2,
-      "title": "Uncompressed static assets"
+      "title": "Uncompressed static assets",
+      "sequence": 13,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-CMP-JS-014",
@@ -1370,17 +1634,20 @@
         "notes": "Visible as long tasks.",
         "type": "cpu"
       },
-      "layer": "code",
+      "layer": "application",
       "legacy_id": "ECO-JS-014",
       "ontology": {
         "system_layers": [
-          "Code"
-        ]
+          "application"
+        ],
+        "category_code": "CMP",
+        "family_code": "JS"
       },
       "rationale": "Main-thread CPU work directly impacts user experience and power use.",
       "remediation": {
         "guidance": "Move heavy compute to web workers; optimize algorithms.",
-        "tradeoffs": "More complexity."
+        "tradeoffs": "More complexity.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "Heavy CPU work on main thread harms responsiveness and drains battery.",
@@ -1389,7 +1656,12 @@
         "web-workers"
       ],
       "tier": 1,
-      "title": "Client-side heavy computation without workers"
+      "title": "Client-side heavy computation without workers",
+      "sequence": 14,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-CMP-JS-015",
@@ -1410,17 +1682,20 @@
         "notes": "Depends on render frequency.",
         "type": "cpu"
       },
-      "layer": "code",
+      "layer": "application",
       "legacy_id": "ECO-JS-015",
       "ontology": {
         "system_layers": [
-          "Code"
-        ]
+          "application"
+        ],
+        "category_code": "CMP",
+        "family_code": "JS"
       },
       "rationale": "Avoid unnecessary allocation churn in rendering loops.",
       "remediation": {
         "guidance": "Memoize stable objects; move creation outside render paths.",
-        "tradeoffs": "Potential for stale data if misused."
+        "tradeoffs": "Potential for stale data if misused.",
+        "examples": []
       },
       "severity": "note",
       "summary": "Allocating large objects repeatedly increases GC churn and CPU.",
@@ -1429,7 +1704,12 @@
         "allocations"
       ],
       "tier": 1,
-      "title": "Recreating large objects per render"
+      "title": "Recreating large objects per render",
+      "sequence": 15,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-CMP-JAVA-001",
@@ -1450,17 +1730,20 @@
         "notes": "Often shows up as p99 spikes.",
         "type": "cpu"
       },
-      "layer": "code",
+      "layer": "application",
       "legacy_id": "ECO-JAVA-001",
       "ontology": {
         "system_layers": [
-          "Code"
-        ]
+          "application"
+        ],
+        "category_code": "CMP",
+        "family_code": "JAVA"
       },
       "rationale": "Allocation churn increases GC frequency and tail latency.",
       "remediation": {
         "guidance": "Reduce allocations; reuse objects; optimize parsing.",
-        "tradeoffs": "May reduce readability."
+        "tradeoffs": "May reduce readability.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "High allocation rates increase GC pressure and CPU cost.",
@@ -1470,7 +1753,12 @@
         "allocations"
       ],
       "tier": 1,
-      "title": "Excessive object creation in hot path"
+      "title": "Excessive object creation in hot path",
+      "sequence": 1,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-CMP-JAVA-002",
@@ -1491,17 +1779,20 @@
         "notes": "High outage risk.",
         "type": "memory"
       },
-      "layer": "code",
+      "layer": "application",
       "legacy_id": "ECO-JAVA-002",
       "ontology": {
         "system_layers": [
-          "Code"
-        ]
+          "application"
+        ],
+        "category_code": "CMP",
+        "family_code": "JAVA"
       },
       "rationale": "Unbounded caches create memory bloat and instability.",
       "remediation": {
         "guidance": "Use bounded caches with eviction policies and TTL.",
-        "tradeoffs": "Possible cache misses; tune properly."
+        "tradeoffs": "Possible cache misses; tune properly.",
+        "examples": []
       },
       "severity": "error",
       "summary": "Caches without limits grow until they become the problem.",
@@ -1511,7 +1802,12 @@
         "memory"
       ],
       "tier": 2,
-      "title": "Unbounded cache growth"
+      "title": "Unbounded cache growth",
+      "sequence": 2,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-CMP-JAVA-003",
@@ -1532,17 +1828,20 @@
         "notes": "Tune to workload and downstream limits.",
         "type": "latency"
       },
-      "layer": "architecture",
+      "layer": "service",
       "legacy_id": "ECO-JAVA-003",
       "ontology": {
         "system_layers": [
-          "Architecture"
-        ]
+          "service"
+        ],
+        "category_code": "CMP",
+        "family_code": "JAVA"
       },
       "rationale": "Too many threads = contention; too few = underutilization and queues.",
       "remediation": {
         "guidance": "Tune pools; add backpressure; align with DB/HTTP limits.",
-        "tradeoffs": "Requires measurement."
+        "tradeoffs": "Requires measurement.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "Incorrect thread pool sizing can waste CPU or cause latency collapse.",
@@ -1552,7 +1851,12 @@
         "latency"
       ],
       "tier": 2,
-      "title": "Thread pool misconfiguration"
+      "title": "Thread pool misconfiguration",
+      "sequence": 3,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-CMP-JAVA-004",
@@ -1573,17 +1877,20 @@
         "notes": "Context-dependent.",
         "type": "cpu"
       },
-      "layer": "code",
+      "layer": "application",
       "legacy_id": "ECO-JAVA-004",
       "ontology": {
         "system_layers": [
-          "Code"
-        ]
+          "application"
+        ],
+        "category_code": "CMP",
+        "family_code": "JAVA"
       },
       "rationale": "Reflection is flexible, but expensive in tight loops.",
       "remediation": {
         "guidance": "Avoid reflection in hot paths; precompute accessors.",
-        "tradeoffs": "Reduced dynamism."
+        "tradeoffs": "Reduced dynamism.",
+        "examples": []
       },
       "severity": "note",
       "summary": "Reflection adds overhead and can inflate latency and CPU usage.",
@@ -1592,7 +1899,12 @@
         "cpu"
       ],
       "tier": 1,
-      "title": "Reflection in hot path"
+      "title": "Reflection in hot path",
+      "sequence": 4,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-CMP-JAVA-005",
@@ -1613,17 +1925,20 @@
         "notes": "Often severe at scale.",
         "type": "network"
       },
-      "layer": "code",
+      "layer": "application",
       "legacy_id": "ECO-JAVA-005",
       "ontology": {
         "system_layers": [
-          "Code"
-        ]
+          "application"
+        ],
+        "category_code": "CMP",
+        "family_code": "JAVA"
       },
       "rationale": "Hidden multiplicative cost for latency and DB load.",
       "remediation": {
         "guidance": "Use eager fetching, joins, or batch queries.",
-        "tradeoffs": "Tune memory and query plans."
+        "tradeoffs": "Tune memory and query plans.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "ORM queries inside loops multiply DB calls.",
@@ -1633,7 +1948,12 @@
         "database"
       ],
       "tier": 2,
-      "title": "N+1 ORM query pattern"
+      "title": "N+1 ORM query pattern",
+      "sequence": 5,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-CMP-JAVA-006",
@@ -1654,17 +1974,20 @@
         "notes": "High propagation under load.",
         "type": "latency"
       },
-      "layer": "architecture",
+      "layer": "service",
       "legacy_id": "ECO-JAVA-006",
       "ontology": {
         "system_layers": [
-          "Architecture"
-        ]
+          "service"
+        ],
+        "category_code": "CMP",
+        "family_code": "JAVA"
       },
       "rationale": "Connection setup is expensive; pooling stabilizes and reduces waste.",
       "remediation": {
         "guidance": "Use and tune a pool (e.g., HikariCP).",
-        "tradeoffs": "Must manage max connections."
+        "tradeoffs": "Must manage max connections.",
+        "examples": []
       },
       "severity": "error",
       "summary": "No pooling increases connection churn and DB overhead.",
@@ -1674,7 +1997,12 @@
         "pooling"
       ],
       "tier": 2,
-      "title": "Missing connection pooling"
+      "title": "Missing connection pooling",
+      "sequence": 6,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-CMP-JAVA-007",
@@ -1695,17 +2023,20 @@
         "notes": "High propagation risk.",
         "type": "latency"
       },
-      "layer": "code",
+      "layer": "application",
       "legacy_id": "ECO-JAVA-007",
       "ontology": {
         "system_layers": [
-          "Code"
-        ]
+          "application"
+        ],
+        "category_code": "CMP",
+        "family_code": "JAVA"
       },
       "rationale": "Reactive systems rely on non-blocking work to scale efficiently.",
       "remediation": {
         "guidance": "Use non-blocking APIs; isolate blocking work in bounded schedulers.",
-        "tradeoffs": "Complexity / tuning."
+        "tradeoffs": "Complexity / tuning.",
+        "examples": []
       },
       "severity": "error",
       "summary": "Blocking in reactive code collapses concurrency and throughput.",
@@ -1715,7 +2046,12 @@
         "blocking"
       ],
       "tier": 2,
-      "title": "Blocking calls in reactive pipeline"
+      "title": "Blocking calls in reactive pipeline",
+      "sequence": 7,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-CMP-JAVA-008",
@@ -1736,17 +2072,20 @@
         "notes": "Often visible as lock wait.",
         "type": "cpu"
       },
-      "layer": "code",
+      "layer": "application",
       "legacy_id": "ECO-JAVA-008",
       "ontology": {
         "system_layers": [
-          "Code"
-        ]
+          "application"
+        ],
+        "category_code": "CMP",
+        "family_code": "JAVA"
       },
       "rationale": "Contention turns CPU into waiting; throughput collapses under load.",
       "remediation": {
         "guidance": "Reduce lock scope; use concurrent structures; redesign hotspots.",
-        "tradeoffs": "Harder correctness work."
+        "tradeoffs": "Harder correctness work.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "Over-synchronization creates contention and wastes CPU.",
@@ -1755,7 +2094,12 @@
         "contention"
       ],
       "tier": 2,
-      "title": "Excessive synchronization contention"
+      "title": "Excessive synchronization contention",
+      "sequence": 8,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-CMP-JAVA-009",
@@ -1776,17 +2120,20 @@
         "notes": "Common in parsing/serialization bursts.",
         "type": "latency"
       },
-      "layer": "architecture",
+      "layer": "service",
       "legacy_id": "ECO-JAVA-009",
       "ontology": {
         "system_layers": [
-          "Architecture"
-        ]
+          "service"
+        ],
+        "category_code": "CMP",
+        "family_code": "JAVA"
       },
       "rationale": "Large allocations correlate strongly with p99 issues and waste.",
       "remediation": {
         "guidance": "Reduce allocations; stream processing; tune GC when needed.",
-        "tradeoffs": "Measurement required."
+        "tradeoffs": "Measurement required.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "Heap spikes increase GC pauses and tail latency.",
@@ -1796,7 +2143,12 @@
         "latency"
       ],
       "tier": 2,
-      "title": "Large heap allocation spikes"
+      "title": "Large heap allocation spikes",
+      "sequence": 9,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-CMP-JAVA-010",
@@ -1817,17 +2169,20 @@
         "notes": "Worse with sync appenders.",
         "type": "io"
       },
-      "layer": "code",
+      "layer": "application",
       "legacy_id": "ECO-JAVA-010",
       "ontology": {
         "system_layers": [
-          "Code"
-        ]
+          "application"
+        ],
+        "category_code": "CMP",
+        "family_code": "JAVA"
       },
       "rationale": "Logging can become a dominant cost under high throughput.",
       "remediation": {
         "guidance": "Lower verbosity; sample; avoid heavy string formatting unless enabled.",
-        "tradeoffs": "Less detail unless sampled."
+        "tradeoffs": "Less detail unless sampled.",
+        "examples": []
       },
       "severity": "note",
       "summary": "Verbose logs in hot paths waste CPU and I/O.",
@@ -1836,7 +2191,12 @@
         "logging"
       ],
       "tier": 1,
-      "title": "Debug logging in production hot path"
+      "title": "Debug logging in production hot path",
+      "sequence": 10,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-NET-NET-001",
@@ -1862,13 +2222,16 @@
       "legacy_id": "ECO-NET-001",
       "ontology": {
         "system_layers": [
-          "Network"
-        ]
+          "network"
+        ],
+        "category_code": "NET",
+        "family_code": "NET"
       },
       "rationale": "Caching prevents repeated network transfer and repeated compute.",
       "remediation": {
         "guidance": "Add Cache-Control/ETag; use immutable asset hashing where possible.",
-        "tradeoffs": "Requires cache invalidation discipline."
+        "tradeoffs": "Requires cache invalidation discipline.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "Missing cache headers causes repeated downloads and wasted work.",
@@ -1877,7 +2240,12 @@
         "caching"
       ],
       "tier": 2,
-      "title": "Missing HTTP caching headers"
+      "title": "Missing HTTP caching headers",
+      "sequence": 1,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-NET-NET-002",
@@ -1902,13 +2270,16 @@
       "legacy_id": "ECO-NET-002",
       "ontology": {
         "system_layers": [
-          "Network"
-        ]
+          "network"
+        ],
+        "category_code": "NET",
+        "family_code": "NET"
       },
       "rationale": "Compression is one of the simplest ways to reduce bytes transferred.",
       "remediation": {
         "guidance": "Enable gzip/brotli at CDN/load balancer/origin.",
-        "tradeoffs": "Minimal; watch CPU on origin if no CDN."
+        "tradeoffs": "Minimal; watch CPU on origin if no CDN.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "Serving text assets without compression increases bandwidth and energy use.",
@@ -1917,7 +2288,12 @@
         "compression"
       ],
       "tier": 2,
-      "title": "No gzip/brotli compression"
+      "title": "No gzip/brotli compression",
+      "sequence": 2,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-NET-NET-003",
@@ -1942,13 +2318,16 @@
       "legacy_id": "ECO-NET-003",
       "ontology": {
         "system_layers": [
-          "Network"
-        ]
+          "network"
+        ],
+        "category_code": "NET",
+        "family_code": "NET"
       },
       "rationale": "Chattiness multiplies overhead and failure points.",
       "remediation": {
         "guidance": "Aggregate requests, introduce caching, or redesign boundaries.",
-        "tradeoffs": "May reduce separation or increase payload size."
+        "tradeoffs": "May reduce separation or increase payload size.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "Many small calls increase latency and cross-service overhead.",
@@ -1957,7 +2336,12 @@
         "latency"
       ],
       "tier": 2,
-      "title": "Chatty microservice communication"
+      "title": "Chatty microservice communication",
+      "sequence": 3,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-NET-NET-004",
@@ -1982,13 +2366,16 @@
       "legacy_id": "ECO-NET-004",
       "ontology": {
         "system_layers": [
-          "Network"
-        ]
+          "network"
+        ],
+        "category_code": "NET",
+        "family_code": "NET"
       },
       "rationale": "Token validation and introspection can become a hidden multiplier.",
       "remediation": {
         "guidance": "Cache tokens/keys; prefer local validation when safe.",
-        "tradeoffs": "Must respect revocation semantics."
+        "tradeoffs": "Must respect revocation semantics.",
+        "examples": []
       },
       "severity": "note",
       "summary": "Repeated auth calls waste CPU and network and add latency.",
@@ -1997,7 +2384,12 @@
         "caching"
       ],
       "tier": 2,
-      "title": "Redundant authentication calls"
+      "title": "Redundant authentication calls",
+      "sequence": 4,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-NET-NET-005",
@@ -2025,13 +2417,16 @@
       "legacy_id": "ECO-NET-005",
       "ontology": {
         "system_layers": [
-          "Network"
-        ]
+          "network"
+        ],
+        "category_code": "NET",
+        "family_code": "NET"
       },
       "rationale": "Timeouts prevent hangs from turning into cascading failures.",
       "remediation": {
         "guidance": "Set explicit connect/read timeouts; standardize defaults.",
-        "tradeoffs": "Endpoint tuning required."
+        "tradeoffs": "Endpoint tuning required.",
+        "examples": []
       },
       "severity": "error",
       "summary": "Missing timeouts remove a critical reliability boundary for network calls.",
@@ -2040,7 +2435,12 @@
         "reliability"
       ],
       "tier": 2,
-      "title": "Missing timeouts"
+      "title": "Missing timeouts",
+      "sequence": 5,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-NET-NET-006",
@@ -2065,13 +2465,16 @@
       "legacy_id": "ECO-NET-006",
       "ontology": {
         "system_layers": [
-          "Network"
-        ]
+          "network"
+        ],
+        "category_code": "NET",
+        "family_code": "NET"
       },
       "rationale": "Connection reuse reduces repeated TLS and TCP setup.",
       "remediation": {
         "guidance": "Enable keep-alive; tune pools and idle timeouts.",
-        "tradeoffs": "Requires proper pool sizing."
+        "tradeoffs": "Requires proper pool sizing.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "Disabling keep-alive increases handshake overhead and latency.",
@@ -2080,7 +2483,12 @@
         "keep-alive"
       ],
       "tier": 2,
-      "title": "No connection reuse (keep-alive disabled)"
+      "title": "No connection reuse (keep-alive disabled)",
+      "sequence": 6,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-NET-NET-007",
@@ -2105,13 +2513,16 @@
       "legacy_id": "ECO-NET-007",
       "ontology": {
         "system_layers": [
-          "Network"
-        ]
+          "network"
+        ],
+        "category_code": "NET",
+        "family_code": "NET"
       },
       "rationale": "Retries without backoff turn a small outage into a system-wide incident.",
       "remediation": {
         "guidance": "Use exponential backoff + jitter; add circuit breakers; cap retries.",
-        "tradeoffs": "May reduce immediate success rate during blips."
+        "tradeoffs": "May reduce immediate success rate during blips.",
+        "examples": []
       },
       "severity": "error",
       "summary": "Aggressive retries amplify failures and increase waste.",
@@ -2120,7 +2531,12 @@
         "circuit-breaker"
       ],
       "tier": 2,
-      "title": "Excessive retry storms"
+      "title": "Excessive retry storms",
+      "sequence": 7,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-NET-NET-008",
@@ -2145,13 +2561,16 @@
       "legacy_id": "ECO-NET-008",
       "ontology": {
         "system_layers": [
-          "Network"
-        ]
+          "network"
+        ],
+        "category_code": "NET",
+        "family_code": "NET"
       },
       "rationale": "Extra bytes multiply across calls and users.",
       "remediation": {
         "guidance": "Use sparse fieldsets; avoid sending unused data.",
-        "tradeoffs": "API contract changes."
+        "tradeoffs": "API contract changes.",
+        "examples": []
       },
       "severity": "note",
       "summary": "Returning unnecessary fields increases payload size and processing.",
@@ -2160,7 +2579,12 @@
         "payload"
       ],
       "tier": 1,
-      "title": "Over-fetching API fields"
+      "title": "Over-fetching API fields",
+      "sequence": 8,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-NET-NET-009",
@@ -2185,13 +2609,16 @@
       "legacy_id": "ECO-NET-009",
       "ontology": {
         "system_layers": [
-          "Network"
-        ]
+          "network"
+        ],
+        "category_code": "NET",
+        "family_code": "NET"
       },
       "rationale": "Follow-up calls are hidden multiplicative cost.",
       "remediation": {
         "guidance": "Batch endpoints; design responses around common usage.",
-        "tradeoffs": "Bigger payloads in some cases."
+        "tradeoffs": "Bigger payloads in some cases.",
+        "examples": []
       },
       "severity": "note",
       "summary": "Responses missing needed data cause extra round trips.",
@@ -2200,7 +2627,12 @@
         "chattiness"
       ],
       "tier": 1,
-      "title": "Under-fetching causing follow-up calls"
+      "title": "Under-fetching causing follow-up calls",
+      "sequence": 9,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-NET-NET-010",
@@ -2225,13 +2657,16 @@
       "legacy_id": "ECO-NET-010",
       "ontology": {
         "system_layers": [
-          "Network"
-        ]
+          "network"
+        ],
+        "category_code": "NET",
+        "family_code": "NET"
       },
       "rationale": "Huge responses create spikes and slow clients and servers.",
       "remediation": {
         "guidance": "Introduce pagination, streaming, or filtering.",
-        "tradeoffs": "API redesign effort."
+        "tradeoffs": "API redesign effort.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "Large unpaginated responses increase memory and bandwidth waste.",
@@ -2239,7 +2674,12 @@
         "pagination"
       ],
       "tier": 2,
-      "title": "Large payloads without pagination"
+      "title": "Large payloads without pagination",
+      "sequence": 10,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-NET-NET-011",
@@ -2264,13 +2704,16 @@
       "legacy_id": "ECO-NET-011",
       "ontology": {
         "system_layers": [
-          "Network"
-        ]
+          "network"
+        ],
+        "category_code": "NET",
+        "family_code": "NET"
       },
       "rationale": "CDNs reduce transfer distance and offload repeated work from origin.",
       "remediation": {
         "guidance": "Use a CDN for static assets and cacheable endpoints.",
-        "tradeoffs": "Operational overhead and caching discipline."
+        "tradeoffs": "Operational overhead and caching discipline.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "Serving static content from origin increases latency and origin load.",
@@ -2279,7 +2722,12 @@
         "latency"
       ],
       "tier": 3,
-      "title": "No CDN usage for static content"
+      "title": "No CDN usage for static content",
+      "sequence": 11,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-NET-NET-012",
@@ -2304,13 +2752,16 @@
       "legacy_id": "ECO-NET-012",
       "ontology": {
         "system_layers": [
-          "Network"
-        ]
+          "network"
+        ],
+        "category_code": "NET",
+        "family_code": "NET"
       },
       "rationale": "Multiplexing and improved transport can reduce overhead and latency.",
       "remediation": {
         "guidance": "Enable HTTP/2+ on TLS endpoints; evaluate HTTP/3 at edge.",
-        "tradeoffs": "Operational complexity."
+        "tradeoffs": "Operational complexity.",
+        "examples": []
       },
       "severity": "note",
       "summary": "Older HTTP versions may reduce efficiency for multiplexed workloads.",
@@ -2319,7 +2770,12 @@
         "http3"
       ],
       "tier": 2,
-      "title": "No HTTP/2 or HTTP/3 where applicable"
+      "title": "No HTTP/2 or HTTP/3 where applicable",
+      "sequence": 12,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-NET-NET-013",
@@ -2344,13 +2800,16 @@
       "legacy_id": "ECO-NET-013",
       "ontology": {
         "system_layers": [
-          "Network"
-        ]
+          "network"
+        ],
+        "category_code": "NET",
+        "family_code": "NET"
       },
       "rationale": "A million clients polling becomes a distributed denial-of-wallet.",
       "remediation": {
         "guidance": "Use push mechanisms; increase intervals; add caching and ETags.",
-        "tradeoffs": "More event infrastructure."
+        "tradeoffs": "More event infrastructure.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "Frequent polling increases load even when nothing changes.",
@@ -2358,7 +2817,12 @@
         "polling"
       ],
       "tier": 2,
-      "title": "Excessive polling intervals"
+      "title": "Excessive polling intervals",
+      "sequence": 13,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-NET-NET-014",
@@ -2383,13 +2847,16 @@
       "legacy_id": "ECO-NET-014",
       "ontology": {
         "system_layers": [
-          "Network"
-        ]
+          "network"
+        ],
+        "category_code": "NET",
+        "family_code": "NET"
       },
       "rationale": "Distance multiplies latency and increases transfer cost.",
       "remediation": {
         "guidance": "Co-locate dependencies; async replicate; cache at edges.",
-        "tradeoffs": "Consistency tradeoffs."
+        "tradeoffs": "Consistency tradeoffs.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "Cross-region synchronous calls increase latency and cost.",
@@ -2398,7 +2865,12 @@
         "latency"
       ],
       "tier": 3,
-      "title": "Synchronous cross-region calls"
+      "title": "Synchronous cross-region calls",
+      "sequence": 14,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-NET-NET-015",
@@ -2424,13 +2896,16 @@
       "legacy_id": "ECO-NET-015",
       "ontology": {
         "system_layers": [
-          "Network"
-        ]
+          "network"
+        ],
+        "category_code": "NET",
+        "family_code": "NET"
       },
       "rationale": "Circuit breakers prevent repeated failing calls and protect upstream capacity.",
       "remediation": {
         "guidance": "Implement circuit breakers; define fallbacks and budgets.",
-        "tradeoffs": "Requires clear SLO thinking."
+        "tradeoffs": "Requires clear SLO thinking.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "Without circuit breakers, failures propagate and waste resources.",
@@ -2439,7 +2914,12 @@
         "reliability"
       ],
       "tier": 3,
-      "title": "Missing circuit breaker patterns"
+      "title": "Missing circuit breaker patterns",
+      "sequence": 15,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-ARC-ARCH-001",
@@ -2460,17 +2940,20 @@
         "notes": "Best detected via utilization trends.",
         "type": "cost"
       },
-      "layer": "architecture",
+      "layer": "service",
       "legacy_id": "ECO-ARCH-001",
       "ontology": {
         "system_layers": [
-          "Architecture"
-        ]
+          "service"
+        ],
+        "category_code": "ARC",
+        "family_code": "ARCH"
       },
       "rationale": "Over-provisioning is continuous waste: cost and emissions without benefit.",
       "remediation": {
         "guidance": "Right-size; reduce replicas; add autoscaling with guardrails.",
-        "tradeoffs": "Must validate against SLOs."
+        "tradeoffs": "Must validate against SLOs.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "Sustained low utilization suggests oversized instances or replicas.",
@@ -2481,7 +2964,12 @@
         "carbon"
       ],
       "tier": 3,
-      "title": "Over-provisioned compute"
+      "title": "Over-provisioned compute",
+      "sequence": 1,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-ARC-ARCH-002",
@@ -2502,17 +2990,20 @@
         "notes": "High if many services are idle.",
         "type": "carbon"
       },
-      "layer": "architecture",
+      "layer": "service",
       "legacy_id": "ECO-ARCH-002",
       "ontology": {
         "system_layers": [
-          "Architecture"
-        ]
+          "service"
+        ],
+        "category_code": "ARC",
+        "family_code": "ARCH"
       },
       "rationale": "Idle systems still consume energy and operational attention.",
       "remediation": {
         "guidance": "Evaluate scale-to-zero, serverless, or consolidation.",
-        "tradeoffs": "Cold starts / architecture changes."
+        "tradeoffs": "Cold starts / architecture changes.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "Services running 24/7 with low utilization create baseline waste.",
@@ -2521,7 +3012,12 @@
         "serverless"
       ],
       "tier": 3,
-      "title": "Always-on low-traffic service"
+      "title": "Always-on low-traffic service",
+      "sequence": 2,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-ARC-ARCH-003",
@@ -2542,17 +3038,20 @@
         "notes": "Common microservice anti-pattern.",
         "type": "latency"
       },
-      "layer": "architecture",
+      "layer": "service",
       "legacy_id": "ECO-ARCH-003",
       "ontology": {
         "system_layers": [
-          "Architecture"
-        ]
+          "service"
+        ],
+        "category_code": "ARC",
+        "family_code": "ARCH"
       },
       "rationale": "Chains multiply tail latency and increase coupled failure modes.",
       "remediation": {
         "guidance": "Introduce async boundaries, caching, or collapse hops.",
-        "tradeoffs": "Consistency and design tradeoffs."
+        "tradeoffs": "Consistency and design tradeoffs.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "Synchronous call chains amplify latency and failure propagation.",
@@ -2561,7 +3060,12 @@
         "latency"
       ],
       "tier": 3,
-      "title": "Long synchronous dependency chain"
+      "title": "Long synchronous dependency chain",
+      "sequence": 3,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-ARC-ARCH-004",
@@ -2582,17 +3086,20 @@
         "notes": "Both over- and under-provisioning risk.",
         "type": "cost"
       },
-      "layer": "architecture",
+      "layer": "service",
       "legacy_id": "ECO-ARCH-004",
       "ontology": {
         "system_layers": [
-          "Architecture"
-        ]
+          "service"
+        ],
+        "category_code": "ARC",
+        "family_code": "ARCH"
       },
       "rationale": "Static sizing is rarely correct across demand variability.",
       "remediation": {
         "guidance": "Add autoscaling with SLO guardrails and max limits.",
-        "tradeoffs": "Tuning required."
+        "tradeoffs": "Tuning required.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "Without scaling policies, systems drift into waste or fragility.",
@@ -2600,7 +3107,12 @@
         "autoscaling"
       ],
       "tier": 3,
-      "title": "No autoscaling policy"
+      "title": "No autoscaling policy",
+      "sequence": 4,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-ARC-ARCH-005",
@@ -2621,17 +3133,20 @@
         "notes": "Also drives over-provisioning for safety.",
         "type": "reliability"
       },
-      "layer": "architecture",
+      "layer": "service",
       "legacy_id": "ECO-ARCH-005",
       "ontology": {
         "system_layers": [
-          "Architecture"
-        ]
+          "service"
+        ],
+        "category_code": "ARC",
+        "family_code": "ARCH"
       },
       "rationale": "Limits are a boundary; without them, one workload can consume the cluster.",
       "remediation": {
         "guidance": "Set requests/limits; right-size with metrics.",
-        "tradeoffs": "Requires tuning to avoid throttling."
+        "tradeoffs": "Requires tuning to avoid throttling.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "Missing CPU/memory limits causes noisy-neighbor waste and instability.",
@@ -2640,7 +3155,12 @@
         "limits"
       ],
       "tier": 3,
-      "title": "No resource limits in containers"
+      "title": "No resource limits in containers",
+      "sequence": 5,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-ARC-ARCH-006",
@@ -2661,17 +3181,20 @@
         "notes": "High propagation under partial failures.",
         "type": "reliability"
       },
-      "layer": "architecture",
+      "layer": "service",
       "legacy_id": "ECO-ARCH-006",
       "ontology": {
         "system_layers": [
-          "Architecture"
-        ]
+          "service"
+        ],
+        "category_code": "ARC",
+        "family_code": "ARCH"
       },
       "rationale": "Unbounded queues become time bombs: cost, latency, and failure cascades.",
       "remediation": {
         "guidance": "Add backpressure, caps, DLQs, and shedding strategies.",
-        "tradeoffs": "Must define loss/priority behavior."
+        "tradeoffs": "Must define loss/priority behavior.",
+        "examples": []
       },
       "severity": "error",
       "summary": "Queues without bounds hide backpressure and create runaway cost.",
@@ -2680,7 +3203,12 @@
         "backpressure"
       ],
       "tier": 3,
-      "title": "Unbounded message queues"
+      "title": "Unbounded message queues",
+      "sequence": 6,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-ARC-ARCH-007",
@@ -2701,17 +3229,20 @@
         "notes": "Good target for quick savings.",
         "type": "cost"
       },
-      "layer": "architecture",
+      "layer": "service",
       "legacy_id": "ECO-ARCH-007",
       "ontology": {
         "system_layers": [
-          "Architecture"
-        ]
+          "service"
+        ],
+        "category_code": "ARC",
+        "family_code": "ARCH"
       },
       "rationale": "Many batch workloads run far more often than the business needs.",
       "remediation": {
         "guidance": "Right-size schedules; trigger on events; add change-detection.",
-        "tradeoffs": "More complex orchestration."
+        "tradeoffs": "More complex orchestration.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "Over-scheduling batch jobs wastes compute and increases cost.",
@@ -2720,7 +3251,12 @@
         "scheduling"
       ],
       "tier": 3,
-      "title": "Batch jobs run too frequently"
+      "title": "Batch jobs run too frequently",
+      "sequence": 7,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-ARC-ARCH-008",
@@ -2741,17 +3277,20 @@
         "notes": "Often large savings.",
         "type": "storage"
       },
-      "layer": "architecture",
+      "layer": "service",
       "legacy_id": "ECO-ARCH-008",
       "ontology": {
         "system_layers": [
-          "Architecture"
-        ]
+          "service"
+        ],
+        "category_code": "ARC",
+        "family_code": "ARCH"
       },
       "rationale": "Tiering aligns cost and energy with access patterns.",
       "remediation": {
         "guidance": "Introduce lifecycle policies and cold tiers.",
-        "tradeoffs": "Retrieval latency and costs."
+        "tradeoffs": "Retrieval latency and costs.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "Keeping cold data in hot tiers wastes storage spend and energy.",
@@ -2760,7 +3299,12 @@
         "tiering"
       ],
       "tier": 3,
-      "title": "Hot storage used for cold data"
+      "title": "Hot storage used for cold data",
+      "sequence": 8,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-ARC-ARCH-009",
@@ -2782,17 +3326,20 @@
         "notes": "Often found during audits.",
         "type": "cost"
       },
-      "layer": "architecture",
+      "layer": "service",
       "legacy_id": "ECO-ARCH-009",
       "ontology": {
         "system_layers": [
-          "Architecture"
-        ]
+          "service"
+        ],
+        "category_code": "ARC",
+        "family_code": "ARCH"
       },
       "rationale": "Duplication multiplies deploy, run, monitor, and patch overhead.",
       "remediation": {
         "guidance": "Consolidate responsibilities; retire redundant services.",
-        "tradeoffs": "Migration effort."
+        "tradeoffs": "Migration effort.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "Duplicate services increase operational load and waste compute.",
@@ -2801,7 +3348,12 @@
         "complexity"
       ],
       "tier": 3,
-      "title": "Duplicate services performing the same work"
+      "title": "Duplicate services performing the same work",
+      "sequence": 9,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-ARC-ARCH-010",
@@ -2823,17 +3375,20 @@
         "notes": "Systemic maturity issue.",
         "type": "cost"
       },
-      "layer": "architecture",
+      "layer": "service",
       "legacy_id": "ECO-ARCH-010",
       "ontology": {
         "system_layers": [
-          "Architecture"
-        ]
+          "service"
+        ],
+        "category_code": "ARC",
+        "family_code": "ARCH"
       },
-      "rationale": "You can’t reduce what you don’t see.",
+      "rationale": "You can\u2019t reduce what you don\u2019t see.",
       "remediation": {
         "guidance": "Instrument CPU/mem/QPS/latency; add dashboards and alerts.",
-        "tradeoffs": "Telemetry cost; requires curation."
+        "tradeoffs": "Telemetry cost; requires curation.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "Without utilization metrics, waste is invisible and persistent.",
@@ -2842,7 +3397,12 @@
         "metrics"
       ],
       "tier": 4,
-      "title": "No observability on utilization"
+      "title": "No observability on utilization",
+      "sequence": 10,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-ARC-ARCH-011",
@@ -2863,17 +3423,20 @@
         "notes": "Validate against SLOs.",
         "type": "cost"
       },
-      "layer": "architecture",
+      "layer": "service",
       "legacy_id": "ECO-ARCH-011",
       "ontology": {
         "system_layers": [
-          "Architecture"
-        ]
+          "service"
+        ],
+        "category_code": "ARC",
+        "family_code": "ARCH"
       },
       "rationale": "Replica counts often drift upward and never return.",
       "remediation": {
         "guidance": "Reduce replicas and add autoscaling with guardrails.",
-        "tradeoffs": "Risk if SLOs not defined."
+        "tradeoffs": "Risk if SLOs not defined.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "Too many replicas increase baseline waste.",
@@ -2882,7 +3445,12 @@
         "rightsizing"
       ],
       "tier": 3,
-      "title": "Excessive replica counts"
+      "title": "Excessive replica counts",
+      "sequence": 11,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-ARC-ARCH-012",
@@ -2904,17 +3472,20 @@
         "notes": "High in distributed systems.",
         "type": "reliability"
       },
-      "layer": "architecture",
+      "layer": "service",
       "legacy_id": "ECO-ARCH-012",
       "ontology": {
         "system_layers": [
-          "Architecture"
-        ]
+          "service"
+        ],
+        "category_code": "ARC",
+        "family_code": "ARCH"
       },
       "rationale": "Graceful degradation prevents overload collapse and retry storms.",
       "remediation": {
         "guidance": "Define shedding, fallbacks, and priority paths.",
-        "tradeoffs": "Product decisions required."
+        "tradeoffs": "Product decisions required.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "Without degradation, overload becomes failure and waste.",
@@ -2923,7 +3494,12 @@
         "degradation"
       ],
       "tier": 3,
-      "title": "No graceful degradation strategy"
+      "title": "No graceful degradation strategy",
+      "sequence": 12,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-ARC-ARCH-013",
@@ -2944,17 +3520,20 @@
         "notes": "Be careful with invalidation.",
         "type": "cpu"
       },
-      "layer": "architecture",
+      "layer": "service",
       "legacy_id": "ECO-ARCH-013",
       "ontology": {
         "system_layers": [
-          "Architecture"
-        ]
+          "service"
+        ],
+        "category_code": "ARC",
+        "family_code": "ARCH"
       },
       "rationale": "Caching reduces repeated work and improves latency.",
       "remediation": {
         "guidance": "Introduce caching at appropriate boundaries.",
-        "tradeoffs": "Invalidation complexity."
+        "tradeoffs": "Invalidation complexity.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "High-read systems without caching waste CPU and DB capacity.",
@@ -2962,7 +3541,12 @@
         "caching"
       ],
       "tier": 3,
-      "title": "No caching layer for high-read workloads"
+      "title": "No caching layer for high-read workloads",
+      "sequence": 13,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-ARC-ARCH-014",
@@ -2983,17 +3567,20 @@
         "notes": "Often structural.",
         "type": "cost"
       },
-      "layer": "architecture",
+      "layer": "service",
       "legacy_id": "ECO-ARCH-014",
       "ontology": {
         "system_layers": [
-          "Architecture"
-        ]
+          "service"
+        ],
+        "category_code": "ARC",
+        "family_code": "ARCH"
       },
       "rationale": "State creates coupling that increases baseline and peak waste.",
       "remediation": {
         "guidance": "Externalize state; use managed stores; reduce coupling.",
-        "tradeoffs": "Migration cost."
+        "tradeoffs": "Migration cost.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "Stateful designs make scaling expensive and fragile.",
@@ -3002,7 +3589,12 @@
         "scaling"
       ],
       "tier": 3,
-      "title": "Stateful services blocking scaling"
+      "title": "Stateful services blocking scaling",
+      "sequence": 14,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-ARC-ARCH-015",
@@ -3023,17 +3615,20 @@
         "notes": "Architecture review item.",
         "type": "reliability"
       },
-      "layer": "architecture",
+      "layer": "service",
       "legacy_id": "ECO-ARCH-015",
       "ontology": {
         "system_layers": [
-          "Architecture"
-        ]
+          "service"
+        ],
+        "category_code": "ARC",
+        "family_code": "ARCH"
       },
       "rationale": "Coupling drives accidental complexity and multiplies work.",
       "remediation": {
         "guidance": "Clarify boundaries; reduce synchronous dependencies.",
-        "tradeoffs": "Refactoring effort."
+        "tradeoffs": "Refactoring effort.",
+        "examples": []
       },
       "severity": "note",
       "summary": "Coupling increases coordination cost and failure propagation.",
@@ -3041,7 +3636,12 @@
         "coupling"
       ],
       "tier": 3,
-      "title": "Tight coupling across bounded contexts"
+      "title": "Tight coupling across bounded contexts",
+      "sequence": 15,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-ARC-ARCH-016",
@@ -3062,17 +3662,20 @@
         "notes": "Structural waste driver.",
         "type": "cost"
       },
-      "layer": "architecture",
+      "layer": "service",
       "legacy_id": "ECO-ARCH-016",
       "ontology": {
         "system_layers": [
-          "Architecture"
-        ]
+          "service"
+        ],
+        "category_code": "ARC",
+        "family_code": "ARCH"
       },
       "rationale": "Without isolation you overprovision to avoid incidents.",
       "remediation": {
         "guidance": "Add isolation, quotas, and per-tenant limits.",
-        "tradeoffs": "Complexity."
+        "tradeoffs": "Complexity.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "Lack of isolation causes noisy-neighbor waste and instability.",
@@ -3080,7 +3683,12 @@
         "multi-tenant"
       ],
       "tier": 3,
-      "title": "Multi-tenant workloads without isolation"
+      "title": "Multi-tenant workloads without isolation",
+      "sequence": 16,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-ARC-ARCH-017",
@@ -3101,17 +3709,20 @@
         "notes": "Often quick win.",
         "type": "network"
       },
-      "layer": "architecture",
+      "layer": "service",
       "legacy_id": "ECO-ARCH-017",
       "ontology": {
         "system_layers": [
-          "Architecture"
-        ]
+          "service"
+        ],
+        "category_code": "ARC",
+        "family_code": "ARCH"
       },
       "rationale": "Slim images reduce bandwidth and speed deploys.",
       "remediation": {
         "guidance": "Use multi-stage builds and minimal base images.",
-        "tradeoffs": "Build refactor."
+        "tradeoffs": "Build refactor.",
+        "examples": []
       },
       "severity": "note",
       "summary": "Large images increase pull time and wasted storage/transfer.",
@@ -3120,7 +3731,12 @@
         "images"
       ],
       "tier": 2,
-      "title": "Inefficient container image size"
+      "title": "Inefficient container image size",
+      "sequence": 17,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-ARC-ARCH-018",
@@ -3141,17 +3757,20 @@
         "notes": "Depends on platform.",
         "type": "latency"
       },
-      "layer": "architecture",
+      "layer": "service",
       "legacy_id": "ECO-ARCH-018",
       "ontology": {
         "system_layers": [
-          "Architecture"
-        ]
+          "service"
+        ],
+        "category_code": "ARC",
+        "family_code": "ARCH"
       },
       "rationale": "Poor cold starts often lead teams to keep things always-on.",
       "remediation": {
         "guidance": "Reduce init work; warm pools selectively; cache dependencies.",
-        "tradeoffs": "More tuning."
+        "tradeoffs": "More tuning.",
+        "examples": []
       },
       "severity": "note",
       "summary": "Cold starts inflate latency and may force overprovisioning.",
@@ -3159,7 +3778,12 @@
         "cold-start"
       ],
       "tier": 2,
-      "title": "No cold-start optimization"
+      "title": "No cold-start optimization",
+      "sequence": 18,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-ARC-ARCH-019",
@@ -3180,17 +3804,20 @@
         "notes": "Needs measurement.",
         "type": "cost"
       },
-      "layer": "architecture",
+      "layer": "service",
       "legacy_id": "ECO-ARCH-019",
       "ontology": {
         "system_layers": [
-          "Architecture"
-        ]
+          "service"
+        ],
+        "category_code": "ARC",
+        "family_code": "ARCH"
       },
       "rationale": "Thrash wastes compute and destabilizes latency.",
       "remediation": {
         "guidance": "Add stabilization windows and sane thresholds.",
-        "tradeoffs": "Slower response to spikes."
+        "tradeoffs": "Slower response to spikes.",
+        "examples": []
       },
       "severity": "note",
       "summary": "Aggressive scaling can cause thrash and wasted churn.",
@@ -3198,7 +3825,12 @@
         "autoscaling"
       ],
       "tier": 3,
-      "title": "Overly aggressive autoscaling thresholds"
+      "title": "Overly aggressive autoscaling thresholds",
+      "sequence": 19,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-ARC-ARCH-020",
@@ -3219,17 +3851,20 @@
         "notes": "High in AI workloads.",
         "type": "cost"
       },
-      "layer": "architecture",
+      "layer": "service",
       "legacy_id": "ECO-ARCH-020",
       "ontology": {
         "system_layers": [
-          "Architecture"
-        ]
+          "service"
+        ],
+        "category_code": "ARC",
+        "family_code": "ARCH"
       },
       "rationale": "GPU idle burn is expensive; schedule and batch workloads.",
       "remediation": {
         "guidance": "Consolidate workloads; enable autoscaling; batch inference.",
-        "tradeoffs": "Scheduling complexity."
+        "tradeoffs": "Scheduling complexity.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "Accelerators running idle waste significant power and cost.",
@@ -3238,7 +3873,12 @@
         "ai"
       ],
       "tier": 3,
-      "title": "Underutilized GPU/accelerator resources"
+      "title": "Underutilized GPU/accelerator resources",
+      "sequence": 20,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-DAT-DATA-001",
@@ -3264,13 +3904,16 @@
       "legacy_id": "ECO-DATA-001",
       "ontology": {
         "system_layers": [
-          "Data"
-        ]
+          "data"
+        ],
+        "category_code": "DAT",
+        "family_code": "DATA"
       },
       "rationale": "Duplication silently accumulates and multiplies downstream processing.",
       "remediation": {
         "guidance": "Deduplicate; normalize; define canonical sources.",
-        "tradeoffs": "Migration effort."
+        "tradeoffs": "Migration effort.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "Redundant data increases storage footprint and cost.",
@@ -3279,7 +3922,12 @@
         "duplication"
       ],
       "tier": 3,
-      "title": "Duplicate stored data"
+      "title": "Duplicate stored data",
+      "sequence": 1,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-DAT-DATA-002",
@@ -3305,13 +3953,16 @@
       "legacy_id": "ECO-DATA-002",
       "ontology": {
         "system_layers": [
-          "Data"
-        ]
+          "data"
+        ],
+        "category_code": "DAT",
+        "family_code": "DATA"
       },
       "rationale": "Without retention, storage becomes the default memory of the organization.",
       "remediation": {
         "guidance": "Define retention tiers and lifecycle automation.",
-        "tradeoffs": "Compliance alignment required."
+        "tradeoffs": "Compliance alignment required.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "No TTL/lifecycle policy causes unbounded data growth.",
@@ -3320,7 +3971,12 @@
         "governance"
       ],
       "tier": 4,
-      "title": "Missing retention policy"
+      "title": "Missing retention policy",
+      "sequence": 2,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-DAT-DATA-003",
@@ -3345,13 +4001,16 @@
       "legacy_id": "ECO-DATA-003",
       "ontology": {
         "system_layers": [
-          "Data"
-        ]
+          "data"
+        ],
+        "category_code": "DAT",
+        "family_code": "DATA"
       },
       "rationale": "Indexes are not free; they multiply storage and write cost.",
       "remediation": {
         "guidance": "Drop truly unused indexes; reassess queries.",
-        "tradeoffs": "Risk if usage stats incomplete."
+        "tradeoffs": "Risk if usage stats incomplete.",
+        "examples": []
       },
       "severity": "note",
       "summary": "Unused indexes waste storage and slow writes.",
@@ -3359,7 +4018,12 @@
         "indexes"
       ],
       "tier": 3,
-      "title": "Large unused indexes"
+      "title": "Large unused indexes",
+      "sequence": 3,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-DAT-DATA-004",
@@ -3384,13 +4048,16 @@
       "legacy_id": "ECO-DATA-004",
       "ontology": {
         "system_layers": [
-          "Data"
-        ]
+          "data"
+        ],
+        "category_code": "DAT",
+        "family_code": "DATA"
       },
       "rationale": "Logging without boundaries is a storage leak at organizational scale.",
       "remediation": {
         "guidance": "Set retention and tiering; sample where appropriate.",
-        "tradeoffs": "Less historical detail unless archived."
+        "tradeoffs": "Less historical detail unless archived.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "Indefinite log retention increases storage and cost without clear value.",
@@ -3399,7 +4066,12 @@
         "retention"
       ],
       "tier": 4,
-      "title": "Logs stored indefinitely"
+      "title": "Logs stored indefinitely",
+      "sequence": 4,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-DAT-DATA-005",
@@ -3424,13 +4096,16 @@
       "legacy_id": "ECO-DATA-005",
       "ontology": {
         "system_layers": [
-          "Data"
-        ]
+          "data"
+        ],
+        "category_code": "DAT",
+        "family_code": "DATA"
       },
       "rationale": "Scans scale poorly and waste compute as data grows.",
       "remediation": {
         "guidance": "Add appropriate indexes; rewrite queries; partition large tables.",
-        "tradeoffs": "Index/storage tradeoffs."
+        "tradeoffs": "Index/storage tradeoffs.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "Full scans increase CPU, IO, and latency for queries.",
@@ -3439,7 +4114,12 @@
         "query-plans"
       ],
       "tier": 3,
-      "title": "Full table scans without index"
+      "title": "Full table scans without index",
+      "sequence": 5,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-DAT-DATA-006",
@@ -3464,13 +4144,16 @@
       "legacy_id": "ECO-DATA-006",
       "ontology": {
         "system_layers": [
-          "Data"
-        ]
+          "data"
+        ],
+        "category_code": "DAT",
+        "family_code": "DATA"
       },
       "rationale": "Replication should match durability needs, not fear.",
       "remediation": {
         "guidance": "Right-size replication; use tiered durability patterns.",
-        "tradeoffs": "Risk if requirements misunderstood."
+        "tradeoffs": "Risk if requirements misunderstood.",
+        "examples": []
       },
       "severity": "note",
       "summary": "High replication increases storage and write amplification.",
@@ -3478,7 +4161,12 @@
         "replication"
       ],
       "tier": 3,
-      "title": "Excessive replication factor"
+      "title": "Excessive replication factor",
+      "sequence": 6,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-DAT-DATA-007",
@@ -3503,13 +4191,16 @@
       "legacy_id": "ECO-DATA-007",
       "ontology": {
         "system_layers": [
-          "Data"
-        ]
+          "data"
+        ],
+        "category_code": "DAT",
+        "family_code": "DATA"
       },
       "rationale": "Partitioning reduces scan scope and improves manageability.",
       "remediation": {
         "guidance": "Partition by time/key; enforce pruning; archive older partitions.",
-        "tradeoffs": "Migration complexity."
+        "tradeoffs": "Migration complexity.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "Large tables without partitioning lead to expensive queries and maintenance.",
@@ -3517,7 +4208,12 @@
         "partitioning"
       ],
       "tier": 3,
-      "title": "No partitioning for large tables"
+      "title": "No partitioning for large tables",
+      "sequence": 7,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-DAT-DATA-008",
@@ -3542,13 +4238,16 @@
       "legacy_id": "ECO-DATA-008",
       "ontology": {
         "system_layers": [
-          "Data"
-        ]
+          "data"
+        ],
+        "category_code": "DAT",
+        "family_code": "DATA"
       },
       "rationale": "Temporary data should expire; permanence requires justification.",
       "remediation": {
         "guidance": "Add TTL/expiration and lifecycle policies.",
-        "tradeoffs": "Risk if used unexpectedly later."
+        "tradeoffs": "Risk if used unexpectedly later.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "Ephemeral data kept forever becomes waste by default.",
@@ -3556,7 +4255,12 @@
         "retention"
       ],
       "tier": 4,
-      "title": "Storing ephemeral data permanently"
+      "title": "Storing ephemeral data permanently",
+      "sequence": 8,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-DAT-DATA-009",
@@ -3581,13 +4285,16 @@
       "legacy_id": "ECO-DATA-009",
       "ontology": {
         "system_layers": [
-          "Data"
-        ]
+          "data"
+        ],
+        "category_code": "DAT",
+        "family_code": "DATA"
       },
       "rationale": "Archival tiers align cost with access patterns.",
       "remediation": {
         "guidance": "Adopt tiering and retrieval policies.",
-        "tradeoffs": "Retrieval latency/cost."
+        "tradeoffs": "Retrieval latency/cost.",
+        "examples": []
       },
       "severity": "note",
       "summary": "Lack of archival tiering keeps costs and energy higher than necessary.",
@@ -3596,7 +4303,12 @@
         "tiering"
       ],
       "tier": 3,
-      "title": "No archival tier strategy"
+      "title": "No archival tier strategy",
+      "sequence": 9,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-DAT-DATA-010",
@@ -3621,13 +4333,16 @@
       "legacy_id": "ECO-DATA-010",
       "ontology": {
         "system_layers": [
-          "Data"
-        ]
+          "data"
+        ],
+        "category_code": "DAT",
+        "family_code": "DATA"
       },
       "rationale": "Replication should follow RPO/RTO requirements, not defaults.",
       "remediation": {
         "guidance": "Right-size DR and replication strategies.",
-        "tradeoffs": "Risk if requirements wrong."
+        "tradeoffs": "Risk if requirements wrong.",
+        "examples": []
       },
       "severity": "note",
       "summary": "Cross-region replication can add cost and complexity beyond needs.",
@@ -3635,7 +4350,12 @@
         "cross-region"
       ],
       "tier": 3,
-      "title": "Overly aggressive replication across regions"
+      "title": "Overly aggressive replication across regions",
+      "sequence": 10,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-DAT-DATA-011",
@@ -3660,13 +4380,16 @@
       "legacy_id": "ECO-DATA-011",
       "ontology": {
         "system_layers": [
-          "Data"
-        ]
+          "data"
+        ],
+        "category_code": "DAT",
+        "family_code": "DATA"
       },
       "rationale": "Compression reduces stored bytes and transfer cost.",
       "remediation": {
         "guidance": "Compress at write; enforce content-encoding where appropriate.",
-        "tradeoffs": "CPU overhead at read/write."
+        "tradeoffs": "CPU overhead at read/write.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "Uncompressed objects waste storage and bandwidth.",
@@ -3675,7 +4398,12 @@
         "object-storage"
       ],
       "tier": 3,
-      "title": "Lack of compression in object storage"
+      "title": "Lack of compression in object storage",
+      "sequence": 11,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-DAT-DATA-012",
@@ -3701,13 +4429,16 @@
       "legacy_id": "ECO-DATA-012",
       "ontology": {
         "system_layers": [
-          "Data"
-        ]
+          "data"
+        ],
+        "category_code": "DAT",
+        "family_code": "DATA"
       },
       "rationale": "Analytics engines will happily burn money unless bounded.",
       "remediation": {
         "guidance": "Add quotas, limits, and guardrails; require partition filters.",
-        "tradeoffs": "May restrict ad-hoc exploration."
+        "tradeoffs": "May restrict ad-hoc exploration.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "Unbounded queries cause runaway compute and unpredictable cost.",
@@ -3716,7 +4447,12 @@
         "cost"
       ],
       "tier": 3,
-      "title": "Unbounded analytics queries"
+      "title": "Unbounded analytics queries",
+      "sequence": 12,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-DAT-DATA-013",
@@ -3741,13 +4477,16 @@
       "legacy_id": "ECO-DATA-013",
       "ontology": {
         "system_layers": [
-          "Data"
-        ]
+          "data"
+        ],
+        "category_code": "DAT",
+        "family_code": "DATA"
       },
       "rationale": "Without governance, retention becomes accidental and expensive.",
       "remediation": {
         "guidance": "Define lifecycle owners, policies, and audits.",
-        "tradeoffs": "Org change work."
+        "tradeoffs": "Org change work.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "Lack of lifecycle governance leads to perpetual growth and shadow datasets.",
@@ -3755,7 +4494,12 @@
         "governance"
       ],
       "tier": 4,
-      "title": "No data lifecycle governance"
+      "title": "No data lifecycle governance",
+      "sequence": 13,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-DAT-DATA-014",
@@ -3780,13 +4524,16 @@
       "legacy_id": "ECO-DATA-014",
       "ontology": {
         "system_layers": [
-          "Data"
-        ]
+          "data"
+        ],
+        "category_code": "DAT",
+        "family_code": "DATA"
       },
       "rationale": "Stale flags increase cognitive load and sometimes runtime branching costs.",
       "remediation": {
         "guidance": "Set expiration dates and cleanup workflows.",
-        "tradeoffs": "Requires discipline."
+        "tradeoffs": "Requires discipline.",
+        "examples": []
       },
       "severity": "note",
       "summary": "Feature flags left indefinitely add complexity and runtime overhead.",
@@ -3794,7 +4541,12 @@
         "feature-flags"
       ],
       "tier": 2,
-      "title": "Stale feature flags accumulating"
+      "title": "Stale feature flags accumulating",
+      "sequence": 14,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-DAT-DATA-015",
@@ -3819,13 +4571,16 @@
       "legacy_id": "ECO-DATA-015",
       "ontology": {
         "system_layers": [
-          "Data"
-        ]
+          "data"
+        ],
+        "category_code": "DAT",
+        "family_code": "DATA"
       },
       "rationale": "Shadow stores multiply cost and make lifecycle impossible to enforce.",
       "remediation": {
         "guidance": "Inventory data stores; establish canonical sources and policies.",
-        "tradeoffs": "Political and organizational effort."
+        "tradeoffs": "Political and organizational effort.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "Unofficial copies create duplicated storage and compliance risk.",
@@ -3833,7 +4588,12 @@
         "shadow-it"
       ],
       "tier": 4,
-      "title": "Shadow data stores outside governance"
+      "title": "Shadow data stores outside governance",
+      "sequence": 15,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-AIM-AI-001",
@@ -3859,13 +4619,16 @@
       "legacy_id": "ECO-AI-001",
       "ontology": {
         "system_layers": [
-          "AI/ML"
-        ]
+          "application"
+        ],
+        "category_code": "AIM",
+        "family_code": "AI"
       },
       "rationale": "Model size is a direct multiplier for compute and energy.",
       "remediation": {
         "guidance": "Benchmark smaller models and quantify tradeoffs before scaling.",
-        "tradeoffs": "May reduce marginal quality."
+        "tradeoffs": "May reduce marginal quality.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "Using larger models than needed increases inference cost and emissions.",
@@ -3874,7 +4637,12 @@
         "model-selection"
       ],
       "tier": 3,
-      "title": "Oversized model selection"
+      "title": "Oversized model selection",
+      "sequence": 1,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-AIM-AI-002",
@@ -3900,13 +4668,16 @@
       "legacy_id": "ECO-AI-002",
       "ontology": {
         "system_layers": [
-          "AI/ML"
-        ]
+          "application"
+        ],
+        "category_code": "AIM",
+        "family_code": "AI"
       },
       "rationale": "Batching improves throughput and reduces overhead per token/request.",
       "remediation": {
         "guidance": "Introduce batching at gateway/inference server.",
-        "tradeoffs": "Added latency for low volume; needs tuning."
+        "tradeoffs": "Added latency for low volume; needs tuning.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "No batching increases per-request overhead and lowers throughput.",
@@ -3915,7 +4686,12 @@
         "batching"
       ],
       "tier": 2,
-      "title": "No inference batching"
+      "title": "No inference batching",
+      "sequence": 2,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-AIM-AI-003",
@@ -3940,13 +4716,16 @@
       "legacy_id": "ECO-AI-003",
       "ontology": {
         "system_layers": [
-          "AI/ML"
-        ]
+          "application"
+        ],
+        "category_code": "AIM",
+        "family_code": "AI"
       },
       "rationale": "Embeddings should be cached based on content hash/version.",
       "remediation": {
         "guidance": "Cache embeddings; invalidate on content change only.",
-        "tradeoffs": "Cache management."
+        "tradeoffs": "Cache management.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "Recomputing embeddings for unchanged inputs wastes compute.",
@@ -3955,7 +4734,12 @@
         "embeddings"
       ],
       "tier": 2,
-      "title": "Re-embedding unchanged data"
+      "title": "Re-embedding unchanged data",
+      "sequence": 3,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-AIM-AI-004",
@@ -3981,13 +4765,16 @@
       "legacy_id": "ECO-AI-004",
       "ontology": {
         "system_layers": [
-          "AI/ML"
-        ]
+          "application"
+        ],
+        "category_code": "AIM",
+        "family_code": "AI"
       },
       "rationale": "Many prompts are repetitive; caching reduces repeated work.",
       "remediation": {
         "guidance": "Cache deterministic responses with TTL and safe scoping.",
-        "tradeoffs": "Risk of staleness; privacy considerations."
+        "tradeoffs": "Risk of staleness; privacy considerations.",
+        "examples": []
       },
       "severity": "note",
       "summary": "Repeated prompts without caching waste tokens and compute.",
@@ -3996,7 +4783,12 @@
         "caching"
       ],
       "tier": 2,
-      "title": "No prompt caching"
+      "title": "No prompt caching",
+      "sequence": 4,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-AIM-AI-005",
@@ -4021,13 +4813,16 @@
       "legacy_id": "ECO-AI-005",
       "ontology": {
         "system_layers": [
-          "AI/ML"
-        ]
+          "application"
+        ],
+        "category_code": "AIM",
+        "family_code": "AI"
       },
       "rationale": "Idle accelerators still burn power; scale needs boundaries.",
       "remediation": {
         "guidance": "Autoscale; scale-to-zero where feasible; consolidate endpoints.",
-        "tradeoffs": "Cold starts and scheduling complexity."
+        "tradeoffs": "Cold starts and scheduling complexity.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "Always-on endpoints waste baseline compute when idle.",
@@ -4036,7 +4831,12 @@
         "scale-to-zero"
       ],
       "tier": 3,
-      "title": "Always-on inference endpoints"
+      "title": "Always-on inference endpoints",
+      "sequence": 5,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-AIM-AI-006",
@@ -4062,13 +4862,16 @@
       "legacy_id": "ECO-AI-006",
       "ontology": {
         "system_layers": [
-          "AI/ML"
-        ]
+          "application"
+        ],
+        "category_code": "AIM",
+        "family_code": "AI"
       },
       "rationale": "Token usage is a direct multiplier for cost and energy.",
       "remediation": {
         "guidance": "Summarize, retrieve selectively, and cap context intentionally.",
-        "tradeoffs": "Requires prompt/pipeline design."
+        "tradeoffs": "Requires prompt/pipeline design.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "Excessive context increases token cost and latency.",
@@ -4077,7 +4880,12 @@
         "context-window"
       ],
       "tier": 2,
-      "title": "Unbounded context window usage"
+      "title": "Unbounded context window usage",
+      "sequence": 6,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-AIM-AI-007",
@@ -4102,13 +4910,16 @@
       "legacy_id": "ECO-AI-007",
       "ontology": {
         "system_layers": [
-          "AI/ML"
-        ]
+          "application"
+        ],
+        "category_code": "AIM",
+        "family_code": "AI"
       },
       "rationale": "Quantization can reduce compute cost with acceptable quality tradeoffs.",
       "remediation": {
         "guidance": "Evaluate quantization for inference workloads.",
-        "tradeoffs": "Potential quality/compatibility changes."
+        "tradeoffs": "Potential quality/compatibility changes.",
+        "examples": []
       },
       "severity": "note",
       "summary": "Failure to quantize when appropriate wastes inference compute.",
@@ -4117,7 +4928,12 @@
         "quantization"
       ],
       "tier": 3,
-      "title": "No model quantization"
+      "title": "No model quantization",
+      "sequence": 7,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-AIM-AI-008",
@@ -4142,13 +4958,16 @@
       "legacy_id": "ECO-AI-008",
       "ontology": {
         "system_layers": [
-          "AI/ML"
-        ]
+          "application"
+        ],
+        "category_code": "AIM",
+        "family_code": "AI"
       },
       "rationale": "Training should be triggered by need, not habit.",
       "remediation": {
         "guidance": "Add drift detection and training triggers.",
-        "tradeoffs": "Monitoring complexity."
+        "tradeoffs": "Monitoring complexity.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "Training without drift checks wastes compute and introduces risk.",
@@ -4157,7 +4976,12 @@
         "training"
       ],
       "tier": 3,
-      "title": "Re-training without drift detection"
+      "title": "Re-training without drift detection",
+      "sequence": 8,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-AIM-AI-009",
@@ -4182,13 +5006,16 @@
       "legacy_id": "ECO-AI-009",
       "ontology": {
         "system_layers": [
-          "AI/ML"
-        ]
+          "application"
+        ],
+        "category_code": "AIM",
+        "family_code": "AI"
       },
       "rationale": "Scale should follow evidence, not excitement.",
       "remediation": {
         "guidance": "Require eval gates before scaling model size/traffic.",
-        "tradeoffs": "Slower rollout."
+        "tradeoffs": "Slower rollout.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "Scaling without evaluation wastes resources and can degrade outcomes.",
@@ -4197,7 +5024,12 @@
         "evaluation"
       ],
       "tier": 3,
-      "title": "No evaluation before scaling model"
+      "title": "No evaluation before scaling model",
+      "sequence": 9,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-AIM-AI-010",
@@ -4222,13 +5054,16 @@
       "legacy_id": "ECO-AI-010",
       "ontology": {
         "system_layers": [
-          "AI/ML"
-        ]
+          "application"
+        ],
+        "category_code": "AIM",
+        "family_code": "AI"
       },
       "rationale": "Tuning cycles should be justified by measurable benefit.",
       "remediation": {
         "guidance": "Set tuning cadence based on outcomes and drift.",
-        "tradeoffs": "May delay improvements."
+        "tradeoffs": "May delay improvements.",
+        "examples": []
       },
       "severity": "note",
       "summary": "Frequent tuning without clear value wastes compute.",
@@ -4237,7 +5072,12 @@
         "finetuning"
       ],
       "tier": 3,
-      "title": "Overly frequent fine-tuning cycles"
+      "title": "Overly frequent fine-tuning cycles",
+      "sequence": 10,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-AIM-AI-011",
@@ -4262,13 +5102,16 @@
       "legacy_id": "ECO-AI-011",
       "ontology": {
         "system_layers": [
-          "AI/ML"
-        ]
+          "application"
+        ],
+        "category_code": "AIM",
+        "family_code": "AI"
       },
       "rationale": "Embeddings are data; they need lifecycle rules too.",
       "remediation": {
         "guidance": "Apply retention and tiering; delete stale embeddings.",
-        "tradeoffs": "Must re-embed when needed."
+        "tradeoffs": "Must re-embed when needed.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "Embedding stores without retention grow unbounded and expensive.",
@@ -4278,7 +5121,12 @@
         "retention"
       ],
       "tier": 4,
-      "title": "Storing all embeddings indefinitely"
+      "title": "Storing all embeddings indefinitely",
+      "sequence": 11,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-AIM-AI-012",
@@ -4303,13 +5151,16 @@
       "legacy_id": "ECO-AI-012",
       "ontology": {
         "system_layers": [
-          "AI/ML"
-        ]
+          "application"
+        ],
+        "category_code": "AIM",
+        "family_code": "AI"
       },
       "rationale": "Model choice should match workload needs, not default to maximum.",
       "remediation": {
         "guidance": "Tier models by use case; route requests by need.",
-        "tradeoffs": "Routing complexity."
+        "tradeoffs": "Routing complexity.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "Using high-cost models where latency/quality needs are modest wastes resources.",
@@ -4318,7 +5169,12 @@
         "rightsizing"
       ],
       "tier": 3,
-      "title": "Large model in low-SLA workload"
+      "title": "Large model in low-SLA workload",
+      "sequence": 12,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-AIM-AI-013",
@@ -4343,13 +5199,16 @@
       "legacy_id": "ECO-AI-013",
       "ontology": {
         "system_layers": [
-          "AI/ML"
-        ]
+          "application"
+        ],
+        "category_code": "AIM",
+        "family_code": "AI"
       },
-      "rationale": "You can’t right-size accelerators without seeing utilization.",
+      "rationale": "You can\u2019t right-size accelerators without seeing utilization.",
       "remediation": {
         "guidance": "Add GPU metrics, dashboards, and alerts.",
-        "tradeoffs": "Telemetry overhead."
+        "tradeoffs": "Telemetry overhead.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "Without GPU utilization metrics, accelerator waste stays invisible.",
@@ -4358,7 +5217,12 @@
         "observability"
       ],
       "tier": 4,
-      "title": "No GPU utilization monitoring"
+      "title": "No GPU utilization monitoring",
+      "sequence": 13,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-AIM-AI-014",
@@ -4383,13 +5247,16 @@
       "legacy_id": "ECO-AI-014",
       "ontology": {
         "system_layers": [
-          "AI/ML"
-        ]
+          "application"
+        ],
+        "category_code": "AIM",
+        "family_code": "AI"
       },
       "rationale": "Preprocessing is often a hidden cost multiplier.",
       "remediation": {
         "guidance": "Cache features; vectorize; batch transforms.",
-        "tradeoffs": "Complexity."
+        "tradeoffs": "Complexity.",
+        "examples": []
       },
       "severity": "note",
       "summary": "Preprocessing waste increases training and inference cost.",
@@ -4398,7 +5265,12 @@
         "pipelines"
       ],
       "tier": 2,
-      "title": "Inefficient feature preprocessing pipelines"
+      "title": "Inefficient feature preprocessing pipelines",
+      "sequence": 14,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-AIM-AI-015",
@@ -4423,13 +5295,16 @@
       "legacy_id": "ECO-AI-015",
       "ontology": {
         "system_layers": [
-          "AI/ML"
-        ]
+          "application"
+        ],
+        "category_code": "AIM",
+        "family_code": "AI"
       },
       "rationale": "Batching reduces per-request overhead for retrieval.",
       "remediation": {
         "guidance": "Batch retrieval queries where possible.",
-        "tradeoffs": "May add slight latency."
+        "tradeoffs": "May add slight latency.",
+        "examples": []
       },
       "severity": "note",
       "summary": "Unbatched vector queries increase overhead and reduce throughput.",
@@ -4438,7 +5313,12 @@
         "vector-search"
       ],
       "tier": 2,
-      "title": "No batching of vector search queries"
+      "title": "No batching of vector search queries",
+      "sequence": 15,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      }
     },
     {
       "canonical_id": "ECO-ORG-PROC-001",
@@ -4464,7 +5344,8 @@
       "rationale": "Budgets make efficiency intentional instead of accidental.",
       "remediation": {
         "guidance": "Define performance budgets per service and user journey.",
-        "tradeoffs": "Requires measurement agreement."
+        "tradeoffs": "Requires measurement agreement.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "Without explicit budgets, performance and efficiency drift.",
@@ -4473,7 +5354,19 @@
         "budgets"
       ],
       "tier": 4,
-      "title": "No performance budget defined"
+      "title": "No performance budget defined",
+      "sequence": 1,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      },
+      "ontology": {
+        "category_code": "ORG",
+        "family_code": "PROC",
+        "system_layers": [
+          "process"
+        ]
+      }
     },
     {
       "canonical_id": "ECO-ORG-PROC-002",
@@ -4499,16 +5392,29 @@
       "rationale": "Baseline-first prevents wasted optimization cycles and false wins.",
       "remediation": {
         "guidance": "Establish baselines before optimization; track before/after.",
-        "tradeoffs": "Instrumentation effort."
+        "tradeoffs": "Instrumentation effort.",
+        "examples": []
       },
       "severity": "warning",
-      "summary": "Without baseline data, improvements can’t be validated.",
+      "summary": "Without baseline data, improvements can\u2019t be validated.",
       "tags": [
         "measurement",
         "baseline"
       ],
       "tier": 4,
-      "title": "No baseline measurement"
+      "title": "No baseline measurement",
+      "sequence": 2,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      },
+      "ontology": {
+        "category_code": "ORG",
+        "family_code": "PROC",
+        "system_layers": [
+          "process"
+        ]
+      }
     },
     {
       "canonical_id": "ECO-ORG-PROC-003",
@@ -4531,10 +5437,11 @@
       },
       "layer": "process",
       "legacy_id": "ECO-PROC-003",
-      "rationale": "If teams can’t see cost per service, they can’t act on it.",
+      "rationale": "If teams can\u2019t see cost per service, they can\u2019t act on it.",
       "remediation": {
         "guidance": "Implement cost allocation, tagging, and service-level chargeback/showback.",
-        "tradeoffs": "Org/process change."
+        "tradeoffs": "Org/process change.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "Without cost attribution, waste persists unmanaged.",
@@ -4543,7 +5450,19 @@
         "cost"
       ],
       "tier": 4,
-      "title": "No cost observability"
+      "title": "No cost observability",
+      "sequence": 3,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      },
+      "ontology": {
+        "category_code": "ORG",
+        "family_code": "PROC",
+        "system_layers": [
+          "process"
+        ]
+      }
     },
     {
       "canonical_id": "ECO-ORG-PROC-004",
@@ -4569,16 +5488,29 @@
       "rationale": "Carbon awareness is an input to better tradeoffs, not moral theater.",
       "remediation": {
         "guidance": "Add carbon estimates to reporting; tie to decision points.",
-        "tradeoffs": "Estimation uncertainty."
+        "tradeoffs": "Estimation uncertainty.",
+        "examples": []
       },
       "severity": "note",
-      "summary": "Without carbon signals, teams can’t optimize responsibly.",
+      "summary": "Without carbon signals, teams can\u2019t optimize responsibly.",
       "tags": [
         "carbon",
         "governance"
       ],
       "tier": 4,
-      "title": "No carbon awareness"
+      "title": "No carbon awareness",
+      "sequence": 4,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      },
+      "ontology": {
+        "category_code": "ORG",
+        "family_code": "PROC",
+        "system_layers": [
+          "process"
+        ]
+      }
     },
     {
       "canonical_id": "ECO-ORG-PROC-005",
@@ -4601,10 +5533,11 @@
       },
       "layer": "process",
       "legacy_id": "ECO-PROC-005",
-      "rationale": "Without tests, teams overprovision “just in case.”",
+      "rationale": "Without tests, teams overprovision \u201cjust in case.\u201d",
       "remediation": {
         "guidance": "Add load tests and regression gates tied to SLOs.",
-        "tradeoffs": "More pipeline time."
+        "tradeoffs": "More pipeline time.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "Skipping load tests creates risk and often forces wasteful overprovisioning.",
@@ -4613,7 +5546,19 @@
         "slo"
       ],
       "tier": 4,
-      "title": "Feature shipped without load testing"
+      "title": "Feature shipped without load testing",
+      "sequence": 5,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      },
+      "ontology": {
+        "category_code": "ORG",
+        "family_code": "PROC",
+        "system_layers": [
+          "process"
+        ]
+      }
     },
     {
       "canonical_id": "ECO-ORG-PROC-006",
@@ -4639,7 +5584,8 @@
       "rationale": "Lifecycle policies keep data intentional and bounded.",
       "remediation": {
         "guidance": "Define retention/archival/deletion policies and owners.",
-        "tradeoffs": "Org alignment work."
+        "tradeoffs": "Org alignment work.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "Missing lifecycle policies cause unbounded storage and compliance risk.",
@@ -4648,7 +5594,19 @@
         "lifecycle"
       ],
       "tier": 4,
-      "title": "No lifecycle data policy"
+      "title": "No lifecycle data policy",
+      "sequence": 6,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      },
+      "ontology": {
+        "category_code": "ORG",
+        "family_code": "PROC",
+        "system_layers": [
+          "process"
+        ]
+      }
     },
     {
       "canonical_id": "ECO-ORG-PROC-007",
@@ -4674,7 +5632,8 @@
       "rationale": "CI is often a hidden always-on compute bill.",
       "remediation": {
         "guidance": "Measure build minutes, cache hits, and pipeline efficiency; reduce waste.",
-        "tradeoffs": "Instrumentation effort."
+        "tradeoffs": "Instrumentation effort.",
+        "examples": []
       },
       "severity": "note",
       "summary": "Build/test pipelines can waste large amounts of compute when unmeasured.",
@@ -4683,7 +5642,19 @@
         "waste"
       ],
       "tier": 4,
-      "title": "No energy-aware CI/CD metrics"
+      "title": "No energy-aware CI/CD metrics",
+      "sequence": 7,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      },
+      "ontology": {
+        "category_code": "ORG",
+        "family_code": "PROC",
+        "system_layers": [
+          "process"
+        ]
+      }
     },
     {
       "canonical_id": "ECO-ORG-PROC-008",
@@ -4709,7 +5680,8 @@
       "rationale": "High-impact decisions deserve lightweight review and documentation.",
       "remediation": {
         "guidance": "Add a lightweight architecture review for high-tier changes.",
-        "tradeoffs": "Process overhead if done poorly."
+        "tradeoffs": "Process overhead if done poorly.",
+        "examples": []
       },
       "severity": "note",
       "summary": "Without review gates, high-propagation waste slips in unnoticed.",
@@ -4718,7 +5690,19 @@
         "governance"
       ],
       "tier": 4,
-      "title": "No architectural review gate"
+      "title": "No architectural review gate",
+      "sequence": 8,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      },
+      "ontology": {
+        "category_code": "ORG",
+        "family_code": "PROC",
+        "system_layers": [
+          "process"
+        ]
+      }
     },
     {
       "canonical_id": "ECO-ORG-PROC-009",
@@ -4744,7 +5728,8 @@
       "rationale": "Old deps increase risk and often block efficiency upgrades.",
       "remediation": {
         "guidance": "Implement dependency review cadence and upgrade workflows.",
-        "tradeoffs": "Ongoing work."
+        "tradeoffs": "Ongoing work.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "Unmanaged dependencies increase security, compute, and maintenance waste.",
@@ -4753,7 +5738,19 @@
         "supply-chain"
       ],
       "tier": 4,
-      "title": "No dependency lifecycle management"
+      "title": "No dependency lifecycle management",
+      "sequence": 9,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      },
+      "ontology": {
+        "category_code": "ORG",
+        "family_code": "PROC",
+        "system_layers": [
+          "process"
+        ]
+      }
     },
     {
       "canonical_id": "ECO-ORG-PROC-010",
@@ -4779,7 +5776,8 @@
       "rationale": "Hardware policies shape embodied emissions and waste streams.",
       "remediation": {
         "guidance": "Define repair/reuse/recycle standards and vendor requirements.",
-        "tradeoffs": "Procurement coordination."
+        "tradeoffs": "Procurement coordination.",
+        "examples": []
       },
       "severity": "note",
       "summary": "Hardware lifecycle without sustainability policy increases e-waste risk.",
@@ -4788,7 +5786,19 @@
         "ewaste"
       ],
       "tier": 4,
-      "title": "No hardware refresh sustainability policy"
+      "title": "No hardware refresh sustainability policy",
+      "sequence": 10,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      },
+      "ontology": {
+        "category_code": "ORG",
+        "family_code": "PROC",
+        "system_layers": [
+          "process"
+        ]
+      }
     },
     {
       "canonical_id": "ECO-ORG-PROC-011",
@@ -4814,7 +5824,8 @@
       "rationale": "Zombie services are pure waste: cost, risk, and attention.",
       "remediation": {
         "guidance": "Create a decommission playbook and ownership model.",
-        "tradeoffs": "Cross-team coordination."
+        "tradeoffs": "Cross-team coordination.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "Without decommissioning, dead systems stay alive and waste resources.",
@@ -4822,7 +5833,19 @@
         "decommissioning"
       ],
       "tier": 4,
-      "title": "No decommissioning workflow"
+      "title": "No decommissioning workflow",
+      "sequence": 11,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      },
+      "ontology": {
+        "category_code": "ORG",
+        "family_code": "PROC",
+        "system_layers": [
+          "process"
+        ]
+      }
     },
     {
       "canonical_id": "ECO-ORG-PROC-012",
@@ -4848,7 +5871,8 @@
       "rationale": "SLOs turn scaling from guesswork into evidence.",
       "remediation": {
         "guidance": "Define SLOs and validate scaling changes against them.",
-        "tradeoffs": "Requires observability maturity."
+        "tradeoffs": "Requires observability maturity.",
+        "examples": []
       },
       "severity": "note",
       "summary": "Scaling without SLO validation often leads to overprovisioning or fragility.",
@@ -4857,7 +5881,19 @@
         "autoscaling"
       ],
       "tier": 4,
-      "title": "No SLO-based scaling validation"
+      "title": "No SLO-based scaling validation",
+      "sequence": 12,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      },
+      "ontology": {
+        "category_code": "ORG",
+        "family_code": "PROC",
+        "system_layers": [
+          "process"
+        ]
+      }
     },
     {
       "canonical_id": "ECO-ORG-PROC-013",
@@ -4883,7 +5919,8 @@
       "rationale": "Planning reduces panic-driven overprovisioning.",
       "remediation": {
         "guidance": "Add regular capacity review using trends and forecasts.",
-        "tradeoffs": "Time investment."
+        "tradeoffs": "Time investment.",
+        "examples": []
       },
       "severity": "note",
       "summary": "Without planning, teams overbuy or get surprised and scramble.",
@@ -4891,7 +5928,19 @@
         "capacity-planning"
       ],
       "tier": 4,
-      "title": "No capacity planning cadence"
+      "title": "No capacity planning cadence",
+      "sequence": 13,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      },
+      "ontology": {
+        "category_code": "ORG",
+        "family_code": "PROC",
+        "system_layers": [
+          "process"
+        ]
+      }
     },
     {
       "canonical_id": "ECO-ORG-PROC-014",
@@ -4917,7 +5966,8 @@
       "rationale": "Standards reduce repeated mistakes and speed reviews.",
       "remediation": {
         "guidance": "Publish standards and integrate them into reviews and tooling.",
-        "tradeoffs": "Curation work."
+        "tradeoffs": "Curation work.",
+        "examples": []
       },
       "severity": "note",
       "summary": "Without standards, teams repeat avoidable inefficiencies.",
@@ -4925,7 +5975,19 @@
         "standards"
       ],
       "tier": 4,
-      "title": "No energy-efficient coding standards"
+      "title": "No energy-efficient coding standards",
+      "sequence": 14,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      },
+      "ontology": {
+        "category_code": "ORG",
+        "family_code": "PROC",
+        "system_layers": [
+          "process"
+        ]
+      }
     },
     {
       "canonical_id": "ECO-ORG-PROC-015",
@@ -4951,7 +6013,8 @@
       "rationale": "Ownership creates continuity and turns intent into action.",
       "remediation": {
         "guidance": "Assign clear ownership and decision rights for sustainability metrics.",
-        "tradeoffs": "Requires org buy-in."
+        "tradeoffs": "Requires org buy-in.",
+        "examples": []
       },
       "severity": "warning",
       "summary": "Without ownership, sustainability work becomes optional and inconsistent.",
@@ -4959,7 +6022,19 @@
         "ownership"
       ],
       "tier": 4,
-      "title": "No sustainability accountability owner"
+      "title": "No sustainability accountability owner",
+      "sequence": 15,
+      "metadata": {
+        "status": "active",
+        "version": "0.2.0"
+      },
+      "ontology": {
+        "category_code": "ORG",
+        "family_code": "PROC",
+        "system_layers": [
+          "process"
+        ]
+      }
     }
   ],
   "tags": [

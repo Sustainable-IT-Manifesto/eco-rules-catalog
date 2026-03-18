@@ -1,0 +1,239 @@
+Using schema: /Users/matt/Library/CloudStorage/Dropbox/SITM/eco-rules-catalog/catalog/schema/schema-rule.json
+Using registry: /Users/matt/Library/CloudStorage/Dropbox/SITM/eco-rules-catalog/catalog/registry.json
+ERROR: ECO-AIM-AI-001: invalid ontology.system_layers item 'AI/ML'
+WARN: ECO-AIM-AI-001: missing remediation.examples
+ERROR: ECO-AIM-AI-002: invalid ontology.system_layers item 'AI/ML'
+WARN: ECO-AIM-AI-002: missing remediation.examples
+ERROR: ECO-AIM-AI-003: invalid ontology.system_layers item 'AI/ML'
+WARN: ECO-AIM-AI-003: missing remediation.examples
+ERROR: ECO-AIM-AI-004: invalid ontology.system_layers item 'AI/ML'
+WARN: ECO-AIM-AI-004: missing remediation.examples
+ERROR: ECO-AIM-AI-005: invalid ontology.system_layers item 'AI/ML'
+WARN: ECO-AIM-AI-005: missing remediation.examples
+ERROR: ECO-AIM-AI-006: invalid ontology.system_layers item 'AI/ML'
+WARN: ECO-AIM-AI-006: missing remediation.examples
+ERROR: ECO-AIM-AI-007: invalid ontology.system_layers item 'AI/ML'
+WARN: ECO-AIM-AI-007: missing remediation.examples
+ERROR: ECO-AIM-AI-008: invalid ontology.system_layers item 'AI/ML'
+WARN: ECO-AIM-AI-008: missing remediation.examples
+ERROR: ECO-AIM-AI-009: invalid ontology.system_layers item 'AI/ML'
+WARN: ECO-AIM-AI-009: missing remediation.examples
+ERROR: ECO-AIM-AI-010: invalid ontology.system_layers item 'AI/ML'
+WARN: ECO-AIM-AI-010: missing remediation.examples
+ERROR: ECO-AIM-AI-011: invalid ontology.system_layers item 'AI/ML'
+WARN: ECO-AIM-AI-011: missing remediation.examples
+ERROR: ECO-AIM-AI-012: invalid ontology.system_layers item 'AI/ML'
+WARN: ECO-AIM-AI-012: missing remediation.examples
+ERROR: ECO-AIM-AI-013: invalid ontology.system_layers item 'AI/ML'
+WARN: ECO-AIM-AI-013: missing remediation.examples
+ERROR: ECO-AIM-AI-014: invalid ontology.system_layers item 'AI/ML'
+WARN: ECO-AIM-AI-014: missing remediation.examples
+ERROR: ECO-AIM-AI-015: invalid ontology.system_layers item 'AI/ML'
+WARN: ECO-AIM-AI-015: missing remediation.examples
+ERROR: ECO-ARC-ARCH-001: invalid ontology.system_layers item 'Architecture'
+WARN: ECO-ARC-ARCH-001: missing remediation.examples
+ERROR: ECO-ARC-ARCH-002: invalid ontology.system_layers item 'Architecture'
+WARN: ECO-ARC-ARCH-002: missing remediation.examples
+ERROR: ECO-ARC-ARCH-003: invalid ontology.system_layers item 'Architecture'
+WARN: ECO-ARC-ARCH-003: missing remediation.examples
+ERROR: ECO-ARC-ARCH-004: invalid ontology.system_layers item 'Architecture'
+WARN: ECO-ARC-ARCH-004: missing remediation.examples
+ERROR: ECO-ARC-ARCH-005: invalid ontology.system_layers item 'Architecture'
+WARN: ECO-ARC-ARCH-005: missing remediation.examples
+ERROR: ECO-ARC-ARCH-006: invalid ontology.system_layers item 'Architecture'
+WARN: ECO-ARC-ARCH-006: missing remediation.examples
+ERROR: ECO-ARC-ARCH-007: invalid ontology.system_layers item 'Architecture'
+WARN: ECO-ARC-ARCH-007: missing remediation.examples
+ERROR: ECO-ARC-ARCH-008: invalid ontology.system_layers item 'Architecture'
+WARN: ECO-ARC-ARCH-008: missing remediation.examples
+ERROR: ECO-ARC-ARCH-009: invalid ontology.system_layers item 'Architecture'
+WARN: ECO-ARC-ARCH-009: missing remediation.examples
+ERROR: ECO-ARC-ARCH-010: invalid ontology.system_layers item 'Architecture'
+WARN: ECO-ARC-ARCH-010: missing remediation.examples
+ERROR: ECO-ARC-ARCH-011: invalid ontology.system_layers item 'Architecture'
+WARN: ECO-ARC-ARCH-011: missing remediation.examples
+ERROR: ECO-ARC-ARCH-012: invalid ontology.system_layers item 'Architecture'
+WARN: ECO-ARC-ARCH-012: missing remediation.examples
+ERROR: ECO-ARC-ARCH-013: invalid ontology.system_layers item 'Architecture'
+WARN: ECO-ARC-ARCH-013: missing remediation.examples
+ERROR: ECO-ARC-ARCH-014: invalid ontology.system_layers item 'Architecture'
+WARN: ECO-ARC-ARCH-014: missing remediation.examples
+ERROR: ECO-ARC-ARCH-015: invalid ontology.system_layers item 'Architecture'
+WARN: ECO-ARC-ARCH-015: missing remediation.examples
+ERROR: ECO-ARC-ARCH-016: invalid ontology.system_layers item 'Architecture'
+WARN: ECO-ARC-ARCH-016: missing remediation.examples
+ERROR: ECO-ARC-ARCH-017: invalid ontology.system_layers item 'Architecture'
+WARN: ECO-ARC-ARCH-017: missing remediation.examples
+ERROR: ECO-ARC-ARCH-018: invalid ontology.system_layers item 'Architecture'
+WARN: ECO-ARC-ARCH-018: missing remediation.examples
+ERROR: ECO-ARC-ARCH-019: invalid ontology.system_layers item 'Architecture'
+WARN: ECO-ARC-ARCH-019: missing remediation.examples
+ERROR: ECO-ARC-ARCH-020: invalid ontology.system_layers item 'Architecture'
+WARN: ECO-ARC-ARCH-020: missing remediation.examples
+ERROR: ECO-CMP-JAVA-001: invalid ontology.system_layers item 'Code'
+WARN: ECO-CMP-JAVA-001: missing remediation.examples
+ERROR: ECO-CMP-JAVA-002: invalid ontology.system_layers item 'Code'
+WARN: ECO-CMP-JAVA-002: missing remediation.examples
+ERROR: ECO-CMP-JAVA-003: invalid ontology.system_layers item 'Architecture'
+WARN: ECO-CMP-JAVA-003: missing remediation.examples
+ERROR: ECO-CMP-JAVA-004: invalid ontology.system_layers item 'Code'
+WARN: ECO-CMP-JAVA-004: missing remediation.examples
+ERROR: ECO-CMP-JAVA-005: invalid ontology.system_layers item 'Code'
+WARN: ECO-CMP-JAVA-005: missing remediation.examples
+ERROR: ECO-CMP-JAVA-006: invalid ontology.system_layers item 'Architecture'
+WARN: ECO-CMP-JAVA-006: missing remediation.examples
+ERROR: ECO-CMP-JAVA-007: invalid ontology.system_layers item 'Code'
+WARN: ECO-CMP-JAVA-007: missing remediation.examples
+ERROR: ECO-CMP-JAVA-008: invalid ontology.system_layers item 'Code'
+WARN: ECO-CMP-JAVA-008: missing remediation.examples
+ERROR: ECO-CMP-JAVA-009: invalid ontology.system_layers item 'Architecture'
+WARN: ECO-CMP-JAVA-009: missing remediation.examples
+ERROR: ECO-CMP-JAVA-010: invalid ontology.system_layers item 'Code'
+WARN: ECO-CMP-JAVA-010: missing remediation.examples
+ERROR: ECO-CMP-JS-001: invalid ontology.system_layers item 'Code'
+WARN: ECO-CMP-JS-001: missing remediation.examples
+ERROR: ECO-CMP-JS-002: invalid ontology.system_layers item 'Network'
+WARN: ECO-CMP-JS-002: missing remediation.examples
+ERROR: ECO-CMP-JS-003: invalid ontology.system_layers item 'Code'
+WARN: ECO-CMP-JS-003: missing remediation.examples
+ERROR: ECO-CMP-JS-004: invalid ontology.system_layers item 'Code'
+WARN: ECO-CMP-JS-004: missing remediation.examples
+ERROR: ECO-CMP-JS-005: invalid ontology.system_layers item 'Code'
+WARN: ECO-CMP-JS-005: missing remediation.examples
+ERROR: ECO-CMP-JS-006: invalid ontology.system_layers item 'Network'
+WARN: ECO-CMP-JS-006: missing remediation.examples
+ERROR: ECO-CMP-JS-007: invalid ontology.system_layers item 'Network'
+WARN: ECO-CMP-JS-007: missing remediation.examples
+ERROR: ECO-CMP-JS-008: invalid ontology.system_layers item 'Code'
+WARN: ECO-CMP-JS-008: missing remediation.examples
+ERROR: ECO-CMP-JS-009: invalid ontology.system_layers item 'Code'
+WARN: ECO-CMP-JS-009: missing remediation.examples
+ERROR: ECO-CMP-JS-010: invalid ontology.system_layers item 'Network'
+WARN: ECO-CMP-JS-010: missing remediation.examples
+ERROR: ECO-CMP-JS-011: invalid ontology.system_layers item 'Code'
+WARN: ECO-CMP-JS-011: missing remediation.examples
+ERROR: ECO-CMP-JS-012: invalid ontology.system_layers item 'Network'
+WARN: ECO-CMP-JS-012: missing remediation.examples
+ERROR: ECO-CMP-JS-013: invalid ontology.system_layers item 'Network'
+WARN: ECO-CMP-JS-013: missing remediation.examples
+ERROR: ECO-CMP-JS-014: invalid ontology.system_layers item 'Code'
+WARN: ECO-CMP-JS-014: missing remediation.examples
+ERROR: ECO-CMP-JS-015: invalid ontology.system_layers item 'Code'
+WARN: ECO-CMP-JS-015: missing remediation.examples
+ERROR: ECO-CMP-PY-001: invalid ontology.system_layers item 'Code'
+WARN: ECO-CMP-PY-001: missing remediation.examples
+ERROR: ECO-CMP-PY-002: invalid ontology.system_layers item 'Code'
+WARN: ECO-CMP-PY-002: missing remediation.examples
+ERROR: ECO-CMP-PY-003: invalid ontology.system_layers item 'Code'
+WARN: ECO-CMP-PY-003: missing remediation.examples
+ERROR: ECO-CMP-PY-004: invalid ontology.system_layers item 'Code'
+WARN: ECO-CMP-PY-004: missing remediation.examples
+ERROR: ECO-CMP-PY-005: invalid ontology.system_layers item 'Code'
+WARN: ECO-CMP-PY-005: missing remediation.examples
+ERROR: ECO-CMP-PY-006: invalid ontology.system_layers item 'Network'
+WARN: ECO-CMP-PY-006: missing remediation.examples
+ERROR: ECO-CMP-PY-007: invalid ontology.system_layers item 'Code'
+WARN: ECO-CMP-PY-007: missing remediation.examples
+ERROR: ECO-CMP-PY-008: invalid ontology.system_layers item 'Code'
+WARN: ECO-CMP-PY-008: missing remediation.examples
+ERROR: ECO-CMP-PY-009: invalid ontology.system_layers item 'Code'
+WARN: ECO-CMP-PY-009: missing remediation.examples
+ERROR: ECO-CMP-PY-010: invalid ontology.system_layers item 'Code'
+WARN: ECO-CMP-PY-010: missing remediation.examples
+ERROR: ECO-CMP-PY-011: invalid ontology.system_layers item 'Code'
+WARN: ECO-CMP-PY-011: missing remediation.examples
+ERROR: ECO-CMP-PY-012: invalid ontology.system_layers item 'Code'
+WARN: ECO-CMP-PY-012: missing remediation.examples
+ERROR: ECO-CMP-PY-013: invalid ontology.system_layers item 'Code'
+WARN: ECO-CMP-PY-013: missing remediation.examples
+ERROR: ECO-CMP-PY-014: invalid ontology.system_layers item 'Code'
+WARN: ECO-CMP-PY-014: missing remediation.examples
+ERROR: ECO-CMP-PY-015: invalid ontology.system_layers item 'Code'
+WARN: ECO-CMP-PY-015: missing remediation.examples
+ERROR: ECO-CMP-PY-016: invalid ontology.system_layers item 'Architecture'
+WARN: ECO-CMP-PY-016: missing remediation.examples
+ERROR: ECO-CMP-PY-017: invalid ontology.system_layers item 'Code'
+WARN: ECO-CMP-PY-017: missing remediation.examples
+ERROR: ECO-CMP-PY-018: invalid ontology.system_layers item 'Code'
+WARN: ECO-CMP-PY-018: missing remediation.examples
+ERROR: ECO-CMP-PY-019: invalid ontology.system_layers item 'Code'
+WARN: ECO-CMP-PY-019: missing remediation.examples
+ERROR: ECO-CMP-PY-020: invalid ontology.system_layers item 'Code'
+WARN: ECO-CMP-PY-020: missing remediation.examples
+ERROR: ECO-DAT-DATA-001: invalid ontology.system_layers item 'Data'
+WARN: ECO-DAT-DATA-001: missing remediation.examples
+ERROR: ECO-DAT-DATA-002: invalid ontology.system_layers item 'Data'
+WARN: ECO-DAT-DATA-002: missing remediation.examples
+ERROR: ECO-DAT-DATA-003: invalid ontology.system_layers item 'Data'
+WARN: ECO-DAT-DATA-003: missing remediation.examples
+ERROR: ECO-DAT-DATA-004: invalid ontology.system_layers item 'Data'
+WARN: ECO-DAT-DATA-004: missing remediation.examples
+ERROR: ECO-DAT-DATA-005: invalid ontology.system_layers item 'Data'
+WARN: ECO-DAT-DATA-005: missing remediation.examples
+ERROR: ECO-DAT-DATA-006: invalid ontology.system_layers item 'Data'
+WARN: ECO-DAT-DATA-006: missing remediation.examples
+ERROR: ECO-DAT-DATA-007: invalid ontology.system_layers item 'Data'
+WARN: ECO-DAT-DATA-007: missing remediation.examples
+ERROR: ECO-DAT-DATA-008: invalid ontology.system_layers item 'Data'
+WARN: ECO-DAT-DATA-008: missing remediation.examples
+ERROR: ECO-DAT-DATA-009: invalid ontology.system_layers item 'Data'
+WARN: ECO-DAT-DATA-009: missing remediation.examples
+ERROR: ECO-DAT-DATA-010: invalid ontology.system_layers item 'Data'
+WARN: ECO-DAT-DATA-010: missing remediation.examples
+ERROR: ECO-DAT-DATA-011: invalid ontology.system_layers item 'Data'
+WARN: ECO-DAT-DATA-011: missing remediation.examples
+ERROR: ECO-DAT-DATA-012: invalid ontology.system_layers item 'Data'
+WARN: ECO-DAT-DATA-012: missing remediation.examples
+ERROR: ECO-DAT-DATA-013: invalid ontology.system_layers item 'Data'
+WARN: ECO-DAT-DATA-013: missing remediation.examples
+ERROR: ECO-DAT-DATA-014: invalid ontology.system_layers item 'Data'
+WARN: ECO-DAT-DATA-014: missing remediation.examples
+ERROR: ECO-DAT-DATA-015: invalid ontology.system_layers item 'Data'
+WARN: ECO-DAT-DATA-015: missing remediation.examples
+ERROR: ECO-NET-NET-001: invalid ontology.system_layers item 'Network'
+WARN: ECO-NET-NET-001: missing remediation.examples
+ERROR: ECO-NET-NET-002: invalid ontology.system_layers item 'Network'
+WARN: ECO-NET-NET-002: missing remediation.examples
+ERROR: ECO-NET-NET-003: invalid ontology.system_layers item 'Network'
+WARN: ECO-NET-NET-003: missing remediation.examples
+ERROR: ECO-NET-NET-004: invalid ontology.system_layers item 'Network'
+WARN: ECO-NET-NET-004: missing remediation.examples
+ERROR: ECO-NET-NET-005: invalid ontology.system_layers item 'Network'
+WARN: ECO-NET-NET-005: missing remediation.examples
+ERROR: ECO-NET-NET-006: invalid ontology.system_layers item 'Network'
+WARN: ECO-NET-NET-006: missing remediation.examples
+ERROR: ECO-NET-NET-007: invalid ontology.system_layers item 'Network'
+WARN: ECO-NET-NET-007: missing remediation.examples
+ERROR: ECO-NET-NET-008: invalid ontology.system_layers item 'Network'
+WARN: ECO-NET-NET-008: missing remediation.examples
+ERROR: ECO-NET-NET-009: invalid ontology.system_layers item 'Network'
+WARN: ECO-NET-NET-009: missing remediation.examples
+ERROR: ECO-NET-NET-010: invalid ontology.system_layers item 'Network'
+WARN: ECO-NET-NET-010: missing remediation.examples
+ERROR: ECO-NET-NET-011: invalid ontology.system_layers item 'Network'
+WARN: ECO-NET-NET-011: missing remediation.examples
+ERROR: ECO-NET-NET-012: invalid ontology.system_layers item 'Network'
+WARN: ECO-NET-NET-012: missing remediation.examples
+ERROR: ECO-NET-NET-013: invalid ontology.system_layers item 'Network'
+WARN: ECO-NET-NET-013: missing remediation.examples
+ERROR: ECO-NET-NET-014: invalid ontology.system_layers item 'Network'
+WARN: ECO-NET-NET-014: missing remediation.examples
+ERROR: ECO-NET-NET-015: invalid ontology.system_layers item 'Network'
+WARN: ECO-NET-NET-015: missing remediation.examples
+ERROR: ECO-ORG-PROC-001: schema validation failed: 'ontology' is a required property
+ERROR: ECO-ORG-PROC-002: schema validation failed: 'ontology' is a required property
+ERROR: ECO-ORG-PROC-003: schema validation failed: 'ontology' is a required property
+ERROR: ECO-ORG-PROC-004: schema validation failed: 'ontology' is a required property
+ERROR: ECO-ORG-PROC-005: schema validation failed: 'ontology' is a required property
+ERROR: ECO-ORG-PROC-006: schema validation failed: 'ontology' is a required property
+ERROR: ECO-ORG-PROC-007: schema validation failed: 'ontology' is a required property
+ERROR: ECO-ORG-PROC-008: schema validation failed: 'ontology' is a required property
+ERROR: ECO-ORG-PROC-009: schema validation failed: 'ontology' is a required property
+ERROR: ECO-ORG-PROC-010: schema validation failed: 'ontology' is a required property
+ERROR: ECO-ORG-PROC-011: schema validation failed: 'ontology' is a required property
+ERROR: ECO-ORG-PROC-012: schema validation failed: 'ontology' is a required property
+ERROR: ECO-ORG-PROC-013: schema validation failed: 'ontology' is a required property
+ERROR: ECO-ORG-PROC-014: schema validation failed: 'ontology' is a required property
+ERROR: ECO-ORG-PROC-015: schema validation failed: 'ontology' is a required property
+
+Summary: 125 error(s), 110 warning(s)

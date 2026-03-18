@@ -1,0 +1,41 @@
+{
+  "canonical_id": "ECO-CMP-PY-007",
+  "category": "Computation",
+  "category_code": "CMP",
+  "detection": {
+    "languages": [
+      "python"
+    ],
+    "method": "ast"
+  },
+  "enabled_by_default": true,
+  "family": "Python",
+  "family_code": "PY",
+  "id": "ECO-CMP-PY-007",
+  "impact": {
+    "confidence": 0.75,
+    "notes": "Common in file processing / ETL.",
+    "type": "memory"
+  },
+  "layer": "code",
+  "legacy_id": "ECO-PY-007",
+  "ontology": {
+    "system_layers": [
+      "code"
+    ]
+  },
+  "rationale": "Streaming reduces peak memory and improves stability.",
+  "remediation": {
+    "guidance": "Stream/chunk reads; process iteratively.",
+    "tradeoffs": "May change downstream logic."
+  },
+  "severity": "warning",
+  "summary": "Reading large files fully into memory increases peak RAM and risk of OOM.",
+  "tags": [
+    "python",
+    "memory",
+    "io"
+  ],
+  "tier": 2,
+  "title": "Loading entire file into memory"
+}

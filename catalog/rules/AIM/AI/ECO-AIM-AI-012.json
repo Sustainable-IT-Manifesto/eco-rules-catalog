@@ -1,0 +1,40 @@
+{
+  "canonical_id": "ECO-AIM-AI-012",
+  "category": "AI/ML",
+  "category_code": "AIM",
+  "detection": {
+    "languages": [
+      "org"
+    ],
+    "method": "hybrid"
+  },
+  "enabled_by_default": true,
+  "family": "AI",
+  "family_code": "AI",
+  "id": "ECO-AIM-AI-012",
+  "impact": {
+    "confidence": 0.6,
+    "notes": "Usually a quick win.",
+    "type": "cost"
+  },
+  "layer": "ai",
+  "legacy_id": "ECO-AI-012",
+  "ontology": {
+    "system_layers": [
+      "ai"
+    ]
+  },
+  "rationale": "Model choice should match workload needs, not default to maximum.",
+  "remediation": {
+    "guidance": "Tier models by use case; route requests by need.",
+    "tradeoffs": "Routing complexity."
+  },
+  "severity": "warning",
+  "summary": "Using high-cost models where latency/quality needs are modest wastes resources.",
+  "tags": [
+    "ai",
+    "rightsizing"
+  ],
+  "tier": 3,
+  "title": "Large model in low-SLA workload"
+}

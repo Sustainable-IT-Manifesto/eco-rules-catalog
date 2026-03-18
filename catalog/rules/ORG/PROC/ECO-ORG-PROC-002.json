@@ -1,0 +1,40 @@
+{
+  "canonical_id": "ECO-ORG-PROC-002",
+  "category": "Organizational",
+  "category_code": "ORG",
+  "detection": {
+    "languages": [
+      "org"
+    ],
+    "method": "config"
+  },
+  "enabled_by_default": true,
+  "family": "Process",
+  "family_code": "PROC",
+  "id": "ECO-ORG-PROC-002",
+  "impact": {
+    "confidence": 0.9,
+    "notes": "Foundational.",
+    "type": "cost"
+  },
+  "layer": "process",
+  "legacy_id": "ECO-PROC-002",
+  "rationale": "Baseline-first prevents wasted optimization cycles and false wins.",
+  "remediation": {
+    "guidance": "Establish baselines before optimization; track before/after.",
+    "tradeoffs": "Instrumentation effort."
+  },
+  "severity": "warning",
+  "summary": "Without baseline data, improvements can’t be validated.",
+  "tags": [
+    "measurement",
+    "baseline"
+  ],
+  "tier": 4,
+  "title": "No baseline measurement",
+  "ontology": {
+    "system_layers": [
+      "process"
+    ]
+  }
+}

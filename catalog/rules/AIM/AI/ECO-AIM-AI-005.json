@@ -1,0 +1,40 @@
+{
+  "canonical_id": "ECO-AIM-AI-005",
+  "category": "AI/ML",
+  "category_code": "AIM",
+  "detection": {
+    "languages": [
+      "infra"
+    ],
+    "method": "trace"
+  },
+  "enabled_by_default": true,
+  "family": "AI",
+  "family_code": "AI",
+  "id": "ECO-AIM-AI-005",
+  "impact": {
+    "confidence": 0.6,
+    "notes": "High for GPU-backed endpoints.",
+    "type": "carbon"
+  },
+  "layer": "ai",
+  "legacy_id": "ECO-AI-005",
+  "ontology": {
+    "system_layers": [
+      "ai"
+    ]
+  },
+  "rationale": "Idle accelerators still burn power; scale needs boundaries.",
+  "remediation": {
+    "guidance": "Autoscale; scale-to-zero where feasible; consolidate endpoints.",
+    "tradeoffs": "Cold starts and scheduling complexity."
+  },
+  "severity": "warning",
+  "summary": "Always-on endpoints waste baseline compute when idle.",
+  "tags": [
+    "ai",
+    "scale-to-zero"
+  ],
+  "tier": 3,
+  "title": "Always-on inference endpoints"
+}

@@ -1,0 +1,40 @@
+{
+  "canonical_id": "ECO-ARC-ARCH-014",
+  "category": "Architecture",
+  "category_code": "ARC",
+  "detection": {
+    "languages": [
+      "infra"
+    ],
+    "method": "hybrid"
+  },
+  "enabled_by_default": true,
+  "family": "Architecture",
+  "family_code": "ARCH",
+  "id": "ECO-ARC-ARCH-014",
+  "impact": {
+    "confidence": 0.6,
+    "notes": "Often structural.",
+    "type": "cost"
+  },
+  "layer": "architecture",
+  "legacy_id": "ECO-ARCH-014",
+  "ontology": {
+    "system_layers": [
+      "architecture"
+    ]
+  },
+  "rationale": "State creates coupling that increases baseline and peak waste.",
+  "remediation": {
+    "guidance": "Externalize state; use managed stores; reduce coupling.",
+    "tradeoffs": "Migration cost."
+  },
+  "severity": "warning",
+  "summary": "Stateful designs make scaling expensive and fragile.",
+  "tags": [
+    "state",
+    "scaling"
+  ],
+  "tier": 3,
+  "title": "Stateful services blocking scaling"
+}

@@ -1,0 +1,41 @@
+{
+  "canonical_id": "ECO-CMP-PY-013",
+  "category": "Computation",
+  "category_code": "CMP",
+  "detection": {
+    "languages": [
+      "python"
+    ],
+    "method": "ast"
+  },
+  "enabled_by_default": true,
+  "family": "Python",
+  "family_code": "PY",
+  "id": "ECO-CMP-PY-013",
+  "impact": {
+    "confidence": 0.8,
+    "notes": "High in analytics/ETL.",
+    "type": "cpu"
+  },
+  "layer": "code",
+  "legacy_id": "ECO-PY-013",
+  "ontology": {
+    "system_layers": [
+      "code"
+    ]
+  },
+  "rationale": "Vectorization reduces Python-level overhead dramatically.",
+  "remediation": {
+    "guidance": "Use vectorized ops or apply carefully; avoid iterrows in hot paths.",
+    "tradeoffs": "Learning curve / refactor time."
+  },
+  "severity": "warning",
+  "summary": "Row-wise pandas iteration is slow compared to vectorized operations.",
+  "tags": [
+    "python",
+    "pandas",
+    "cpu"
+  ],
+  "tier": 1,
+  "title": "Inefficient pandas row iteration"
+}

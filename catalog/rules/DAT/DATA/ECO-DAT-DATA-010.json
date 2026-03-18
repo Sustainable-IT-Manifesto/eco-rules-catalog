@@ -1,0 +1,39 @@
+{
+  "canonical_id": "ECO-DAT-DATA-010",
+  "category": "Data",
+  "category_code": "DAT",
+  "detection": {
+    "languages": [
+      "infra"
+    ],
+    "method": "config"
+  },
+  "enabled_by_default": true,
+  "family": "Data",
+  "family_code": "DATA",
+  "id": "ECO-DAT-DATA-010",
+  "impact": {
+    "confidence": 0.55,
+    "notes": "Validate DR needs.",
+    "type": "cost"
+  },
+  "layer": "data",
+  "legacy_id": "ECO-DATA-010",
+  "ontology": {
+    "system_layers": [
+      "data"
+    ]
+  },
+  "rationale": "Replication should follow RPO/RTO requirements, not defaults.",
+  "remediation": {
+    "guidance": "Right-size DR and replication strategies.",
+    "tradeoffs": "Risk if requirements wrong."
+  },
+  "severity": "note",
+  "summary": "Cross-region replication can add cost and complexity beyond needs.",
+  "tags": [
+    "cross-region"
+  ],
+  "tier": 3,
+  "title": "Overly aggressive replication across regions"
+}

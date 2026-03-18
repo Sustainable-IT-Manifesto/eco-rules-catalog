@@ -1,0 +1,40 @@
+{
+  "canonical_id": "ECO-ARC-ARCH-003",
+  "category": "Architecture",
+  "category_code": "ARC",
+  "detection": {
+    "languages": [
+      "infra"
+    ],
+    "method": "trace"
+  },
+  "enabled_by_default": true,
+  "family": "Architecture",
+  "family_code": "ARCH",
+  "id": "ECO-ARC-ARCH-003",
+  "impact": {
+    "confidence": 0.8,
+    "notes": "Common microservice anti-pattern.",
+    "type": "latency"
+  },
+  "layer": "architecture",
+  "legacy_id": "ECO-ARCH-003",
+  "ontology": {
+    "system_layers": [
+      "architecture"
+    ]
+  },
+  "rationale": "Chains multiply tail latency and increase coupled failure modes.",
+  "remediation": {
+    "guidance": "Introduce async boundaries, caching, or collapse hops.",
+    "tradeoffs": "Consistency and design tradeoffs."
+  },
+  "severity": "warning",
+  "summary": "Synchronous call chains amplify latency and failure propagation.",
+  "tags": [
+    "dependencies",
+    "latency"
+  ],
+  "tier": 3,
+  "title": "Long synchronous dependency chain"
+}

@@ -1,0 +1,40 @@
+{
+  "canonical_id": "ECO-AIM-AI-013",
+  "category": "AI/ML",
+  "category_code": "AIM",
+  "detection": {
+    "languages": [
+      "infra"
+    ],
+    "method": "config"
+  },
+  "enabled_by_default": true,
+  "family": "AI",
+  "family_code": "AI",
+  "id": "ECO-AIM-AI-013",
+  "impact": {
+    "confidence": 0.8,
+    "notes": "Systemic maturity.",
+    "type": "cost"
+  },
+  "layer": "ai",
+  "legacy_id": "ECO-AI-013",
+  "ontology": {
+    "system_layers": [
+      "ai"
+    ]
+  },
+  "rationale": "You can’t right-size accelerators without seeing utilization.",
+  "remediation": {
+    "guidance": "Add GPU metrics, dashboards, and alerts.",
+    "tradeoffs": "Telemetry overhead."
+  },
+  "severity": "warning",
+  "summary": "Without GPU utilization metrics, accelerator waste stays invisible.",
+  "tags": [
+    "gpu",
+    "observability"
+  ],
+  "tier": 4,
+  "title": "No GPU utilization monitoring"
+}

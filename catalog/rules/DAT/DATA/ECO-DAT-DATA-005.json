@@ -1,0 +1,40 @@
+{
+  "canonical_id": "ECO-DAT-DATA-005",
+  "category": "Data",
+  "category_code": "DAT",
+  "detection": {
+    "languages": [
+      "database"
+    ],
+    "method": "query"
+  },
+  "enabled_by_default": true,
+  "family": "Data",
+  "family_code": "DATA",
+  "id": "ECO-DAT-DATA-005",
+  "impact": {
+    "confidence": 0.75,
+    "notes": "Often visible in query plans.",
+    "type": "io"
+  },
+  "layer": "data",
+  "legacy_id": "ECO-DATA-005",
+  "ontology": {
+    "system_layers": [
+      "data"
+    ]
+  },
+  "rationale": "Scans scale poorly and waste compute as data grows.",
+  "remediation": {
+    "guidance": "Add appropriate indexes; rewrite queries; partition large tables.",
+    "tradeoffs": "Index/storage tradeoffs."
+  },
+  "severity": "warning",
+  "summary": "Full scans increase CPU, IO, and latency for queries.",
+  "tags": [
+    "database",
+    "query-plans"
+  ],
+  "tier": 3,
+  "title": "Full table scans without index"
+}

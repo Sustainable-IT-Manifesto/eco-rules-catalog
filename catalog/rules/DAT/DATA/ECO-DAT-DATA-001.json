@@ -1,0 +1,41 @@
+{
+  "canonical_id": "ECO-DAT-DATA-001",
+  "category": "Data",
+  "category_code": "DAT",
+  "detection": {
+    "languages": [
+      "database",
+      "infra"
+    ],
+    "method": "query"
+  },
+  "enabled_by_default": true,
+  "family": "Data",
+  "family_code": "DATA",
+  "id": "ECO-DAT-DATA-001",
+  "impact": {
+    "confidence": 0.6,
+    "notes": "Often found in pipelines and analytics copies.",
+    "type": "storage"
+  },
+  "layer": "data",
+  "legacy_id": "ECO-DATA-001",
+  "ontology": {
+    "system_layers": [
+      "data"
+    ]
+  },
+  "rationale": "Duplication silently accumulates and multiplies downstream processing.",
+  "remediation": {
+    "guidance": "Deduplicate; normalize; define canonical sources.",
+    "tradeoffs": "Migration effort."
+  },
+  "severity": "warning",
+  "summary": "Redundant data increases storage footprint and cost.",
+  "tags": [
+    "storage",
+    "duplication"
+  ],
+  "tier": 3,
+  "title": "Duplicate stored data"
+}

@@ -1,0 +1,41 @@
+{
+  "canonical_id": "ECO-CMP-JAVA-001",
+  "category": "Computation",
+  "category_code": "CMP",
+  "detection": {
+    "languages": [
+      "java"
+    ],
+    "method": "trace"
+  },
+  "enabled_by_default": true,
+  "family": "Java",
+  "family_code": "JAVA",
+  "id": "ECO-CMP-JAVA-001",
+  "impact": {
+    "confidence": 0.75,
+    "notes": "Often shows up as p99 spikes.",
+    "type": "cpu"
+  },
+  "layer": "code",
+  "legacy_id": "ECO-JAVA-001",
+  "ontology": {
+    "system_layers": [
+      "code"
+    ]
+  },
+  "rationale": "Allocation churn increases GC frequency and tail latency.",
+  "remediation": {
+    "guidance": "Reduce allocations; reuse objects; optimize parsing.",
+    "tradeoffs": "May reduce readability."
+  },
+  "severity": "warning",
+  "summary": "High allocation rates increase GC pressure and CPU cost.",
+  "tags": [
+    "java",
+    "gc",
+    "allocations"
+  ],
+  "tier": 1,
+  "title": "Excessive object creation in hot path"
+}

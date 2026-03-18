@@ -1,0 +1,40 @@
+{
+  "canonical_id": "ECO-AIM-AI-008",
+  "category": "AI/ML",
+  "category_code": "AIM",
+  "detection": {
+    "languages": [
+      "org"
+    ],
+    "method": "config"
+  },
+  "enabled_by_default": true,
+  "family": "AI",
+  "family_code": "AI",
+  "id": "ECO-AIM-AI-008",
+  "impact": {
+    "confidence": 0.6,
+    "notes": "High compute waste risk.",
+    "type": "cost"
+  },
+  "layer": "ai",
+  "legacy_id": "ECO-AI-008",
+  "ontology": {
+    "system_layers": [
+      "ai"
+    ]
+  },
+  "rationale": "Training should be triggered by need, not habit.",
+  "remediation": {
+    "guidance": "Add drift detection and training triggers.",
+    "tradeoffs": "Monitoring complexity."
+  },
+  "severity": "warning",
+  "summary": "Training without drift checks wastes compute and introduces risk.",
+  "tags": [
+    "ai",
+    "training"
+  ],
+  "tier": 3,
+  "title": "Re-training without drift detection"
+}

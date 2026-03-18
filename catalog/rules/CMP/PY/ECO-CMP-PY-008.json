@@ -1,0 +1,41 @@
+{
+  "canonical_id": "ECO-CMP-PY-008",
+  "category": "Computation",
+  "category_code": "CMP",
+  "detection": {
+    "languages": [
+      "python"
+    ],
+    "method": "ast"
+  },
+  "enabled_by_default": true,
+  "family": "Python",
+  "family_code": "PY",
+  "id": "ECO-CMP-PY-008",
+  "impact": {
+    "confidence": 0.6,
+    "notes": "Worse with synchronous handlers.",
+    "type": "io"
+  },
+  "layer": "code",
+  "legacy_id": "ECO-PY-008",
+  "ontology": {
+    "system_layers": [
+      "code"
+    ]
+  },
+  "rationale": "Hot-path logging is a quiet tax on throughput and latency.",
+  "remediation": {
+    "guidance": "Reduce log volume; guard debug logs; sample where appropriate.",
+    "tradeoffs": "Less granular logs unless sampled."
+  },
+  "severity": "note",
+  "summary": "Logging in tight loops or request hot paths adds CPU and I/O overhead.",
+  "tags": [
+    "python",
+    "logging",
+    "io"
+  ],
+  "tier": 1,
+  "title": "Excessive logging in hot path"
+}

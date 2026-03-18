@@ -1,0 +1,41 @@
+{
+  "canonical_id": "ECO-CMP-PY-002",
+  "category": "Computation",
+  "category_code": "CMP",
+  "detection": {
+    "languages": [
+      "python"
+    ],
+    "method": "ast"
+  },
+  "enabled_by_default": true,
+  "family": "Python",
+  "family_code": "PY",
+  "id": "ECO-CMP-PY-002",
+  "impact": {
+    "confidence": 0.8,
+    "notes": "Often shows up in ETL, batch jobs, API aggregation.",
+    "type": "memory"
+  },
+  "layer": "code",
+  "legacy_id": "ECO-PY-002",
+  "ontology": {
+    "system_layers": [
+      "code"
+    ]
+  },
+  "rationale": "Unbounded accumulation is a common cause of avoidable memory spikes and instability.",
+  "remediation": {
+    "guidance": "Use generators, pagination, batching, or streaming APIs.",
+    "tradeoffs": "May require refactoring call sites."
+  },
+  "severity": "warning",
+  "summary": "Collections that grow without bounds increase memory pressure and GC churn.",
+  "tags": [
+    "python",
+    "memory",
+    "streaming"
+  ],
+  "tier": 2,
+  "title": "Unbounded list growth"
+}

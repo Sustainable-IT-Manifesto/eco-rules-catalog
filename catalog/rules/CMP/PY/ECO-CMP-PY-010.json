@@ -1,0 +1,40 @@
+{
+  "canonical_id": "ECO-CMP-PY-010",
+  "category": "Computation",
+  "category_code": "CMP",
+  "detection": {
+    "languages": [
+      "python"
+    ],
+    "method": "ast"
+  },
+  "enabled_by_default": true,
+  "family": "Python",
+  "family_code": "PY",
+  "id": "ECO-CMP-PY-010",
+  "impact": {
+    "confidence": 0.7,
+    "notes": "High impact when lookups are frequent.",
+    "type": "cpu"
+  },
+  "layer": "code",
+  "legacy_id": "ECO-PY-010",
+  "ontology": {
+    "system_layers": [
+      "code"
+    ]
+  },
+  "rationale": "O(n) lookups in loops are a common silent perf killer.",
+  "remediation": {
+    "guidance": "Use set/dict for membership-heavy operations.",
+    "tradeoffs": "Memory tradeoff for speed."
+  },
+  "severity": "note",
+  "summary": "Using lists for membership tests instead of sets/dicts increases CPU time.",
+  "tags": [
+    "python",
+    "data-structures"
+  ],
+  "tier": 1,
+  "title": "Inefficient data structure choice"
+}

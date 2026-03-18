@@ -1,0 +1,39 @@
+{
+  "canonical_id": "ECO-NET-NET-010",
+  "category": "Networking",
+  "category_code": "NET",
+  "detection": {
+    "languages": [
+      "infra"
+    ],
+    "method": "trace"
+  },
+  "enabled_by_default": true,
+  "family": "Network",
+  "family_code": "NET",
+  "id": "ECO-NET-NET-010",
+  "impact": {
+    "confidence": 0.75,
+    "notes": "Often hurts tail latency.",
+    "type": "network"
+  },
+  "layer": "network",
+  "legacy_id": "ECO-NET-010",
+  "ontology": {
+    "system_layers": [
+      "network"
+    ]
+  },
+  "rationale": "Huge responses create spikes and slow clients and servers.",
+  "remediation": {
+    "guidance": "Introduce pagination, streaming, or filtering.",
+    "tradeoffs": "API redesign effort."
+  },
+  "severity": "warning",
+  "summary": "Large unpaginated responses increase memory and bandwidth waste.",
+  "tags": [
+    "pagination"
+  ],
+  "tier": 2,
+  "title": "Large payloads without pagination"
+}

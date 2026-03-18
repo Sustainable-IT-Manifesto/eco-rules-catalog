@@ -1,0 +1,41 @@
+{
+  "canonical_id": "ECO-CMP-JAVA-005",
+  "category": "Computation",
+  "category_code": "CMP",
+  "detection": {
+    "languages": [
+      "java"
+    ],
+    "method": "hybrid"
+  },
+  "enabled_by_default": true,
+  "family": "Java",
+  "family_code": "JAVA",
+  "id": "ECO-CMP-JAVA-005",
+  "impact": {
+    "confidence": 0.8,
+    "notes": "Often severe at scale.",
+    "type": "network"
+  },
+  "layer": "code",
+  "legacy_id": "ECO-JAVA-005",
+  "ontology": {
+    "system_layers": [
+      "code"
+    ]
+  },
+  "rationale": "Hidden multiplicative cost for latency and DB load.",
+  "remediation": {
+    "guidance": "Use eager fetching, joins, or batch queries.",
+    "tradeoffs": "Tune memory and query plans."
+  },
+  "severity": "warning",
+  "summary": "ORM queries inside loops multiply DB calls.",
+  "tags": [
+    "java",
+    "orm",
+    "database"
+  ],
+  "tier": 2,
+  "title": "N+1 ORM query pattern"
+}

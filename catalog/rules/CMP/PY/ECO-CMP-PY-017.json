@@ -1,0 +1,40 @@
+{
+  "canonical_id": "ECO-CMP-PY-017",
+  "category": "Computation",
+  "category_code": "CMP",
+  "detection": {
+    "languages": [
+      "python"
+    ],
+    "method": "hybrid"
+  },
+  "enabled_by_default": true,
+  "family": "Python",
+  "family_code": "PY",
+  "id": "ECO-CMP-PY-017",
+  "impact": {
+    "confidence": 0.65,
+    "notes": "Often invisible until scale.",
+    "type": "memory"
+  },
+  "layer": "code",
+  "legacy_id": "ECO-PY-017",
+  "ontology": {
+    "system_layers": [
+      "code"
+    ]
+  },
+  "rationale": "Accidental retention prevents GC and inflates baseline memory footprint.",
+  "remediation": {
+    "guidance": "Avoid storing large payloads globally; use caching with eviction.",
+    "tradeoffs": "May require new cache strategy."
+  },
+  "severity": "warning",
+  "summary": "Long-lived globals can cause persistent memory bloat.",
+  "tags": [
+    "python",
+    "memory"
+  ],
+  "tier": 2,
+  "title": "Large object retained in global scope"
+}

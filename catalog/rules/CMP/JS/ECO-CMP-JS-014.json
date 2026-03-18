@@ -1,0 +1,40 @@
+{
+  "canonical_id": "ECO-CMP-JS-014",
+  "category": "Computation",
+  "category_code": "CMP",
+  "detection": {
+    "languages": [
+      "javascript"
+    ],
+    "method": "trace"
+  },
+  "enabled_by_default": true,
+  "family": "JavaScript",
+  "family_code": "JS",
+  "id": "ECO-CMP-JS-014",
+  "impact": {
+    "confidence": 0.7,
+    "notes": "Visible as long tasks.",
+    "type": "cpu"
+  },
+  "layer": "code",
+  "legacy_id": "ECO-JS-014",
+  "ontology": {
+    "system_layers": [
+      "code"
+    ]
+  },
+  "rationale": "Main-thread CPU work directly impacts user experience and power use.",
+  "remediation": {
+    "guidance": "Move heavy compute to web workers; optimize algorithms.",
+    "tradeoffs": "More complexity."
+  },
+  "severity": "warning",
+  "summary": "Heavy CPU work on main thread harms responsiveness and drains battery.",
+  "tags": [
+    "javascript",
+    "web-workers"
+  ],
+  "tier": 1,
+  "title": "Client-side heavy computation without workers"
+}

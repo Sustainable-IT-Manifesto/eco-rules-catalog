@@ -1,0 +1,40 @@
+{
+  "canonical_id": "ECO-CMP-JAVA-008",
+  "category": "Computation",
+  "category_code": "CMP",
+  "detection": {
+    "languages": [
+      "java"
+    ],
+    "method": "trace"
+  },
+  "enabled_by_default": true,
+  "family": "Java",
+  "family_code": "JAVA",
+  "id": "ECO-CMP-JAVA-008",
+  "impact": {
+    "confidence": 0.7,
+    "notes": "Often visible as lock wait.",
+    "type": "cpu"
+  },
+  "layer": "code",
+  "legacy_id": "ECO-JAVA-008",
+  "ontology": {
+    "system_layers": [
+      "code"
+    ]
+  },
+  "rationale": "Contention turns CPU into waiting; throughput collapses under load.",
+  "remediation": {
+    "guidance": "Reduce lock scope; use concurrent structures; redesign hotspots.",
+    "tradeoffs": "Harder correctness work."
+  },
+  "severity": "warning",
+  "summary": "Over-synchronization creates contention and wastes CPU.",
+  "tags": [
+    "java",
+    "contention"
+  ],
+  "tier": 2,
+  "title": "Excessive synchronization contention"
+}

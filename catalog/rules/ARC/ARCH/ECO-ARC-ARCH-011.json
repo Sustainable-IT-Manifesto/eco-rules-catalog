@@ -1,0 +1,40 @@
+{
+  "canonical_id": "ECO-ARC-ARCH-011",
+  "category": "Architecture",
+  "category_code": "ARC",
+  "detection": {
+    "languages": [
+      "infra"
+    ],
+    "method": "trace"
+  },
+  "enabled_by_default": true,
+  "family": "Architecture",
+  "family_code": "ARCH",
+  "id": "ECO-ARC-ARCH-011",
+  "impact": {
+    "confidence": 0.6,
+    "notes": "Validate against SLOs.",
+    "type": "cost"
+  },
+  "layer": "architecture",
+  "legacy_id": "ECO-ARCH-011",
+  "ontology": {
+    "system_layers": [
+      "architecture"
+    ]
+  },
+  "rationale": "Replica counts often drift upward and never return.",
+  "remediation": {
+    "guidance": "Reduce replicas and add autoscaling with guardrails.",
+    "tradeoffs": "Risk if SLOs not defined."
+  },
+  "severity": "warning",
+  "summary": "Too many replicas increase baseline waste.",
+  "tags": [
+    "replicas",
+    "rightsizing"
+  ],
+  "tier": 3,
+  "title": "Excessive replica counts"
+}

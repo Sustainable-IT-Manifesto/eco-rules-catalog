@@ -1,0 +1,40 @@
+{
+  "canonical_id": "ECO-NET-NET-011",
+  "category": "Networking",
+  "category_code": "NET",
+  "detection": {
+    "languages": [
+      "infra"
+    ],
+    "method": "config"
+  },
+  "enabled_by_default": true,
+  "family": "Network",
+  "family_code": "NET",
+  "id": "ECO-NET-NET-011",
+  "impact": {
+    "confidence": 0.7,
+    "notes": "High for global audiences.",
+    "type": "network"
+  },
+  "layer": "network",
+  "legacy_id": "ECO-NET-011",
+  "ontology": {
+    "system_layers": [
+      "network"
+    ]
+  },
+  "rationale": "CDNs reduce transfer distance and offload repeated work from origin.",
+  "remediation": {
+    "guidance": "Use a CDN for static assets and cacheable endpoints.",
+    "tradeoffs": "Operational overhead and caching discipline."
+  },
+  "severity": "warning",
+  "summary": "Serving static content from origin increases latency and origin load.",
+  "tags": [
+    "cdn",
+    "latency"
+  ],
+  "tier": 3,
+  "title": "No CDN usage for static content"
+}

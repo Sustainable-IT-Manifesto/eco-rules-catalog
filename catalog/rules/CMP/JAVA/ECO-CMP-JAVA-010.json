@@ -1,0 +1,40 @@
+{
+  "canonical_id": "ECO-CMP-JAVA-010",
+  "category": "Computation",
+  "category_code": "CMP",
+  "detection": {
+    "languages": [
+      "java"
+    ],
+    "method": "config"
+  },
+  "enabled_by_default": true,
+  "family": "Java",
+  "family_code": "JAVA",
+  "id": "ECO-CMP-JAVA-010",
+  "impact": {
+    "confidence": 0.6,
+    "notes": "Worse with sync appenders.",
+    "type": "io"
+  },
+  "layer": "code",
+  "legacy_id": "ECO-JAVA-010",
+  "ontology": {
+    "system_layers": [
+      "code"
+    ]
+  },
+  "rationale": "Logging can become a dominant cost under high throughput.",
+  "remediation": {
+    "guidance": "Lower verbosity; sample; avoid heavy string formatting unless enabled.",
+    "tradeoffs": "Less detail unless sampled."
+  },
+  "severity": "note",
+  "summary": "Verbose logs in hot paths waste CPU and I/O.",
+  "tags": [
+    "java",
+    "logging"
+  ],
+  "tier": 1,
+  "title": "Debug logging in production hot path"
+}

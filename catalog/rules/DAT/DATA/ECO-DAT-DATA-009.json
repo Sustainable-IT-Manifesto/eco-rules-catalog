@@ -1,0 +1,40 @@
+{
+  "canonical_id": "ECO-DAT-DATA-009",
+  "category": "Data",
+  "category_code": "DAT",
+  "detection": {
+    "languages": [
+      "infra"
+    ],
+    "method": "config"
+  },
+  "enabled_by_default": true,
+  "family": "Data",
+  "family_code": "DATA",
+  "id": "ECO-DAT-DATA-009",
+  "impact": {
+    "confidence": 0.6,
+    "notes": "Often easy win.",
+    "type": "storage"
+  },
+  "layer": "data",
+  "legacy_id": "ECO-DATA-009",
+  "ontology": {
+    "system_layers": [
+      "data"
+    ]
+  },
+  "rationale": "Archival tiers align cost with access patterns.",
+  "remediation": {
+    "guidance": "Adopt tiering and retrieval policies.",
+    "tradeoffs": "Retrieval latency/cost."
+  },
+  "severity": "note",
+  "summary": "Lack of archival tiering keeps costs and energy higher than necessary.",
+  "tags": [
+    "archival",
+    "tiering"
+  ],
+  "tier": 3,
+  "title": "No archival tier strategy"
+}

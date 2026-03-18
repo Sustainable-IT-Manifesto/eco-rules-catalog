@@ -1,0 +1,39 @@
+{
+  "canonical_id": "ECO-NET-NET-013",
+  "category": "Networking",
+  "category_code": "NET",
+  "detection": {
+    "languages": [
+      "infra"
+    ],
+    "method": "trace"
+  },
+  "enabled_by_default": true,
+  "family": "Network",
+  "family_code": "NET",
+  "id": "ECO-NET-NET-013",
+  "impact": {
+    "confidence": 0.75,
+    "notes": "Often large at scale.",
+    "type": "network"
+  },
+  "layer": "network",
+  "legacy_id": "ECO-NET-013",
+  "ontology": {
+    "system_layers": [
+      "network"
+    ]
+  },
+  "rationale": "A million clients polling becomes a distributed denial-of-wallet.",
+  "remediation": {
+    "guidance": "Use push mechanisms; increase intervals; add caching and ETags.",
+    "tradeoffs": "More event infrastructure."
+  },
+  "severity": "warning",
+  "summary": "Frequent polling increases load even when nothing changes.",
+  "tags": [
+    "polling"
+  ],
+  "tier": 2,
+  "title": "Excessive polling intervals"
+}

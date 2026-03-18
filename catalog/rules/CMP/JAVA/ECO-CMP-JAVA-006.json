@@ -1,0 +1,41 @@
+{
+  "canonical_id": "ECO-CMP-JAVA-006",
+  "category": "Computation",
+  "category_code": "CMP",
+  "detection": {
+    "languages": [
+      "java"
+    ],
+    "method": "config"
+  },
+  "enabled_by_default": true,
+  "family": "Java",
+  "family_code": "JAVA",
+  "id": "ECO-CMP-JAVA-006",
+  "impact": {
+    "confidence": 0.85,
+    "notes": "High propagation under load.",
+    "type": "latency"
+  },
+  "layer": "architecture",
+  "legacy_id": "ECO-JAVA-006",
+  "ontology": {
+    "system_layers": [
+      "architecture"
+    ]
+  },
+  "rationale": "Connection setup is expensive; pooling stabilizes and reduces waste.",
+  "remediation": {
+    "guidance": "Use and tune a pool (e.g., HikariCP).",
+    "tradeoffs": "Must manage max connections."
+  },
+  "severity": "error",
+  "summary": "No pooling increases connection churn and DB overhead.",
+  "tags": [
+    "java",
+    "db",
+    "pooling"
+  ],
+  "tier": 2,
+  "title": "Missing connection pooling"
+}

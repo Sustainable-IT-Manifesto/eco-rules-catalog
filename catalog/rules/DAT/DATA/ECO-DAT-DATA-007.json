@@ -1,0 +1,39 @@
+{
+  "canonical_id": "ECO-DAT-DATA-007",
+  "category": "Data",
+  "category_code": "DAT",
+  "detection": {
+    "languages": [
+      "database"
+    ],
+    "method": "query"
+  },
+  "enabled_by_default": true,
+  "family": "Data",
+  "family_code": "DATA",
+  "id": "ECO-DAT-DATA-007",
+  "impact": {
+    "confidence": 0.65,
+    "notes": "Strong when datasets grow.",
+    "type": "io"
+  },
+  "layer": "data",
+  "legacy_id": "ECO-DATA-007",
+  "ontology": {
+    "system_layers": [
+      "data"
+    ]
+  },
+  "rationale": "Partitioning reduces scan scope and improves manageability.",
+  "remediation": {
+    "guidance": "Partition by time/key; enforce pruning; archive older partitions.",
+    "tradeoffs": "Migration complexity."
+  },
+  "severity": "warning",
+  "summary": "Large tables without partitioning lead to expensive queries and maintenance.",
+  "tags": [
+    "partitioning"
+  ],
+  "tier": 3,
+  "title": "No partitioning for large tables"
+}

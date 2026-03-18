@@ -1,0 +1,39 @@
+{
+  "canonical_id": "ECO-DAT-DATA-008",
+  "category": "Data",
+  "category_code": "DAT",
+  "detection": {
+    "languages": [
+      "infra"
+    ],
+    "method": "config"
+  },
+  "enabled_by_default": true,
+  "family": "Data",
+  "family_code": "DATA",
+  "id": "ECO-DAT-DATA-008",
+  "impact": {
+    "confidence": 0.7,
+    "notes": "Often caused by missing TTLs.",
+    "type": "storage"
+  },
+  "layer": "data",
+  "legacy_id": "ECO-DATA-008",
+  "ontology": {
+    "system_layers": [
+      "data"
+    ]
+  },
+  "rationale": "Temporary data should expire; permanence requires justification.",
+  "remediation": {
+    "guidance": "Add TTL/expiration and lifecycle policies.",
+    "tradeoffs": "Risk if used unexpectedly later."
+  },
+  "severity": "warning",
+  "summary": "Ephemeral data kept forever becomes waste by default.",
+  "tags": [
+    "retention"
+  ],
+  "tier": 4,
+  "title": "Storing ephemeral data permanently"
+}

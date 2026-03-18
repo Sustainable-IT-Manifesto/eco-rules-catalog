@@ -1,0 +1,41 @@
+{
+  "canonical_id": "ECO-CMP-PY-012",
+  "category": "Computation",
+  "category_code": "CMP",
+  "detection": {
+    "languages": [
+      "python"
+    ],
+    "method": "trace"
+  },
+  "enabled_by_default": true,
+  "family": "Python",
+  "family_code": "PY",
+  "id": "ECO-CMP-PY-012",
+  "impact": {
+    "confidence": 0.75,
+    "notes": "Often visible as p95/p99 regression.",
+    "type": "latency"
+  },
+  "layer": "code",
+  "legacy_id": "ECO-PY-012",
+  "ontology": {
+    "system_layers": [
+      "code"
+    ]
+  },
+  "rationale": "Requests should stay I/O bound when possible; CPU spikes reduce concurrency.",
+  "remediation": {
+    "guidance": "Offload CPU work to background jobs or optimize/compile hotspots.",
+    "tradeoffs": "Added system complexity."
+  },
+  "severity": "warning",
+  "summary": "CPU-heavy work in request handlers reduces throughput and increases latency.",
+  "tags": [
+    "python",
+    "throughput",
+    "latency"
+  ],
+  "tier": 2,
+  "title": "CPU-bound work in request thread"
+}

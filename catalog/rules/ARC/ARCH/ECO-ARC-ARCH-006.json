@@ -1,0 +1,40 @@
+{
+  "canonical_id": "ECO-ARC-ARCH-006",
+  "category": "Architecture",
+  "category_code": "ARC",
+  "detection": {
+    "languages": [
+      "infra"
+    ],
+    "method": "trace"
+  },
+  "enabled_by_default": true,
+  "family": "Architecture",
+  "family_code": "ARCH",
+  "id": "ECO-ARC-ARCH-006",
+  "impact": {
+    "confidence": 0.8,
+    "notes": "High propagation under partial failures.",
+    "type": "reliability"
+  },
+  "layer": "architecture",
+  "legacy_id": "ECO-ARCH-006",
+  "ontology": {
+    "system_layers": [
+      "architecture"
+    ]
+  },
+  "rationale": "Unbounded queues become time bombs: cost, latency, and failure cascades.",
+  "remediation": {
+    "guidance": "Add backpressure, caps, DLQs, and shedding strategies.",
+    "tradeoffs": "Must define loss/priority behavior."
+  },
+  "severity": "error",
+  "summary": "Queues without bounds hide backpressure and create runaway cost.",
+  "tags": [
+    "queues",
+    "backpressure"
+  ],
+  "tier": 3,
+  "title": "Unbounded message queues"
+}

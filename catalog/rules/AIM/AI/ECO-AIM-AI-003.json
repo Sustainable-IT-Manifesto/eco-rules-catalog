@@ -1,0 +1,40 @@
+{
+  "canonical_id": "ECO-AIM-AI-003",
+  "category": "AI/ML",
+  "category_code": "AIM",
+  "detection": {
+    "languages": [
+      "python"
+    ],
+    "method": "hybrid"
+  },
+  "enabled_by_default": true,
+  "family": "AI",
+  "family_code": "AI",
+  "id": "ECO-AIM-AI-003",
+  "impact": {
+    "confidence": 0.75,
+    "notes": "Common in RAG pipelines.",
+    "type": "cpu"
+  },
+  "layer": "ai",
+  "legacy_id": "ECO-AI-003",
+  "ontology": {
+    "system_layers": [
+      "ai"
+    ]
+  },
+  "rationale": "Embeddings should be cached based on content hash/version.",
+  "remediation": {
+    "guidance": "Cache embeddings; invalidate on content change only.",
+    "tradeoffs": "Cache management."
+  },
+  "severity": "warning",
+  "summary": "Recomputing embeddings for unchanged inputs wastes compute.",
+  "tags": [
+    "ai",
+    "embeddings"
+  ],
+  "tier": 2,
+  "title": "Re-embedding unchanged data"
+}
