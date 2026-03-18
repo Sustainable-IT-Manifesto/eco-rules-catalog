@@ -109,7 +109,7 @@ def render_rule(rule, registry):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--root', default='.')
-    ap.add_argument('--out', default='eco_catalog_human_v2')
+    ap.add_argument('--out', default='docs/catalog/')
     ap.add_argument('--registry', default='catalog/registry.json')
     args = ap.parse_args()
     root = Path(args.root).resolve()

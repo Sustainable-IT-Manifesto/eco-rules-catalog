@@ -23,7 +23,7 @@ jobs:
 
       - run: |
           python tools/build_catalog.py
-          python tools/generate_human_catalog_v2.py || true
+          python tools/generate_human_catalog_v2.py 
 
       - run: mkdocs build
 
