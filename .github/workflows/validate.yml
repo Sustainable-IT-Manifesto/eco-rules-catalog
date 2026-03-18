@@ -15,4 +15,4 @@ jobs:
           python-version: '3.11'
       - run: pip install jsonschema
       - run: python tools/validate_registry.py
-      - run: python tools/validate_rules_v2.py master.json
+      - run: python tools/validate_rules_v2.py catalog/master.json
