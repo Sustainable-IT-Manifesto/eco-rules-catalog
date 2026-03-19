@@ -10,5 +10,7 @@ nav:
   - Standard: standard.md
   - Contributing: contributing.md
   - Rule Checklist: rule-checklist.md
+  - Catalog:
+      - Human Catalog: catalog/index.md
   - Releases:
       - v0.2.0: releases/v0.2.0.md
