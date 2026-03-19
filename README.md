@@ -1,83 +1,135 @@
-# Eco Rules Catalog
+<p align="center">
+  <h1 align="center">Eco Rules Catalog</h1>
+  <p align="center">
+    A standard for identifying software inefficiency.
+  </p>
+  <p align="center">
+    <strong>Because waste is a bug.</strong>
+  </p>
+</p>
+
+<p align="center">
+  <a href="https://sustainable-it-manifesto.github.io/eco-rules-catalog/">
+    📖 Documentation
+  </a>
+  ·
+  <a href="https://github.com/sustainable-it-manifesto/eco-rules-catalog/actions">
+    ⚙️ CI
+  </a>
+  ·
+  <a href="https://github.com/sustainable-it-manifesto/eco-rules-catalog/releases">
+    📦 Releases
+  </a>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/github/actions/workflow/status/sustainable-it-manifesto/eco-rules-catalog/validate.yml?label=validate&style=flat-square" />
+  <img src="https://img.shields.io/github/actions/workflow/status/sustainable-it-manifesto/eco-rules-catalog/deploy-docs.yml?label=docs&style=flat-square" />
+  <img src="https://img.shields.io/github/v/release/sustainable-it-manifesto/eco-rules-catalog?style=flat-square" />
+</p>
 
 A structured catalog of **software inefficiency patterns** that waste compute, energy, network bandwidth, memory, and engineering time.
 
-The Eco Rules Catalog provides:
+The Eco Rules Catalog is a **SITM-owned standard** for identifying, describing, and organizing software waste.
 
-• **Machine-readable rules** for static analysis tools
-• **Human-readable documentation** explaining each inefficiency
-• **Remediation guidance** for developers
-• **Examples** showing inefficient vs improved code
-
-The goal is simple:
-
-> Make software inefficiency visible so it can be fixed.
+> Because waste is a bug.
 
 ---
 
-# Why This Matters
+# What this provides
 
-Modern software systems waste enormous resources through small inefficiencies.
+The catalog includes:
 
-Examples include:
-
-* repeated string concatenation
-* unbounded network retries
-* unnecessary serialization
-* oversized data payloads
-* inefficient query patterns
-* excessive logging or polling
-
-Individually these look harmless.
-
-Across millions of executions they become:
-
-* higher cloud costs
-* increased latency
-* unnecessary energy usage
-* larger environmental footprint
-
-The Eco Rules Catalog helps identify these patterns.
+- **Machine-readable rules** for tools and automation
+- **Human-readable documentation** for understanding and learning
+- **Remediation guidance** for improving systems
+- **A canonical taxonomy and registry** for consistency
+- **Validation and reproducibility** for governance
 
 ---
 
-# Repository Contents
+# Why this matters
+
+Modern systems accumulate inefficiency in small ways:
+
+- repeated string concatenation  
+- unbounded retries  
+- oversized payloads  
+- inefficient queries  
+- unnecessary serialization  
+- excessive polling or logging  
+
+Individually, these look harmless.
+
+At scale, they become:
+
+- higher cloud costs  
+- increased latency  
+- wasted energy  
+- larger environmental footprint  
+- system fragility  
+
+The Eco Rules Catalog makes these patterns **visible and actionable**.
+
+---
+
+# Repository structure
 
 ```
-master.json
-generate_human_catalog.py
-requirements.txt
 
-examples/
-families/
-eco_catalog_human/
-```
+catalog/
+rules/              ← source of truth (per-rule files)
+master.json         ← generated catalog
+registry.json       ← canonical vocabulary
+schema/             ← JSON schemas
 
-| File                        | Purpose                                 |
-| --------------------------- | --------------------------------------- |
-| `master.json`               | canonical machine-readable rule catalog |
-| `generate_human_catalog.py` | documentation generator                 |
-| `examples/`                 | optional rule examples                  |
-| `eco_catalog_human/`        | generated human documentation           |
+docs/
+...                 ← MkDocs site content
+
+tools/
+build_catalog.py
+validate_rules_v2.py
+generate_human_catalog_v2.py
+
+````
 
 ---
 
-# Rule Structure
+# Source of truth
 
-Each rule contains structured metadata.
+The system is intentionally structured:
+
+### Authoritative sources
+- `catalog/rules/...` → rule definitions  
+- `catalog/registry.json` → controlled vocabulary  
+- `catalog/schema/...` → structure  
+
+### Generated artifacts
+- `catalog/master.json`  
+- `docs/catalog/...` (human-readable pages)
+
+> `catalog/master.json` is generated and should not be edited manually.
+
+---
+
+# Rule model
+
+Each rule describes a specific inefficiency pattern.
 
 Example:
 
 ```json
 {
-  "id": "ECO-PY-001",
-  "title": "Repeated String Concatenation in Loops",
-  "family": "python",
-  "layer": "code",
-  "tier": 1,
-  "severity": "medium"
+  "id": "ECO-AIM-AI-001",
+  "name": "Example rule",
+  "category_code": "AIM",
+  "family_code": "AI",
+  "layer": "ai",
+  "ontology": {
+    "system_layers": ["ai", "data"]
+  }
 }
-```
+````
 
 Rules also include:
 
@@ -88,156 +140,94 @@ Rules also include:
 
 ---
 
-# Rule Dimensions
+# Canonical layers
 
-Rules are categorized by three dimensions.
+The catalog uses a controlled vocabulary:
 
-### Family
+* `ai`
+* `architecture`
+* `code`
+* `data`
+* `network`
+* `process`
 
-Technology ecosystem.
-
-Examples:
-
-* Python
-* JavaScript
-* Java
-* Network
-* Data
-* AI
-* Architecture
-
----
-
-### Layer
-
-Where the inefficiency occurs.
-
-Examples:
-
-* code
-* data
-* network
-* architecture
-* ai
-* organizational
-
----
-
-### Tier
-
-Complexity level.
-
-| Tier | Meaning                      |
-| ---- | ---------------------------- |
-| 1    | common inefficiencies        |
-| 2    | structural inefficiencies    |
-| 3    | architectural inefficiencies |
-| 4    | system-level inefficiencies  |
-
----
-
-# Generate Human Documentation
-
-Install dependencies:
+These values are defined in:
 
 ```
-pip install -r requirements.txt
-```
-
-Generate documentation:
-
-```
-python generate_human_catalog.py \
-  --in master.json \
-  --out eco_catalog_human
+catalog/registry.json
 ```
 
 ---
 
-# Adding Examples
+# Build and validate
 
-Examples make rules easier to understand.
-
-Create files:
+## Build catalog
 
 ```
-examples/ECO-PY-001.md
-examples/ECO-NET-002.md
+make build
 ```
 
-Example:
+## Validate
 
 ```
-## Bad
-
-for item in items:
-    s += item
-
-## Better
-
-s = "".join(items)
+make validate
 ```
 
-Generate documentation with examples:
+## Generate docs
 
 ```
-python generate_human_catalog.py \
-  --in master.json \
-  --out eco_catalog_human \
-  --examples-dir examples
+make docs
+```
+
+## Serve locally
+
+```
+make serve
 ```
 
 ---
 
-# Example Stub Generation
+# Documentation site
 
-Create empty templates for all rules:
+The catalog is published as a documentation site using MkDocs.
 
-```
-python generate_human_catalog.py \
-  --in master.json \
-  --out eco_catalog_human \
-  --examples-template examples
-```
+It includes:
+
+* the standard
+* ontology explanation
+* rule catalog
+* contributor guidance
 
 ---
 
-# Intended Uses
+# Intended uses
 
 The catalog can power:
 
-• static analyzers
-• CI/CD enforcement
-• sustainability audits
-• engineering education
-• performance reviews
+* static analysis tools
+* CI/CD enforcement
+* sustainability audits
+* performance optimization
+* engineering education
+* certification programs
 
 ---
 
 # Relationship to Sustainable IT
 
-This catalog supports the **Sustainable IT Manifesto** by helping organizations move through the maturity pathway:
+This catalog supports the **Sustainable IT Manifesto** by helping organizations move through:
 
-Aware → Conscious → Enabled → Empowered
+**Aware → Conscious → Enabled → Empowered**
 
 ---
 
 # Contributing
 
-See `RULE_AUTHORING_GUIDE.md`.
+See:
 
-## Suggested Contributor Quickstart
-
-```
-make venv
-make install
-make install-dev
-
-make normalize
-make validate
-make docs
-```
-
+* `CONTRIBUTING.md`
+* `docs/rule-checklist.md`
+* `docs/ontology/checklist.md`
 
 ---
 
@@ -246,23 +236,4 @@ make docs
 MIT License
 
 Copyright (c) 2026 Sustainable IT Manifesto
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-
 
