@@ -2,7 +2,7 @@
 
 - **Category:** AI/ML (AIM)
 - **Family:** AI (AI)
-- **Layer:** Ai
+- **Layer:** AI
 - **Tier:** 3
 - **Severity:** warning
 - **Tags:** ai, training

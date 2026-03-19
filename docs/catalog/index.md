@@ -1,6 +1,6 @@
 # Eco Rules Catalog (Human Readable)
 
-**Generated at:** 2026-03-18T23:29:52Z
+**Generated at:** 2026-03-19T03:18:31Z
 **Total rules:** 125
 
 ## Categories
@@ -16,21 +16,21 @@
 
 | ID | Title | Category | Family | Layer | Severity |
 |---|---|---|---|---|---|
-| [ECO-AIM-AI-001](categories/aim/families/ai/ECO-AIM-AI-001.md) | Oversized model selection | AI/ML | AI | Ai | warning |
-| [ECO-AIM-AI-002](categories/aim/families/ai/ECO-AIM-AI-002.md) | No inference batching | AI/ML | AI | Ai | warning |
-| [ECO-AIM-AI-003](categories/aim/families/ai/ECO-AIM-AI-003.md) | Re-embedding unchanged data | AI/ML | AI | Ai | warning |
-| [ECO-AIM-AI-004](categories/aim/families/ai/ECO-AIM-AI-004.md) | No prompt caching | AI/ML | AI | Ai | note |
-| [ECO-AIM-AI-005](categories/aim/families/ai/ECO-AIM-AI-005.md) | Always-on inference endpoints | AI/ML | AI | Ai | warning |
-| [ECO-AIM-AI-006](categories/aim/families/ai/ECO-AIM-AI-006.md) | Unbounded context window usage | AI/ML | AI | Ai | warning |
-| [ECO-AIM-AI-007](categories/aim/families/ai/ECO-AIM-AI-007.md) | No model quantization | AI/ML | AI | Ai | note |
-| [ECO-AIM-AI-008](categories/aim/families/ai/ECO-AIM-AI-008.md) | Re-training without drift detection | AI/ML | AI | Ai | warning |
-| [ECO-AIM-AI-009](categories/aim/families/ai/ECO-AIM-AI-009.md) | No evaluation before scaling model | AI/ML | AI | Ai | warning |
-| [ECO-AIM-AI-010](categories/aim/families/ai/ECO-AIM-AI-010.md) | Overly frequent fine-tuning cycles | AI/ML | AI | Ai | note |
-| [ECO-AIM-AI-011](categories/aim/families/ai/ECO-AIM-AI-011.md) | Storing all embeddings indefinitely | AI/ML | AI | Ai | warning |
-| [ECO-AIM-AI-012](categories/aim/families/ai/ECO-AIM-AI-012.md) | Large model in low-SLA workload | AI/ML | AI | Ai | warning |
-| [ECO-AIM-AI-013](categories/aim/families/ai/ECO-AIM-AI-013.md) | No GPU utilization monitoring | AI/ML | AI | Ai | warning |
-| [ECO-AIM-AI-014](categories/aim/families/ai/ECO-AIM-AI-014.md) | Inefficient feature preprocessing pipelines | AI/ML | AI | Ai | note |
-| [ECO-AIM-AI-015](categories/aim/families/ai/ECO-AIM-AI-015.md) | No batching of vector search queries | AI/ML | AI | Ai | note |
+| [ECO-AIM-AI-001](categories/aim/families/ai/ECO-AIM-AI-001.md) | Oversized model selection | AI/ML | AI | AI | warning |
+| [ECO-AIM-AI-002](categories/aim/families/ai/ECO-AIM-AI-002.md) | No inference batching | AI/ML | AI | AI | warning |
+| [ECO-AIM-AI-003](categories/aim/families/ai/ECO-AIM-AI-003.md) | Re-embedding unchanged data | AI/ML | AI | AI | warning |
+| [ECO-AIM-AI-004](categories/aim/families/ai/ECO-AIM-AI-004.md) | No prompt caching | AI/ML | AI | AI | note |
+| [ECO-AIM-AI-005](categories/aim/families/ai/ECO-AIM-AI-005.md) | Always-on inference endpoints | AI/ML | AI | AI | warning |
+| [ECO-AIM-AI-006](categories/aim/families/ai/ECO-AIM-AI-006.md) | Unbounded context window usage | AI/ML | AI | AI | warning |
+| [ECO-AIM-AI-007](categories/aim/families/ai/ECO-AIM-AI-007.md) | No model quantization | AI/ML | AI | AI | note |
+| [ECO-AIM-AI-008](categories/aim/families/ai/ECO-AIM-AI-008.md) | Re-training without drift detection | AI/ML | AI | AI | warning |
+| [ECO-AIM-AI-009](categories/aim/families/ai/ECO-AIM-AI-009.md) | No evaluation before scaling model | AI/ML | AI | AI | warning |
+| [ECO-AIM-AI-010](categories/aim/families/ai/ECO-AIM-AI-010.md) | Overly frequent fine-tuning cycles | AI/ML | AI | AI | note |
+| [ECO-AIM-AI-011](categories/aim/families/ai/ECO-AIM-AI-011.md) | Storing all embeddings indefinitely | AI/ML | AI | AI | warning |
+| [ECO-AIM-AI-012](categories/aim/families/ai/ECO-AIM-AI-012.md) | Large model in low-SLA workload | AI/ML | AI | AI | warning |
+| [ECO-AIM-AI-013](categories/aim/families/ai/ECO-AIM-AI-013.md) | No GPU utilization monitoring | AI/ML | AI | AI | warning |
+| [ECO-AIM-AI-014](categories/aim/families/ai/ECO-AIM-AI-014.md) | Inefficient feature preprocessing pipelines | AI/ML | AI | AI | note |
+| [ECO-AIM-AI-015](categories/aim/families/ai/ECO-AIM-AI-015.md) | No batching of vector search queries | AI/ML | AI | AI | note |
 | [ECO-ARC-ARCH-001](categories/arc/families/arch/ECO-ARC-ARCH-001.md) | Over-provisioned compute | Architecture | Architecture | Architecture | warning |
 | [ECO-ARC-ARCH-002](categories/arc/families/arch/ECO-ARC-ARCH-002.md) | Always-on low-traffic service | Architecture | Architecture | Architecture | warning |
 | [ECO-ARC-ARCH-003](categories/arc/families/arch/ECO-ARC-ARCH-003.md) | Long synchronous dependency chain | Architecture | Architecture | Architecture | warning |
