@@ -4,12 +4,37 @@ site_url: https://sustainable-it-manifesto.github.io/eco-rules-catalog/
 
 theme:
   name: material
+  features:
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+
+markdown_extensions:
+  - admonition
+  - toc:
+      permalink: true
+  - tables
+  - pymdownx.superfences
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
 
 nav:
   - Home: index.md
-  - Standard: standard.md
-  - Contributing: contributing.md
-  - Rule Checklist: rule-checklist.md
+  - Start Here: start-here.md
+  - Standard:
+      - Overview: standard.md
+      - Ontology Overview: ontology/README.md
+      - Ontology Model: ontology/model.md
+      - Taxonomy: ontology/taxonomy.md
+      - Ontology Checklist: ontology/checklist.md
+      - Ontology Scoring: ontology/scoring.md
+      - Ontology Diagram: ontology/diagram.md
+  - Authoring:
+      - Contributing: contributing.md
+      - Rule Checklist: rule-checklist.md
   - Catalog:
       - Human Catalog: catalog/index.md
   - Releases:
