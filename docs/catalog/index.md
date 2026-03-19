@@ -1,6 +1,5 @@
 # Eco Rules Catalog (Human Readable)
 
-**Generated at:** 2026-03-19T03:18:31Z
 **Total rules:** 125
 
 ## Categories

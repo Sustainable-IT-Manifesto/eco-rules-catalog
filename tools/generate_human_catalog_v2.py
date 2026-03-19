@@ -119,7 +119,6 @@ def main():
     index = [
         '# Eco Rules Catalog (Human Readable)',
         '',
-        f'**Generated at:** {datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")}',
         f'**Total rules:** {len(rules)}',
         '',
         '## Categories',
