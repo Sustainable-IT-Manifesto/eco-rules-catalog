@@ -13,19 +13,12 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 LAYER_LABELS = {
-    'ui': 'UI',
-    'application': 'Application',
-    'service': 'Service',
     'data': 'Data',
     'network': 'Network',
-    'platform': 'Platform',
-    'infrastructure': 'Infrastructure',
-    'organization': 'Organization',
     'code': 'Code',
-    'runtime': 'Runtime',
     'architecture': 'Architecture',
-    'ai/ml': 'AI/ML',
-    'organizational': 'Organizational'
+    'ai': 'AI',
+    'process': 'Process'
 }
 
 def slugify(s: str) -> str:

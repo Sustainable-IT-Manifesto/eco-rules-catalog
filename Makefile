@@ -1,179 +1,114 @@
-PY ?= python3
-CATALOG ?= master.json
+PYTHON ?= python3
 
-CATEGORIES ?= ontology/categories.json
-FAMILIES ?= ontology/families.json
+CATALOG_DIR := catalog
+RULES_DIR := $(CATALOG_DIR)/rules
+MASTER_CATALOG := $(CATALOG_DIR)/master.json
+REGISTRY := $(CATALOG_DIR)/registry.json
+SCHEMA_DIR := $(CATALOG_DIR)/schema
+RULE_SCHEMA := $(SCHEMA_DIR)/schema-rule.json
+REGISTRY_SCHEMA := $(SCHEMA_DIR)/schema-registry.json
 
-SCHEMA_CATALOG ?= schema/schema-catalog.json
-SCHEMA_RULE ?= schema/schema-rule.json
-SCHEMA_CATEGORIES ?= schema/schema-categories.json
-SCHEMA_FAMILIES ?= schema/schema-families.json
+DOCS_DIR := docs
+CATALOG_DOCS_DIR := $(DOCS_DIR)/catalog
+MKDOCS_CONFIG := mkdocs.yml
 
-HUMAN_OUT ?= eco_catalog_human
-EXAMPLES_DIR ?= examples
-SITE_INDEX_OUT ?= docs-site/docs/catalog/_data/catalog_index.json
+TOOLS_DIR := tools
+BUILD_CATALOG := $(TOOLS_DIR)/build_catalog.py
+VALIDATE_REGISTRY := $(TOOLS_DIR)/validate_registry.py
+VALIDATE_RULES := $(TOOLS_DIR)/validate_rules_v2.py
+GENERATE_HUMAN := $(TOOLS_DIR)/generate_human_catalog_v2.py
+MIGRATE_RULES := $(TOOLS_DIR)/migrate_rules.py
+SPLIT_CATALOG := $(TOOLS_DIR)/split_catalog.py
 
-VENV_DIR ?= .venv
-VENV_PY := $(VENV_DIR)/bin/python
-VENV_PIP := $(VENV_DIR)/bin/pip
-
-.PHONY: help \
-	venv install install-dev clean clean-venv \
-	validate-schema validate-schema-catalog validate-schema-categories validate-schema-families \
-	validate validate-strict \
-	validate-catalog validate-catalog-strict \
-	normalize normalize-check \
-	update-rules update-rules-check \
-	examples-stubs \
-	docs docs-html \
-	build-site-assets \
-	publish publish-strict publish-report \
-	ci ci-strict check-all fix-all
-
+.PHONY: help
 help:
-	@echo ""
-	@echo "Eco Rules Catalog"
-	@echo ""
-	@echo "Bootstrap:"
-	@echo "  make venv                    Create virtual environment"
-	@echo "  make install                 Install runtime dependencies"
-	@echo "  make install-dev             Install dev dependencies"
-	@echo ""
-	@echo "Validation:"
-	@echo "  make validate-schema         Validate JSON files against JSON Schema"
-	@echo "  make validate                Validate ontology blocks"
-	@echo "  make validate-strict         Validate ontology strictly"
-	@echo "  make validate-catalog        Validate catalog against registries"
-	@echo "  make validate-catalog-strict Validate catalog strictly"
-	@echo ""
-	@echo "Normalization / updates:"
-	@echo "  make normalize               Normalize ontology in-place"
-	@echo "  make normalize-check         Fail if normalization would change catalog"
-	@echo "  make update-rules            Backfill category/code/canonical_id fields"
-	@echo "  make update-rules-check      Write updated catalog to temp file"
-	@echo ""
-	@echo "Docs:"
-	@echo "  make examples-stubs          Create example stub files"
-	@echo "  make docs                    Generate human-readable Markdown docs"
-	@echo "  make docs-html               Generate Markdown + HTML docs"
-	@echo "  make build-site-assets       Build search / ontology browser assets"
-	@echo ""
-	@echo "Publishing:"
-	@echo "  make publish                 Run full publishing pipeline"
-	@echo "  make publish-strict          Run strict publishing pipeline"
-	@echo "  make publish-report          Run pipeline and write JSON report"
-	@echo ""
-	@echo "Convenience:"
-	@echo "  make ci                      CI checks"
-	@echo "  make ci-strict               Strict CI checks"
-	@echo "  make check-all               Full local check sequence"
-	@echo "  make fix-all                 Normalize, update, validate, docs"
-	@echo ""
-	@echo "Cleanup:"
-	@echo "  make clean                   Remove generated docs"
-	@echo "  make clean-venv              Remove virtual environment"
-	@echo ""
+	@echo "Available targets:"
+	@echo "  make build           Build catalog/master.json from catalog/rules/"
+	@echo "  make validate        Run registry + rules validation"
+	@echo "  make docs            Generate human-readable catalog pages"
+	@echo "  make site            Build the MkDocs site"
+	@echo "  make serve           Serve the MkDocs site locally"
+	@echo "  make check           Build + validate + docs"
+	@echo "  make clean           Remove generated site artifacts"
+	@echo "  make rebuild         Cleanly rebuild catalog and docs"
+	@echo "  make split           Split catalog/master.json into per-rule files"
+	@echo "  make migrate         Run migration tooling"
+	@echo "  make ci              CI-style full verification"
+	@echo "  make print-config    Show key paths"
 
-venv:
-	@$(PY) -m venv "$(VENV_DIR)"
-	@echo "Created venv: $(VENV_DIR)"
+.PHONY: print-config
+print-config:
+	@echo "PYTHON=$(PYTHON)"
+	@echo "RULES_DIR=$(RULES_DIR)"
+	@echo "MASTER_CATALOG=$(MASTER_CATALOG)"
+	@echo "REGISTRY=$(REGISTRY)"
+	@echo "RULE_SCHEMA=$(RULE_SCHEMA)"
+	@echo "REGISTRY_SCHEMA=$(REGISTRY_SCHEMA)"
+	@echo "DOCS_DIR=$(DOCS_DIR)"
+	@echo "CATALOG_DOCS_DIR=$(CATALOG_DOCS_DIR)"
+	@echo "MKDOCS_CONFIG=$(MKDOCS_CONFIG)"
 
-install: venv
-	@$(VENV_PIP) install -r requirements.txt
-	@echo "Installed requirements.txt"
+.PHONY: build
+build:
+	$(PYTHON) $(BUILD_CATALOG)
 
-install-dev: venv
-	@$(VENV_PIP) install -r requirements-dev.txt
-	@echo "Installed requirements-dev.txt"
+.PHONY: validate-registry
+validate-registry:
+	$(PYTHON) $(VALIDATE_REGISTRY)
 
-validate-schema-catalog:
-	@$(VENV_PY) tools/validate_schema.py --schema "$(SCHEMA_CATALOG)" --data "$(CATALOG)"
+.PHONY: validate-rules
+validate-rules: build
+	$(PYTHON) $(VALIDATE_RULES) $(MASTER_CATALOG)
 
-validate-schema-categories:
-	@$(VENV_PY) tools/validate_schema.py --schema "$(SCHEMA_CATEGORIES)" --data "$(CATEGORIES)"
+.PHONY: validate
+validate: validate-registry validate-rules
 
-validate-schema-families:
-	@$(VENV_PY) tools/validate_schema.py --schema "$(SCHEMA_FAMILIES)" --data "$(FAMILIES)"
+.PHONY: docs
+docs: build
+	$(PYTHON) $(GENERATE_HUMAN)
 
-validate-schema: validate-schema-catalog validate-schema-categories validate-schema-families
-	@echo "Schema validation passed."
+.PHONY: site
+site: docs
+	mkdocs build -f $(MKDOCS_CONFIG)
 
-validate:
-	@$(VENV_PY) tools/validate_ontology.py --in "$(CATALOG)" --require-ontology
+.PHONY: serve
+serve: docs
+	mkdocs serve -f $(MKDOCS_CONFIG)
 
-validate-strict:
-	@$(VENV_PY) tools/validate_ontology.py --in "$(CATALOG)" --require-ontology --strict
+.PHONY: check
+check: build validate docs
 
-validate-catalog:
-	@$(VENV_PY) tools/validate_catalog.py --catalog "$(CATALOG)" --categories "$(CATEGORIES)" --families "$(FAMILIES)"
+.PHONY: ci
+ci: build validate docs
+	mkdocs build -f $(MKDOCS_CONFIG) --strict
 
-validate-catalog-strict:
-	@$(VENV_PY) tools/validate_catalog.py --catalog "$(CATALOG)" --categories "$(CATEGORIES)" --families "$(FAMILIES)" --strict
+.PHONY: rebuild
+rebuild: clean check
 
-normalize:
-	@$(VENV_PY) tools/normalize_ontology.py --in "$(CATALOG)" --write --fill-system-layer
-
-normalize-check:
-	@$(VENV_PY) tools/normalize_ontology.py --in "$(CATALOG)" --check --fill-system-layer
-
-update-rules:
-update-rules:
-	@$(VENV_PY) tools/update_rules.py \
-		--catalog "$(CATALOG)" \
-		--categories "$(CATEGORIES)" \
-		--families "$(FAMILIES)" \
-		--write \
-		--fill-system-layer \
-		--normalize-ontology
-
-update-rules-check:
-	@$(VENV_PY) tools/update_rules.py --catalog "$(CATALOG)" --categories "$(CATEGORIES)" --families "$(FAMILIES)" --out /tmp/master.updated.json --fill-system-layer --normalize-ontology
-
-examples-stubs:
-	@$(VENV_PY) generate_human_catalog.py --in "$(CATALOG)" --out "$(HUMAN_OUT)" --examples-template "$(EXAMPLES_DIR)"
-
-docs:
-	@if [ -d "$(EXAMPLES_DIR)" ]; then \
-		$(VENV_PY) generate_human_catalog.py --in "$(CATALOG)" --out "$(HUMAN_OUT)" --examples-dir "$(EXAMPLES_DIR)"; \
-	else \
-		$(VENV_PY) generate_human_catalog.py --in "$(CATALOG)" --out "$(HUMAN_OUT)"; \
-	fi
-
-docs-html:
-	@if [ -d "$(EXAMPLES_DIR)" ]; then \
-		$(VENV_PY) generate_human_catalog.py --in "$(CATALOG)" --out "$(HUMAN_OUT)" --examples-dir "$(EXAMPLES_DIR)" --html; \
-	else \
-		$(VENV_PY) generate_human_catalog.py --in "$(CATALOG)" --out "$(HUMAN_OUT)" --html; \
-	fi
-
-build-site-assets:
-	@$(VENV_PY) tools/build_site_assets.py --in "$(CATALOG)" --out "$(SITE_INDEX_OUT)"
-
-publish:
-	@$(VENV_PY) tools/publish_catalog.py --catalog "$(CATALOG)" --categories "$(CATEGORIES)" --families "$(FAMILIES)" --human-out "$(HUMAN_OUT)" --site-index-out "$(SITE_INDEX_OUT)" --examples-dir "$(EXAMPLES_DIR)" --write
-
-publish-strict:
-	@$(VENV_PY) tools/publish_catalog.py --catalog "$(CATALOG)" --categories "$(CATEGORIES)" --families "$(FAMILIES)" --human-out "$(HUMAN_OUT)" --site-index-out "$(SITE_INDEX_OUT)" --examples-dir "$(EXAMPLES_DIR)" --write --strict
-
-publish-report:
-	@$(VENV_PY) tools/publish_catalog.py --catalog "$(CATALOG)" --categories "$(CATEGORIES)" --families "$(FAMILIES)" --human-out "$(HUMAN_OUT)" --site-index-out "$(SITE_INDEX_OUT)" --examples-dir "$(EXAMPLES_DIR)" --write --report-out build/publish-report.json
-
-ci: validate-schema normalize-check validate validate-catalog
-	@echo "CI checks passed."
-
-ci-strict: validate-schema normalize-check validate-strict validate-catalog-strict
-	@echo "Strict CI checks passed."
-
-check-all: validate-schema normalize-check validate-strict validate-catalog-strict
-	@echo "All checks passed."
-
-fix-all: normalize update-rules validate validate-catalog docs
-	@echo "Catalog normalized, updated, validated, and docs generated."
-
+.PHONY: clean
 clean:
-	@rm -rf "$(HUMAN_OUT)"
-	@echo "Removed: $(HUMAN_OUT)"
+	rm -rf site
+	find . -type d -name "__pycache__" -prune -exec rm -rf {} \;
+	find . -type f -name "*.pyc" -delete
 
-clean-venv:
-	@rm -rf "$(VENV_DIR)"
-	@echo "Removed venv: $(VENV_DIR)"
+.PHONY: split
+split:
+	$(PYTHON) $(SPLIT_CATALOG)
+
+.PHONY: migrate
+migrate:
+	$(PYTHON) $(MIGRATE_RULES)
+
+.PHONY: new-baseline
+new-baseline: build validate docs
+	@echo "New baseline generated and validated."
+
+.PHONY: guard-master
+guard-master: build
+	@git diff --exit-code -- $(MASTER_CATALOG) || \
+	( echo "ERROR: $(MASTER_CATALOG) is out of sync. Run 'make build' and commit the result."; exit 1 )
+
+.PHONY: guard-docs
+guard-docs: docs
+	@git diff --exit-code -- $(CATALOG_DOCS_DIR) || \
+	( echo "ERROR: generated docs are out of sync. Run 'make docs' and commit the result."; exit 1 )
