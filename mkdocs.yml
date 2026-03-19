@@ -39,6 +39,12 @@ nav:
   - Catalog:
       - Human Catalog: catalog/index.md
       - Rule Browser: rule-browser.md
+      - AI Rules: catalog/layers/ai.md
+      - Architecture Rules: catalog/layers/architecture.md
+      - Code Rules: catalog/layers/code.md
+      - Data Rules: catalog/layers/data.md
+      - Network Rules: catalog/layers/network.md
+      - Process Rules: catalog/layers/process.md
 
   - Contributing:
       - Contributing Guide: contributing.md
