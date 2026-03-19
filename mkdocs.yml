@@ -37,6 +37,6 @@ nav:
       - Rule Checklist: rule-checklist.md
   - Catalog:
       - Human Catalog: catalog/index.md
-      - Rule Browser: catalog/browser.md
+      - Rule Browser: rule-browser.md
   - Releases:
       - v0.2.0: releases/v0.2.0.md
