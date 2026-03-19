@@ -22,7 +22,6 @@ def build_catalog(input_root: Path, output_path: Path, base_catalog_path: Path |
 
     catalog = {
         'catalog_version': '0.2.0',
-        'generated_at': datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'),
         'license': 'See LICENSE',
         'publisher': {
             'name': 'Sustainable IT Manifesto Foundation',
