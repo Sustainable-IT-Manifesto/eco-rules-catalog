@@ -7,9 +7,9 @@ from collections import defaultdict
 ROOT = Path(__file__).resolve().parents[1]
 MASTER = ROOT / "catalog" / "master.json"
 OUT_DIR = ROOT / "docs" / "catalog"
+EXAMPLES_DIR = ROOT / "examples"
 
 LAYER_ORDER = ["ai", "architecture", "code", "data", "network", "process"]
-
 LAYER_LABELS = {
     "ai": "AI",
     "architecture": "Architecture",
@@ -33,24 +33,15 @@ def get_rules(catalog: dict) -> list[dict]:
 def ensure_out_dir() -> None:
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     (OUT_DIR / "layers").mkdir(parents=True, exist_ok=True)
+    (OUT_DIR / "examples").mkdir(parents=True, exist_ok=True)
 
 
 def category_name(rule: dict) -> str:
-    category_code = rule.get("category_code", "")
-    ontology = rule.get("ontology", {})
-    category = ontology.get("category")
-    if category:
-        return str(category)
-    return str(category_code)
+    return str(rule.get("ontology", {}).get("category") or rule.get("category_code", ""))
 
 
 def family_name(rule: dict) -> str:
-    family_code = rule.get("family_code", "")
-    ontology = rule.get("ontology", {})
-    family = ontology.get("family")
-    if family:
-        return str(family)
-    return str(family_code)
+    return str(rule.get("ontology", {}).get("family") or rule.get("family_code", ""))
 
 
 def summary_text(rule: dict) -> str:
@@ -64,6 +55,31 @@ def summary_text(rule: dict) -> str:
 
 def rule_link(rule: dict) -> str:
     return f"{rule.get('id', 'UNKNOWN')}.md"
+
+
+def example_detail_exists(rule_id: str) -> bool:
+    return (EXAMPLES_DIR / f"{rule_id}.md").exists()
+
+
+def copy_example_details(rules: list[dict]) -> None:
+    for rule in rules:
+        rid = rule.get("id", "UNKNOWN")
+        src = EXAMPLES_DIR / f"{rid}.md"
+        if src.exists():
+            dest = OUT_DIR / "examples" / f"{rid}.md"
+            dest.write_text(src.read_text(encoding="utf-8"), encoding="utf-8")
+
+
+def render_examples_block(items: list[dict], empty_text: str) -> list[str]:
+    if not items:
+        return [empty_text, ""]
+    lines = []
+    for item in items:
+        lines.append(f"### {item.get('title', 'Untitled example')}")
+        lines.append("")
+        lines.append(str(item.get("description", "")).strip())
+        lines.append("")
+    return lines
 
 
 def render_rule(rule: dict) -> str:
@@ -80,6 +96,9 @@ def render_rule(rule: dict) -> str:
     detection = rule.get("detection", {})
     remediation = rule.get("remediation", {})
     metadata = rule.get("metadata", {})
+    examples = rule.get("examples", {})
+    pattern_examples = examples.get("pattern", [])
+    remediation_examples = examples.get("remediation", [])
 
     lines = [
         f"# {rid}",
@@ -128,6 +147,19 @@ def render_rule(rule: dict) -> str:
                 lines.append(f"- **{k}:** {v}")
         lines.append("")
 
+    lines += ["## Pattern examples", ""]
+    lines += render_examples_block(pattern_examples, "No pattern examples provided.")
+    lines += ["## Remediation examples", ""]
+    lines += render_examples_block(remediation_examples, "No remediation examples provided.")
+
+    if example_detail_exists(rid):
+        lines += [
+            "## Detailed example walkthrough",
+            "",
+            f"- [Open detailed example](examples/{rid}.md)",
+            "",
+        ]
+
     if metadata:
         lines += ["## Metadata", ""]
         for k, v in metadata.items():
@@ -159,6 +191,7 @@ def render_catalog_index(rules: list[dict]) -> str:
         "## Browse",
         "",
         "- [Rule Browser](../rule-browser.md)",
+        "- [Examples index](examples/index.md)",
         "- [AI layer](layers/ai.md)",
         "- [Architecture layer](layers/architecture.md)",
         "- [Code layer](layers/code.md)",
@@ -203,10 +236,7 @@ def render_layer_index(layer: str, rules: list[dict]) -> str:
         lines += ["No rules are currently listed for this layer.", ""]
         return "\n".join(lines)
 
-    lines += [
-        "## Rules",
-        "",
-    ]
+    lines += ["## Rules", ""]
     for rule in rules:
         rid = rule.get("id", "UNKNOWN")
         name = rule.get("name") or rule.get("title") or rid
@@ -228,6 +258,27 @@ def write_layer_indexes(rules: list[dict]) -> None:
         out.write_text(render_layer_index(layer, groups.get(layer, [])), encoding="utf-8")
 
 
+def render_examples_index(rules: list[dict]) -> str:
+    lines = [
+        "# Examples index",
+        "",
+        "Rules with detailed example walkthroughs.",
+        "",
+    ]
+    found = False
+    for rule in rules:
+        rid = rule.get("id", "UNKNOWN")
+        if example_detail_exists(rid):
+            found = True
+            name = rule.get("name") or rule.get("title") or rid
+            lines.append(f"- [{rid} — {name}]({rid}.md)")
+    if not found:
+        lines += ["No detailed example files are currently available.", ""]
+    else:
+        lines.append("")
+    return "\n".join(lines)
+
+
 def main() -> None:
     ensure_out_dir()
     catalog = load_catalog()
@@ -236,9 +287,12 @@ def main() -> None:
     write_rule_pages(rules)
     (OUT_DIR / "index.md").write_text(render_catalog_index(rules), encoding="utf-8")
     write_layer_indexes(rules)
+    copy_example_details(rules)
+    (OUT_DIR / "examples" / "index.md").write_text(render_examples_index(rules), encoding="utf-8")
 
     print(f"Generated {len(rules)} rule pages in {OUT_DIR}")
     print(f"Generated layer indexes in {OUT_DIR / 'layers'}")
+    print(f"Generated examples index in {OUT_DIR / 'examples'}")
 
 
 if __name__ == "__main__":
