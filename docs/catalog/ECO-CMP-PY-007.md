@@ -31,6 +31,14 @@ Reading large files fully into memory increases peak RAM and risk of OOM.
 - **guidance:** Stream/chunk reads; process iteratively.
 - **tradeoffs:** May change downstream logic.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

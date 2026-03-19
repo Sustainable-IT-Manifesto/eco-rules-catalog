@@ -31,6 +31,14 @@ Missing CPU/memory limits causes noisy-neighbor waste and instability.
 - **guidance:** Set requests/limits; right-size with metrics.
 - **tradeoffs:** Requires tuning to avoid throttling.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

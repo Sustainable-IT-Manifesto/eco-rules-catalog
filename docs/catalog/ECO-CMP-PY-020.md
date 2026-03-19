@@ -31,6 +31,14 @@ Blocking subprocess calls increase latency and consume resources.
 - **guidance:** Avoid subprocess in request paths; cache results or move to background jobs.
 - **tradeoffs:** Added system complexity.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

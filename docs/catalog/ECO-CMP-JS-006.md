@@ -31,6 +31,14 @@ Returning unused fields increases payload size and wasted processing.
 - **guidance:** Return only needed fields; use pagination and sparse responses.
 - **tradeoffs:** API contract changes.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

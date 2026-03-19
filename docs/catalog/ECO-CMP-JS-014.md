@@ -31,6 +31,14 @@ Heavy CPU work on main thread harms responsiveness and drains battery.
 - **guidance:** Move heavy compute to web workers; optimize algorithms.
 - **tradeoffs:** More complexity.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

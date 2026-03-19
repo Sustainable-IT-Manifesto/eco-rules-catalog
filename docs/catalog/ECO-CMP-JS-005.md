@@ -31,6 +31,14 @@ CPU-heavy crypto blocks the event loop and inflates latency.
 - **guidance:** Move CPU-heavy crypto to worker threads or native async APIs.
 - **tradeoffs:** Complexity increase.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

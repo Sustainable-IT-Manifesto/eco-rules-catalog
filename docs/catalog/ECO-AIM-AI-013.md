@@ -31,6 +31,14 @@ Without GPU utilization metrics, accelerator waste stays invisible.
 - **guidance:** Add GPU metrics, dashboards, and alerts.
 - **tradeoffs:** Telemetry overhead.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

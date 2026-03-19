@@ -31,6 +31,14 @@ Failure to quantize when appropriate wastes inference compute.
 - **guidance:** Evaluate quantization for inference workloads.
 - **tradeoffs:** Potential quality/compatibility changes.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

@@ -31,6 +31,14 @@ Recomputing values that do not change inside a loop wastes CPU cycles.
 - **guidance:** Move invariant work outside the loop.
 - **tradeoffs:** Minimal.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

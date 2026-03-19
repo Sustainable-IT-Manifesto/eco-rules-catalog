@@ -31,6 +31,14 @@ Stateful designs make scaling expensive and fragile.
 - **guidance:** Externalize state; use managed stores; reduce coupling.
 - **tradeoffs:** Migration cost.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

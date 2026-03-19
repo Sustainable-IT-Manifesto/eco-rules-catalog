@@ -31,6 +31,14 @@ Incorrect thread pool sizing can waste CPU or cause latency collapse.
 - **guidance:** Tune pools; add backpressure; align with DB/HTTP limits.
 - **tradeoffs:** Requires measurement.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

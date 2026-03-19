@@ -31,6 +31,14 @@ Missing cache headers causes repeated downloads and wasted bandwidth.
 - **guidance:** Set Cache-Control/ETag; use immutable assets with hashes.
 - **tradeoffs:** Requires proper build pipeline.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

@@ -31,6 +31,14 @@ Large tables without partitioning lead to expensive queries and maintenance.
 - **guidance:** Partition by time/key; enforce pruning; archive older partitions.
 - **tradeoffs:** Migration complexity.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

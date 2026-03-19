@@ -31,6 +31,14 @@ Caches without limits grow until they become the problem.
 - **guidance:** Use bounded caches with eviction policies and TTL.
 - **tradeoffs:** Possible cache misses; tune properly.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

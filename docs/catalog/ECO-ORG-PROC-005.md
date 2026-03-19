@@ -31,6 +31,14 @@ Skipping load tests creates risk and often forces wasteful overprovisioning.
 - **guidance:** Add load tests and regression gates tied to SLOs.
 - **tradeoffs:** More pipeline time.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

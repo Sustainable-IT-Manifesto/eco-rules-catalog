@@ -31,6 +31,14 @@ Uncompressed objects waste storage and bandwidth.
 - **guidance:** Compress at write; enforce content-encoding where appropriate.
 - **tradeoffs:** CPU overhead at read/write.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

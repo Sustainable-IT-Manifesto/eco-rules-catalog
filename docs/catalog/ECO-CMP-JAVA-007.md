@@ -31,6 +31,14 @@ Blocking in reactive code collapses concurrency and throughput.
 - **guidance:** Use non-blocking APIs; isolate blocking work in bounded schedulers.
 - **tradeoffs:** Complexity / tuning.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

@@ -31,6 +31,14 @@ Large bundles increase transfer size, parse time, and energy use.
 - **guidance:** Enable tree-shaking, code splitting, and remove dead deps.
 - **tradeoffs:** Build config changes.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

@@ -31,6 +31,14 @@ Older HTTP versions may reduce efficiency for multiplexed workloads.
 - **guidance:** Enable HTTP/2+ on TLS endpoints; evaluate HTTP/3 at edge.
 - **tradeoffs:** Operational complexity.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

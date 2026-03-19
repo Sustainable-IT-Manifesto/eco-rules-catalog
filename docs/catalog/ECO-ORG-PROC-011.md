@@ -31,6 +31,14 @@ Without decommissioning, dead systems stay alive and waste resources.
 - **guidance:** Create a decommission playbook and ownership model.
 - **tradeoffs:** Cross-team coordination.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

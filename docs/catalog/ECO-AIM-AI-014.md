@@ -31,6 +31,14 @@ Preprocessing waste increases training and inference cost.
 - **guidance:** Cache features; vectorize; batch transforms.
 - **tradeoffs:** Complexity.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

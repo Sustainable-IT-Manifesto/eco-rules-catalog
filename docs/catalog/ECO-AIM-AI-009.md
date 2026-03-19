@@ -31,6 +31,14 @@ Scaling without evaluation wastes resources and can degrade outcomes.
 - **guidance:** Require eval gates before scaling model size/traffic.
 - **tradeoffs:** Slower rollout.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

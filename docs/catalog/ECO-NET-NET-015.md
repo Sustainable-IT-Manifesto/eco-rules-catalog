@@ -32,6 +32,14 @@ Without circuit breakers, failures propagate and waste resources.
 - **guidance:** Implement circuit breakers; define fallbacks and budgets.
 - **tradeoffs:** Requires clear SLO thinking.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

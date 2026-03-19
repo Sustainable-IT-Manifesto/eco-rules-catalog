@@ -31,6 +31,14 @@ Missing lifecycle policies cause unbounded storage and compliance risk.
 - **guidance:** Define retention/archival/deletion policies and owners.
 - **tradeoffs:** Org alignment work.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

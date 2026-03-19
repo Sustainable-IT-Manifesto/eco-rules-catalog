@@ -31,6 +31,14 @@ Many small calls increase latency and cross-service overhead.
 - **guidance:** Aggregate requests, introduce caching, or redesign boundaries.
 - **tradeoffs:** May reduce separation or increase payload size.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

@@ -31,6 +31,14 @@ Too many replicas increase baseline waste.
 - **guidance:** Reduce replicas and add autoscaling with guardrails.
 - **tradeoffs:** Risk if SLOs not defined.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

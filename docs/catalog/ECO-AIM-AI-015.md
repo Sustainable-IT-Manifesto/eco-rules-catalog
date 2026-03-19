@@ -31,6 +31,14 @@ Unbatched vector queries increase overhead and reduce throughput.
 - **guidance:** Batch retrieval queries where possible.
 - **tradeoffs:** May add slight latency.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

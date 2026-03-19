@@ -31,6 +31,14 @@ Ephemeral data kept forever becomes waste by default.
 - **guidance:** Add TTL/expiration and lifecycle policies.
 - **tradeoffs:** Risk if used unexpectedly later.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

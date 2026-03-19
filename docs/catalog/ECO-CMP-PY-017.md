@@ -31,6 +31,14 @@ Long-lived globals can cause persistent memory bloat.
 - **guidance:** Avoid storing large payloads globally; use caching with eviction.
 - **tradeoffs:** May require new cache strategy.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

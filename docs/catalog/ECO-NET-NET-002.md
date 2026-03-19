@@ -31,6 +31,14 @@ Serving text assets without compression increases bandwidth and energy use.
 - **guidance:** Enable gzip/brotli at CDN/load balancer/origin.
 - **tradeoffs:** Minimal; watch CPU on origin if no CDN.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

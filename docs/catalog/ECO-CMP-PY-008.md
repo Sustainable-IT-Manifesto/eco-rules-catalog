@@ -31,6 +31,14 @@ Logging in tight loops or request hot paths adds CPU and I/O overhead.
 - **guidance:** Reduce log volume; guard debug logs; sample where appropriate.
 - **tradeoffs:** Less granular logs unless sampled.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

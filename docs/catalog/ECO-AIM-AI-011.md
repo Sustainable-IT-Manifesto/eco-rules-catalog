@@ -31,6 +31,14 @@ Embedding stores without retention grow unbounded and expensive.
 - **guidance:** Apply retention and tiering; delete stale embeddings.
 - **tradeoffs:** Must re-embed when needed.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

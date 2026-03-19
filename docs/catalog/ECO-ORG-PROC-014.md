@@ -31,6 +31,14 @@ Without standards, teams repeat avoidable inefficiencies.
 - **guidance:** Publish standards and integrate them into reviews and tooling.
 - **tradeoffs:** Curation work.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

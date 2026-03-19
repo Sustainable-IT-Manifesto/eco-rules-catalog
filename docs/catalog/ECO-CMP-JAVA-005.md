@@ -31,6 +31,14 @@ ORM queries inside loops multiply DB calls.
 - **guidance:** Use eager fetching, joins, or batch queries.
 - **tradeoffs:** Tune memory and query plans.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

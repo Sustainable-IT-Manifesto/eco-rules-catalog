@@ -31,6 +31,14 @@ Creating many threads increases overhead and contention.
 - **guidance:** Use thread pools, async I/O, or bounded concurrency.
 - **tradeoffs:** Requires concurrency redesign.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

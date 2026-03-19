@@ -31,6 +31,14 @@ Queries executed inside iteration multiply round trips and load.
 - **guidance:** Use bulk queries, eager loading, or JOINs.
 - **tradeoffs:** May increase memory use; tune carefully.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

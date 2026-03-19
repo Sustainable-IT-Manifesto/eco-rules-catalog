@@ -32,6 +32,14 @@ Without degradation, overload becomes failure and waste.
 - **guidance:** Define shedding, fallbacks, and priority paths.
 - **tradeoffs:** Product decisions required.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

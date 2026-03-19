@@ -31,6 +31,14 @@ Recomputing embeddings for unchanged inputs wastes compute.
 - **guidance:** Cache embeddings; invalidate on content change only.
 - **tradeoffs:** Cache management.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

@@ -31,6 +31,14 @@ Using high-cost models where latency/quality needs are modest wastes resources.
 - **guidance:** Tier models by use case; route requests by need.
 - **tradeoffs:** Routing complexity.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

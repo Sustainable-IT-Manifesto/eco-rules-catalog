@@ -31,6 +31,14 @@ Without cost attribution, waste persists unmanaged.
 - **guidance:** Implement cost allocation, tagging, and service-level chargeback/showback.
 - **tradeoffs:** Org/process change.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

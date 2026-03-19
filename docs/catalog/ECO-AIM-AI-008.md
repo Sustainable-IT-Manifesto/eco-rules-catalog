@@ -31,6 +31,14 @@ Training without drift checks wastes compute and introduces risk.
 - **guidance:** Add drift detection and training triggers.
 - **tradeoffs:** Monitoring complexity.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

@@ -5,6 +5,7 @@
 ## Browse
 
 - [Rule Browser](../rule-browser.md)
+- [Examples index](examples/index.md)
 - [AI layer](layers/ai.md)
 - [Architecture layer](layers/architecture.md)
 - [Code layer](layers/code.md)

@@ -31,6 +31,14 @@ Repeated string concatenation in a loop increases allocations and CPU.
 - **guidance:** Use list accumulation + join(), or StringIO.
 - **tradeoffs:** Slightly more verbose.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

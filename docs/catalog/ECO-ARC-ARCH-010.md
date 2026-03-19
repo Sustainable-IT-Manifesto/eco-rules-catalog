@@ -32,6 +32,14 @@ Without utilization metrics, waste is invisible and persistent.
 - **guidance:** Instrument CPU/mem/QPS/latency; add dashboards and alerts.
 - **tradeoffs:** Telemetry cost; requires curation.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

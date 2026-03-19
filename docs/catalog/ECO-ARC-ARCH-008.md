@@ -31,6 +31,14 @@ Keeping cold data in hot tiers wastes storage spend and energy.
 - **guidance:** Introduce lifecycle policies and cold tiers.
 - **tradeoffs:** Retrieval latency and costs.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

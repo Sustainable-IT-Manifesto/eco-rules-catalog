@@ -31,6 +31,14 @@ Using lists for membership tests instead of sets/dicts increases CPU time.
 - **guidance:** Use set/dict for membership-heavy operations.
 - **tradeoffs:** Memory tradeoff for speed.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

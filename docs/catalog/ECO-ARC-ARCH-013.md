@@ -31,6 +31,14 @@ High-read systems without caching waste CPU and DB capacity.
 - **guidance:** Introduce caching at appropriate boundaries.
 - **tradeoffs:** Invalidation complexity.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

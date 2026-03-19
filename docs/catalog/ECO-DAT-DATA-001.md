@@ -32,6 +32,14 @@ Redundant data increases storage footprint and cost.
 - **guidance:** Deduplicate; normalize; define canonical sources.
 - **tradeoffs:** Migration effort.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

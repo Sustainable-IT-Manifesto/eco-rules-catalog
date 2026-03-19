@@ -31,6 +31,14 @@ Without explicit budgets, performance and efficiency drift.
 - **guidance:** Define performance budgets per service and user journey.
 - **tradeoffs:** Requires measurement agreement.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

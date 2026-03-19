@@ -31,6 +31,14 @@ Recursion without depth safeguards risks overhead and runtime errors.
 - **guidance:** Consider iterative approaches or enforce depth limits.
 - **tradeoffs:** Code rewrite.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

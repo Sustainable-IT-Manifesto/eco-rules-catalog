@@ -31,6 +31,14 @@ Blocking calls inside async functions reduce concurrency and inflate latency.
 - **guidance:** Use async-compatible libraries (e.g., async DB/HTTP clients).
 - **tradeoffs:** Library and code changes.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

@@ -31,6 +31,14 @@ Unused indexes waste storage and slow writes.
 - **guidance:** Drop truly unused indexes; reassess queries.
 - **tradeoffs:** Risk if usage stats incomplete.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

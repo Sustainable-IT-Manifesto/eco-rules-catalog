@@ -31,6 +31,14 @@ Responses missing needed data cause extra round trips.
 - **guidance:** Batch endpoints; design responses around common usage.
 - **tradeoffs:** Bigger payloads in some cases.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

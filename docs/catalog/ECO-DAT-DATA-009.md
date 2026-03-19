@@ -31,6 +31,14 @@ Lack of archival tiering keeps costs and energy higher than necessary.
 - **guidance:** Adopt tiering and retrieval policies.
 - **tradeoffs:** Retrieval latency/cost.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

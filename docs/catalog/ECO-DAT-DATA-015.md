@@ -31,6 +31,14 @@ Unofficial copies create duplicated storage and compliance risk.
 - **guidance:** Inventory data stores; establish canonical sources and policies.
 - **tradeoffs:** Political and organizational effort.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

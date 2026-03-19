@@ -31,6 +31,14 @@ Sustained low utilization suggests oversized instances or replicas.
 - **guidance:** Right-size; reduce replicas; add autoscaling with guardrails.
 - **tradeoffs:** Must validate against SLOs.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

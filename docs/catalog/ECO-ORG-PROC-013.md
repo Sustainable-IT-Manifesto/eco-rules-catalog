@@ -31,6 +31,14 @@ Without planning, teams overbuy or get surprised and scramble.
 - **guidance:** Add regular capacity review using trends and forecasts.
 - **tradeoffs:** Time investment.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

@@ -32,6 +32,14 @@ No batching increases per-request overhead and lowers throughput.
 - **guidance:** Introduce batching at gateway/inference server.
 - **tradeoffs:** Added latency for low volume; needs tuning.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

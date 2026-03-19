@@ -34,6 +34,14 @@ Missing timeouts remove a critical reliability boundary for network calls.
 - **guidance:** Set explicit connect/read timeouts; standardize defaults.
 - **tradeoffs:** Endpoint tuning required.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

@@ -39,6 +39,7 @@ nav:
   - Catalog:
       - Human Catalog: catalog/index.md
       - Rule Browser: rule-browser.md
+      - Examples index: catalog/examples/index.md
       - AI Rules: catalog/layers/ai.md
       - Architecture Rules: catalog/layers/architecture.md
       - Code Rules: catalog/layers/code.md

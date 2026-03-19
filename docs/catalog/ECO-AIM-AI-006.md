@@ -32,6 +32,14 @@ Excessive context increases token cost and latency.
 - **guidance:** Summarize, retrieve selectively, and cap context intentionally.
 - **tradeoffs:** Requires prompt/pipeline design.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

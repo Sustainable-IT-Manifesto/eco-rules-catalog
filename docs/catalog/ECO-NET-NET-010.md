@@ -31,6 +31,14 @@ Large unpaginated responses increase memory and bandwidth waste.
 - **guidance:** Introduce pagination, streaming, or filtering.
 - **tradeoffs:** API redesign effort.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

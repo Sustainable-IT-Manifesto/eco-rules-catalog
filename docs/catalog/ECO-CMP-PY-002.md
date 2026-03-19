@@ -31,6 +31,14 @@ Collections that grow without bounds increase memory pressure and GC churn.
 - **guidance:** Use generators, pagination, batching, or streaming APIs.
 - **tradeoffs:** May require refactoring call sites.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

@@ -31,6 +31,14 @@ Coupling increases coordination cost and failure propagation.
 - **guidance:** Clarify boundaries; reduce synchronous dependencies.
 - **tradeoffs:** Refactoring effort.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

@@ -31,6 +31,14 @@ Allocating large objects repeatedly increases GC churn and CPU.
 - **guidance:** Memoize stable objects; move creation outside render paths.
 - **tradeoffs:** Potential for stale data if misused.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

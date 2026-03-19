@@ -31,6 +31,14 @@ Layout thrashing increases CPU and drains battery.
 - **guidance:** Batch DOM reads/writes; use requestAnimationFrame patterns.
 - **tradeoffs:** Refactor UI code.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

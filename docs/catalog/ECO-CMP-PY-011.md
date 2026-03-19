@@ -31,6 +31,14 @@ Serializing/deserializing repeatedly wastes CPU and increases latency.
 - **guidance:** Avoid unnecessary encode/decode; serialize once at boundaries.
 - **tradeoffs:** May require interface changes.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

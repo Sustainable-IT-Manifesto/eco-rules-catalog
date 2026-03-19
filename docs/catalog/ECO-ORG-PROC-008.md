@@ -31,6 +31,14 @@ Without review gates, high-propagation waste slips in unnoticed.
 - **guidance:** Add a lightweight architecture review for high-tier changes.
 - **tradeoffs:** Process overhead if done poorly.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

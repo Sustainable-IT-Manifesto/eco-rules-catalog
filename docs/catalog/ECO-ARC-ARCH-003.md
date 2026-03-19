@@ -31,6 +31,14 @@ Synchronous call chains amplify latency and failure propagation.
 - **guidance:** Introduce async boundaries, caching, or collapse hops.
 - **tradeoffs:** Consistency and design tradeoffs.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

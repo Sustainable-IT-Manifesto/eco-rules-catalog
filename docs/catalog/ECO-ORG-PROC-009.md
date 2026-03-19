@@ -31,6 +31,14 @@ Unmanaged dependencies increase security, compute, and maintenance waste.
 - **guidance:** Implement dependency review cadence and upgrade workflows.
 - **tradeoffs:** Ongoing work.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

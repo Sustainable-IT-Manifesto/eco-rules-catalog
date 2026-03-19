@@ -31,6 +31,14 @@ Reflection adds overhead and can inflate latency and CPU usage.
 - **guidance:** Avoid reflection in hot paths; precompute accessors.
 - **tradeoffs:** Reduced dynamism.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

@@ -31,6 +31,14 @@ Scaling without SLO validation often leads to overprovisioning or fragility.
 - **guidance:** Define SLOs and validate scaling changes against them.
 - **tradeoffs:** Requires observability maturity.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

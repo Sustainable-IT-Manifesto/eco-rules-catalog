@@ -31,6 +31,14 @@ Disabling keep-alive increases handshake overhead and latency.
 - **guidance:** Enable keep-alive; tune pools and idle timeouts.
 - **tradeoffs:** Requires proper pool sizing.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

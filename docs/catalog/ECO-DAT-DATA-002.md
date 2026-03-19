@@ -32,6 +32,14 @@ No TTL/lifecycle policy causes unbounded data growth.
 - **guidance:** Define retention tiers and lifecycle automation.
 - **tradeoffs:** Compliance alignment required.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

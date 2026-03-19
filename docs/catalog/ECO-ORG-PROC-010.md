@@ -31,6 +31,14 @@ Hardware lifecycle without sustainability policy increases e-waste risk.
 - **guidance:** Define repair/reuse/recycle standards and vendor requirements.
 - **tradeoffs:** Procurement coordination.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

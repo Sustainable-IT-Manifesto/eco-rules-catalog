@@ -31,6 +31,14 @@ Queues without bounds hide backpressure and create runaway cost.
 - **guidance:** Add backpressure, caps, DLQs, and shedding strategies.
 - **tradeoffs:** Must define loss/priority behavior.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

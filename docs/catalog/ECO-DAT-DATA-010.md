@@ -31,6 +31,14 @@ Cross-region replication can add cost and complexity beyond needs.
 - **guidance:** Right-size DR and replication strategies.
 - **tradeoffs:** Risk if requirements wrong.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

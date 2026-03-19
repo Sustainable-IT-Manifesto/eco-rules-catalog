@@ -31,6 +31,14 @@ Build/test pipelines can waste large amounts of compute when unmeasured.
 - **guidance:** Measure build minutes, cache hits, and pipeline efficiency; reduce waste.
 - **tradeoffs:** Instrumentation effort.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

@@ -31,6 +31,14 @@ Long or recursive promise chains can leak work and increase memory usage.
 - **guidance:** Bound retries; avoid recursion; use iterative loops with limits.
 - **tradeoffs:** Logic changes.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

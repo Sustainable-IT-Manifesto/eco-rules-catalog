@@ -31,6 +31,14 @@ High replication increases storage and write amplification.
 - **guidance:** Right-size replication; use tiered durability patterns.
 - **tradeoffs:** Risk if requirements misunderstood.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

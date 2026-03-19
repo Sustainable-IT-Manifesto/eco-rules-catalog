@@ -32,6 +32,14 @@ Duplicate services increase operational load and waste compute.
 - **guidance:** Consolidate responsibilities; retire redundant services.
 - **tradeoffs:** Migration effort.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

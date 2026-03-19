@@ -32,6 +32,18 @@ Using larger models than needed increases inference cost and emissions.
 - **guidance:** Benchmark smaller models and quantify tradeoffs before scaling.
 - **tradeoffs:** May reduce marginal quality.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
+## Detailed example walkthrough
+
+- [Open detailed example](examples/ECO-AIM-AI-001.md)
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

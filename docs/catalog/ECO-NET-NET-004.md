@@ -31,6 +31,14 @@ Repeated auth calls waste CPU and network and add latency.
 - **guidance:** Cache tokens/keys; prefer local validation when safe.
 - **tradeoffs:** Must respect revocation semantics.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

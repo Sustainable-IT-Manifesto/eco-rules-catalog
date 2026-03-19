@@ -31,6 +31,14 @@ Network calls without explicit timeouts can hang and cascade failures.
 - **guidance:** Set explicit connect/read timeouts; prefer client defaults + overrides.
 - **tradeoffs:** Requires tuning per endpoint.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

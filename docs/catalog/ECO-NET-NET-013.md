@@ -31,6 +31,14 @@ Frequent polling increases load even when nothing changes.
 - **guidance:** Use push mechanisms; increase intervals; add caching and ETags.
 - **tradeoffs:** More event infrastructure.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

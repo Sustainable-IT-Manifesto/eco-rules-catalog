@@ -32,6 +32,14 @@ Missing cache headers causes repeated downloads and wasted work.
 - **guidance:** Add Cache-Control/ETag; use immutable asset hashing where possible.
 - **tradeoffs:** Requires cache invalidation discipline.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

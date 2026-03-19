@@ -31,6 +31,14 @@ Full scans increase CPU, IO, and latency for queries.
 - **guidance:** Add appropriate indexes; rewrite queries; partition large tables.
 - **tradeoffs:** Index/storage tradeoffs.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

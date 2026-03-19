@@ -31,6 +31,14 @@ Polling increases unnecessary network traffic and compute.
 - **guidance:** Use webhooks, SSE, websockets, or event-driven patterns.
 - **tradeoffs:** More moving parts.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

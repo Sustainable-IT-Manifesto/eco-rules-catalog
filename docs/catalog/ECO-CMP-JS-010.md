@@ -31,6 +31,14 @@ Requests without timeouts hang and create cascading latency.
 - **guidance:** Use AbortController / client timeouts; set defaults.
 - **tradeoffs:** Endpoint tuning.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

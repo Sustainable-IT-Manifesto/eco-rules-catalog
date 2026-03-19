@@ -31,6 +31,14 @@ Over-scheduling batch jobs wastes compute and increases cost.
 - **guidance:** Right-size schedules; trigger on events; add change-detection.
 - **tradeoffs:** More complex orchestration.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

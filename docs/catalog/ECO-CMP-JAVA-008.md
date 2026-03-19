@@ -31,6 +31,14 @@ Over-synchronization creates contention and wastes CPU.
 - **guidance:** Reduce lock scope; use concurrent structures; redesign hotspots.
 - **tradeoffs:** Harder correctness work.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

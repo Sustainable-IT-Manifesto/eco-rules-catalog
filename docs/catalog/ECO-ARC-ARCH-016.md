@@ -31,6 +31,14 @@ Lack of isolation causes noisy-neighbor waste and instability.
 - **guidance:** Add isolation, quotas, and per-tenant limits.
 - **tradeoffs:** Complexity.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

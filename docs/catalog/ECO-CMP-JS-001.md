@@ -31,6 +31,14 @@ Sync FS calls block the event loop and reduce concurrency.
 - **guidance:** Use async fs APIs (promises/callbacks).
 - **tradeoffs:** Refactor required.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

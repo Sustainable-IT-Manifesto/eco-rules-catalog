@@ -31,6 +31,18 @@ Without ownership, sustainability work becomes optional and inconsistent.
 - **guidance:** Assign clear ownership and decision rights for sustainability metrics.
 - **tradeoffs:** Requires org buy-in.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
+## Detailed example walkthrough
+
+- [Open detailed example](examples/ECO-ORG-PROC-015.md)
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

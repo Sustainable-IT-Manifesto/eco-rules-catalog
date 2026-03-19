@@ -31,6 +31,14 @@ CPU-heavy work in request handlers reduces throughput and increases latency.
 - **guidance:** Offload CPU work to background jobs or optimize/compile hotspots.
 - **tradeoffs:** Added system complexity.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

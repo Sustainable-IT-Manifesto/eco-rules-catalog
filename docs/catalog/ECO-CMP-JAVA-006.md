@@ -31,6 +31,14 @@ No pooling increases connection churn and DB overhead.
 - **guidance:** Use and tune a pool (e.g., HikariCP).
 - **tradeoffs:** Must manage max connections.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

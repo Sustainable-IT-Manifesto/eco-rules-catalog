@@ -32,6 +32,14 @@ Repeated prompts without caching waste tokens and compute.
 - **guidance:** Cache deterministic responses with TTL and safe scoping.
 - **tradeoffs:** Risk of staleness; privacy considerations.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

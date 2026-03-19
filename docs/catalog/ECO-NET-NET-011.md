@@ -31,6 +31,14 @@ Serving static content from origin increases latency and origin load.
 - **guidance:** Use a CDN for static assets and cacheable endpoints.
 - **tradeoffs:** Operational overhead and caching discipline.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

@@ -31,6 +31,14 @@ Large images increase pull time and wasted storage/transfer.
 - **guidance:** Use multi-stage builds and minimal base images.
 - **tradeoffs:** Build refactor.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

@@ -31,6 +31,14 @@ Returning unnecessary fields increases payload size and processing.
 - **guidance:** Use sparse fieldsets; avoid sending unused data.
 - **tradeoffs:** API contract changes.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

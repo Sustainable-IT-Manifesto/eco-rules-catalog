@@ -31,6 +31,14 @@ Repeated fetches on rerender waste network and CPU.
 - **guidance:** Cache results; dedupe requests; stabilize dependencies.
 - **tradeoffs:** State management changes.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

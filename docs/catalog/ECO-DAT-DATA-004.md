@@ -31,6 +31,14 @@ Indefinite log retention increases storage and cost without clear value.
 - **guidance:** Set retention and tiering; sample where appropriate.
 - **tradeoffs:** Less historical detail unless archived.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

@@ -31,6 +31,14 @@ Multiple passes over arrays increases CPU and GC overhead.
 - **guidance:** Combine passes in hot paths; keep readability elsewhere.
 - **tradeoffs:** Potential readability loss.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

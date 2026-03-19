@@ -31,6 +31,14 @@ Without scaling policies, systems drift into waste or fragility.
 - **guidance:** Add autoscaling with SLO guardrails and max limits.
 - **tradeoffs:** Tuning required.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

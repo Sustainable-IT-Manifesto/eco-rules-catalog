@@ -31,6 +31,14 @@ Lack of lifecycle governance leads to perpetual growth and shadow datasets.
 - **guidance:** Define lifecycle owners, policies, and audits.
 - **tradeoffs:** Org change work.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

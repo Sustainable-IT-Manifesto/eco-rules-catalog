@@ -31,6 +31,14 @@ Aggressive scaling can cause thrash and wasted churn.
 - **guidance:** Add stabilization windows and sane thresholds.
 - **tradeoffs:** Slower response to spikes.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

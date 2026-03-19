@@ -31,6 +31,14 @@ Repeated env lookups in hot code paths add overhead and noise.
 - **guidance:** Read env/config once during startup; pass config explicitly.
 - **tradeoffs:** Slight architecture changes.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

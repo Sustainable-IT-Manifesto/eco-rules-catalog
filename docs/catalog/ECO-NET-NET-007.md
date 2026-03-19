@@ -31,6 +31,14 @@ Aggressive retries amplify failures and increase waste.
 - **guidance:** Use exponential backoff + jitter; add circuit breakers; cap retries.
 - **tradeoffs:** May reduce immediate success rate during blips.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

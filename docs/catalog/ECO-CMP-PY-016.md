@@ -31,6 +31,14 @@ Lack of pooling increases connection churn, latency, and DB load.
 - **guidance:** Enable and tune pooling; set max connections.
 - **tradeoffs:** Tuning required to avoid saturation.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

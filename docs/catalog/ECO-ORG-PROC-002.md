@@ -31,6 +31,14 @@ Without baseline data, improvements can’t be validated.
 - **guidance:** Establish baselines before optimization; track before/after.
 - **tradeoffs:** Instrumentation effort.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

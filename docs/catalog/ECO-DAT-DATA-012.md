@@ -32,6 +32,14 @@ Unbounded queries cause runaway compute and unpredictable cost.
 - **guidance:** Add quotas, limits, and guardrails; require partition filters.
 - **tradeoffs:** May restrict ad-hoc exploration.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

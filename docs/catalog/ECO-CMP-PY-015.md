@@ -31,6 +31,14 @@ Creating DB connections per request increases latency and resource churn.
 - **guidance:** Use connection pooling and reuse sessions/clients.
 - **tradeoffs:** Requires lifecycle management.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

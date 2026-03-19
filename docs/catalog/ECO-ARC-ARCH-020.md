@@ -31,6 +31,14 @@ Accelerators running idle waste significant power and cost.
 - **guidance:** Consolidate workloads; enable autoscaling; batch inference.
 - **tradeoffs:** Scheduling complexity.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

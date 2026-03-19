@@ -31,6 +31,14 @@ Unremoved listeners retain objects and increase memory over time.
 - **guidance:** Remove listeners on cleanup; use weak refs where appropriate.
 - **tradeoffs:** Requires lifecycle discipline.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

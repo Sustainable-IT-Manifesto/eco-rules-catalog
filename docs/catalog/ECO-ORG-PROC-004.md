@@ -31,6 +31,14 @@ Without carbon signals, teams can’t optimize responsibly.
 - **guidance:** Add carbon estimates to reporting; tie to decision points.
 - **tradeoffs:** Estimation uncertainty.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

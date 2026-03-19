@@ -31,6 +31,14 @@ Cold starts inflate latency and may force overprovisioning.
 - **guidance:** Reduce init work; warm pools selectively; cache dependencies.
 - **tradeoffs:** More tuning.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

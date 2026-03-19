@@ -31,6 +31,14 @@ Frequent tuning without clear value wastes compute.
 - **guidance:** Set tuning cadence based on outcomes and drift.
 - **tradeoffs:** May delay improvements.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

@@ -31,6 +31,14 @@ Row-wise pandas iteration is slow compared to vectorized operations.
 - **guidance:** Use vectorized ops or apply carefully; avoid iterrows in hot paths.
 - **tradeoffs:** Learning curve / refactor time.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)

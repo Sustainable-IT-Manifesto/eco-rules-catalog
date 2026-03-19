@@ -31,6 +31,14 @@ Verbose logs in hot paths waste CPU and I/O.
 - **guidance:** Lower verbosity; sample; avoid heavy string formatting unless enabled.
 - **tradeoffs:** Less detail unless sampled.
 
+## Pattern examples
+
+No pattern examples provided.
+
+## Remediation examples
+
+No remediation examples provided.
+
 ## Navigation
 
 - [Back to Human Catalog](index.md)
