@@ -1,6 +1,8 @@
 site_name: Eco Rules Catalog
-site_description: SITM standard for identifying software inefficiency
+site_description: SITM standard for identifying and describing software inefficiency
 site_url: https://sustainable-it-manifesto.github.io/eco-rules-catalog/
+repo_url: https://github.com/sustainable-it-manifesto/eco-rules-catalog
+repo_name: sustainable-it-manifesto/eco-rules-catalog
 
 theme:
   name: material
@@ -20,7 +22,6 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.highlight
   - pymdownx.inlinehilite
-
 
 nav:
   - Home: index.md
@@ -45,4 +46,3 @@ nav:
 
   - Releases:
       - v0.2.0: releases/v0.2.0.md
-

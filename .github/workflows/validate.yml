@@ -18,7 +18,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install jsonschema
+          pip install jsonschema mkdocs mkdocs-material
 
       - name: Build catalog
         run: python tools/build_catalog.py
@@ -28,3 +28,17 @@ jobs:
 
       - name: Validate rules
         run: python tools/validate_rules_v2.py catalog/master.json
+
+      - name: Generate human catalog
+        run: python tools/generate_human_catalog_v2.py
+
+      - name: Guard generated catalog
+        run: |
+          git diff --exit-code -- catalog/master.json ||                   (echo "catalog/master.json is out of sync. Regenerate and commit it." && exit 1)
+
+      - name: Guard generated docs
+        run: |
+          git diff --exit-code -- docs/catalog ||                   (echo "docs/catalog is out of sync. Regenerate and commit it." && exit 1)
+
+      - name: Build docs
+        run: mkdocs build -f mkdocs.yml --strict

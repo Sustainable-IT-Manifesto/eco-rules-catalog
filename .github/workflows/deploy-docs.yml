@@ -12,6 +12,7 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v4
 
@@ -19,20 +20,45 @@ jobs:
         with:
           python-version: "3.11"
 
-      - run: pip install mkdocs mkdocs-material
+      - name: Install dependencies
+        run: |
+          pip install mkdocs mkdocs-material jsonschema
 
-      - run: |
-          python tools/build_catalog.py
-          python tools/generate_human_catalog_v2.py 
+      - name: Build catalog
+        run: python tools/build_catalog.py
 
-      - run: mkdocs build
+      - name: Validate registry
+        run: python tools/validate_registry.py
 
-      - uses: actions/upload-pages-artifact@v3
+      - name: Validate rules
+        run: python tools/validate_rules_v2.py catalog/master.json
+
+      - name: Generate human catalog
+        run: python tools/generate_human_catalog_v2.py
+
+      - name: Guard generated catalog
+        run: |
+          git diff --exit-code -- catalog/master.json ||                   (echo "catalog/master.json is out of sync. Regenerate and commit it." && exit 1)
+
+      - name: Guard generated docs
+        run: |
+          git diff --exit-code -- docs/catalog ||                   (echo "docs/catalog is out of sync. Regenerate and commit it." && exit 1)
+
+      - name: Build docs
+        run: mkdocs build -f mkdocs.yml --strict
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
         with:
           path: site
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
     steps:
-      - uses: actions/deploy-pages@v4
+      - id: deployment
+        uses: actions/deploy-pages@v4
