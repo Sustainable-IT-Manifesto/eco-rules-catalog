@@ -1,0 +1,37 @@
+{
+  "id": "ECO-INF-K8S-003",
+  "name": "Overly aggressive health probes",
+  "summary": "Very frequent probes create unnecessary traffic and container work, especially at scale.",
+  "description": "Health probes that run more often than necessary or do expensive work can create avoidable load on applications and the cluster control path.",
+  "category_code": "INF",
+  "family_code": "K8S",
+  "layer": "process",
+  "ontology": {
+    "category": "Infrastructure",
+    "family": "Kubernetes",
+    "system_layers": [
+      "process",
+      "network"
+    ]
+  },
+  "impact": {
+    "cost": "Probe overhead adds up across many pods.",
+    "performance": "Expensive probes can compete with application work.",
+    "carbon": "Repeated low-value probe traffic and execution waste resources."
+  },
+  "detection": {
+    "method": "yaml-k8s",
+    "selector": "aggressive_health_probes"
+  },
+  "remediation": {
+    "guidance": "Tune probe frequency and probe implementation so checks are lightweight and proportional to real operational need.",
+    "examples": [
+      "Avoid high-frequency probes that trigger full dependency checks on every interval."
+    ]
+  },
+  "metadata": {
+    "status": "draft",
+    "severity": "medium",
+    "version": "0.3.0-draft"
+  }
+}

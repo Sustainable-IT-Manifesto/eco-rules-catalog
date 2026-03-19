@@ -1,0 +1,37 @@
+{
+  "id": "ECO-INF-DOCKER-005",
+  "name": "Build tooling shipped in runtime image",
+  "summary": "Runtime images should not carry compilers, package managers, or build-only tooling that is not needed after build.",
+  "description": "Shipping build-only tools in the final image increases image size and operational complexity while providing no runtime efficiency benefit.",
+  "category_code": "INF",
+  "family_code": "DOCKER",
+  "layer": "process",
+  "ontology": {
+    "category": "Infrastructure",
+    "family": "Docker",
+    "system_layers": [
+      "process",
+      "code"
+    ]
+  },
+  "impact": {
+    "cost": "Bigger runtime images cost more to move and store.",
+    "performance": "Extra image weight slows distribution and cold starts.",
+    "carbon": "Unnecessary runtime bytes increase repeated resource use."
+  },
+  "detection": {
+    "method": "dockerfile-lint",
+    "selector": "build_tooling_in_runtime_image"
+  },
+  "remediation": {
+    "guidance": "Keep build tooling in dedicated builder stages and ship only runtime dependencies.",
+    "examples": [
+      "Copy built binaries or packaged assets into a clean runtime stage."
+    ]
+  },
+  "metadata": {
+    "status": "draft",
+    "severity": "medium",
+    "version": "0.3.0-draft"
+  }
+}

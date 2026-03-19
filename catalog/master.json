@@ -3932,6 +3932,495 @@
       "_source_file": "catalog/rules/DAT/DATA/ECO-DAT-DATA-015.json"
     },
     {
+      "id": "ECO-INF-COMPOSE-001",
+      "name": "Overprovisioned default Compose stack",
+      "summary": "Starting every service by default in local or default compose profiles wastes local compute and encourages unnecessary background activity.",
+      "description": "Compose files that always start optional databases, observability services, caches, and workers even when they are not needed consume developer resources and energy for little value.",
+      "category_code": "INF",
+      "family_code": "COMPOSE",
+      "layer": "process",
+      "ontology": {
+        "category": "Infrastructure",
+        "family": "Docker Compose",
+        "system_layers": [
+          "process",
+          "architecture"
+        ]
+      },
+      "impact": {
+        "cost": "Wastes local and CI resources.",
+        "performance": "Consumes memory and CPU that could be used elsewhere.",
+        "carbon": "Runs more services than needed for the task at hand."
+      },
+      "detection": {
+        "method": "yaml-compose",
+        "selector": "compose_default_stack_overprovisioned"
+      },
+      "remediation": {
+        "guidance": "Use profiles or separate compose overlays so services start only when needed.",
+        "examples": [
+          "Make observability and auxiliary services opt-in rather than default."
+        ]
+      },
+      "metadata": {
+        "status": "draft",
+        "severity": "medium",
+        "version": "0.3.0-draft"
+      },
+      "_source_file": "catalog/rules/INF/COMPOSE/ECO-INF-COMPOSE-001.json"
+    },
+    {
+      "id": "ECO-INF-COMPOSE-002",
+      "name": "Unbounded restart loops for noncritical services",
+      "summary": "Restarting noncritical services aggressively can create needless churn and repeated work.",
+      "description": "Compose configurations that restart transient or low-value services indefinitely can waste local resources and hide operational problems instead of surfacing them.",
+      "category_code": "INF",
+      "family_code": "COMPOSE",
+      "layer": "process",
+      "ontology": {
+        "category": "Infrastructure",
+        "family": "Docker Compose",
+        "system_layers": [
+          "process",
+          "architecture"
+        ]
+      },
+      "impact": {
+        "cost": "Consumes unnecessary local or CI resources.",
+        "performance": "Repeated restarts create churn and noise.",
+        "carbon": "Repeated failed restarts waste compute cycles."
+      },
+      "detection": {
+        "method": "yaml-compose",
+        "selector": "compose_unbounded_restart_loops"
+      },
+      "remediation": {
+        "guidance": "Use restart policies intentionally and avoid infinite restart churn for services that should fail fast during development.",
+        "examples": [
+          "Prefer clearer failure behavior for optional tooling containers."
+        ]
+      },
+      "metadata": {
+        "status": "draft",
+        "severity": "medium",
+        "version": "0.3.0-draft"
+      },
+      "_source_file": "catalog/rules/INF/COMPOSE/ECO-INF-COMPOSE-002.json"
+    },
+    {
+      "id": "ECO-INF-DOCKER-001",
+      "name": "Missing multi-stage builds",
+      "summary": "Single-stage Docker builds often ship build tooling and temporary artifacts into runtime images, increasing image size and transfer cost.",
+      "description": "Dockerfiles that combine build and runtime concerns into a single final image increase storage, network transfer, cache churn, and deployment overhead.",
+      "category_code": "INF",
+      "family_code": "DOCKER",
+      "layer": "process",
+      "ontology": {
+        "category": "Infrastructure",
+        "family": "Docker",
+        "system_layers": [
+          "process",
+          "code"
+        ]
+      },
+      "impact": {
+        "cost": "Larger images cost more to store and move.",
+        "performance": "Slower pulls and startup in constrained environments.",
+        "carbon": "More bytes transferred and stored than necessary."
+      },
+      "detection": {
+        "method": "dockerfile-lint",
+        "selector": "multi_stage_build_missing"
+      },
+      "remediation": {
+        "guidance": "Separate build and runtime stages so only runtime assets ship in the final image.",
+        "examples": [
+          "Use multi-stage builds with a builder stage and a minimal runtime stage."
+        ]
+      },
+      "metadata": {
+        "status": "draft",
+        "severity": "medium",
+        "version": "0.3.0-draft"
+      },
+      "examples": {
+        "pattern": [
+          {
+            "title": "Single-stage image with compiler toolchain",
+            "description": "A runtime image includes package managers, compilers, and build caches that are only needed during build."
+          }
+        ],
+        "remediation": [
+          {
+            "title": "Split build and runtime stages",
+            "description": "Build assets in one stage, then copy only the required runtime artifacts into a smaller final image."
+          }
+        ]
+      },
+      "_source_file": "catalog/rules/INF/DOCKER/ECO-INF-DOCKER-001.json"
+    },
+    {
+      "id": "ECO-INF-DOCKER-002",
+      "name": "Oversized base image",
+      "summary": "Heavy base images increase transfer, storage, and patching footprint without improving runtime value.",
+      "description": "Using a large general-purpose base image when a smaller runtime image would suffice adds waste to build, deployment, and vulnerability management workflows.",
+      "category_code": "INF",
+      "family_code": "DOCKER",
+      "layer": "architecture",
+      "ontology": {
+        "category": "Infrastructure",
+        "family": "Docker",
+        "system_layers": [
+          "architecture",
+          "process"
+        ]
+      },
+      "impact": {
+        "cost": "Larger images cost more to store and distribute.",
+        "performance": "Longer image pull times delay startup.",
+        "carbon": "Unnecessary transfer and storage increase resource use."
+      },
+      "detection": {
+        "method": "dockerfile-lint",
+        "selector": "oversized_base_image"
+      },
+      "remediation": {
+        "guidance": "Prefer minimal runtime images that still meet operational needs.",
+        "examples": [
+          "Use slim or distroless images when practical and compatible with debugging and support needs."
+        ]
+      },
+      "metadata": {
+        "status": "draft",
+        "severity": "medium",
+        "version": "0.3.0-draft"
+      },
+      "_source_file": "catalog/rules/INF/DOCKER/ECO-INF-DOCKER-002.json"
+    },
+    {
+      "id": "ECO-INF-DOCKER-003",
+      "name": "Missing or too-permissive .dockerignore",
+      "summary": "Large build contexts increase build time, cache churn, and unnecessary transfer to the Docker daemon.",
+      "description": "Without a properly scoped .dockerignore, source trees, artifacts, caches, and documentation may be copied into the build context even when they are not required for the image.",
+      "category_code": "INF",
+      "family_code": "DOCKER",
+      "layer": "process",
+      "ontology": {
+        "category": "Infrastructure",
+        "family": "Docker",
+        "system_layers": [
+          "process",
+          "code"
+        ]
+      },
+      "impact": {
+        "cost": "Larger contexts waste build and CI resources.",
+        "performance": "Builds become slower and less cache-friendly.",
+        "carbon": "Repeated transfer of unnecessary files increases waste."
+      },
+      "detection": {
+        "method": "dockerfile-lint",
+        "selector": "dockerignore_missing_or_broad"
+      },
+      "remediation": {
+        "guidance": "Add and maintain a .dockerignore tuned to the actual files required for the build.",
+        "examples": [
+          "Exclude node_modules, .git, test outputs, local caches, and generated artifacts unless explicitly needed."
+        ]
+      },
+      "metadata": {
+        "status": "draft",
+        "severity": "medium",
+        "version": "0.3.0-draft"
+      },
+      "scanner_override": {
+        "scope": "repo",
+        "file_globs": [
+          "**/Dockerfile",
+          "**/Dockerfile.*",
+          "**/.dockerignore"
+        ],
+        "repo_signals": [
+          ".dockerignore"
+        ]
+      },
+      "_source_file": "catalog/rules/INF/DOCKER/ECO-INF-DOCKER-003.json"
+    },
+    {
+      "id": "ECO-INF-DOCKER-004",
+      "name": "Package manager caches left in image layers",
+      "summary": "Leaving package indexes and caches behind increases image size with no runtime benefit.",
+      "description": "Docker image layers that retain apt, apk, pip, npm, or similar caches increase storage and transfer overhead while adding little or no runtime value.",
+      "category_code": "INF",
+      "family_code": "DOCKER",
+      "layer": "process",
+      "ontology": {
+        "category": "Infrastructure",
+        "family": "Docker",
+        "system_layers": [
+          "process",
+          "code"
+        ]
+      },
+      "impact": {
+        "cost": "Larger images increase storage and transfer cost.",
+        "performance": "Pulling and scanning images takes longer.",
+        "carbon": "Extra bytes are stored and transmitted repeatedly."
+      },
+      "detection": {
+        "method": "dockerfile-lint",
+        "selector": "package_manager_caches_retained"
+      },
+      "remediation": {
+        "guidance": "Clear package manager caches in the same layer where packages are installed, or use build-stage-only installs where possible.",
+        "examples": [
+          "Combine install and cleanup in a single RUN instruction so caches do not persist into a committed layer."
+        ]
+      },
+      "metadata": {
+        "status": "draft",
+        "severity": "medium",
+        "version": "0.3.0-draft"
+      },
+      "_source_file": "catalog/rules/INF/DOCKER/ECO-INF-DOCKER-004.json"
+    },
+    {
+      "id": "ECO-INF-DOCKER-005",
+      "name": "Build tooling shipped in runtime image",
+      "summary": "Runtime images should not carry compilers, package managers, or build-only tooling that is not needed after build.",
+      "description": "Shipping build-only tools in the final image increases image size and operational complexity while providing no runtime efficiency benefit.",
+      "category_code": "INF",
+      "family_code": "DOCKER",
+      "layer": "process",
+      "ontology": {
+        "category": "Infrastructure",
+        "family": "Docker",
+        "system_layers": [
+          "process",
+          "code"
+        ]
+      },
+      "impact": {
+        "cost": "Bigger runtime images cost more to move and store.",
+        "performance": "Extra image weight slows distribution and cold starts.",
+        "carbon": "Unnecessary runtime bytes increase repeated resource use."
+      },
+      "detection": {
+        "method": "dockerfile-lint",
+        "selector": "build_tooling_in_runtime_image"
+      },
+      "remediation": {
+        "guidance": "Keep build tooling in dedicated builder stages and ship only runtime dependencies.",
+        "examples": [
+          "Copy built binaries or packaged assets into a clean runtime stage."
+        ]
+      },
+      "metadata": {
+        "status": "draft",
+        "severity": "medium",
+        "version": "0.3.0-draft"
+      },
+      "_source_file": "catalog/rules/INF/DOCKER/ECO-INF-DOCKER-005.json"
+    },
+    {
+      "id": "ECO-INF-K8S-001",
+      "name": "Missing or mis-sized CPU and memory requests and limits",
+      "summary": "Containers without realistic requests and limits create waste, contention, or throttling.",
+      "description": "Kubernetes workloads that omit or poorly size CPU and memory requests and limits make scheduling and capacity planning less efficient, increasing cluster waste and instability.",
+      "category_code": "INF",
+      "family_code": "K8S",
+      "layer": "process",
+      "ontology": {
+        "category": "Infrastructure",
+        "family": "Kubernetes",
+        "system_layers": [
+          "process",
+          "architecture"
+        ]
+      },
+      "impact": {
+        "cost": "Poor sizing can lead to overprovisioning or noisy-neighbor contention.",
+        "performance": "Bad sizing increases throttling or eviction risk.",
+        "carbon": "Inefficient capacity use drives unnecessary cluster footprint."
+      },
+      "detection": {
+        "method": "yaml-k8s",
+        "selector": "missing_requests_limits"
+      },
+      "remediation": {
+        "guidance": "Set realistic requests and limits based on actual workload behavior and revise them as measurements improve.",
+        "examples": [
+          "Use observed workload baselines instead of copy-pasted defaults."
+        ]
+      },
+      "metadata": {
+        "status": "draft",
+        "severity": "medium",
+        "version": "0.3.0-draft"
+      },
+      "_source_file": "catalog/rules/INF/K8S/ECO-INF-K8S-001.json"
+    },
+    {
+      "id": "ECO-INF-K8S-002",
+      "name": "Missing HPA for horizontally scalable workloads",
+      "summary": "Workloads that can scale horizontally but do not use autoscaling can waste cluster capacity or under-serve demand.",
+      "description": "When a workload is horizontally scalable, the absence of an HPA or equivalent scaling policy can lead to static overprovisioning or inefficient manual scaling.",
+      "category_code": "INF",
+      "family_code": "K8S",
+      "layer": "process",
+      "ontology": {
+        "category": "Infrastructure",
+        "family": "Kubernetes",
+        "system_layers": [
+          "process",
+          "architecture"
+        ]
+      },
+      "impact": {
+        "cost": "Static replicas often overrun actual need.",
+        "performance": "Manual scaling lags real demand.",
+        "carbon": "Idle replicas consume resources without corresponding value."
+      },
+      "detection": {
+        "method": "yaml-k8s",
+        "selector": "missing_hpa_for_scalable_workload"
+      },
+      "remediation": {
+        "guidance": "Use autoscaling where workloads and metrics support it, and tune target thresholds carefully.",
+        "examples": [
+          "Deploy HPA for stateless services with clear CPU or custom metric signals."
+        ]
+      },
+      "metadata": {
+        "status": "draft",
+        "severity": "medium",
+        "version": "0.3.0-draft"
+      },
+      "scanner_override": {
+        "scope": "repo",
+        "manifest_kinds": [
+          "Deployment",
+          "StatefulSet"
+        ]
+      },
+      "_source_file": "catalog/rules/INF/K8S/ECO-INF-K8S-002.json"
+    },
+    {
+      "id": "ECO-INF-K8S-003",
+      "name": "Overly aggressive health probes",
+      "summary": "Very frequent probes create unnecessary traffic and container work, especially at scale.",
+      "description": "Health probes that run more often than necessary or do expensive work can create avoidable load on applications and the cluster control path.",
+      "category_code": "INF",
+      "family_code": "K8S",
+      "layer": "process",
+      "ontology": {
+        "category": "Infrastructure",
+        "family": "Kubernetes",
+        "system_layers": [
+          "process",
+          "network"
+        ]
+      },
+      "impact": {
+        "cost": "Probe overhead adds up across many pods.",
+        "performance": "Expensive probes can compete with application work.",
+        "carbon": "Repeated low-value probe traffic and execution waste resources."
+      },
+      "detection": {
+        "method": "yaml-k8s",
+        "selector": "aggressive_health_probes"
+      },
+      "remediation": {
+        "guidance": "Tune probe frequency and probe implementation so checks are lightweight and proportional to real operational need.",
+        "examples": [
+          "Avoid high-frequency probes that trigger full dependency checks on every interval."
+        ]
+      },
+      "metadata": {
+        "status": "draft",
+        "severity": "medium",
+        "version": "0.3.0-draft"
+      },
+      "_source_file": "catalog/rules/INF/K8S/ECO-INF-K8S-003.json"
+    },
+    {
+      "id": "ECO-INF-K8S-004",
+      "name": "Heavy or redundant sidecars",
+      "summary": "Sidecars add useful capabilities, but they also add CPU, memory, storage, and network overhead.",
+      "description": "Workloads that carry heavy or redundant sidecars for logging, metrics, proxies, or helpers can create duplicated per-pod overhead that scales poorly across clusters.",
+      "category_code": "INF",
+      "family_code": "K8S",
+      "layer": "architecture",
+      "ontology": {
+        "category": "Infrastructure",
+        "family": "Kubernetes",
+        "system_layers": [
+          "architecture",
+          "network",
+          "process"
+        ]
+      },
+      "impact": {
+        "cost": "Per-pod overhead multiplies across replica counts.",
+        "performance": "Sidecars compete for pod resources and may add latency.",
+        "carbon": "Repeated duplicated overhead increases cluster resource use."
+      },
+      "detection": {
+        "method": "yaml-k8s",
+        "selector": "heavy_or_redundant_sidecars"
+      },
+      "remediation": {
+        "guidance": "Use sidecars intentionally, consolidate where possible, and prefer shared platform capabilities when they reduce duplicated per-pod cost.",
+        "examples": [
+          "Review whether the same capability can be provided once per node or per cluster instead of once per pod."
+        ]
+      },
+      "metadata": {
+        "status": "draft",
+        "severity": "medium",
+        "version": "0.3.0-draft"
+      },
+      "_source_file": "catalog/rules/INF/K8S/ECO-INF-K8S-004.json"
+    },
+    {
+      "id": "ECO-INF-K8S-005",
+      "name": "Unpinned images using latest or floating tags",
+      "summary": "Floating tags make deployments less predictable and can increase repeated pulls and churn.",
+      "description": "Using latest or other floating tags reduces reproducibility and can increase unnecessary redeployments, image pull churn, and debugging effort.",
+      "category_code": "INF",
+      "family_code": "K8S",
+      "layer": "process",
+      "ontology": {
+        "category": "Infrastructure",
+        "family": "Kubernetes",
+        "system_layers": [
+          "process",
+          "architecture"
+        ]
+      },
+      "impact": {
+        "cost": "Unexpected image changes increase operational churn.",
+        "performance": "Repeated pulls and redeploys waste time and resources.",
+        "carbon": "Unnecessary image movement and deployment churn increase resource use."
+      },
+      "detection": {
+        "method": "yaml-k8s",
+        "selector": "floating_image_tag"
+      },
+      "remediation": {
+        "guidance": "Pin images to explicit versions or digests and update them deliberately.",
+        "examples": [
+          "Use immutable digests in production manifests when practical."
+        ]
+      },
+      "metadata": {
+        "status": "draft",
+        "severity": "medium",
+        "version": "0.3.0-draft"
+      },
+      "_source_file": "catalog/rules/INF/K8S/ECO-INF-K8S-005.json"
+    },
+    {
       "canonical_id": "ECO-NET-NET-001",
       "category": "Networking",
       "category_code": "NET",

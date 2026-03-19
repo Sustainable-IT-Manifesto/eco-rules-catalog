@@ -1,0 +1,37 @@
+{
+  "id": "ECO-INF-DOCKER-002",
+  "name": "Oversized base image",
+  "summary": "Heavy base images increase transfer, storage, and patching footprint without improving runtime value.",
+  "description": "Using a large general-purpose base image when a smaller runtime image would suffice adds waste to build, deployment, and vulnerability management workflows.",
+  "category_code": "INF",
+  "family_code": "DOCKER",
+  "layer": "architecture",
+  "ontology": {
+    "category": "Infrastructure",
+    "family": "Docker",
+    "system_layers": [
+      "architecture",
+      "process"
+    ]
+  },
+  "impact": {
+    "cost": "Larger images cost more to store and distribute.",
+    "performance": "Longer image pull times delay startup.",
+    "carbon": "Unnecessary transfer and storage increase resource use."
+  },
+  "detection": {
+    "method": "dockerfile-lint",
+    "selector": "oversized_base_image"
+  },
+  "remediation": {
+    "guidance": "Prefer minimal runtime images that still meet operational needs.",
+    "examples": [
+      "Use slim or distroless images when practical and compatible with debugging and support needs."
+    ]
+  },
+  "metadata": {
+    "status": "draft",
+    "severity": "medium",
+    "version": "0.3.0-draft"
+  }
+}

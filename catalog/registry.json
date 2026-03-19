@@ -56,18 +56,18 @@
       "status": "active",
       "aliases": []
     },
-    "INF": {
-      "name": "Infrastructure",
-      "description": "Inefficiencies in compute, containers, cloud resources, provisioning, and platform configuration.",
-      "status": "active",
-      "aliases": []
-    },
     "ORG": {
       "name": "Organizational",
       "description": "Governance, policy, lifecycle, and accountability inefficiencies that institutionalize waste.",
       "status": "active",
       "aliases": []
-    }
+    },
+    "INF": {
+      "name": "Infrastructure",
+      "description": "Inefficiencies in containerization, orchestration, platform configuration, and workload execution environment.",
+      "status": "active",
+      "aliases": []
+    }    
   },
   "families": {
     "PY": {
@@ -75,28 +75,126 @@
       "category_code": "CMP",
       "description": "Python language and common Python runtime/library inefficiencies.",
       "status": "active",
-      "aliases": []
+      "aliases": [],
+      "scanner_profile": {
+        "technologies": [
+          "python"
+        ],
+        "targets": [
+          "file"
+        ],
+        "default_scope": "file",
+        "file_globs": [
+          "**/*.py"
+        ],
+        "file_names": [],
+        "path_hints": [],
+        "repo_signals": [
+          "requirements.txt",
+          "pyproject.toml",
+          "setup.py"
+        ],
+        "parser": "python-ast"
+      }
     },
     "JS": {
       "name": "JavaScript",
       "category_code": "CMP",
       "description": "JavaScript and browser or Node.js inefficiencies.",
       "status": "active",
-      "aliases": []
+      "aliases": [],
+      "scanner_profile": {
+        "technologies": [
+          "javascript",
+          "typescript"
+        ],
+        "targets": [
+          "file"
+        ],
+        "default_scope": "file",
+        "file_globs": [
+          "**/*.js",
+          "**/*.jsx",
+          "**/*.ts",
+          "**/*.tsx",
+          "**/*.mjs",
+          "**/*.cjs"
+        ],
+        "file_names": [],
+        "path_hints": [],
+        "repo_signals": [
+          "package.json",
+          "tsconfig.json"
+        ],
+        "parser": "js-ast"
+      }
     },
     "JAVA": {
       "name": "Java",
       "category_code": "CMP",
       "description": "Java language, JVM, and common Java ecosystem inefficiencies.",
       "status": "active",
-      "aliases": []
+      "aliases": [],
+      "scanner_profile": {
+        "technologies": [
+          "java"
+        ],
+        "targets": [
+          "file"
+        ],
+        "default_scope": "file",
+        "file_globs": [
+          "**/*.java"
+        ],
+        "file_names": [],
+        "path_hints": [
+          "src/main/java",
+          "src/test/java"
+        ],
+        "repo_signals": [
+          "pom.xml",
+          "build.gradle",
+          "build.gradle.kts"
+        ],
+        "parser": "java-ast"
+      }
     },
     "AI": {
       "name": "AI",
       "category_code": "AIM",
       "description": "General AI and machine learning inefficiencies.",
       "status": "active",
-      "aliases": []
+      "aliases": [],
+      "scanner_profile": {
+        "technologies": [
+          "ai",
+          "llm",
+          "ml"
+        ],
+        "targets": [
+          "file",
+          "repo"
+        ],
+        "default_scope": "file",
+        "file_globs": [
+          "**/*.py",
+          "**/*.ipynb",
+          "**/*.js",
+          "**/*.ts",
+          "**/*.yaml",
+          "**/*.yml"
+        ],
+        "file_names": [],
+        "path_hints": [
+          "prompts",
+          "rag",
+          "embeddings",
+          "inference",
+          "models"
+        ],
+        "repo_signals": [],
+        "parser": "multi"
+      }
     },
     "AINF": {
       "name": "AI Inference",
@@ -117,7 +215,32 @@
       "category_code": "AIM",
       "description": "Embedding generation, storage, and retrieval inefficiencies.",
       "status": "active",
-      "aliases": []
+      "aliases": [],
+      "scanner_profile": {
+        "technologies": [
+          "embeddings",
+          "vector-db"
+        ],
+        "targets": [
+          "file",
+          "repo"
+        ],
+        "default_scope": "file",
+        "file_globs": [
+          "**/*.py",
+          "**/*.js",
+          "**/*.ts",
+          "**/*.ipynb"
+        ],
+        "file_names": [],
+        "path_hints": [
+          "embeddings",
+          "vector",
+          "rag"
+        ],
+        "repo_signals": [],
+        "parser": "multi"
+      }
     },
     "DATA": {
       "name": "Data",
@@ -131,14 +254,67 @@
       "category_code": "DAT",
       "description": "Database query and relational data inefficiencies.",
       "status": "active",
-      "aliases": []
+      "aliases": [],
+      "scanner_profile": {
+        "technologies": [
+          "sql"
+        ],
+        "targets": [
+          "file"
+        ],
+        "default_scope": "file",
+        "file_globs": [
+          "**/*.sql"
+        ],
+        "file_names": [],
+        "path_hints": [
+          "sql",
+          "migrations",
+          "db"
+        ],
+        "repo_signals": [],
+        "parser": "sql-text"
+      }
     },
     "HTTP": {
       "name": "HTTP",
       "category_code": "NET",
       "description": "HTTP transport and API interaction inefficiencies.",
       "status": "active",
-      "aliases": []
+      "aliases": [],
+      "scanner_profile": {
+        "technologies": [
+          "http",
+          "api"
+        ],
+        "targets": [
+          "file",
+          "repo"
+        ],
+        "default_scope": "file",
+        "file_globs": [
+          "**/*.py",
+          "**/*.js",
+          "**/*.ts",
+          "**/*.java",
+          "**/*.go",
+          "**/*.cs",
+          "**/*.yaml",
+          "**/*.yml"
+        ],
+        "file_names": [],
+        "path_hints": [
+          "api",
+          "client",
+          "http",
+          "rest"
+        ],
+        "repo_signals": [
+          "openapi.yaml",
+          "openapi.yml"
+        ],
+        "parser": "multi"
+      }
     },
     "NET": {
       "name": "Network",
@@ -226,13 +402,6 @@
       "status": "active",
       "aliases": []
     },
-    "K8S": {
-      "name": "Kubernetes",
-      "category_code": "INF",
-      "description": "Kubernetes-specific inefficiencies in scheduling, limits, scaling, and cluster usage.",
-      "status": "active",
-      "aliases": []
-    },
     "AWS": {
       "name": "AWS",
       "category_code": "INF",
@@ -267,6 +436,55 @@
       "description": "Process and governance inefficiencies.",
       "status": "active",
       "aliases": []
+    },
+    "DOCKER": {
+      "name": "Docker",
+      "category_code": "INF",
+      "description": "Infrastructure inefficiencies in Dockerfiles, image construction, layering, build context, and runtime image composition.",
+      "status": "active",
+      "scanner_profile": {
+	"technologies": ["docker"],
+	"targets": ["file", "repo"],
+	"default_scope": "file",
+	"file_globs": ["**/Dockerfile", "**/Dockerfile.*"],
+	"file_names": ["Dockerfile"],
+	"path_hints": [],
+	"repo_signals": [".dockerignore"],
+	"parser": "dockerfile"
+      }
+    },
+    "COMPOSE": {
+      "name": "Docker Compose",
+      "category_code": "INF",
+      "description": "Infrastructure inefficiencies in Docker Compose configurations, service definitions, restart behavior, and local stack composition.",
+      "status": "active",
+      "scanner_profile": {
+	"technologies": ["docker-compose"],
+	"targets": ["file"],
+	"default_scope": "file",
+	"file_globs": ["**/docker-compose.yml", "**/docker-compose.yaml", "**/compose.yml", "**/compose.yaml"],
+	"file_names": ["docker-compose.yml", "docker-compose.yaml", "compose.yml", "compose.yaml"],
+	"path_hints": [],
+	"repo_signals": [],
+	"parser": "yaml-compose"
+      }
+    },
+    "K8S": {
+      "name": "Kubernetes",
+      "category_code": "INF",
+      "description": "Infrastructure inefficiencies in Kubernetes manifests, workload sizing, scheduling, probes, sidecars, autoscaling, and deployment behavior.",
+      "status": "active",
+      "scanner_profile": {
+	"technologies": ["kubernetes"],
+	"targets": ["file", "manifest", "repo"],
+	"default_scope": "manifest",
+	"file_globs": ["**/*.yaml", "**/*.yml"],
+	"file_names": [],
+	"path_hints": ["k8s", "kubernetes", "manifests", "helm", "charts"],
+	"repo_signals": ["Chart.yaml", "values.yaml", "kustomization.yaml"],
+	"manifest_kinds": ["Deployment", "StatefulSet", "DaemonSet", "Job", "CronJob", "Pod", "Service", "Ingress", "HorizontalPodAutoscaler"],
+	"parser": "yaml-k8s"
+      }
     }
   },
   "lifecycle_stages": [

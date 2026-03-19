@@ -1,0 +1,37 @@
+{
+  "id": "ECO-INF-COMPOSE-002",
+  "name": "Unbounded restart loops for noncritical services",
+  "summary": "Restarting noncritical services aggressively can create needless churn and repeated work.",
+  "description": "Compose configurations that restart transient or low-value services indefinitely can waste local resources and hide operational problems instead of surfacing them.",
+  "category_code": "INF",
+  "family_code": "COMPOSE",
+  "layer": "process",
+  "ontology": {
+    "category": "Infrastructure",
+    "family": "Docker Compose",
+    "system_layers": [
+      "process",
+      "architecture"
+    ]
+  },
+  "impact": {
+    "cost": "Consumes unnecessary local or CI resources.",
+    "performance": "Repeated restarts create churn and noise.",
+    "carbon": "Repeated failed restarts waste compute cycles."
+  },
+  "detection": {
+    "method": "yaml-compose",
+    "selector": "compose_unbounded_restart_loops"
+  },
+  "remediation": {
+    "guidance": "Use restart policies intentionally and avoid infinite restart churn for services that should fail fast during development.",
+    "examples": [
+      "Prefer clearer failure behavior for optional tooling containers."
+    ]
+  },
+  "metadata": {
+    "status": "draft",
+    "severity": "medium",
+    "version": "0.3.0-draft"
+  }
+}

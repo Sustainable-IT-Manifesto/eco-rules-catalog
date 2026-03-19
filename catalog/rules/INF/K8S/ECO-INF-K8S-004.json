@@ -1,0 +1,38 @@
+{
+  "id": "ECO-INF-K8S-004",
+  "name": "Heavy or redundant sidecars",
+  "summary": "Sidecars add useful capabilities, but they also add CPU, memory, storage, and network overhead.",
+  "description": "Workloads that carry heavy or redundant sidecars for logging, metrics, proxies, or helpers can create duplicated per-pod overhead that scales poorly across clusters.",
+  "category_code": "INF",
+  "family_code": "K8S",
+  "layer": "architecture",
+  "ontology": {
+    "category": "Infrastructure",
+    "family": "Kubernetes",
+    "system_layers": [
+      "architecture",
+      "network",
+      "process"
+    ]
+  },
+  "impact": {
+    "cost": "Per-pod overhead multiplies across replica counts.",
+    "performance": "Sidecars compete for pod resources and may add latency.",
+    "carbon": "Repeated duplicated overhead increases cluster resource use."
+  },
+  "detection": {
+    "method": "yaml-k8s",
+    "selector": "heavy_or_redundant_sidecars"
+  },
+  "remediation": {
+    "guidance": "Use sidecars intentionally, consolidate where possible, and prefer shared platform capabilities when they reduce duplicated per-pod cost.",
+    "examples": [
+      "Review whether the same capability can be provided once per node or per cluster instead of once per pod."
+    ]
+  },
+  "metadata": {
+    "status": "draft",
+    "severity": "medium",
+    "version": "0.3.0-draft"
+  }
+}

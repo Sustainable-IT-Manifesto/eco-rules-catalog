@@ -1,0 +1,48 @@
+{
+  "id": "ECO-INF-DOCKER-003",
+  "name": "Missing or too-permissive .dockerignore",
+  "summary": "Large build contexts increase build time, cache churn, and unnecessary transfer to the Docker daemon.",
+  "description": "Without a properly scoped .dockerignore, source trees, artifacts, caches, and documentation may be copied into the build context even when they are not required for the image.",
+  "category_code": "INF",
+  "family_code": "DOCKER",
+  "layer": "process",
+  "ontology": {
+    "category": "Infrastructure",
+    "family": "Docker",
+    "system_layers": [
+      "process",
+      "code"
+    ]
+  },
+  "impact": {
+    "cost": "Larger contexts waste build and CI resources.",
+    "performance": "Builds become slower and less cache-friendly.",
+    "carbon": "Repeated transfer of unnecessary files increases waste."
+  },
+  "detection": {
+    "method": "dockerfile-lint",
+    "selector": "dockerignore_missing_or_broad"
+  },
+  "remediation": {
+    "guidance": "Add and maintain a .dockerignore tuned to the actual files required for the build.",
+    "examples": [
+      "Exclude node_modules, .git, test outputs, local caches, and generated artifacts unless explicitly needed."
+    ]
+  },
+  "metadata": {
+    "status": "draft",
+    "severity": "medium",
+    "version": "0.3.0-draft"
+  },
+  "scanner_override": {
+    "scope": "repo",
+    "file_globs": [
+      "**/Dockerfile",
+      "**/Dockerfile.*",
+      "**/.dockerignore"
+    ],
+    "repo_signals": [
+      ".dockerignore"
+    ]
+  }
+}

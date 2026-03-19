@@ -1,0 +1,51 @@
+{
+  "id": "ECO-INF-DOCKER-001",
+  "name": "Missing multi-stage builds",
+  "summary": "Single-stage Docker builds often ship build tooling and temporary artifacts into runtime images, increasing image size and transfer cost.",
+  "description": "Dockerfiles that combine build and runtime concerns into a single final image increase storage, network transfer, cache churn, and deployment overhead.",
+  "category_code": "INF",
+  "family_code": "DOCKER",
+  "layer": "process",
+  "ontology": {
+    "category": "Infrastructure",
+    "family": "Docker",
+    "system_layers": [
+      "process",
+      "code"
+    ]
+  },
+  "impact": {
+    "cost": "Larger images cost more to store and move.",
+    "performance": "Slower pulls and startup in constrained environments.",
+    "carbon": "More bytes transferred and stored than necessary."
+  },
+  "detection": {
+    "method": "dockerfile-lint",
+    "selector": "multi_stage_build_missing"
+  },
+  "remediation": {
+    "guidance": "Separate build and runtime stages so only runtime assets ship in the final image.",
+    "examples": [
+      "Use multi-stage builds with a builder stage and a minimal runtime stage."
+    ]
+  },
+  "metadata": {
+    "status": "draft",
+    "severity": "medium",
+    "version": "0.3.0-draft"
+  },
+  "examples": {
+    "pattern": [
+      {
+        "title": "Single-stage image with compiler toolchain",
+        "description": "A runtime image includes package managers, compilers, and build caches that are only needed during build."
+      }
+    ],
+    "remediation": [
+      {
+        "title": "Split build and runtime stages",
+        "description": "Build assets in one stage, then copy only the required runtime artifacts into a smaller final image."
+      }
+    ]
+  }
+}

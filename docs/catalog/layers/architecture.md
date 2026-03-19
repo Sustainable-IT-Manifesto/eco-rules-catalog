@@ -1,6 +1,6 @@
 # Architecture rules
 
-**Total rules:** 24
+**Total rules:** 26
 
 - [Back to Human Catalog](../index.md)
 - [Back to Rule Browser](../../rule-browser.md)
@@ -174,3 +174,17 @@ Lack of pooling increases connection churn, latency, and DB load.
 
 - Category: **CMP**
 - Family: **PY**
+
+### [ECO-INF-DOCKER-002 — Oversized base image](../ECO-INF-DOCKER-002.md)
+
+Heavy base images increase transfer, storage, and patching footprint without improving runtime value.
+
+- Category: **Infrastructure**
+- Family: **Docker**
+
+### [ECO-INF-K8S-004 — Heavy or redundant sidecars](../ECO-INF-K8S-004.md)
+
+Sidecars add useful capabilities, but they also add CPU, memory, storage, and network overhead.
+
+- Category: **Infrastructure**
+- Family: **Kubernetes**

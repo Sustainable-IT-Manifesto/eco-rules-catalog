@@ -1,0 +1,37 @@
+{
+  "id": "ECO-INF-K8S-005",
+  "name": "Unpinned images using latest or floating tags",
+  "summary": "Floating tags make deployments less predictable and can increase repeated pulls and churn.",
+  "description": "Using latest or other floating tags reduces reproducibility and can increase unnecessary redeployments, image pull churn, and debugging effort.",
+  "category_code": "INF",
+  "family_code": "K8S",
+  "layer": "process",
+  "ontology": {
+    "category": "Infrastructure",
+    "family": "Kubernetes",
+    "system_layers": [
+      "process",
+      "architecture"
+    ]
+  },
+  "impact": {
+    "cost": "Unexpected image changes increase operational churn.",
+    "performance": "Repeated pulls and redeploys waste time and resources.",
+    "carbon": "Unnecessary image movement and deployment churn increase resource use."
+  },
+  "detection": {
+    "method": "yaml-k8s",
+    "selector": "floating_image_tag"
+  },
+  "remediation": {
+    "guidance": "Pin images to explicit versions or digests and update them deliberately.",
+    "examples": [
+      "Use immutable digests in production manifests when practical."
+    ]
+  },
+  "metadata": {
+    "status": "draft",
+    "severity": "medium",
+    "version": "0.3.0-draft"
+  }
+}

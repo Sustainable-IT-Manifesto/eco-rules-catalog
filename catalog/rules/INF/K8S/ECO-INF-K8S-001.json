@@ -1,0 +1,37 @@
+{
+  "id": "ECO-INF-K8S-001",
+  "name": "Missing or mis-sized CPU and memory requests and limits",
+  "summary": "Containers without realistic requests and limits create waste, contention, or throttling.",
+  "description": "Kubernetes workloads that omit or poorly size CPU and memory requests and limits make scheduling and capacity planning less efficient, increasing cluster waste and instability.",
+  "category_code": "INF",
+  "family_code": "K8S",
+  "layer": "process",
+  "ontology": {
+    "category": "Infrastructure",
+    "family": "Kubernetes",
+    "system_layers": [
+      "process",
+      "architecture"
+    ]
+  },
+  "impact": {
+    "cost": "Poor sizing can lead to overprovisioning or noisy-neighbor contention.",
+    "performance": "Bad sizing increases throttling or eviction risk.",
+    "carbon": "Inefficient capacity use drives unnecessary cluster footprint."
+  },
+  "detection": {
+    "method": "yaml-k8s",
+    "selector": "missing_requests_limits"
+  },
+  "remediation": {
+    "guidance": "Set realistic requests and limits based on actual workload behavior and revise them as measurements improve.",
+    "examples": [
+      "Use observed workload baselines instead of copy-pasted defaults."
+    ]
+  },
+  "metadata": {
+    "status": "draft",
+    "severity": "medium",
+    "version": "0.3.0-draft"
+  }
+}

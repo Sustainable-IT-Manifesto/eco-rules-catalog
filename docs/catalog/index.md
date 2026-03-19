@@ -1,6 +1,6 @@
 # Eco Rules Catalog (Human Readable)
 
-**Total rules:** 125
+**Total rules:** 137
 
 ## Browse
 
@@ -110,6 +110,18 @@
 - [ECO-DAT-DATA-013 — No data lifecycle governance](ECO-DAT-DATA-013.md)
 - [ECO-DAT-DATA-014 — Stale feature flags accumulating](ECO-DAT-DATA-014.md)
 - [ECO-DAT-DATA-015 — Shadow data stores outside governance](ECO-DAT-DATA-015.md)
+- [ECO-INF-COMPOSE-001 — Overprovisioned default Compose stack](ECO-INF-COMPOSE-001.md)
+- [ECO-INF-COMPOSE-002 — Unbounded restart loops for noncritical services](ECO-INF-COMPOSE-002.md)
+- [ECO-INF-DOCKER-001 — Missing multi-stage builds](ECO-INF-DOCKER-001.md)
+- [ECO-INF-DOCKER-002 — Oversized base image](ECO-INF-DOCKER-002.md)
+- [ECO-INF-DOCKER-003 — Missing or too-permissive .dockerignore](ECO-INF-DOCKER-003.md)
+- [ECO-INF-DOCKER-004 — Package manager caches left in image layers](ECO-INF-DOCKER-004.md)
+- [ECO-INF-DOCKER-005 — Build tooling shipped in runtime image](ECO-INF-DOCKER-005.md)
+- [ECO-INF-K8S-001 — Missing or mis-sized CPU and memory requests and limits](ECO-INF-K8S-001.md)
+- [ECO-INF-K8S-002 — Missing HPA for horizontally scalable workloads](ECO-INF-K8S-002.md)
+- [ECO-INF-K8S-003 — Overly aggressive health probes](ECO-INF-K8S-003.md)
+- [ECO-INF-K8S-004 — Heavy or redundant sidecars](ECO-INF-K8S-004.md)
+- [ECO-INF-K8S-005 — Unpinned images using latest or floating tags](ECO-INF-K8S-005.md)
 - [ECO-NET-NET-001 — Missing HTTP caching headers](ECO-NET-NET-001.md)
 - [ECO-NET-NET-002 — No gzip/brotli compression](ECO-NET-NET-002.md)
 - [ECO-NET-NET-003 — Chatty microservice communication](ECO-NET-NET-003.md)

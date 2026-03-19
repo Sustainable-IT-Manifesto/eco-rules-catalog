@@ -1,0 +1,37 @@
+{
+  "id": "ECO-INF-DOCKER-004",
+  "name": "Package manager caches left in image layers",
+  "summary": "Leaving package indexes and caches behind increases image size with no runtime benefit.",
+  "description": "Docker image layers that retain apt, apk, pip, npm, or similar caches increase storage and transfer overhead while adding little or no runtime value.",
+  "category_code": "INF",
+  "family_code": "DOCKER",
+  "layer": "process",
+  "ontology": {
+    "category": "Infrastructure",
+    "family": "Docker",
+    "system_layers": [
+      "process",
+      "code"
+    ]
+  },
+  "impact": {
+    "cost": "Larger images increase storage and transfer cost.",
+    "performance": "Pulling and scanning images takes longer.",
+    "carbon": "Extra bytes are stored and transmitted repeatedly."
+  },
+  "detection": {
+    "method": "dockerfile-lint",
+    "selector": "package_manager_caches_retained"
+  },
+  "remediation": {
+    "guidance": "Clear package manager caches in the same layer where packages are installed, or use build-stage-only installs where possible.",
+    "examples": [
+      "Combine install and cleanup in a single RUN instruction so caches do not persist into a committed layer."
+    ]
+  },
+  "metadata": {
+    "status": "draft",
+    "severity": "medium",
+    "version": "0.3.0-draft"
+  }
+}

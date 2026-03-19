@@ -1,0 +1,37 @@
+{
+  "id": "ECO-INF-COMPOSE-001",
+  "name": "Overprovisioned default Compose stack",
+  "summary": "Starting every service by default in local or default compose profiles wastes local compute and encourages unnecessary background activity.",
+  "description": "Compose files that always start optional databases, observability services, caches, and workers even when they are not needed consume developer resources and energy for little value.",
+  "category_code": "INF",
+  "family_code": "COMPOSE",
+  "layer": "process",
+  "ontology": {
+    "category": "Infrastructure",
+    "family": "Docker Compose",
+    "system_layers": [
+      "process",
+      "architecture"
+    ]
+  },
+  "impact": {
+    "cost": "Wastes local and CI resources.",
+    "performance": "Consumes memory and CPU that could be used elsewhere.",
+    "carbon": "Runs more services than needed for the task at hand."
+  },
+  "detection": {
+    "method": "yaml-compose",
+    "selector": "compose_default_stack_overprovisioned"
+  },
+  "remediation": {
+    "guidance": "Use profiles or separate compose overlays so services start only when needed.",
+    "examples": [
+      "Make observability and auxiliary services opt-in rather than default."
+    ]
+  },
+  "metadata": {
+    "status": "draft",
+    "severity": "medium",
+    "version": "0.3.0-draft"
+  }
+}

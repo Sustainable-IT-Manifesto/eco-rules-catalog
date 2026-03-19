@@ -46,6 +46,59 @@
         }
       },
       "additionalProperties": false
+    },
+    "scanner_override": {
+      "type": "object",
+      "properties": {
+        "targets": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "scope": {
+          "type": "string",
+          "enum": [
+            "file",
+            "manifest",
+            "repo"
+          ]
+        },
+        "file_globs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "file_names": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "path_hints": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "repo_signals": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "manifest_kinds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "parser": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
     }
   },
   "required": ["id", "layer"],
