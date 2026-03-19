@@ -5,4 +5,8 @@
 3. Rebuild catalog
 4. Submit PR
 
-Do not edit catalog/master.json manually.
+## Note
+
+* `docs/catalog/` is generated. Do not edit files there manually.
+* `catalog/master.json` is generated. Do not edit it manually.
+

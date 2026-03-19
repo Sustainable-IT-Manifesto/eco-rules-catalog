@@ -93,6 +93,11 @@ generate_human_catalog_v2.py
 
 ````
 
+## Note
+
+* `docs/catalog/` is generated. Do not edit files there manually.
+* `catalog/master.json` is generated. Do not edit it manually.
+
 ---
 
 # Source of truth
