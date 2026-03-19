@@ -21,9 +21,11 @@ markdown_extensions:
   - pymdownx.highlight
   - pymdownx.inlinehilite
 
+
 nav:
   - Home: index.md
   - Start Here: start-here.md
+
   - Standard:
       - Overview: standard.md
       - Ontology Overview: ontology/README.md
@@ -32,11 +34,15 @@ nav:
       - Ontology Checklist: ontology/checklist.md
       - Ontology Scoring: ontology/scoring.md
       - Ontology Diagram: ontology/diagram.md
-  - Authoring:
-      - Contributing: contributing.md
-      - Rule Checklist: rule-checklist.md
+
   - Catalog:
       - Human Catalog: catalog/index.md
       - Rule Browser: rule-browser.md
+
+  - Contributing:
+      - Contributing Guide: contributing.md
+      - Rule Checklist: rule-checklist.md
+
   - Releases:
       - v0.2.0: releases/v0.2.0.md
+
