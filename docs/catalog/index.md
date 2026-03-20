@@ -6,12 +6,21 @@
 
 - [Rule Browser](../rule-browser.md)
 - [Examples index](examples/index.md)
-- [AI layer](layers/ai.md)
-- [Architecture layer](layers/architecture.md)
-- [Code layer](layers/code.md)
-- [Data layer](layers/data.md)
-- [Network layer](layers/network.md)
-- [Process layer](layers/process.md)
+- Layers
+  - [AI layer](layers/ai.md)
+  - [Architecture layer](layers/architecture.md)
+  - [Code layer](layers/code.md)
+  - [Data layer](layers/data.md)
+  - [Network layer](layers/network.md)
+  - [Process layer](layers/process.md)
+- Categories
+  - [AI/ML category](categories/aim.md)
+  - [Architecture category](categories/arc.md)
+  - [Computation category](categories/cmp.md)
+  - [Data category](categories/dat.md)
+  - [Infrastructure category](categories/inf.md)
+  - [Networking category](categories/net.md)
+  - [Organizational category](categories/org.md)
 
 ## Rules
 

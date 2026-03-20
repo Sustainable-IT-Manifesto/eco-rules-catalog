@@ -19,6 +19,16 @@ LAYER_LABELS = {
     "process": "Process",
 }
 
+CATEGORY_LABELS = {
+    "AIM": "AI/ML",
+    "ARC": "Architecture",
+    "CMP": "Computation",
+    "DAT": "Data",
+    "INF": "Infrastructure",
+    "NET": "Networking",
+    "ORG": "Organizational",
+}
+
 
 def load_catalog() -> dict:
     with MASTER.open("r", encoding="utf-8") as f:
@@ -33,6 +43,7 @@ def get_rules(catalog: dict) -> list[dict]:
 def ensure_out_dir() -> None:
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     (OUT_DIR / "layers").mkdir(parents=True, exist_ok=True)
+    (OUT_DIR / "categories").mkdir(parents=True, exist_ok=True)
     (OUT_DIR / "examples").mkdir(parents=True, exist_ok=True)
 
 
@@ -192,12 +203,21 @@ def render_catalog_index(rules: list[dict]) -> str:
         "",
         "- [Rule Browser](../rule-browser.md)",
         "- [Examples index](examples/index.md)",
-        "- [AI layer](layers/ai.md)",
-        "- [Architecture layer](layers/architecture.md)",
-        "- [Code layer](layers/code.md)",
-        "- [Data layer](layers/data.md)",
-        "- [Network layer](layers/network.md)",
-        "- [Process layer](layers/process.md)",
+	"- Layers",
+        "  - [AI layer](layers/ai.md)",
+        "  - [Architecture layer](layers/architecture.md)",
+        "  - [Code layer](layers/code.md)",
+        "  - [Data layer](layers/data.md)",
+        "  - [Network layer](layers/network.md)",
+        "  - [Process layer](layers/process.md)",
+	"- Categories",
+        "  - [AI/ML category](categories/aim.md)",
+        "  - [Architecture category](categories/arc.md)",
+        "  - [Computation category](categories/cmp.md)",
+        "  - [Data category](categories/dat.md)",
+        "  - [Infrastructure category](categories/inf.md)",
+        "  - [Networking category](categories/net.md)",
+        "  - [Organizational category](categories/org.md)",
         "",
         "## Rules",
         "",
@@ -210,6 +230,39 @@ def render_catalog_index(rules: list[dict]) -> str:
     return "\n".join(lines)
 
 
+def render_category_index(category_code: str, rules: list[dict]) -> str:
+    title = CATEGORY_LABELS.get(category_code, category_code)
+    lines = [
+        f"# {title} rules",
+        "",
+        f"**Category code:** `{category_code}`",
+        "",
+        f"**Total rules:** {len(rules)}",
+        "",
+        "- [Back to Human Catalog](../index.md)",
+        "- [Back to Rule Browser](../../rule-browser.md)",
+        "",
+    ]
+
+    if not rules:
+        lines += ["No rules are currently listed for this category.", ""]
+        return "\n".join(lines)
+
+    lines += ["## Rules", ""]
+    for rule in rules:
+        rid = rule.get("id", "UNKNOWN")
+        name = rule.get("name") or rule.get("title") or rid
+        summary = summary_text(rule)
+        lines.append(f"### [{rid} — {name}](../{rule_link(rule)})")
+        lines.append("")
+        lines.append(summary)
+        lines.append("")
+        lines.append(f"- Family: **{family_name(rule)}**")
+        lines.append(f"- Layer: **{rule.get('layer', '')}**")
+        lines.append("")
+    return "\n".join(lines)
+
+
 def group_by_layer(rules: list[dict]) -> dict[str, list[dict]]:
     groups = defaultdict(list)
     for rule in rules:
@@ -217,6 +270,16 @@ def group_by_layer(rules: list[dict]) -> dict[str, list[dict]]:
         groups[layer].append(rule)
     for layer in groups:
         groups[layer] = sorted(groups[layer], key=lambda r: r.get("id", ""))
+    return groups
+
+
+def group_by_category(rules: list[dict]) -> dict[str, list[dict]]:
+    groups = defaultdict(list)
+    for rule in rules:
+        code = str(rule.get("category_code", "")).strip().upper()
+        groups[code].append(rule)
+    for code in groups:
+        groups[code] = sorted(groups[code], key=lambda r: r.get("id", ""))
     return groups
 
 
@@ -258,6 +321,13 @@ def write_layer_indexes(rules: list[dict]) -> None:
         out.write_text(render_layer_index(layer, groups.get(layer, [])), encoding="utf-8")
 
 
+def write_category_indexes(rules: list[dict]) -> None:
+    groups = group_by_category(rules)
+    for category_code in sorted(groups):
+        out = OUT_DIR / "categories" / f"{category_code.lower()}.md"
+        out.write_text(render_category_index(category_code, groups[category_code]), encoding="utf-8")
+
+
 def render_examples_index(rules: list[dict]) -> str:
     lines = [
         "# Examples index",
@@ -287,6 +357,7 @@ def main() -> None:
     write_rule_pages(rules)
     (OUT_DIR / "index.md").write_text(render_catalog_index(rules), encoding="utf-8")
     write_layer_indexes(rules)
+    write_category_indexes(rules)
     copy_example_details(rules)
     (OUT_DIR / "examples" / "index.md").write_text(render_examples_index(rules), encoding="utf-8")
 

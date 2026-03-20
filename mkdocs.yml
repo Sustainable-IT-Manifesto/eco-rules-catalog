@@ -40,16 +40,25 @@ nav:
       - Human Catalog: catalog/index.md
       - Rule Browser: rule-browser.md
       - Examples index: catalog/examples/index.md
-      - AI Rules: catalog/layers/ai.md
-      - Architecture Rules: catalog/layers/architecture.md
-      - Code Rules: catalog/layers/code.md
-      - Data Rules: catalog/layers/data.md
-      - Network Rules: catalog/layers/network.md
-      - Process Rules: catalog/layers/process.md
+      - Layers:
+        - AI Rules: catalog/layers/ai.md
+        - Architecture Rules: catalog/layers/architecture.md
+        - Code Rules: catalog/layers/code.md
+        - Data Rules: catalog/layers/data.md
+        - Network Rules: catalog/layers/network.md
+        - Process Rules: catalog/layers/process.md
+      - Categories:
+        - Infrastructure Category: catalog/categories/inf.md
+        - AI/ML Category: catalog/categories/aim.md
+        - Computation Category: catalog/categories/cmp.md
+        - Data Category: catalog/categories/dat.md
+        - Networking Category: catalog/categories/net.md
+        - Organizational Category: catalog/categories/org.md      
 
   - Contributing:
       - Contributing Guide: contributing.md
       - Rule Checklist: rule-checklist.md
 
   - Releases:
+      - v0.3.0: releases/v0.3.0.md
       - v0.2.0: releases/v0.2.0.md
