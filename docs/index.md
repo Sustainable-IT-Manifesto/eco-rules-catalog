@@ -2,6 +2,31 @@
 
 The Eco Rules Catalog is a SITM-owned standard for identifying, describing, and organizing software inefficiency.
 
+## 🚀 v0.3.0 — Infrastructure + Scanner Model
+
+The Eco Rules Catalog now includes infrastructure-level inefficiencies.
+
+### New in this release
+
+- Infrastructure category (**INF**)
+- Docker, Compose, and Kubernetes rules
+- Cleaner scanner integration model
+
+### Why it matters
+
+Waste doesn’t stop at code.
+
+It lives in:
+- images
+- manifests
+- scaling behavior
+- defaults
+
+Making it visible is the first step to reducing it.
+
+---
+
+
 ## What this is
 
 The catalog provides:
@@ -84,6 +109,7 @@ If you want to integrate against the catalog, start with:
 
 ## Releases
 
-See [v0.2.0](releases/v0.2.0.md) for the first validated standard release.
+- See [v0.3.0](releases/v0.3.0.md) for the current release
+- See [v0.2.0](releases/v0.2.0.md) for the first validated standard release.
 
 Because waste is a bug.

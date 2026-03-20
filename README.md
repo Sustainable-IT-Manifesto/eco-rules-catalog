@@ -28,11 +28,18 @@
   <img src="https://img.shields.io/github/v/release/sustainable-it-manifesto/eco-rules-catalog?style=flat-square" />
 </p>
 
-A structured catalog of **software inefficiency patterns** that waste compute, energy, network bandwidth, memory, and engineering time.
+o## What is the Eco Rules Catalog?
 
-The Eco Rules Catalog is a **SITM-owned standard** for identifying, describing, and organizing software waste.
+The Eco Rules Catalog is an open standard for identifying and reducing software inefficiency.
 
-> Because waste is a bug.
+It provides:
+- a shared language for waste
+- structured rules for detection and remediation
+- a foundation for tooling and automation
+
+Because waste not a feature. 
+
+It is a bug.
 
 ---
 
