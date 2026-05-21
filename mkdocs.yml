@@ -1,4 +1,4 @@
-site_name: Eco Rules Catalog
+site_name: Sustainable IT Eco Rules Catalog
 site_description: SITM standard for identifying and describing software inefficiency
 site_url: https://catalog.sustainableitmanifesto.org
 repo_url: https://github.com/sustainable-it-manifesto/eco-rules-catalog
@@ -6,6 +6,8 @@ repo_name: sustainable-it-manifesto/eco-rules-catalog
 
 theme:
   name: material
+  logo: assets/logo.png
+  favicon: assets/favicon.png
   features:
     - navigation.sections
     - navigation.expand
