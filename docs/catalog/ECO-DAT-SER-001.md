@@ -77,4 +77,6 @@ No remediation examples provided.
 ## Navigation
 
 - [Back to Human Catalog](index.md)
+- [Back to Data category](categories/dat/index.md)
+- [Back to Serialization family](categories/dat/families/ser/index.md)
 - [Back to Rule Browser](../rule-browser.md)

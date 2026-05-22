@@ -1,0 +1,109 @@
+{
+  "category": "Computation",
+  "category_code": "CMP",
+  "family": "Rust",
+  "family_code": "RS",
+  "layer": "code",
+  "enabled_by_default": true,
+  "metadata": {
+    "catalog_version": "0.4.0"
+  },
+  "id": "ECO-CMP-RS-002",
+  "canonical_id": "ECO-CMP-RS-002",
+  "sequence": 2,
+  "legacy_id": "ECO-RS-002",
+  "title": "Collecting iterators before immediate iteration",
+  "summary": "Using collect() to materialize an intermediate Vec when the iterator could be consumed lazily.",
+  "rationale": "Intermediate collections increase allocation, memory pressure, and cache churn.",
+  "detection": {
+    "method": "ast",
+    "languages": [
+      "rust"
+    ],
+    "parser": "rust_ast_or_tree_sitter",
+    "notes": "Detect collect() followed by immediate iteration, map, filter, count, or fold."
+  },
+  "impact": {
+    "type": "cpu",
+    "confidence": 0.72,
+    "notes": "Impact increases in hot paths, large inputs, high-concurrency services, build pipelines, or repeated request paths."
+  },
+  "remediation": {
+    "guidance": "Keep operations lazy with iterator chains, fold, for_each, or streaming adapters.",
+    "tradeoffs": "Materialization can be appropriate when reuse, sorting, indexing, or ownership isolation is required."
+  },
+  "severity": "warning",
+  "tier": 2,
+  "tags": [
+    "rust",
+    "iterator",
+    "collect",
+    "allocation"
+  ],
+  "ontology": {
+    "system_layers": [
+      "code"
+    ],
+    "resource_impacts": [
+      "cpu",
+      "memory"
+    ],
+    "detection_methods": [
+      "static_analysis"
+    ],
+    "remediation_patterns": [
+      "algorithmic_improvement"
+    ]
+  },
+  "cost_dimensions": {
+    "compute": "medium",
+    "memory": "high",
+    "network": "low",
+    "storage": "low",
+    "human_time": "medium",
+    "carbon": "medium",
+    "water": "low"
+  },
+  "amplification": {
+    "scales_with_users": true,
+    "scales_with_data_volume": true,
+    "scales_non_linearly": false
+  },
+  "temporal_behavior": {
+    "startup_only": false,
+    "steady_state": true,
+    "burst_sensitive": true,
+    "time_degradation": false
+  },
+  "runtime_evidence": [
+    "CPU profiles",
+    "allocation profiles",
+    "request traces",
+    "benchmark results"
+  ],
+  "scanner_override": {
+    "targets": [
+      "rust"
+    ],
+    "scope": "file",
+    "file_globs": [
+      "**/*.rs",
+      "Cargo.toml"
+    ],
+    "parser": "rust_ast_or_tree_sitter"
+  },
+  "examples": {
+    "pattern": [
+      {
+        "title": "Collecting iterators before immediate iteration",
+        "description": "Using collect() to materialize an intermediate Vec when the iterator could be consumed lazily."
+      }
+    ],
+    "remediation": [
+      {
+        "title": "Reduce avoidable work",
+        "description": "Keep operations lazy with iterator chains, fold, for_each, or streaming adapters."
+      }
+    ]
+  }
+}

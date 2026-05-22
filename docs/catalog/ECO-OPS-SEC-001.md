@@ -77,4 +77,6 @@ No remediation examples provided.
 ## Navigation
 
 - [Back to Human Catalog](index.md)
+- [Back to Operations category](categories/ops/index.md)
+- [Back to Identity & Security Efficiency family](categories/ops/families/sec/index.md)
 - [Back to Rule Browser](../rule-browser.md)

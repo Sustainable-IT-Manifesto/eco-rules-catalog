@@ -1,0 +1,95 @@
+{
+  "category": "Computation",
+  "category_code": "CMP",
+  "layer": "code",
+  "enabled_by_default": true,
+  "metadata": {
+    "catalog_version": "0.4.0"
+  },
+  "severity": "warning",
+  "tier": 2,
+  "family": "Joomla",
+  "family_code": "JOOMLA",
+  "id": "ECO-CMP-JOOMLA-002",
+  "canonical_id": "ECO-CMP-JOOMLA-002",
+  "sequence": 2,
+  "legacy_id": "ECO-JOOMLA-002",
+  "title": "Plugin runs heavy logic on broad events",
+  "summary": "A Joomla plugin performs expensive work on global events that fire across many page requests.",
+  "rationale": "Broad event hooks amplify computation even when the work is only needed for a subset of pages.",
+  "detection": {
+    "method": "ast",
+    "languages": [
+      "php"
+    ],
+    "parser": "php-ast"
+  },
+  "impact": {
+    "type": "cpu",
+    "confidence": 0.72,
+    "notes": "Impact increases on high-traffic routes, large datasets, frequently rendered pages, or repeated background work."
+  },
+  "remediation": {
+    "guidance": "Narrow event scope, short-circuit early, and move expensive logic behind explicit conditions.",
+    "tradeoffs": "Framework conventions, readability, caching correctness, and deployment topology should be considered before changing behavior."
+  },
+  "tags": [
+    "joomla",
+    "plugin",
+    "events"
+  ],
+  "ontology": {
+    "system_layers": [
+      "code"
+    ],
+    "resource_impacts": [
+      "cpu"
+    ],
+    "detection_methods": [
+      "static_analysis"
+    ],
+    "remediation_patterns": [
+      "algorithmic_improvement"
+    ]
+  },
+  "cost_dimensions": {
+    "compute": "medium",
+    "memory": "medium",
+    "network": "low",
+    "storage": "low",
+    "human_time": "medium",
+    "carbon": "medium",
+    "water": "low"
+  },
+  "amplification": {
+    "scales_with_users": true,
+    "scales_with_data_volume": false,
+    "scales_non_linearly": false
+  },
+  "temporal_behavior": {
+    "startup_only": false,
+    "steady_state": true,
+    "burst_sensitive": true,
+    "time_degradation": false
+  },
+  "runtime_evidence": [
+    "request traces",
+    "CPU profiles",
+    "allocation profiles",
+    "APM transaction timing"
+  ],
+  "examples": {
+    "pattern": [
+      {
+        "title": "Plugin runs heavy logic on broad events",
+        "description": "A Joomla plugin performs expensive work on global events that fire across many page requests."
+      }
+    ],
+    "remediation": [
+      {
+        "title": "Reduce repeated work",
+        "description": "Narrow event scope, short-circuit early, and move expensive logic behind explicit conditions."
+      }
+    ]
+  }
+}

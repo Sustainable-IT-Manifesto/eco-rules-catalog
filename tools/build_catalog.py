@@ -30,7 +30,7 @@ def iter_rules(rules_dir: Path):
 def infer_version(root: Path, base_catalog_path: Path | None, explicit_version: str | None) -> str:
     if explicit_version:
         return explicit_version
-    for candidate in [base_catalog_path, root / 'master.json', root / 'catalog' / 'master.json', root / 'registry.json', root / 'catalog' / 'registry.json']:
+    for candidate in [base_catalog_path, root / 'catalog' / 'master.json', root / 'master.json', root / 'catalog' / 'registry.json', root / 'registry.json']:
         if candidate and candidate.exists():
             data = load_json(candidate)
             if isinstance(data, dict):
@@ -74,8 +74,8 @@ def main() -> int:
     ap = argparse.ArgumentParser(description='Build master.json from rules/** or catalog/rules/**')
     ap.add_argument('--root', default='.', help='Repo root')
     ap.add_argument('--rules-dir', default=None, help='Rules directory relative to root')
-    ap.add_argument('--base-catalog', default='master.json', help='Optional metadata source')
-    ap.add_argument('--out', default='master.json', help='Output catalog path')
+    ap.add_argument('--base-catalog', default='catalog/master.json', help='Optional metadata source')
+    ap.add_argument('--out', default='catalog/master.json', help='Output catalog path')
     ap.add_argument('--version', default=None, help='Override catalog_version')
     args = ap.parse_args()
     root = Path(args.root).resolve()

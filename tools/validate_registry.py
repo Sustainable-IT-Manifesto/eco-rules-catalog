@@ -13,8 +13,8 @@ def load_json(path: Path):
 
 def main() -> int:
     ap=argparse.ArgumentParser(description='Validate registry.json against schema-registry.json and internal references.')
-    ap.add_argument('--registry', default='catalog/registry.json')
-    ap.add_argument('--schema', default='catalog/schema/schema-registry.json')
+    ap.add_argument('--registry', default=str(ROOT/'catalog'/'registry.json'))
+    ap.add_argument('--schema', default=str(ROOT/'catalog'/'schema'/'schema-registry.json'))
     args=ap.parse_args()
     registry=load_json(Path(args.registry)); schema=load_json(Path(args.schema))
     jsonschema.validate(registry, schema)

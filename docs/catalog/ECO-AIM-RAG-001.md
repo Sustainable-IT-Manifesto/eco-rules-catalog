@@ -77,4 +77,6 @@ No remediation examples provided.
 ## Navigation
 
 - [Back to Human Catalog](index.md)
+- [Back to AI/ML category](categories/aim/index.md)
+- [Back to Retrieval-Augmented Generation family](categories/aim/families/rag/index.md)
 - [Back to Rule Browser](../rule-browser.md)

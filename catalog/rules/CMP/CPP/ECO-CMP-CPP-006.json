@@ -1,0 +1,113 @@
+{
+  "category": "Computation",
+  "category_code": "CMP",
+  "family": "C++",
+  "family_code": "CPP",
+  "layer": "code",
+  "enabled_by_default": true,
+  "metadata": {
+    "catalog_version": "0.4.0"
+  },
+  "id": "ECO-CMP-CPP-006",
+  "canonical_id": "ECO-CMP-CPP-006",
+  "sequence": 6,
+  "legacy_id": "ECO-CPP-006",
+  "title": "Inefficient string concatenation",
+  "summary": "Repeated std::string concatenation without capacity planning for large outputs.",
+  "rationale": "Naive concatenation can repeatedly reallocate and copy data.",
+  "detection": {
+    "method": "ast",
+    "languages": [
+      "cpp"
+    ],
+    "parser": "cpp_ast_or_tree_sitter",
+    "notes": "Find += or append patterns in loops where output size grows substantially."
+  },
+  "impact": {
+    "type": "cpu",
+    "confidence": 0.72,
+    "notes": "Impact increases in hot paths, large inputs, high-concurrency services, build pipelines, or repeated request paths."
+  },
+  "remediation": {
+    "guidance": "Reserve capacity, use append with known sizes, fmt buffers, ostreams carefully, or streaming writers.",
+    "tradeoffs": "Small strings may be optimized; avoid premature rewrites outside hot paths."
+  },
+  "severity": "warning",
+  "tier": 2,
+  "tags": [
+    "cpp",
+    "string",
+    "allocation"
+  ],
+  "ontology": {
+    "system_layers": [
+      "code"
+    ],
+    "resource_impacts": [
+      "cpu",
+      "memory"
+    ],
+    "detection_methods": [
+      "static_analysis"
+    ],
+    "remediation_patterns": [
+      "algorithmic_improvement"
+    ]
+  },
+  "cost_dimensions": {
+    "compute": "medium",
+    "memory": "high",
+    "network": "low",
+    "storage": "low",
+    "human_time": "medium",
+    "carbon": "medium",
+    "water": "low"
+  },
+  "amplification": {
+    "scales_with_users": true,
+    "scales_with_data_volume": true,
+    "scales_non_linearly": false
+  },
+  "temporal_behavior": {
+    "startup_only": false,
+    "steady_state": true,
+    "burst_sensitive": true,
+    "time_degradation": false
+  },
+  "runtime_evidence": [
+    "CPU profiles",
+    "allocation profiles",
+    "request traces",
+    "benchmark results"
+  ],
+  "scanner_override": {
+    "targets": [
+      "cpp"
+    ],
+    "scope": "file",
+    "file_globs": [
+      "**/*.cpp",
+      "**/*.cc",
+      "**/*.cxx",
+      "**/*.hpp",
+      "**/*.hh",
+      "**/*.hxx",
+      "CMakeLists.txt"
+    ],
+    "parser": "cpp_ast_or_tree_sitter"
+  },
+  "examples": {
+    "pattern": [
+      {
+        "title": "Inefficient string concatenation",
+        "description": "Repeated std::string concatenation without capacity planning for large outputs."
+      }
+    ],
+    "remediation": [
+      {
+        "title": "Reduce avoidable work",
+        "description": "Reserve capacity, use append with known sizes, fmt buffers, ostreams carefully, or streaming writers."
+      }
+    ]
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "category": "Computation",
+  "category_code": "CMP",
+  "family": "Ruby",
+  "family_code": "RB",
+  "layer": "code",
+  "enabled_by_default": true,
+  "metadata": {
+    "catalog_version": "0.4.0"
+  },
+  "id": "ECO-CMP-RB-010",
+  "canonical_id": "ECO-CMP-RB-010",
+  "sequence": 10,
+  "legacy_id": "ECO-RB-010",
+  "title": "Per-record writes instead of batched operations",
+  "summary": "Saving or updating records one at a time can create excessive database round trips and transaction overhead.",
+  "rationale": "Ruby and Rails code often favors simple per-record loops, but bulk operations are much more efficient for imports, migrations, and background jobs.",
+  "detection": {
+    "method": "ast",
+    "languages": [
+      "ruby"
+    ],
+    "parser": "ruby_parser_or_prism"
+  },
+  "impact": {
+    "type": "latency",
+    "confidence": 0.85,
+    "notes": "Impact increases in hot paths, large collections, high-traffic Rails actions, background jobs, or repeated request paths."
+  },
+  "remediation": {
+    "guidance": "Use insert_all, upsert_all, update_all, transactions, batching, or database-native bulk operations when callbacks/validations are not required per record.",
+    "tradeoffs": "May require refactoring for readability, query shape, or framework conventions."
+  },
+  "severity": "warning",
+  "tier": 2,
+  "tags": [
+    "ruby",
+    "rails",
+    "active-record",
+    "database",
+    "batching",
+    "writes"
+  ],
+  "ontology": {
+    "system_layers": [
+      "code"
+    ],
+    "resource_impacts": [
+      "latency"
+    ],
+    "detection_methods": [
+      "static_analysis"
+    ],
+    "remediation_patterns": [
+      "batching"
+    ]
+  },
+  "cost_dimensions": {
+    "compute": "medium",
+    "memory": "medium",
+    "network": "high",
+    "storage": "medium",
+    "human_time": "medium",
+    "carbon": "high",
+    "water": "low"
+  },
+  "amplification": {
+    "scales_with_users": false,
+    "scales_with_data_volume": true,
+    "scales_non_linearly": true
+  },
+  "temporal_behavior": {
+    "startup_only": false,
+    "steady_state": true,
+    "burst_sensitive": true,
+    "time_degradation": false
+  },
+  "runtime_evidence": [
+    "SQL logs",
+    "transaction timing",
+    "database write throughput",
+    "background job duration"
+  ]
+}

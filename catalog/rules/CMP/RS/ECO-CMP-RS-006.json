@@ -1,0 +1,108 @@
+{
+  "category": "Computation",
+  "category_code": "CMP",
+  "family": "Rust",
+  "family_code": "RS",
+  "layer": "code",
+  "enabled_by_default": true,
+  "metadata": {
+    "catalog_version": "0.4.0"
+  },
+  "id": "ECO-CMP-RS-006",
+  "canonical_id": "ECO-CMP-RS-006",
+  "sequence": 6,
+  "legacy_id": "ECO-RS-006",
+  "title": "Repeated regex compilation",
+  "summary": "Compiling regular expressions repeatedly instead of reusing compiled patterns.",
+  "rationale": "Regex compilation is expensive compared with matching and can dominate repeated request paths.",
+  "detection": {
+    "method": "ast",
+    "languages": [
+      "rust"
+    ],
+    "parser": "rust_ast_or_tree_sitter",
+    "notes": "Find Regex::new inside loops, handlers, parsers, or frequently called functions."
+  },
+  "impact": {
+    "type": "cpu",
+    "confidence": 0.72,
+    "notes": "Impact increases in hot paths, large inputs, high-concurrency services, build pipelines, or repeated request paths."
+  },
+  "remediation": {
+    "guidance": "Hoist regex construction into LazyLock, once_cell, lazy_static, or initialization code.",
+    "tradeoffs": "Dynamic patterns may require a bounded cache or explicit validation."
+  },
+  "severity": "warning",
+  "tier": 2,
+  "tags": [
+    "rust",
+    "regex",
+    "allocation"
+  ],
+  "ontology": {
+    "system_layers": [
+      "code"
+    ],
+    "resource_impacts": [
+      "cpu",
+      "latency"
+    ],
+    "detection_methods": [
+      "static_analysis"
+    ],
+    "remediation_patterns": [
+      "algorithmic_improvement"
+    ]
+  },
+  "cost_dimensions": {
+    "compute": "high",
+    "memory": "medium",
+    "network": "low",
+    "storage": "low",
+    "human_time": "medium",
+    "carbon": "medium",
+    "water": "low"
+  },
+  "amplification": {
+    "scales_with_users": true,
+    "scales_with_data_volume": true,
+    "scales_non_linearly": false
+  },
+  "temporal_behavior": {
+    "startup_only": false,
+    "steady_state": true,
+    "burst_sensitive": true,
+    "time_degradation": false
+  },
+  "runtime_evidence": [
+    "CPU profiles",
+    "allocation profiles",
+    "request traces",
+    "benchmark results"
+  ],
+  "scanner_override": {
+    "targets": [
+      "rust"
+    ],
+    "scope": "file",
+    "file_globs": [
+      "**/*.rs",
+      "Cargo.toml"
+    ],
+    "parser": "rust_ast_or_tree_sitter"
+  },
+  "examples": {
+    "pattern": [
+      {
+        "title": "Repeated regex compilation",
+        "description": "Compiling regular expressions repeatedly instead of reusing compiled patterns."
+      }
+    ],
+    "remediation": [
+      {
+        "title": "Reduce avoidable work",
+        "description": "Hoist regex construction into LazyLock, once_cell, lazy_static, or initialization code."
+      }
+    ]
+  }
+}

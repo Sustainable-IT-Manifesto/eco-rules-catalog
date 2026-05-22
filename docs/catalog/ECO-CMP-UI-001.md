@@ -77,4 +77,6 @@ No remediation examples provided.
 ## Navigation
 
 - [Back to Human Catalog](index.md)
+- [Back to Computation category](categories/cmp/index.md)
+- [Back to Frontend/UI family](categories/cmp/families/ui/index.md)
 - [Back to Rule Browser](../rule-browser.md)

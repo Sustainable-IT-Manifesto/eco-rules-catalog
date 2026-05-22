@@ -77,4 +77,6 @@ No remediation examples provided.
 ## Navigation
 
 - [Back to Human Catalog](index.md)
+- [Back to Observability & Telemetry category](categories/obs/index.md)
+- [Back to Metrics family](categories/obs/families/metric/index.md)
 - [Back to Rule Browser](../rule-browser.md)

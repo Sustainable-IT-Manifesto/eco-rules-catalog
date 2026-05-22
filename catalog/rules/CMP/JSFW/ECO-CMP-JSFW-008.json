@@ -1,0 +1,97 @@
+{
+  "category": "Computation",
+  "category_code": "CMP",
+  "layer": "code",
+  "enabled_by_default": true,
+  "metadata": {
+    "catalog_version": "0.4.0"
+  },
+  "severity": "warning",
+  "tier": 2,
+  "family": "JavaScript Frameworks",
+  "family_code": "JSFW",
+  "id": "ECO-CMP-JSFW-008",
+  "canonical_id": "ECO-CMP-JSFW-008",
+  "sequence": 8,
+  "legacy_id": "ECO-JSFW-008",
+  "title": "Image assets lack responsive delivery",
+  "summary": "Framework pages serve large images without responsive sizes, modern formats, or lazy loading.",
+  "rationale": "Image overdelivery is one of the largest avoidable frontend sustainability costs.",
+  "detection": {
+    "method": "ast",
+    "languages": [
+      "javascript",
+      "typescript"
+    ],
+    "parser": "js-ast"
+  },
+  "impact": {
+    "type": "network",
+    "confidence": 0.72,
+    "notes": "Impact increases on high-traffic routes, large datasets, frequently rendered pages, or repeated background work."
+  },
+  "remediation": {
+    "guidance": "Use responsive image components, modern formats, lazy loading, and explicit dimensions.",
+    "tradeoffs": "Framework conventions, readability, caching correctness, and deployment topology should be considered before changing behavior."
+  },
+  "tags": [
+    "javascript-frameworks",
+    "images",
+    "media"
+  ],
+  "ontology": {
+    "system_layers": [
+      "code"
+    ],
+    "resource_impacts": [
+      "network",
+      "storage"
+    ],
+    "detection_methods": [
+      "static_analysis"
+    ],
+    "remediation_patterns": [
+      "algorithmic_improvement"
+    ]
+  },
+  "cost_dimensions": {
+    "compute": "medium",
+    "memory": "medium",
+    "network": "medium",
+    "storage": "medium",
+    "human_time": "medium",
+    "carbon": "medium",
+    "water": "low"
+  },
+  "amplification": {
+    "scales_with_users": true,
+    "scales_with_data_volume": true,
+    "scales_non_linearly": false
+  },
+  "temporal_behavior": {
+    "startup_only": false,
+    "steady_state": true,
+    "burst_sensitive": true,
+    "time_degradation": false
+  },
+  "runtime_evidence": [
+    "request traces",
+    "CPU profiles",
+    "allocation profiles",
+    "APM transaction timing"
+  ],
+  "examples": {
+    "pattern": [
+      {
+        "title": "Image assets lack responsive delivery",
+        "description": "Framework pages serve large images without responsive sizes, modern formats, or lazy loading."
+      }
+    ],
+    "remediation": [
+      {
+        "title": "Reduce repeated work",
+        "description": "Use responsive image components, modern formats, lazy loading, and explicit dimensions."
+      }
+    ]
+  }
+}

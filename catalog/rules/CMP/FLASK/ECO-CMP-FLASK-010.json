@@ -1,0 +1,95 @@
+{
+  "category": "Computation",
+  "category_code": "CMP",
+  "layer": "code",
+  "enabled_by_default": true,
+  "metadata": {
+    "catalog_version": "0.4.0"
+  },
+  "severity": "warning",
+  "tier": 2,
+  "family": "Flask",
+  "family_code": "FLASK",
+  "id": "ECO-CMP-FLASK-010",
+  "canonical_id": "ECO-CMP-FLASK-010",
+  "sequence": 10,
+  "legacy_id": "ECO-FLASK-010",
+  "title": "Per-request object allocation in middleware",
+  "summary": "Flask before/after request hooks allocate expensive objects or clients on every request.",
+  "rationale": "Middleware runs broadly, so small per-request overhead multiplies across every route.",
+  "detection": {
+    "method": "ast",
+    "languages": [
+      "python"
+    ],
+    "parser": "python-ast"
+  },
+  "impact": {
+    "type": "memory",
+    "confidence": 0.72,
+    "notes": "Impact increases on high-traffic routes, large datasets, frequently rendered pages, or repeated background work."
+  },
+  "remediation": {
+    "guidance": "Reuse clients safely, move expensive construction outside hot hooks, and limit middleware scope.",
+    "tradeoffs": "Framework conventions, readability, caching correctness, and deployment topology should be considered before changing behavior."
+  },
+  "tags": [
+    "flask",
+    "middleware",
+    "allocation"
+  ],
+  "ontology": {
+    "system_layers": [
+      "code"
+    ],
+    "resource_impacts": [
+      "memory"
+    ],
+    "detection_methods": [
+      "static_analysis"
+    ],
+    "remediation_patterns": [
+      "algorithmic_improvement"
+    ]
+  },
+  "cost_dimensions": {
+    "compute": "medium",
+    "memory": "medium",
+    "network": "low",
+    "storage": "low",
+    "human_time": "medium",
+    "carbon": "medium",
+    "water": "low"
+  },
+  "amplification": {
+    "scales_with_users": true,
+    "scales_with_data_volume": false,
+    "scales_non_linearly": false
+  },
+  "temporal_behavior": {
+    "startup_only": false,
+    "steady_state": true,
+    "burst_sensitive": true,
+    "time_degradation": false
+  },
+  "runtime_evidence": [
+    "request traces",
+    "CPU profiles",
+    "allocation profiles",
+    "APM transaction timing"
+  ],
+  "examples": {
+    "pattern": [
+      {
+        "title": "Per-request object allocation in middleware",
+        "description": "Flask before/after request hooks allocate expensive objects or clients on every request."
+      }
+    ],
+    "remediation": [
+      {
+        "title": "Reduce repeated work",
+        "description": "Reuse clients safely, move expensive construction outside hot hooks, and limit middleware scope."
+      }
+    ]
+  }
+}

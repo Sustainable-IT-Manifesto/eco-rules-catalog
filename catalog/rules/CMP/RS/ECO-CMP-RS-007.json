@@ -1,0 +1,110 @@
+{
+  "category": "Computation",
+  "category_code": "CMP",
+  "family": "Rust",
+  "family_code": "RS",
+  "layer": "code",
+  "enabled_by_default": true,
+  "metadata": {
+    "catalog_version": "0.4.0"
+  },
+  "id": "ECO-CMP-RS-007",
+  "canonical_id": "ECO-CMP-RS-007",
+  "sequence": 7,
+  "legacy_id": "ECO-RS-007",
+  "title": "Large debug formatting in production paths",
+  "summary": "Using debug formatting or broad tracing of large structures in hot paths.",
+  "rationale": "Formatting large values can allocate heavily and produce expensive telemetry even when the business logic is simple.",
+  "detection": {
+    "method": "ast",
+    "languages": [
+      "rust"
+    ],
+    "parser": "rust_ast_or_tree_sitter",
+    "notes": "Detect format!, dbg!, tracing fields, or debug logs involving large collections or payloads."
+  },
+  "impact": {
+    "type": "cpu",
+    "confidence": 0.72,
+    "notes": "Impact increases in hot paths, large inputs, high-concurrency services, build pipelines, or repeated request paths."
+  },
+  "remediation": {
+    "guidance": "Use structured, sampled, bounded logs and avoid full payload formatting in routine paths.",
+    "tradeoffs": "Diagnostics still matter; preserve targeted details for failure investigation."
+  },
+  "severity": "warning",
+  "tier": 2,
+  "tags": [
+    "rust",
+    "logging",
+    "formatting",
+    "debug"
+  ],
+  "ontology": {
+    "system_layers": [
+      "code"
+    ],
+    "resource_impacts": [
+      "cpu",
+      "memory",
+      "storage"
+    ],
+    "detection_methods": [
+      "static_analysis"
+    ],
+    "remediation_patterns": [
+      "algorithmic_improvement"
+    ]
+  },
+  "cost_dimensions": {
+    "compute": "medium",
+    "memory": "high",
+    "network": "low",
+    "storage": "medium",
+    "human_time": "medium",
+    "carbon": "medium",
+    "water": "low"
+  },
+  "amplification": {
+    "scales_with_users": true,
+    "scales_with_data_volume": true,
+    "scales_non_linearly": false
+  },
+  "temporal_behavior": {
+    "startup_only": false,
+    "steady_state": true,
+    "burst_sensitive": true,
+    "time_degradation": false
+  },
+  "runtime_evidence": [
+    "CPU profiles",
+    "allocation profiles",
+    "request traces",
+    "benchmark results"
+  ],
+  "scanner_override": {
+    "targets": [
+      "rust"
+    ],
+    "scope": "file",
+    "file_globs": [
+      "**/*.rs",
+      "Cargo.toml"
+    ],
+    "parser": "rust_ast_or_tree_sitter"
+  },
+  "examples": {
+    "pattern": [
+      {
+        "title": "Large debug formatting in production paths",
+        "description": "Using debug formatting or broad tracing of large structures in hot paths."
+      }
+    ],
+    "remediation": [
+      {
+        "title": "Reduce avoidable work",
+        "description": "Use structured, sampled, bounded logs and avoid full payload formatting in routine paths."
+      }
+    ]
+  }
+}

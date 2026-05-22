@@ -1,0 +1,95 @@
+{
+  "category": "Computation",
+  "category_code": "CMP",
+  "layer": "code",
+  "enabled_by_default": true,
+  "metadata": {
+    "catalog_version": "0.4.0"
+  },
+  "severity": "warning",
+  "tier": 2,
+  "family": "Joomla",
+  "family_code": "JOOMLA",
+  "id": "ECO-CMP-JOOMLA-007",
+  "canonical_id": "ECO-CMP-JOOMLA-007",
+  "sequence": 7,
+  "legacy_id": "ECO-JOOMLA-007",
+  "title": "Unbounded module rendering on every page",
+  "summary": "Modules render expensive queries or transformations site-wide regardless of page context.",
+  "rationale": "Site-wide modules multiply compute and database work across unrelated page requests.",
+  "detection": {
+    "method": "ast",
+    "languages": [
+      "php"
+    ],
+    "parser": "php-ast"
+  },
+  "impact": {
+    "type": "cpu",
+    "confidence": 0.72,
+    "notes": "Impact increases on high-traffic routes, large datasets, frequently rendered pages, or repeated background work."
+  },
+  "remediation": {
+    "guidance": "Constrain modules by menu/page context and cache expensive module output.",
+    "tradeoffs": "Framework conventions, readability, caching correctness, and deployment topology should be considered before changing behavior."
+  },
+  "tags": [
+    "joomla",
+    "modules",
+    "rendering"
+  ],
+  "ontology": {
+    "system_layers": [
+      "code"
+    ],
+    "resource_impacts": [
+      "cpu"
+    ],
+    "detection_methods": [
+      "static_analysis"
+    ],
+    "remediation_patterns": [
+      "caching"
+    ]
+  },
+  "cost_dimensions": {
+    "compute": "medium",
+    "memory": "medium",
+    "network": "low",
+    "storage": "low",
+    "human_time": "medium",
+    "carbon": "medium",
+    "water": "low"
+  },
+  "amplification": {
+    "scales_with_users": true,
+    "scales_with_data_volume": false,
+    "scales_non_linearly": false
+  },
+  "temporal_behavior": {
+    "startup_only": false,
+    "steady_state": true,
+    "burst_sensitive": true,
+    "time_degradation": false
+  },
+  "runtime_evidence": [
+    "request traces",
+    "CPU profiles",
+    "allocation profiles",
+    "APM transaction timing"
+  ],
+  "examples": {
+    "pattern": [
+      {
+        "title": "Unbounded module rendering on every page",
+        "description": "Modules render expensive queries or transformations site-wide regardless of page context."
+      }
+    ],
+    "remediation": [
+      {
+        "title": "Reduce repeated work",
+        "description": "Constrain modules by menu/page context and cache expensive module output."
+      }
+    ]
+  }
+}

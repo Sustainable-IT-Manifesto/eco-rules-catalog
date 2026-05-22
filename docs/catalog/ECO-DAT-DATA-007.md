@@ -45,4 +45,6 @@ No remediation examples provided.
 ## Navigation
 
 - [Back to Human Catalog](index.md)
+- [Back to Data category](categories/dat/index.md)
+- [Back to Data family](categories/dat/families/data/index.md)
 - [Back to Rule Browser](../rule-browser.md)

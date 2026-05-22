@@ -1,0 +1,109 @@
+{
+  "category": "Computation",
+  "category_code": "CMP",
+  "family": "Go",
+  "family_code": "GO",
+  "layer": "code",
+  "enabled_by_default": true,
+  "metadata": {
+    "catalog_version": "0.4.0"
+  },
+  "id": "ECO-CMP-GO-001",
+  "canonical_id": "ECO-CMP-GO-001",
+  "sequence": 1,
+  "legacy_id": "ECO-GO-001",
+  "title": "Goroutine leak from missing cancellation",
+  "summary": "Starting goroutines without a clear cancellation, timeout, or lifecycle owner.",
+  "rationale": "Leaked goroutines retain memory, file descriptors, timers, and latent work over time.",
+  "detection": {
+    "method": "ast",
+    "languages": [
+      "go"
+    ],
+    "parser": "go_ast",
+    "notes": "Detect go statements lacking context propagation, done channel handling, or bounded lifecycle."
+  },
+  "impact": {
+    "type": "memory",
+    "confidence": 0.72,
+    "notes": "Impact increases in hot paths, large inputs, high-concurrency services, build pipelines, or repeated request paths."
+  },
+  "remediation": {
+    "guidance": "Pass context.Context, select on cancellation, close channels deliberately, and make owners responsible for shutdown.",
+    "tradeoffs": "Cancellation plumbing adds ceremony but prevents long-running operational decay."
+  },
+  "severity": "warning",
+  "tier": 2,
+  "tags": [
+    "go",
+    "goroutine",
+    "context",
+    "leak"
+  ],
+  "ontology": {
+    "system_layers": [
+      "code"
+    ],
+    "resource_impacts": [
+      "memory",
+      "cpu"
+    ],
+    "detection_methods": [
+      "static_analysis"
+    ],
+    "remediation_patterns": [
+      "algorithmic_improvement"
+    ]
+  },
+  "cost_dimensions": {
+    "compute": "medium",
+    "memory": "high",
+    "network": "low",
+    "storage": "low",
+    "human_time": "medium",
+    "carbon": "medium",
+    "water": "low"
+  },
+  "amplification": {
+    "scales_with_users": true,
+    "scales_with_data_volume": true,
+    "scales_non_linearly": false
+  },
+  "temporal_behavior": {
+    "startup_only": false,
+    "steady_state": true,
+    "burst_sensitive": true,
+    "time_degradation": true
+  },
+  "runtime_evidence": [
+    "goroutine dumps",
+    "pprof goroutine profiles",
+    "memory profiles",
+    "request traces"
+  ],
+  "scanner_override": {
+    "targets": [
+      "go"
+    ],
+    "scope": "file",
+    "file_globs": [
+      "**/*.go",
+      "go.mod"
+    ],
+    "parser": "go_ast"
+  },
+  "examples": {
+    "pattern": [
+      {
+        "title": "Goroutine leak from missing cancellation",
+        "description": "Starting goroutines without a clear cancellation, timeout, or lifecycle owner."
+      }
+    ],
+    "remediation": [
+      {
+        "title": "Reduce avoidable work",
+        "description": "Pass context.Context, select on cancellation, close channels deliberately, and make owners responsible for shutdown."
+      }
+    ]
+  }
+}

@@ -21,9 +21,9 @@ def write_report(path, report):
 def main():
     ap=argparse.ArgumentParser(description='Publish/validate Eco Rules catalog using the v0.4.0 toolchain.')
     ap.add_argument('--root', default='.')
-    ap.add_argument('--catalog', default='master.json')
-    ap.add_argument('--registry', default='registry.json')
-    ap.add_argument('--schema', default='schema/schema-rule.json')
+    ap.add_argument('--catalog', default='catalog/master.json')
+    ap.add_argument('--registry', default='catalog/registry.json')
+    ap.add_argument('--schema', default='catalog/schema/schema-rule.json')
     ap.add_argument('--human-out', default='docs/catalog')
     ap.add_argument('--examples-dir', default='examples')
     ap.add_argument('--build', action='store_true', help='Build master catalog from rules first')
@@ -47,7 +47,7 @@ def main():
         if rc: write_report(args.report_out,report) if args.report_out else None; return rc
     if not args.skip_validate:
         for name, cmd in [
-            ('validate_registry',[py,p('tools/validate_registry.py'),'--registry',p(args.registry),'--schema',p('schema/schema-registry.json')]),
+            ('validate_registry',[py,p('tools/validate_registry.py'),'--registry',p(args.registry),'--schema',p('catalog/schema/schema-registry.json')]),
             ('validate_rules_v2',[py,p('tools/validate_rules_v2.py'),p(args.catalog),'--registry',p(args.registry),'--schema',p(args.schema)])
         ]:
             rc=run(cmd, name.replace('_',' ').title()); report['steps'].append({'name':name,'returncode':rc})

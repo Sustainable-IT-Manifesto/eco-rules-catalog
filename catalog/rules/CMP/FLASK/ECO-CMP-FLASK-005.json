@@ -1,0 +1,97 @@
+{
+  "category": "Computation",
+  "category_code": "CMP",
+  "layer": "code",
+  "enabled_by_default": true,
+  "metadata": {
+    "catalog_version": "0.4.0"
+  },
+  "severity": "warning",
+  "tier": 2,
+  "family": "Flask",
+  "family_code": "FLASK",
+  "id": "ECO-CMP-FLASK-005",
+  "canonical_id": "ECO-CMP-FLASK-005",
+  "sequence": 5,
+  "legacy_id": "ECO-FLASK-005",
+  "title": "Repeated configuration lookup per request",
+  "summary": "Request handlers repeatedly load configuration, secrets, or environment-dependent metadata.",
+  "rationale": "Configuration and secret retrieval in hot paths creates unnecessary latency and external service load.",
+  "detection": {
+    "method": "ast",
+    "languages": [
+      "python"
+    ],
+    "parser": "python-ast"
+  },
+  "impact": {
+    "type": "latency",
+    "confidence": 0.72,
+    "notes": "Impact increases on high-traffic routes, large datasets, frequently rendered pages, or repeated background work."
+  },
+  "remediation": {
+    "guidance": "Load stable configuration once, cache secret lookups safely, and refresh through explicit lifecycle hooks.",
+    "tradeoffs": "Framework conventions, readability, caching correctness, and deployment topology should be considered before changing behavior."
+  },
+  "tags": [
+    "flask",
+    "configuration",
+    "secrets",
+    "hot-path"
+  ],
+  "ontology": {
+    "system_layers": [
+      "code"
+    ],
+    "resource_impacts": [
+      "latency",
+      "network"
+    ],
+    "detection_methods": [
+      "static_analysis"
+    ],
+    "remediation_patterns": [
+      "caching"
+    ]
+  },
+  "cost_dimensions": {
+    "compute": "medium",
+    "memory": "medium",
+    "network": "medium",
+    "storage": "low",
+    "human_time": "medium",
+    "carbon": "medium",
+    "water": "low"
+  },
+  "amplification": {
+    "scales_with_users": true,
+    "scales_with_data_volume": false,
+    "scales_non_linearly": false
+  },
+  "temporal_behavior": {
+    "startup_only": false,
+    "steady_state": true,
+    "burst_sensitive": true,
+    "time_degradation": false
+  },
+  "runtime_evidence": [
+    "request traces",
+    "CPU profiles",
+    "allocation profiles",
+    "APM transaction timing"
+  ],
+  "examples": {
+    "pattern": [
+      {
+        "title": "Repeated configuration lookup per request",
+        "description": "Request handlers repeatedly load configuration, secrets, or environment-dependent metadata."
+      }
+    ],
+    "remediation": [
+      {
+        "title": "Reduce repeated work",
+        "description": "Load stable configuration once, cache secret lookups safely, and refresh through explicit lifecycle hooks."
+      }
+    ]
+  }
+}

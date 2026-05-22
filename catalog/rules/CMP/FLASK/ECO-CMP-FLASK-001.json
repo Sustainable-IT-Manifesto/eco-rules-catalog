@@ -1,0 +1,97 @@
+{
+  "category": "Computation",
+  "category_code": "CMP",
+  "layer": "code",
+  "enabled_by_default": true,
+  "metadata": {
+    "catalog_version": "0.4.0"
+  },
+  "severity": "warning",
+  "tier": 2,
+  "family": "Flask",
+  "family_code": "FLASK",
+  "id": "ECO-CMP-FLASK-001",
+  "canonical_id": "ECO-CMP-FLASK-001",
+  "sequence": 1,
+  "legacy_id": "ECO-FLASK-001",
+  "title": "Database query in request loop",
+  "summary": "A Flask route performs repeated database queries while iterating over records.",
+  "rationale": "This creates N+1 behavior and amplifies latency, compute, and database load as result size grows.",
+  "detection": {
+    "method": "ast",
+    "languages": [
+      "python"
+    ],
+    "parser": "python-ast"
+  },
+  "impact": {
+    "type": "latency",
+    "confidence": 0.72,
+    "notes": "Impact increases on high-traffic routes, large datasets, frequently rendered pages, or repeated background work."
+  },
+  "remediation": {
+    "guidance": "Batch queries, eager load related data, or reshape the query so the route performs bounded database work.",
+    "tradeoffs": "Framework conventions, readability, caching correctness, and deployment topology should be considered before changing behavior."
+  },
+  "tags": [
+    "flask",
+    "n-plus-one",
+    "database",
+    "request-path"
+  ],
+  "ontology": {
+    "system_layers": [
+      "code"
+    ],
+    "resource_impacts": [
+      "latency",
+      "storage"
+    ],
+    "detection_methods": [
+      "static_analysis"
+    ],
+    "remediation_patterns": [
+      "algorithmic_improvement"
+    ]
+  },
+  "cost_dimensions": {
+    "compute": "medium",
+    "memory": "medium",
+    "network": "low",
+    "storage": "medium",
+    "human_time": "medium",
+    "carbon": "medium",
+    "water": "low"
+  },
+  "amplification": {
+    "scales_with_users": true,
+    "scales_with_data_volume": true,
+    "scales_non_linearly": true
+  },
+  "temporal_behavior": {
+    "startup_only": false,
+    "steady_state": true,
+    "burst_sensitive": true,
+    "time_degradation": false
+  },
+  "runtime_evidence": [
+    "request traces",
+    "CPU profiles",
+    "allocation profiles",
+    "APM transaction timing"
+  ],
+  "examples": {
+    "pattern": [
+      {
+        "title": "Database query in request loop",
+        "description": "A Flask route performs repeated database queries while iterating over records."
+      }
+    ],
+    "remediation": [
+      {
+        "title": "Reduce repeated work",
+        "description": "Batch queries, eager load related data, or reshape the query so the route performs bounded database work."
+      }
+    ]
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "category": "Computation",
+  "category_code": "CMP",
+  "family": "C++",
+  "family_code": "CPP",
+  "layer": "code",
+  "enabled_by_default": true,
+  "metadata": {
+    "catalog_version": "0.4.0"
+  },
+  "id": "ECO-CMP-CPP-007",
+  "canonical_id": "ECO-CMP-CPP-007",
+  "sequence": 7,
+  "legacy_id": "ECO-CPP-007",
+  "title": "Shared pointer overuse",
+  "summary": "Using std::shared_ptr where unique ownership, references, or values would be sufficient.",
+  "rationale": "Reference counting adds atomic overhead, memory traffic, and unclear ownership boundaries.",
+  "detection": {
+    "method": "ast",
+    "languages": [
+      "cpp"
+    ],
+    "parser": "cpp_ast_or_tree_sitter",
+    "notes": "Detect shared_ptr in tight data structures, hot loops, or single-owner lifecycles."
+  },
+  "impact": {
+    "type": "cpu",
+    "confidence": 0.72,
+    "notes": "Impact increases in hot paths, large inputs, high-concurrency services, build pipelines, or repeated request paths."
+  },
+  "remediation": {
+    "guidance": "Prefer unique_ptr, references, values, observer_ptr-like patterns, or explicit lifetime ownership.",
+    "tradeoffs": "Shared ownership is appropriate for genuinely shared lifetimes."
+  },
+  "severity": "warning",
+  "tier": 2,
+  "tags": [
+    "cpp",
+    "shared_ptr",
+    "ownership"
+  ],
+  "ontology": {
+    "system_layers": [
+      "code"
+    ],
+    "resource_impacts": [
+      "cpu",
+      "memory"
+    ],
+    "detection_methods": [
+      "static_analysis"
+    ],
+    "remediation_patterns": [
+      "algorithmic_improvement"
+    ]
+  },
+  "cost_dimensions": {
+    "compute": "medium",
+    "memory": "high",
+    "network": "low",
+    "storage": "low",
+    "human_time": "medium",
+    "carbon": "medium",
+    "water": "low"
+  },
+  "amplification": {
+    "scales_with_users": true,
+    "scales_with_data_volume": true,
+    "scales_non_linearly": false
+  },
+  "temporal_behavior": {
+    "startup_only": false,
+    "steady_state": true,
+    "burst_sensitive": true,
+    "time_degradation": false
+  },
+  "runtime_evidence": [
+    "CPU profiles",
+    "allocation profiles",
+    "request traces",
+    "benchmark results"
+  ],
+  "scanner_override": {
+    "targets": [
+      "cpp"
+    ],
+    "scope": "file",
+    "file_globs": [
+      "**/*.cpp",
+      "**/*.cc",
+      "**/*.cxx",
+      "**/*.hpp",
+      "**/*.hh",
+      "**/*.hxx",
+      "CMakeLists.txt"
+    ],
+    "parser": "cpp_ast_or_tree_sitter"
+  },
+  "examples": {
+    "pattern": [
+      {
+        "title": "Shared pointer overuse",
+        "description": "Using std::shared_ptr where unique ownership, references, or values would be sufficient."
+      }
+    ],
+    "remediation": [
+      {
+        "title": "Reduce avoidable work",
+        "description": "Prefer unique_ptr, references, values, observer_ptr-like patterns, or explicit lifetime ownership."
+      }
+    ]
+  }
+}

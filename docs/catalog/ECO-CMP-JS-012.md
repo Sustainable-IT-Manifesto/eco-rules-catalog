@@ -45,4 +45,6 @@ No remediation examples provided.
 ## Navigation
 
 - [Back to Human Catalog](index.md)
+- [Back to Computation category](categories/cmp/index.md)
+- [Back to JavaScript family](categories/cmp/families/js/index.md)
 - [Back to Rule Browser](../rule-browser.md)

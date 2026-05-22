@@ -1,0 +1,96 @@
+{
+  "category": "Computation",
+  "category_code": "CMP",
+  "layer": "code",
+  "enabled_by_default": true,
+  "metadata": {
+    "catalog_version": "0.4.0"
+  },
+  "severity": "warning",
+  "tier": 2,
+  "family": "JavaScript Frameworks",
+  "family_code": "JSFW",
+  "id": "ECO-CMP-JSFW-002",
+  "canonical_id": "ECO-CMP-JSFW-002",
+  "sequence": 2,
+  "legacy_id": "ECO-JSFW-002",
+  "title": "Large client bundle from unused dependencies",
+  "summary": "A JavaScript framework app ships large dependencies or unused code to most users.",
+  "rationale": "Large bundles increase network transfer, parse/compile time, memory use, and carbon impact.",
+  "detection": {
+    "method": "ast",
+    "languages": [
+      "javascript",
+      "typescript"
+    ],
+    "parser": "js-ast"
+  },
+  "impact": {
+    "type": "network",
+    "confidence": 0.72,
+    "notes": "Impact increases on high-traffic routes, large datasets, frequently rendered pages, or repeated background work."
+  },
+  "remediation": {
+    "guidance": "Analyze bundles, tree-shake, code-split, remove unused dependencies, and lazy-load route-specific code.",
+    "tradeoffs": "Framework conventions, readability, caching correctness, and deployment topology should be considered before changing behavior."
+  },
+  "tags": [
+    "javascript-frameworks",
+    "bundle",
+    "dependencies"
+  ],
+  "ontology": {
+    "system_layers": [
+      "code"
+    ],
+    "resource_impacts": [
+      "network"
+    ],
+    "detection_methods": [
+      "static_analysis"
+    ],
+    "remediation_patterns": [
+      "algorithmic_improvement"
+    ]
+  },
+  "cost_dimensions": {
+    "compute": "medium",
+    "memory": "medium",
+    "network": "medium",
+    "storage": "low",
+    "human_time": "medium",
+    "carbon": "medium",
+    "water": "low"
+  },
+  "amplification": {
+    "scales_with_users": true,
+    "scales_with_data_volume": false,
+    "scales_non_linearly": false
+  },
+  "temporal_behavior": {
+    "startup_only": false,
+    "steady_state": true,
+    "burst_sensitive": true,
+    "time_degradation": false
+  },
+  "runtime_evidence": [
+    "request traces",
+    "CPU profiles",
+    "allocation profiles",
+    "APM transaction timing"
+  ],
+  "examples": {
+    "pattern": [
+      {
+        "title": "Large client bundle from unused dependencies",
+        "description": "A JavaScript framework app ships large dependencies or unused code to most users."
+      }
+    ],
+    "remediation": [
+      {
+        "title": "Reduce repeated work",
+        "description": "Analyze bundles, tree-shake, code-split, remove unused dependencies, and lazy-load route-specific code."
+      }
+    ]
+  }
+}

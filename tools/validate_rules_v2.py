@@ -13,8 +13,8 @@ except ImportError:
 
 ID_RE = re.compile(r'^ECO-([A-Z0-9]+)-([A-Z0-9]+)-([0-9]{3})$')
 ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_REGISTRY = 'catalog/registry.json'
-DEFAULT_SCHEMA = 'catalog/schema/schema-rule.json'
+DEFAULT_REGISTRY = ROOT / 'catalog' / 'registry.json'
+DEFAULT_SCHEMA = ROOT / 'catalog' / 'schema' / 'schema-rule.json'
 
 @dataclass
 class ValidationMessage:
@@ -184,7 +184,7 @@ def summarize(messages: list[ValidationMessage], json_report: Path | None = None
 
 def main() -> int:
     parser = argparse.ArgumentParser(description='Validate Eco Rules against schema, registry, and v0.4.0 metadata conventions.')
-    parser.add_argument('catalog', help='Path to master.json or a rules file')
+    parser.add_argument('catalog', nargs='?', default=str(ROOT / 'catalog' / 'master.json'), help='Path to master.json or a rules file')
     parser.add_argument('--registry', default=str(DEFAULT_REGISTRY))
     parser.add_argument('--schema', default=str(DEFAULT_SCHEMA))
     parser.add_argument('--json-report', default=None)

@@ -45,4 +45,6 @@ No remediation examples provided.
 ## Navigation
 
 - [Back to Human Catalog](index.md)
+- [Back to AI/ML category](categories/aim/index.md)
+- [Back to AI family](categories/aim/families/ai/index.md)
 - [Back to Rule Browser](../rule-browser.md)

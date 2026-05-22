@@ -772,6 +772,243 @@
       "description": "Security and identity controls that create repeated, avoidable operational overhead.",
       "status": "active",
       "aliases": []
+    },
+    "RB": {
+      "name": "Ruby",
+      "description": "Ruby language inefficiencies related to allocation, iteration, database usage, concurrency, and runtime behavior.",
+      "category_code": "CMP",
+      "status": "active",
+      "aliases": [
+        "Ruby",
+        "MRI Ruby",
+        "CRuby",
+        "Rails Ruby"
+      ]
+    },
+    "RS": {
+      "name": "Rust",
+      "description": "Rust language inefficiencies related to allocation, cloning, async behavior, iterator use, locking, and runtime resource patterns.",
+      "category_code": "CMP",
+      "status": "active",
+      "aliases": [
+        "Rust",
+        "rustlang",
+        "Cargo Rust"
+      ]
+    },
+    "CPP": {
+      "name": "C++",
+      "description": "C++ language inefficiencies related to memory ownership, copying, containers, allocation, concurrency, and compile/runtime resource behavior.",
+      "category_code": "CMP",
+      "status": "active",
+      "aliases": [
+        "C++",
+        "Cpp",
+        "CXX",
+        "Modern C++"
+      ]
+    },
+    "GO": {
+      "name": "Go",
+      "description": "Go language inefficiencies related to goroutines, channels, allocation, context use, network clients, and runtime resource behavior.",
+      "category_code": "CMP",
+      "status": "active",
+      "aliases": [
+        "Go",
+        "Golang"
+      ]
+    },
+    "FLASK": {
+      "name": "Flask",
+      "description": "Flask framework inefficiencies related to request handling, ORM usage, templating, middleware, caching, and deployment behavior.",
+      "category_code": "CMP",
+      "status": "active",
+      "aliases": [
+        "Python Flask",
+        "Flask web framework"
+      ],
+      "scanner_profile": {
+        "technologies": [
+          "python",
+          "flask"
+        ],
+        "targets": [
+          "file",
+          "repo"
+        ],
+        "default_scope": "repo",
+        "file_globs": [
+          "**/*.py"
+        ],
+        "file_names": [
+          "requirements.txt",
+          "pyproject.toml",
+          "Pipfile"
+        ],
+        "path_hints": [
+          "app.py",
+          "wsgi.py",
+          "blueprints/"
+        ],
+        "repo_signals": [
+          "flask",
+          "Flask",
+          "from flask import"
+        ],
+        "parser": "python-ast"
+      }
+    },
+    "JOOMLA": {
+      "name": "Joomla",
+      "description": "Joomla CMS and extension inefficiencies related to database access, plugin execution, asset loading, caching, and template behavior.",
+      "category_code": "CMP",
+      "status": "active",
+      "aliases": [
+        "Joomla CMS",
+        "Joomla extension",
+        "Joomla component"
+      ],
+      "scanner_profile": {
+        "technologies": [
+          "php",
+          "joomla"
+        ],
+        "targets": [
+          "file",
+          "repo"
+        ],
+        "default_scope": "repo",
+        "file_globs": [
+          "**/*.php",
+          "**/*.xml",
+          "**/*.js",
+          "**/*.css"
+        ],
+        "file_names": [
+          "configuration.php",
+          "joomla.xml",
+          "manifest.xml"
+        ],
+        "path_hints": [
+          "components/",
+          "modules/",
+          "plugins/",
+          "templates/"
+        ],
+        "repo_signals": [
+          "Joomla",
+          "JFactory",
+          "Joomla\\CMS"
+        ],
+        "parser": "php-ast"
+      }
+    },
+    "RAILS": {
+      "name": "Ruby on Rails",
+      "description": "Ruby on Rails framework inefficiencies related to ActiveRecord, callbacks, rendering, jobs, caching, and request lifecycle behavior.",
+      "category_code": "CMP",
+      "status": "active",
+      "aliases": [
+        "Rails",
+        "Ruby Rails",
+        "RoR"
+      ],
+      "scanner_profile": {
+        "technologies": [
+          "ruby",
+          "rails"
+        ],
+        "targets": [
+          "file",
+          "repo"
+        ],
+        "default_scope": "repo",
+        "file_globs": [
+          "**/*.rb",
+          "**/*.erb",
+          "**/*.haml",
+          "**/*.slim"
+        ],
+        "file_names": [
+          "Gemfile",
+          "config/routes.rb",
+          "config/application.rb"
+        ],
+        "path_hints": [
+          "app/models/",
+          "app/controllers/",
+          "app/views/",
+          "app/jobs/"
+        ],
+        "repo_signals": [
+          "rails",
+          "ActiveRecord",
+          "ActionController"
+        ],
+        "parser": "ruby_parser_or_prism"
+      }
+    },
+    "JSFW": {
+      "name": "JavaScript Frameworks",
+      "description": "JavaScript framework inefficiencies across React, Vue, Angular, Next.js, Nuxt, Svelte, and similar frontend frameworks.",
+      "category_code": "CMP",
+      "status": "active",
+      "aliases": [
+        "React",
+        "Vue",
+        "Angular",
+        "Next.js",
+        "Nuxt",
+        "Svelte",
+        "Frontend frameworks"
+      ],
+      "scanner_profile": {
+        "technologies": [
+          "javascript",
+          "typescript",
+          "react",
+          "vue",
+          "angular",
+          "nextjs",
+          "nuxt",
+          "svelte"
+        ],
+        "targets": [
+          "file",
+          "repo"
+        ],
+        "default_scope": "repo",
+        "file_globs": [
+          "**/*.js",
+          "**/*.jsx",
+          "**/*.ts",
+          "**/*.tsx",
+          "**/*.vue",
+          "**/*.svelte"
+        ],
+        "file_names": [
+          "package.json",
+          "next.config.js",
+          "angular.json",
+          "vite.config.js",
+          "nuxt.config.ts"
+        ],
+        "path_hints": [
+          "src/",
+          "pages/",
+          "app/",
+          "components/"
+        ],
+        "repo_signals": [
+          "react",
+          "vue",
+          "@angular",
+          "next",
+          "nuxt",
+          "svelte"
+        ],
+        "parser": "js-ast"
+      }
     }
   },
   "lifecycle_stages": [

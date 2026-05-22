@@ -1,0 +1,82 @@
+{
+  "category": "Computation",
+  "category_code": "CMP",
+  "family": "Ruby",
+  "family_code": "RB",
+  "layer": "code",
+  "enabled_by_default": true,
+  "metadata": {
+    "catalog_version": "0.4.0"
+  },
+  "id": "ECO-CMP-RB-002",
+  "canonical_id": "ECO-CMP-RB-002",
+  "sequence": 2,
+  "legacy_id": "ECO-RB-002",
+  "title": "Eager materialization of large collections",
+  "summary": "Creating large arrays with map/select before consuming results increases memory pressure and GC work.",
+  "rationale": "Ruby enumerable chains are often expressive, but eager operations can materialize more data than needed.",
+  "detection": {
+    "method": "ast",
+    "languages": [
+      "ruby"
+    ],
+    "parser": "ruby_parser_or_prism"
+  },
+  "impact": {
+    "type": "memory",
+    "confidence": 0.75,
+    "notes": "Impact increases in hot paths, large collections, high-traffic Rails actions, background jobs, or repeated request paths."
+  },
+  "remediation": {
+    "guidance": "Use lazy enumerators, find_each in Rails, streaming APIs, or batch processing to avoid holding the full result set in memory.",
+    "tradeoffs": "May require refactoring for readability, query shape, or framework conventions."
+  },
+  "severity": "warning",
+  "tier": 2,
+  "tags": [
+    "ruby",
+    "memory",
+    "streaming",
+    "enumerable"
+  ],
+  "ontology": {
+    "system_layers": [
+      "code"
+    ],
+    "resource_impacts": [
+      "memory"
+    ],
+    "detection_methods": [
+      "static_analysis"
+    ],
+    "remediation_patterns": [
+      "data_reduction"
+    ]
+  },
+  "cost_dimensions": {
+    "compute": "medium",
+    "memory": "high",
+    "network": "low",
+    "storage": "low",
+    "human_time": "medium",
+    "carbon": "medium",
+    "water": "low"
+  },
+  "amplification": {
+    "scales_with_users": true,
+    "scales_with_data_volume": true,
+    "scales_non_linearly": false
+  },
+  "temporal_behavior": {
+    "startup_only": false,
+    "steady_state": true,
+    "burst_sensitive": true,
+    "time_degradation": false
+  },
+  "runtime_evidence": [
+    "heap profiles",
+    "GC statistics",
+    "RSS memory trends",
+    "background job memory use"
+  ]
+}

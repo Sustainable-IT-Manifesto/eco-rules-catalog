@@ -1,0 +1,108 @@
+{
+  "category": "Computation",
+  "category_code": "CMP",
+  "family": "Rust",
+  "family_code": "RS",
+  "layer": "code",
+  "enabled_by_default": true,
+  "metadata": {
+    "catalog_version": "0.4.0"
+  },
+  "id": "ECO-CMP-RS-008",
+  "canonical_id": "ECO-CMP-RS-008",
+  "sequence": 8,
+  "legacy_id": "ECO-RS-008",
+  "title": "Inefficient string construction",
+  "summary": "Repeated format! or push_str patterns that allocate avoidably while building large strings.",
+  "rationale": "String construction choices affect allocation behavior in serializers, templates, and exporters.",
+  "detection": {
+    "method": "ast",
+    "languages": [
+      "rust"
+    ],
+    "parser": "rust_ast_or_tree_sitter",
+    "notes": "Look for repeated format! in loops or string building without capacity planning."
+  },
+  "impact": {
+    "type": "cpu",
+    "confidence": 0.72,
+    "notes": "Impact increases in hot paths, large inputs, high-concurrency services, build pipelines, or repeated request paths."
+  },
+  "remediation": {
+    "guidance": "Use String::with_capacity, write!, buffered writers, or streaming serialization.",
+    "tradeoffs": "Capacity estimates can be wrong; avoid over-optimizing small strings."
+  },
+  "severity": "warning",
+  "tier": 2,
+  "tags": [
+    "rust",
+    "string",
+    "allocation"
+  ],
+  "ontology": {
+    "system_layers": [
+      "code"
+    ],
+    "resource_impacts": [
+      "cpu",
+      "memory"
+    ],
+    "detection_methods": [
+      "static_analysis"
+    ],
+    "remediation_patterns": [
+      "algorithmic_improvement"
+    ]
+  },
+  "cost_dimensions": {
+    "compute": "medium",
+    "memory": "high",
+    "network": "low",
+    "storage": "low",
+    "human_time": "medium",
+    "carbon": "medium",
+    "water": "low"
+  },
+  "amplification": {
+    "scales_with_users": true,
+    "scales_with_data_volume": true,
+    "scales_non_linearly": false
+  },
+  "temporal_behavior": {
+    "startup_only": false,
+    "steady_state": true,
+    "burst_sensitive": true,
+    "time_degradation": false
+  },
+  "runtime_evidence": [
+    "CPU profiles",
+    "allocation profiles",
+    "request traces",
+    "benchmark results"
+  ],
+  "scanner_override": {
+    "targets": [
+      "rust"
+    ],
+    "scope": "file",
+    "file_globs": [
+      "**/*.rs",
+      "Cargo.toml"
+    ],
+    "parser": "rust_ast_or_tree_sitter"
+  },
+  "examples": {
+    "pattern": [
+      {
+        "title": "Inefficient string construction",
+        "description": "Repeated format! or push_str patterns that allocate avoidably while building large strings."
+      }
+    ],
+    "remediation": [
+      {
+        "title": "Reduce avoidable work",
+        "description": "Use String::with_capacity, write!, buffered writers, or streaming serialization."
+      }
+    ]
+  }
+}

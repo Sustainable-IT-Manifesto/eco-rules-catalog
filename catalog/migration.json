@@ -1,4 +1,62 @@
 {
-  "migrated": 125,
-  "errors": []
+  "migrated": 160,
+  "errors": [],
+  "migrations": [
+    {
+      "version": "0.3.0",
+      "date": "2026-05-21",
+      "summary": "Applied catalog expansion recommendations: sustainability, resilience, observability, caching, serialization, frontend/UI, RAG, prompts, agents, security efficiency, and richer rule metadata.",
+      "added_categories": [
+        "SUS",
+        "RES",
+        "OBS"
+      ],
+      "added_families": [
+        "CARBON",
+        "ENERGY",
+        "WATER",
+        "HW",
+        "CACHE",
+        "SER",
+        "UI",
+        "RAG",
+        "PROMPT",
+        "AGENT",
+        "LOG",
+        "TRACE",
+        "METRIC",
+        "FAIL",
+        "DR",
+        "DEG",
+        "SEC"
+      ],
+      "added_rule_count": 23,
+      "schema_additions": [
+        "cost_dimensions",
+        "amplification",
+        "temporal_behavior",
+        "runtime_evidence",
+        "sustainability_priority"
+      ]
+    },
+    {
+      "version": "0.4.0",
+      "date": "2026-05-21",
+      "summary": "Formalized systems-level sustainability metadata fields in the rule schema and promoted the catalog expansion to a versioned 0.4.0 release.",
+      "schema_formalized_fields": [
+        "cost_dimensions",
+        "amplification",
+        "temporal_behavior",
+        "runtime_evidence",
+        "sustainability_priority"
+      ],
+      "compatibility": "Backward compatible with 0.3.x rule files because additional rule properties remain allowed; new metadata fields now have documented shapes and validation constraints.",
+      "validation_scope": [
+        "rule JSON schema",
+        "registry category/family references",
+        "duplicate rule IDs",
+        "rule path consistency"
+      ]
+    }
+  ]
 }

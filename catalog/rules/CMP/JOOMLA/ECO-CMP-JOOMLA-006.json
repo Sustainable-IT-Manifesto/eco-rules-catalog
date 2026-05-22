@@ -1,0 +1,96 @@
+{
+  "category": "Computation",
+  "category_code": "CMP",
+  "layer": "code",
+  "enabled_by_default": true,
+  "metadata": {
+    "catalog_version": "0.4.0"
+  },
+  "severity": "warning",
+  "tier": 2,
+  "family": "Joomla",
+  "family_code": "JOOMLA",
+  "id": "ECO-CMP-JOOMLA-006",
+  "canonical_id": "ECO-CMP-JOOMLA-006",
+  "sequence": 6,
+  "legacy_id": "ECO-JOOMLA-006",
+  "title": "Manifest or update checks in request path",
+  "summary": "Extension code performs remote update checks or manifest reads during normal page rendering.",
+  "rationale": "Update and metadata checks in hot paths add latency and external network dependence.",
+  "detection": {
+    "method": "ast",
+    "languages": [
+      "php"
+    ],
+    "parser": "php-ast"
+  },
+  "impact": {
+    "type": "latency",
+    "confidence": 0.72,
+    "notes": "Impact increases on high-traffic routes, large datasets, frequently rendered pages, or repeated background work."
+  },
+  "remediation": {
+    "guidance": "Run update checks on schedule or admin-only flows, and cache results with sane TTLs.",
+    "tradeoffs": "Framework conventions, readability, caching correctness, and deployment topology should be considered before changing behavior."
+  },
+  "tags": [
+    "joomla",
+    "updates",
+    "manifest"
+  ],
+  "ontology": {
+    "system_layers": [
+      "code"
+    ],
+    "resource_impacts": [
+      "latency",
+      "network"
+    ],
+    "detection_methods": [
+      "static_analysis"
+    ],
+    "remediation_patterns": [
+      "caching"
+    ]
+  },
+  "cost_dimensions": {
+    "compute": "medium",
+    "memory": "medium",
+    "network": "medium",
+    "storage": "low",
+    "human_time": "medium",
+    "carbon": "medium",
+    "water": "low"
+  },
+  "amplification": {
+    "scales_with_users": true,
+    "scales_with_data_volume": false,
+    "scales_non_linearly": false
+  },
+  "temporal_behavior": {
+    "startup_only": false,
+    "steady_state": true,
+    "burst_sensitive": true,
+    "time_degradation": false
+  },
+  "runtime_evidence": [
+    "request traces",
+    "CPU profiles",
+    "allocation profiles",
+    "APM transaction timing"
+  ],
+  "examples": {
+    "pattern": [
+      {
+        "title": "Manifest or update checks in request path",
+        "description": "Extension code performs remote update checks or manifest reads during normal page rendering."
+      }
+    ],
+    "remediation": [
+      {
+        "title": "Reduce repeated work",
+        "description": "Run update checks on schedule or admin-only flows, and cache results with sane TTLs."
+      }
+    ]
+  }
+}

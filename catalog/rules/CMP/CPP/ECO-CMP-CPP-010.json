@@ -1,0 +1,115 @@
+{
+  "category": "Computation",
+  "category_code": "CMP",
+  "family": "C++",
+  "family_code": "CPP",
+  "layer": "code",
+  "enabled_by_default": true,
+  "metadata": {
+    "catalog_version": "0.4.0"
+  },
+  "id": "ECO-CMP-CPP-010",
+  "canonical_id": "ECO-CMP-CPP-010",
+  "sequence": 10,
+  "legacy_id": "ECO-CPP-010",
+  "title": "Template or dependency bloat in build-critical paths",
+  "summary": "Heavy template instantiation or broad dependencies causing excessive compile time and binary growth.",
+  "rationale": "Build waste consumes developer time, CI compute, and energy long before production runtime.",
+  "detection": {
+    "method": "ast",
+    "languages": [
+      "cpp"
+    ],
+    "parser": "cpp_ast_or_tree_sitter",
+    "notes": "Look for large header-only dependencies, repeated template instantiations, or broad includes in common headers."
+  },
+  "impact": {
+    "type": "cpu",
+    "confidence": 0.72,
+    "notes": "Impact increases in hot paths, large inputs, high-concurrency services, build pipelines, or repeated request paths."
+  },
+  "remediation": {
+    "guidance": "Use forward declarations, precompiled headers judiciously, explicit instantiation, smaller includes, and dependency hygiene.",
+    "tradeoffs": "Compile-time optimization must not undermine type safety or maintainability."
+  },
+  "severity": "warning",
+  "tier": 2,
+  "tags": [
+    "cpp",
+    "build",
+    "templates",
+    "dependencies"
+  ],
+  "ontology": {
+    "system_layers": [
+      "code"
+    ],
+    "resource_impacts": [
+      "cpu",
+      "storage",
+      "energy"
+    ],
+    "detection_methods": [
+      "static_analysis"
+    ],
+    "remediation_patterns": [
+      "algorithmic_improvement"
+    ]
+  },
+  "cost_dimensions": {
+    "compute": "medium",
+    "memory": "medium",
+    "network": "low",
+    "storage": "medium",
+    "human_time": "medium",
+    "carbon": "medium",
+    "water": "low"
+  },
+  "amplification": {
+    "scales_with_users": true,
+    "scales_with_data_volume": true,
+    "scales_non_linearly": false
+  },
+  "temporal_behavior": {
+    "startup_only": false,
+    "steady_state": true,
+    "burst_sensitive": true,
+    "time_degradation": false
+  },
+  "runtime_evidence": [
+    "CPU profiles",
+    "allocation profiles",
+    "request traces",
+    "benchmark results"
+  ],
+  "scanner_override": {
+    "targets": [
+      "cpp"
+    ],
+    "scope": "file",
+    "file_globs": [
+      "**/*.cpp",
+      "**/*.cc",
+      "**/*.cxx",
+      "**/*.hpp",
+      "**/*.hh",
+      "**/*.hxx",
+      "CMakeLists.txt"
+    ],
+    "parser": "cpp_ast_or_tree_sitter"
+  },
+  "examples": {
+    "pattern": [
+      {
+        "title": "Template or dependency bloat in build-critical paths",
+        "description": "Heavy template instantiation or broad dependencies causing excessive compile time and binary growth."
+      }
+    ],
+    "remediation": [
+      {
+        "title": "Reduce avoidable work",
+        "description": "Use forward declarations, precompiled headers judiciously, explicit instantiation, smaller includes, and dependency hygiene."
+      }
+    ]
+  }
+}

@@ -64,7 +64,7 @@ def validate(catalog, registry, require_ontology=False, strict=False):
 
 def main():
     ap = argparse.ArgumentParser(description='Validate ontology vocabularies and v0.4.0 metadata shape.')
-    ap.add_argument('--in', dest='in_path', required=True)
+    ap.add_argument('--in', dest='in_path', default='catalog/master.json')
     ap.add_argument('--registry', default=str(DEFAULT_REGISTRY))
     ap.add_argument('--require-ontology', action='store_true')
     ap.add_argument('--strict', action='store_true')

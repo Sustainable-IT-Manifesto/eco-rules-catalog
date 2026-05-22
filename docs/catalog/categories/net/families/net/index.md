@@ -1,21 +1,97 @@
 # Network (NET)
 
-- [Back to Networking](../../index.md)
+- [Back to Networking (NET)](../../index.md)
 
-| ID | Title | Severity | Layer |
-|---|---|---|---|
-| [ECO-NET-NET-001](ECO-NET-NET-001.md) | Missing HTTP caching headers | warning | Network |
-| [ECO-NET-NET-002](ECO-NET-NET-002.md) | No gzip/brotli compression | warning | Network |
-| [ECO-NET-NET-003](ECO-NET-NET-003.md) | Chatty microservice communication | warning | Network |
-| [ECO-NET-NET-004](ECO-NET-NET-004.md) | Redundant authentication calls | note | Network |
-| [ECO-NET-NET-005](ECO-NET-NET-005.md) | Missing timeouts | error | Network |
-| [ECO-NET-NET-006](ECO-NET-NET-006.md) | No connection reuse (keep-alive disabled) | warning | Network |
-| [ECO-NET-NET-007](ECO-NET-NET-007.md) | Excessive retry storms | error | Network |
-| [ECO-NET-NET-008](ECO-NET-NET-008.md) | Over-fetching API fields | note | Network |
-| [ECO-NET-NET-009](ECO-NET-NET-009.md) | Under-fetching causing follow-up calls | note | Network |
-| [ECO-NET-NET-010](ECO-NET-NET-010.md) | Large payloads without pagination | warning | Network |
-| [ECO-NET-NET-011](ECO-NET-NET-011.md) | No CDN usage for static content | warning | Network |
-| [ECO-NET-NET-012](ECO-NET-NET-012.md) | No HTTP/2 or HTTP/3 where applicable | note | Network |
-| [ECO-NET-NET-013](ECO-NET-NET-013.md) | Excessive polling intervals | warning | Network |
-| [ECO-NET-NET-014](ECO-NET-NET-014.md) | Synchronous cross-region calls | warning | Network |
-| [ECO-NET-NET-015](ECO-NET-NET-015.md) | Missing circuit breaker patterns | warning | Network |
+**Total rules:** 15
+
+## Rules
+
+### [ECO-NET-NET-001 — Missing HTTP caching headers](../../../../ECO-NET-NET-001.md)
+
+Missing cache headers causes repeated downloads and wasted work.
+
+- Layer: **network**
+
+### [ECO-NET-NET-002 — No gzip/brotli compression](../../../../ECO-NET-NET-002.md)
+
+Serving text assets without compression increases bandwidth and energy use.
+
+- Layer: **network**
+
+### [ECO-NET-NET-003 — Chatty microservice communication](../../../../ECO-NET-NET-003.md)
+
+Many small calls increase latency and cross-service overhead.
+
+- Layer: **network**
+
+### [ECO-NET-NET-004 — Redundant authentication calls](../../../../ECO-NET-NET-004.md)
+
+Repeated auth calls waste CPU and network and add latency.
+
+- Layer: **network**
+
+### [ECO-NET-NET-005 — Missing timeouts](../../../../ECO-NET-NET-005.md)
+
+Missing timeouts remove a critical reliability boundary for network calls.
+
+- Layer: **network**
+
+### [ECO-NET-NET-006 — No connection reuse (keep-alive disabled)](../../../../ECO-NET-NET-006.md)
+
+Disabling keep-alive increases handshake overhead and latency.
+
+- Layer: **network**
+
+### [ECO-NET-NET-007 — Excessive retry storms](../../../../ECO-NET-NET-007.md)
+
+Aggressive retries amplify failures and increase waste.
+
+- Layer: **network**
+
+### [ECO-NET-NET-008 — Over-fetching API fields](../../../../ECO-NET-NET-008.md)
+
+Returning unnecessary fields increases payload size and processing.
+
+- Layer: **network**
+
+### [ECO-NET-NET-009 — Under-fetching causing follow-up calls](../../../../ECO-NET-NET-009.md)
+
+Responses missing needed data cause extra round trips.
+
+- Layer: **network**
+
+### [ECO-NET-NET-010 — Large payloads without pagination](../../../../ECO-NET-NET-010.md)
+
+Large unpaginated responses increase memory and bandwidth waste.
+
+- Layer: **network**
+
+### [ECO-NET-NET-011 — No CDN usage for static content](../../../../ECO-NET-NET-011.md)
+
+Serving static content from origin increases latency and origin load.
+
+- Layer: **network**
+
+### [ECO-NET-NET-012 — No HTTP/2 or HTTP/3 where applicable](../../../../ECO-NET-NET-012.md)
+
+Older HTTP versions may reduce efficiency for multiplexed workloads.
+
+- Layer: **network**
+
+### [ECO-NET-NET-013 — Excessive polling intervals](../../../../ECO-NET-NET-013.md)
+
+Frequent polling increases load even when nothing changes.
+
+- Layer: **network**
+
+### [ECO-NET-NET-014 — Synchronous cross-region calls](../../../../ECO-NET-NET-014.md)
+
+Cross-region synchronous calls increase latency and cost.
+
+- Layer: **network**
+
+### [ECO-NET-NET-015 — Missing circuit breaker patterns](../../../../ECO-NET-NET-015.md)
+
+Without circuit breakers, failures propagate and waste resources.
+
+- Layer: **network**

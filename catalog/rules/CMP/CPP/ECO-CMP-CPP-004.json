@@ -1,0 +1,114 @@
+{
+  "category": "Computation",
+  "category_code": "CMP",
+  "family": "C++",
+  "family_code": "CPP",
+  "layer": "code",
+  "enabled_by_default": true,
+  "metadata": {
+    "catalog_version": "0.4.0"
+  },
+  "id": "ECO-CMP-CPP-004",
+  "canonical_id": "ECO-CMP-CPP-004",
+  "sequence": 4,
+  "legacy_id": "ECO-CPP-004",
+  "title": "Synchronous blocking on futures or async results",
+  "summary": "Blocking threads while waiting for asynchronous work in request or event-loop paths.",
+  "rationale": "Blocking collapses concurrency and can force larger thread pools or longer tail latency.",
+  "detection": {
+    "method": "ast",
+    "languages": [
+      "cpp"
+    ],
+    "parser": "cpp_ast_or_tree_sitter",
+    "notes": "Detect get(), wait(), join(), blocking waits, or condition variables in latency-sensitive paths."
+  },
+  "impact": {
+    "type": "cpu",
+    "confidence": 0.72,
+    "notes": "Impact increases in hot paths, large inputs, high-concurrency services, build pipelines, or repeated request paths."
+  },
+  "remediation": {
+    "guidance": "Propagate async composition, use continuations/coroutines, or isolate blocking work in bounded executors.",
+    "tradeoffs": "Async refactors can be invasive; prioritize high-traffic boundaries."
+  },
+  "severity": "warning",
+  "tier": 2,
+  "tags": [
+    "cpp",
+    "async",
+    "blocking",
+    "future"
+  ],
+  "ontology": {
+    "system_layers": [
+      "code"
+    ],
+    "resource_impacts": [
+      "cpu",
+      "latency"
+    ],
+    "detection_methods": [
+      "static_analysis"
+    ],
+    "remediation_patterns": [
+      "algorithmic_improvement"
+    ]
+  },
+  "cost_dimensions": {
+    "compute": "high",
+    "memory": "medium",
+    "network": "low",
+    "storage": "low",
+    "human_time": "medium",
+    "carbon": "medium",
+    "water": "low"
+  },
+  "amplification": {
+    "scales_with_users": true,
+    "scales_with_data_volume": true,
+    "scales_non_linearly": false
+  },
+  "temporal_behavior": {
+    "startup_only": false,
+    "steady_state": true,
+    "burst_sensitive": true,
+    "time_degradation": false
+  },
+  "runtime_evidence": [
+    "CPU profiles",
+    "allocation profiles",
+    "request traces",
+    "benchmark results"
+  ],
+  "scanner_override": {
+    "targets": [
+      "cpp"
+    ],
+    "scope": "file",
+    "file_globs": [
+      "**/*.cpp",
+      "**/*.cc",
+      "**/*.cxx",
+      "**/*.hpp",
+      "**/*.hh",
+      "**/*.hxx",
+      "CMakeLists.txt"
+    ],
+    "parser": "cpp_ast_or_tree_sitter"
+  },
+  "examples": {
+    "pattern": [
+      {
+        "title": "Synchronous blocking on futures or async results",
+        "description": "Blocking threads while waiting for asynchronous work in request or event-loop paths."
+      }
+    ],
+    "remediation": [
+      {
+        "title": "Reduce avoidable work",
+        "description": "Propagate async composition, use continuations/coroutines, or isolate blocking work in bounded executors."
+      }
+    ]
+  }
+}

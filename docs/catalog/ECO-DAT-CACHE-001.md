@@ -77,4 +77,6 @@ No remediation examples provided.
 ## Navigation
 
 - [Back to Human Catalog](index.md)
+- [Back to Data category](categories/dat/index.md)
+- [Back to Caching family](categories/dat/families/cache/index.md)
 - [Back to Rule Browser](../rule-browser.md)

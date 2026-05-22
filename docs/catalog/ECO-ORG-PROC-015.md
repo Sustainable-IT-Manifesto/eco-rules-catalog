@@ -49,4 +49,6 @@ No remediation examples provided.
 ## Navigation
 
 - [Back to Human Catalog](index.md)
+- [Back to Organizational category](categories/org/index.md)
+- [Back to Process family](categories/org/families/proc/index.md)
 - [Back to Rule Browser](../rule-browser.md)

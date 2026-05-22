@@ -77,4 +77,6 @@ No remediation examples provided.
 ## Navigation
 
 - [Back to Human Catalog](index.md)
+- [Back to Sustainability & Environmental Impact category](categories/sus/index.md)
+- [Back to Energy Efficiency family](categories/sus/families/energy/index.md)
 - [Back to Rule Browser](../rule-browser.md)

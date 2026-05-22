@@ -1,0 +1,96 @@
+{
+  "category": "Computation",
+  "category_code": "CMP",
+  "layer": "code",
+  "enabled_by_default": true,
+  "metadata": {
+    "catalog_version": "0.4.0"
+  },
+  "severity": "warning",
+  "tier": 2,
+  "family": "Ruby on Rails",
+  "family_code": "RAILS",
+  "id": "ECO-CMP-RAILS-001",
+  "canonical_id": "ECO-CMP-RAILS-001",
+  "sequence": 1,
+  "legacy_id": "ECO-RAILS-001",
+  "title": "ActiveRecord N+1 query in controller or view",
+  "summary": "Rails code loads associated records lazily while rendering a collection.",
+  "rationale": "N+1 queries are a common Rails amplification pattern that increases DB load and page latency with collection size.",
+  "detection": {
+    "method": "ast",
+    "languages": [
+      "ruby"
+    ],
+    "parser": "ruby_parser_or_prism"
+  },
+  "impact": {
+    "type": "latency",
+    "confidence": 0.72,
+    "notes": "Impact increases on high-traffic routes, large datasets, frequently rendered pages, or repeated background work."
+  },
+  "remediation": {
+    "guidance": "Use includes, preload, eager_load, counter caches, or query reshaping as appropriate.",
+    "tradeoffs": "Framework conventions, readability, caching correctness, and deployment topology should be considered before changing behavior."
+  },
+  "tags": [
+    "ruby-on-rails",
+    "activerecord",
+    "n-plus-one"
+  ],
+  "ontology": {
+    "system_layers": [
+      "code"
+    ],
+    "resource_impacts": [
+      "latency",
+      "storage"
+    ],
+    "detection_methods": [
+      "static_analysis"
+    ],
+    "remediation_patterns": [
+      "caching"
+    ]
+  },
+  "cost_dimensions": {
+    "compute": "medium",
+    "memory": "medium",
+    "network": "low",
+    "storage": "medium",
+    "human_time": "medium",
+    "carbon": "medium",
+    "water": "low"
+  },
+  "amplification": {
+    "scales_with_users": true,
+    "scales_with_data_volume": true,
+    "scales_non_linearly": true
+  },
+  "temporal_behavior": {
+    "startup_only": false,
+    "steady_state": true,
+    "burst_sensitive": true,
+    "time_degradation": false
+  },
+  "runtime_evidence": [
+    "request traces",
+    "CPU profiles",
+    "allocation profiles",
+    "APM transaction timing"
+  ],
+  "examples": {
+    "pattern": [
+      {
+        "title": "ActiveRecord N+1 query in controller or view",
+        "description": "Rails code loads associated records lazily while rendering a collection."
+      }
+    ],
+    "remediation": [
+      {
+        "title": "Reduce repeated work",
+        "description": "Use includes, preload, eager_load, counter caches, or query reshaping as appropriate."
+      }
+    ]
+  }
+}

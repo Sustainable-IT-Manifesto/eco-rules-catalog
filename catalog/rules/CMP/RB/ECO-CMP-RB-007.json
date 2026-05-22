@@ -1,0 +1,83 @@
+{
+  "category": "Computation",
+  "category_code": "CMP",
+  "family": "Ruby",
+  "family_code": "RB",
+  "layer": "code",
+  "enabled_by_default": true,
+  "metadata": {
+    "catalog_version": "0.4.0"
+  },
+  "id": "ECO-CMP-RB-007",
+  "canonical_id": "ECO-CMP-RB-007",
+  "sequence": 7,
+  "legacy_id": "ECO-RB-007",
+  "title": "Blocking external calls inside request loops",
+  "summary": "Making sequential HTTP/API calls inside loops increases latency, ties up workers, and amplifies downstream load.",
+  "rationale": "Ruby web apps often have limited worker/thread capacity. Sequential remote calls can hold capacity while doing little useful local work.",
+  "detection": {
+    "method": "ast",
+    "languages": [
+      "ruby"
+    ],
+    "parser": "ruby_parser_or_prism"
+  },
+  "impact": {
+    "type": "network",
+    "confidence": 0.85,
+    "notes": "Impact increases in hot paths, large collections, high-traffic Rails actions, background jobs, or repeated request paths."
+  },
+  "remediation": {
+    "guidance": "Batch requests, cache stable responses, move work to background jobs, add timeouts, or use controlled concurrency where appropriate.",
+    "tradeoffs": "May require refactoring for readability, query shape, or framework conventions."
+  },
+  "severity": "warning",
+  "tier": 2,
+  "tags": [
+    "ruby",
+    "http",
+    "network",
+    "rails",
+    "latency"
+  ],
+  "ontology": {
+    "system_layers": [
+      "code"
+    ],
+    "resource_impacts": [
+      "network"
+    ],
+    "detection_methods": [
+      "static_analysis"
+    ],
+    "remediation_patterns": [
+      "algorithmic_improvement"
+    ]
+  },
+  "cost_dimensions": {
+    "compute": "medium",
+    "memory": "low",
+    "network": "high",
+    "storage": "low",
+    "human_time": "medium",
+    "carbon": "medium",
+    "water": "low"
+  },
+  "amplification": {
+    "scales_with_users": true,
+    "scales_with_data_volume": true,
+    "scales_non_linearly": true
+  },
+  "temporal_behavior": {
+    "startup_only": false,
+    "steady_state": true,
+    "burst_sensitive": true,
+    "time_degradation": false
+  },
+  "runtime_evidence": [
+    "distributed traces",
+    "external service timing",
+    "worker saturation",
+    "request queue time"
+  ]
+}

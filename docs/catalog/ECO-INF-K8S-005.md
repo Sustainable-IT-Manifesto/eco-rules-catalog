@@ -48,4 +48,6 @@ No remediation examples provided.
 ## Navigation
 
 - [Back to Human Catalog](index.md)
+- [Back to Infrastructure category](categories/inf/index.md)
+- [Back to Kubernetes family](categories/inf/families/k8s/index.md)
 - [Back to Rule Browser](../rule-browser.md)

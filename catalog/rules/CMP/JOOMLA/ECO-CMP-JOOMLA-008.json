@@ -1,0 +1,95 @@
+{
+  "category": "Computation",
+  "category_code": "CMP",
+  "layer": "code",
+  "enabled_by_default": true,
+  "metadata": {
+    "catalog_version": "0.4.0"
+  },
+  "severity": "warning",
+  "tier": 2,
+  "family": "Joomla",
+  "family_code": "JOOMLA",
+  "id": "ECO-CMP-JOOMLA-008",
+  "canonical_id": "ECO-CMP-JOOMLA-008",
+  "sequence": 8,
+  "legacy_id": "ECO-JOOMLA-008",
+  "title": "Verbose payload logging in extensions",
+  "summary": "Joomla extensions log request bodies, query results, or debug details in production.",
+  "rationale": "Noisy extension logging increases storage, I/O, and privacy risk.",
+  "detection": {
+    "method": "ast",
+    "languages": [
+      "php"
+    ],
+    "parser": "php-ast"
+  },
+  "impact": {
+    "type": "storage",
+    "confidence": 0.72,
+    "notes": "Impact increases on high-traffic routes, large datasets, frequently rendered pages, or repeated background work."
+  },
+  "remediation": {
+    "guidance": "Gate debug logging, redact payloads, sample noisy events, and apply retention policies.",
+    "tradeoffs": "Framework conventions, readability, caching correctness, and deployment topology should be considered before changing behavior."
+  },
+  "tags": [
+    "joomla",
+    "logging",
+    "extension"
+  ],
+  "ontology": {
+    "system_layers": [
+      "code"
+    ],
+    "resource_impacts": [
+      "storage"
+    ],
+    "detection_methods": [
+      "static_analysis"
+    ],
+    "remediation_patterns": [
+      "algorithmic_improvement"
+    ]
+  },
+  "cost_dimensions": {
+    "compute": "medium",
+    "memory": "medium",
+    "network": "low",
+    "storage": "medium",
+    "human_time": "medium",
+    "carbon": "medium",
+    "water": "low"
+  },
+  "amplification": {
+    "scales_with_users": true,
+    "scales_with_data_volume": true,
+    "scales_non_linearly": false
+  },
+  "temporal_behavior": {
+    "startup_only": false,
+    "steady_state": true,
+    "burst_sensitive": true,
+    "time_degradation": false
+  },
+  "runtime_evidence": [
+    "request traces",
+    "CPU profiles",
+    "allocation profiles",
+    "APM transaction timing"
+  ],
+  "examples": {
+    "pattern": [
+      {
+        "title": "Verbose payload logging in extensions",
+        "description": "Joomla extensions log request bodies, query results, or debug details in production."
+      }
+    ],
+    "remediation": [
+      {
+        "title": "Reduce repeated work",
+        "description": "Gate debug logging, redact payloads, sample noisy events, and apply retention policies."
+      }
+    ]
+  }
+}

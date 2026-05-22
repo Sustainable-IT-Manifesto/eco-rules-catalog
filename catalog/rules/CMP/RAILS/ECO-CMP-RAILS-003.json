@@ -1,0 +1,95 @@
+{
+  "category": "Computation",
+  "category_code": "CMP",
+  "layer": "code",
+  "enabled_by_default": true,
+  "metadata": {
+    "catalog_version": "0.4.0"
+  },
+  "severity": "warning",
+  "tier": 2,
+  "family": "Ruby on Rails",
+  "family_code": "RAILS",
+  "id": "ECO-CMP-RAILS-003",
+  "canonical_id": "ECO-CMP-RAILS-003",
+  "sequence": 3,
+  "legacy_id": "ECO-RAILS-003",
+  "title": "View partial renders expensive helpers repeatedly",
+  "summary": "Rails views call expensive helpers or render partials repeatedly across large collections.",
+  "rationale": "Rendering overhead and allocation churn can dominate response time for collection-heavy pages.",
+  "detection": {
+    "method": "ast",
+    "languages": [
+      "ruby"
+    ],
+    "parser": "ruby_parser_or_prism"
+  },
+  "impact": {
+    "type": "cpu",
+    "confidence": 0.72,
+    "notes": "Impact increases on high-traffic routes, large datasets, frequently rendered pages, or repeated background work."
+  },
+  "remediation": {
+    "guidance": "Use collection rendering, precomputed view models, fragment caching, or simpler helpers.",
+    "tradeoffs": "Framework conventions, readability, caching correctness, and deployment topology should be considered before changing behavior."
+  },
+  "tags": [
+    "ruby-on-rails",
+    "views",
+    "partials"
+  ],
+  "ontology": {
+    "system_layers": [
+      "code"
+    ],
+    "resource_impacts": [
+      "cpu"
+    ],
+    "detection_methods": [
+      "static_analysis"
+    ],
+    "remediation_patterns": [
+      "algorithmic_improvement"
+    ]
+  },
+  "cost_dimensions": {
+    "compute": "medium",
+    "memory": "medium",
+    "network": "low",
+    "storage": "low",
+    "human_time": "medium",
+    "carbon": "medium",
+    "water": "low"
+  },
+  "amplification": {
+    "scales_with_users": true,
+    "scales_with_data_volume": false,
+    "scales_non_linearly": false
+  },
+  "temporal_behavior": {
+    "startup_only": false,
+    "steady_state": true,
+    "burst_sensitive": true,
+    "time_degradation": false
+  },
+  "runtime_evidence": [
+    "request traces",
+    "CPU profiles",
+    "allocation profiles",
+    "APM transaction timing"
+  ],
+  "examples": {
+    "pattern": [
+      {
+        "title": "View partial renders expensive helpers repeatedly",
+        "description": "Rails views call expensive helpers or render partials repeatedly across large collections."
+      }
+    ],
+    "remediation": [
+      {
+        "title": "Reduce repeated work",
+        "description": "Use collection rendering, precomputed view models, fragment caching, or simpler helpers."
+      }
+    ]
+  }
+}

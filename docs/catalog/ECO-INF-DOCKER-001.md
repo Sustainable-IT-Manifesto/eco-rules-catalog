@@ -52,4 +52,6 @@ Build assets in one stage, then copy only the required runtime artifacts into a 
 ## Navigation
 
 - [Back to Human Catalog](index.md)
+- [Back to Infrastructure category](categories/inf/index.md)
+- [Back to Docker family](categories/inf/families/docker/index.md)
 - [Back to Rule Browser](../rule-browser.md)

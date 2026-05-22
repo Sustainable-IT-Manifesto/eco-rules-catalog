@@ -1,0 +1,115 @@
+{
+  "category": "Computation",
+  "category_code": "CMP",
+  "family": "C++",
+  "family_code": "CPP",
+  "layer": "code",
+  "enabled_by_default": true,
+  "metadata": {
+    "catalog_version": "0.4.0"
+  },
+  "id": "ECO-CMP-CPP-002",
+  "canonical_id": "ECO-CMP-CPP-002",
+  "sequence": 2,
+  "legacy_id": "ECO-CPP-002",
+  "title": "Heap allocation in tight loops",
+  "summary": "Allocating with new, make_unique, vector growth, or temporary containers repeatedly in hot loops.",
+  "rationale": "Repeated allocation fragments memory and adds allocator contention in high-throughput paths.",
+  "detection": {
+    "method": "ast",
+    "languages": [
+      "cpp"
+    ],
+    "parser": "cpp_ast_or_tree_sitter",
+    "notes": "Find allocations inside loops, callbacks, render paths, or packet/message processing."
+  },
+  "impact": {
+    "type": "cpu",
+    "confidence": 0.72,
+    "notes": "Impact increases in hot paths, large inputs, high-concurrency services, build pipelines, or repeated request paths."
+  },
+  "remediation": {
+    "guidance": "Reserve capacity, reuse buffers, use stack allocation, arenas, object pools, or move allocation outside the loop.",
+    "tradeoffs": "Pools and arenas require lifecycle discipline and can increase retained memory."
+  },
+  "severity": "warning",
+  "tier": 2,
+  "tags": [
+    "cpp",
+    "heap",
+    "allocation",
+    "loop"
+  ],
+  "ontology": {
+    "system_layers": [
+      "code"
+    ],
+    "resource_impacts": [
+      "cpu",
+      "memory",
+      "latency"
+    ],
+    "detection_methods": [
+      "static_analysis"
+    ],
+    "remediation_patterns": [
+      "algorithmic_improvement"
+    ]
+  },
+  "cost_dimensions": {
+    "compute": "high",
+    "memory": "high",
+    "network": "low",
+    "storage": "low",
+    "human_time": "medium",
+    "carbon": "medium",
+    "water": "low"
+  },
+  "amplification": {
+    "scales_with_users": true,
+    "scales_with_data_volume": true,
+    "scales_non_linearly": false
+  },
+  "temporal_behavior": {
+    "startup_only": false,
+    "steady_state": true,
+    "burst_sensitive": true,
+    "time_degradation": false
+  },
+  "runtime_evidence": [
+    "CPU profiles",
+    "allocation profiles",
+    "request traces",
+    "benchmark results"
+  ],
+  "scanner_override": {
+    "targets": [
+      "cpp"
+    ],
+    "scope": "file",
+    "file_globs": [
+      "**/*.cpp",
+      "**/*.cc",
+      "**/*.cxx",
+      "**/*.hpp",
+      "**/*.hh",
+      "**/*.hxx",
+      "CMakeLists.txt"
+    ],
+    "parser": "cpp_ast_or_tree_sitter"
+  },
+  "examples": {
+    "pattern": [
+      {
+        "title": "Heap allocation in tight loops",
+        "description": "Allocating with new, make_unique, vector growth, or temporary containers repeatedly in hot loops."
+      }
+    ],
+    "remediation": [
+      {
+        "title": "Reduce avoidable work",
+        "description": "Reserve capacity, reuse buffers, use stack allocation, arenas, object pools, or move allocation outside the loop."
+      }
+    ]
+  }
+}

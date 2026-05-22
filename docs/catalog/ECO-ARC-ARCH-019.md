@@ -45,4 +45,6 @@ No remediation examples provided.
 ## Navigation
 
 - [Back to Human Catalog](index.md)
+- [Back to Architecture category](categories/arc/index.md)
+- [Back to Architecture family](categories/arc/families/arch/index.md)
 - [Back to Rule Browser](../rule-browser.md)

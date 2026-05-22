@@ -1,0 +1,110 @@
+{
+  "category": "Computation",
+  "category_code": "CMP",
+  "family": "Rust",
+  "family_code": "RS",
+  "layer": "code",
+  "enabled_by_default": true,
+  "metadata": {
+    "catalog_version": "0.4.0"
+  },
+  "id": "ECO-CMP-RS-010",
+  "canonical_id": "ECO-CMP-RS-010",
+  "sequence": 10,
+  "legacy_id": "ECO-RS-010",
+  "title": "Oversized dependency feature sets",
+  "summary": "Enabling broad crate features or default features that pull unnecessary code, build work, or runtime behavior.",
+  "rationale": "Cargo features can quietly expand binary size, compile time, and dependency surface.",
+  "detection": {
+    "method": "ast",
+    "languages": [
+      "rust"
+    ],
+    "parser": "rust_ast_or_tree_sitter",
+    "notes": "Inspect Cargo.toml for default-features=true where narrow features would suffice."
+  },
+  "impact": {
+    "type": "cpu",
+    "confidence": 0.72,
+    "notes": "Impact increases in hot paths, large inputs, high-concurrency services, build pipelines, or repeated request paths."
+  },
+  "remediation": {
+    "guidance": "Disable default features and enable only required feature flags; review dependency trees periodically.",
+    "tradeoffs": "Feature minimization can increase maintenance when crates change feature boundaries."
+  },
+  "severity": "warning",
+  "tier": 2,
+  "tags": [
+    "rust",
+    "cargo",
+    "dependency",
+    "features"
+  ],
+  "ontology": {
+    "system_layers": [
+      "code"
+    ],
+    "resource_impacts": [
+      "cpu",
+      "storage",
+      "energy"
+    ],
+    "detection_methods": [
+      "static_analysis"
+    ],
+    "remediation_patterns": [
+      "algorithmic_improvement"
+    ]
+  },
+  "cost_dimensions": {
+    "compute": "medium",
+    "memory": "medium",
+    "network": "low",
+    "storage": "medium",
+    "human_time": "medium",
+    "carbon": "medium",
+    "water": "low"
+  },
+  "amplification": {
+    "scales_with_users": true,
+    "scales_with_data_volume": true,
+    "scales_non_linearly": false
+  },
+  "temporal_behavior": {
+    "startup_only": false,
+    "steady_state": true,
+    "burst_sensitive": true,
+    "time_degradation": false
+  },
+  "runtime_evidence": [
+    "CPU profiles",
+    "allocation profiles",
+    "request traces",
+    "benchmark results"
+  ],
+  "scanner_override": {
+    "targets": [
+      "rust"
+    ],
+    "scope": "file",
+    "file_globs": [
+      "**/*.rs",
+      "Cargo.toml"
+    ],
+    "parser": "rust_ast_or_tree_sitter"
+  },
+  "examples": {
+    "pattern": [
+      {
+        "title": "Oversized dependency feature sets",
+        "description": "Enabling broad crate features or default features that pull unnecessary code, build work, or runtime behavior."
+      }
+    ],
+    "remediation": [
+      {
+        "title": "Reduce avoidable work",
+        "description": "Disable default features and enable only required feature flags; review dependency trees periodically."
+      }
+    ]
+  }
+}

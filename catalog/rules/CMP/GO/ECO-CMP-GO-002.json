@@ -1,0 +1,110 @@
+{
+  "category": "Computation",
+  "category_code": "CMP",
+  "family": "Go",
+  "family_code": "GO",
+  "layer": "code",
+  "enabled_by_default": true,
+  "metadata": {
+    "catalog_version": "0.4.0"
+  },
+  "id": "ECO-CMP-GO-002",
+  "canonical_id": "ECO-CMP-GO-002",
+  "sequence": 2,
+  "legacy_id": "ECO-GO-002",
+  "title": "Unbounded goroutine fan-out",
+  "summary": "Launching one goroutine per item without concurrency limits.",
+  "rationale": "Unbounded fan-out converts input size into scheduler pressure, memory growth, and downstream overload.",
+  "detection": {
+    "method": "ast",
+    "languages": [
+      "go"
+    ],
+    "parser": "go_ast",
+    "notes": "Detect go statements inside loops over unbounded or externally sized collections."
+  },
+  "impact": {
+    "type": "cpu",
+    "confidence": 0.72,
+    "notes": "Impact increases in hot paths, large inputs, high-concurrency services, build pipelines, or repeated request paths."
+  },
+  "remediation": {
+    "guidance": "Use worker pools, semaphores, errgroup with limits, rate limits, and bounded queues.",
+    "tradeoffs": "Concurrency limits must be tuned to workload and downstream capacity."
+  },
+  "severity": "warning",
+  "tier": 2,
+  "tags": [
+    "go",
+    "goroutine",
+    "fanout",
+    "backpressure"
+  ],
+  "ontology": {
+    "system_layers": [
+      "code"
+    ],
+    "resource_impacts": [
+      "cpu",
+      "memory",
+      "latency"
+    ],
+    "detection_methods": [
+      "static_analysis"
+    ],
+    "remediation_patterns": [
+      "algorithmic_improvement"
+    ]
+  },
+  "cost_dimensions": {
+    "compute": "high",
+    "memory": "high",
+    "network": "low",
+    "storage": "low",
+    "human_time": "medium",
+    "carbon": "medium",
+    "water": "low"
+  },
+  "amplification": {
+    "scales_with_users": true,
+    "scales_with_data_volume": true,
+    "scales_non_linearly": true
+  },
+  "temporal_behavior": {
+    "startup_only": false,
+    "steady_state": true,
+    "burst_sensitive": true,
+    "time_degradation": false
+  },
+  "runtime_evidence": [
+    "CPU profiles",
+    "allocation profiles",
+    "request traces",
+    "benchmark results"
+  ],
+  "scanner_override": {
+    "targets": [
+      "go"
+    ],
+    "scope": "file",
+    "file_globs": [
+      "**/*.go",
+      "go.mod"
+    ],
+    "parser": "go_ast"
+  },
+  "examples": {
+    "pattern": [
+      {
+        "title": "Unbounded goroutine fan-out",
+        "description": "Launching one goroutine per item without concurrency limits."
+      }
+    ],
+    "remediation": [
+      {
+        "title": "Reduce avoidable work",
+        "description": "Use worker pools, semaphores, errgroup with limits, rate limits, and bounded queues."
+      }
+    ]
+  }
+}

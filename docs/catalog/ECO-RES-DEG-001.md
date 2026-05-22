@@ -77,4 +77,6 @@ No remediation examples provided.
 ## Navigation
 
 - [Back to Human Catalog](index.md)
+- [Back to Resilience & Reliability category](categories/res/index.md)
+- [Back to Graceful Degradation family](categories/res/families/deg/index.md)
 - [Back to Rule Browser](../rule-browser.md)

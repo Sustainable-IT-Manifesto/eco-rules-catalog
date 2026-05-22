@@ -45,4 +45,6 @@ No remediation examples provided.
 ## Navigation
 
 - [Back to Human Catalog](index.md)
+- [Back to Networking category](categories/net/index.md)
+- [Back to Network family](categories/net/families/net/index.md)
 - [Back to Rule Browser](../rule-browser.md)

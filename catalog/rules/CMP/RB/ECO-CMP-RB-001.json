@@ -1,0 +1,96 @@
+{
+  "category": "Computation",
+  "category_code": "CMP",
+  "family": "Ruby",
+  "family_code": "RB",
+  "layer": "code",
+  "enabled_by_default": true,
+  "metadata": {
+    "catalog_version": "0.4.0"
+  },
+  "id": "ECO-CMP-RB-001",
+  "canonical_id": "ECO-CMP-RB-001",
+  "sequence": 1,
+  "legacy_id": "ECO-RB-001",
+  "title": "String concatenation in loops",
+  "summary": "Repeated string concatenation in a loop can create avoidable object churn and CPU overhead.",
+  "rationale": "Ruby strings are mutable, but repeated concatenation patterns can still produce unnecessary allocations or copying when building large strings in hot paths.",
+  "detection": {
+    "method": "ast",
+    "languages": [
+      "ruby"
+    ],
+    "parser": "ruby_parser_or_prism"
+  },
+  "impact": {
+    "type": "cpu",
+    "confidence": 0.75,
+    "notes": "Impact increases in hot paths, large collections, high-traffic Rails actions, background jobs, or repeated request paths."
+  },
+  "remediation": {
+    "guidance": "Use an array with join, StringIO, or append with a pre-sized/bounded strategy when constructing large strings repeatedly.",
+    "tradeoffs": "May require refactoring for readability, query shape, or framework conventions."
+  },
+  "severity": "warning",
+  "tier": 2,
+  "tags": [
+    "ruby",
+    "allocations",
+    "hot-path",
+    "string"
+  ],
+  "ontology": {
+    "system_layers": [
+      "code"
+    ],
+    "resource_impacts": [
+      "cpu"
+    ],
+    "detection_methods": [
+      "static_analysis"
+    ],
+    "remediation_patterns": [
+      "algorithmic_improvement"
+    ]
+  },
+  "cost_dimensions": {
+    "compute": "medium",
+    "memory": "medium",
+    "network": "low",
+    "storage": "low",
+    "human_time": "medium",
+    "carbon": "medium",
+    "water": "low"
+  },
+  "amplification": {
+    "scales_with_users": true,
+    "scales_with_data_volume": true,
+    "scales_non_linearly": false
+  },
+  "temporal_behavior": {
+    "startup_only": false,
+    "steady_state": true,
+    "burst_sensitive": true,
+    "time_degradation": false
+  },
+  "runtime_evidence": [
+    "CPU profiles",
+    "allocation profiles",
+    "request traces",
+    "background job timing"
+  ],
+  "examples": {
+    "pattern": [
+      {
+        "title": "Building strings one item at a time",
+        "description": "A loop repeatedly appends or interpolates into a string while processing many records."
+      }
+    ],
+    "remediation": [
+      {
+        "title": "Use buffered construction",
+        "description": "Accumulate fragments and join them once, or use StringIO for stream-like generation."
+      }
+    ]
+  }
+}

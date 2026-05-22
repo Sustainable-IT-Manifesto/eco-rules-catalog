@@ -1,0 +1,82 @@
+{
+  "category": "Computation",
+  "category_code": "CMP",
+  "family": "Ruby",
+  "family_code": "RB",
+  "layer": "code",
+  "enabled_by_default": true,
+  "metadata": {
+    "catalog_version": "0.4.0"
+  },
+  "id": "ECO-CMP-RB-008",
+  "canonical_id": "ECO-CMP-RB-008",
+  "sequence": 8,
+  "legacy_id": "ECO-RB-008",
+  "title": "Excessive object allocation in hot paths",
+  "summary": "Allocating short-lived hashes, arrays, strings, or objects in tight loops increases GC pressure.",
+  "rationale": "Ruby performance is often dominated by allocation behavior rather than raw instruction count. Avoidable temporary objects can degrade throughput.",
+  "detection": {
+    "method": "ast",
+    "languages": [
+      "ruby"
+    ],
+    "parser": "ruby_parser_or_prism"
+  },
+  "impact": {
+    "type": "memory",
+    "confidence": 0.75,
+    "notes": "Impact increases in hot paths, large collections, high-traffic Rails actions, background jobs, or repeated request paths."
+  },
+  "remediation": {
+    "guidance": "Reuse immutable constants, reduce temporary object creation, prefer streaming transformations, and profile before micro-optimizing.",
+    "tradeoffs": "May require refactoring for readability, query shape, or framework conventions."
+  },
+  "severity": "warning",
+  "tier": 2,
+  "tags": [
+    "ruby",
+    "allocations",
+    "gc",
+    "hot-path"
+  ],
+  "ontology": {
+    "system_layers": [
+      "code"
+    ],
+    "resource_impacts": [
+      "memory"
+    ],
+    "detection_methods": [
+      "static_analysis"
+    ],
+    "remediation_patterns": [
+      "algorithmic_improvement"
+    ]
+  },
+  "cost_dimensions": {
+    "compute": "medium",
+    "memory": "medium",
+    "network": "low",
+    "storage": "low",
+    "human_time": "medium",
+    "carbon": "medium",
+    "water": "low"
+  },
+  "amplification": {
+    "scales_with_users": true,
+    "scales_with_data_volume": true,
+    "scales_non_linearly": false
+  },
+  "temporal_behavior": {
+    "startup_only": false,
+    "steady_state": true,
+    "burst_sensitive": true,
+    "time_degradation": false
+  },
+  "runtime_evidence": [
+    "allocation profiles",
+    "GC time",
+    "ObjectSpace counts",
+    "flamegraphs"
+  ]
+}

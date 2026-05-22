@@ -122,9 +122,9 @@ def derive_primary_id(rule):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--catalog", required=True, help="Path to master.json")
-    ap.add_argument("--categories", required=True, help="Path to ontology/categories.json")
-    ap.add_argument("--families", required=True, help="Path to ontology/families.json")
+    ap.add_argument("--catalog", default="catalog/master.json", help="Path to master.json")
+    ap.add_argument("--categories", default="ontology/categories.json", help="Path to ontology/categories.json")
+    ap.add_argument("--families", default="ontology/families.json", help="Path to ontology/families.json")
     ap.add_argument("--strict", action="store_true", help="Enable stricter checks on tier/severity/layer")
     args = ap.parse_args()
 

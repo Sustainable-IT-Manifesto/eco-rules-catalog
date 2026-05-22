@@ -77,4 +77,6 @@ No remediation examples provided.
 ## Navigation
 
 - [Back to Human Catalog](index.md)
+- [Back to Resilience & Reliability category](categories/res/index.md)
+- [Back to Disaster Recovery family](categories/res/families/dr/index.md)
 - [Back to Rule Browser](../rule-browser.md)

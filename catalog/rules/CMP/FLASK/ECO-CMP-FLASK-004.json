@@ -1,0 +1,95 @@
+{
+  "category": "Computation",
+  "category_code": "CMP",
+  "layer": "code",
+  "enabled_by_default": true,
+  "metadata": {
+    "catalog_version": "0.4.0"
+  },
+  "severity": "warning",
+  "tier": 2,
+  "family": "Flask",
+  "family_code": "FLASK",
+  "id": "ECO-CMP-FLASK-004",
+  "canonical_id": "ECO-CMP-FLASK-004",
+  "sequence": 4,
+  "legacy_id": "ECO-FLASK-004",
+  "title": "Session payload bloat",
+  "summary": "Flask session data stores large objects or repeated state in client-side cookies or backing stores.",
+  "rationale": "Large session payloads increase network transfer, serialization cost, and request processing overhead.",
+  "detection": {
+    "method": "ast",
+    "languages": [
+      "python"
+    ],
+    "parser": "python-ast"
+  },
+  "impact": {
+    "type": "network",
+    "confidence": 0.72,
+    "notes": "Impact increases on high-traffic routes, large datasets, frequently rendered pages, or repeated background work."
+  },
+  "remediation": {
+    "guidance": "Store only compact identifiers in the session and keep larger state server-side with lifecycle controls.",
+    "tradeoffs": "Framework conventions, readability, caching correctness, and deployment topology should be considered before changing behavior."
+  },
+  "tags": [
+    "flask",
+    "session",
+    "serialization"
+  ],
+  "ontology": {
+    "system_layers": [
+      "code"
+    ],
+    "resource_impacts": [
+      "network"
+    ],
+    "detection_methods": [
+      "static_analysis"
+    ],
+    "remediation_patterns": [
+      "algorithmic_improvement"
+    ]
+  },
+  "cost_dimensions": {
+    "compute": "medium",
+    "memory": "medium",
+    "network": "medium",
+    "storage": "low",
+    "human_time": "medium",
+    "carbon": "medium",
+    "water": "low"
+  },
+  "amplification": {
+    "scales_with_users": true,
+    "scales_with_data_volume": false,
+    "scales_non_linearly": false
+  },
+  "temporal_behavior": {
+    "startup_only": false,
+    "steady_state": true,
+    "burst_sensitive": true,
+    "time_degradation": false
+  },
+  "runtime_evidence": [
+    "request traces",
+    "CPU profiles",
+    "allocation profiles",
+    "APM transaction timing"
+  ],
+  "examples": {
+    "pattern": [
+      {
+        "title": "Session payload bloat",
+        "description": "Flask session data stores large objects or repeated state in client-side cookies or backing stores."
+      }
+    ],
+    "remediation": [
+      {
+        "title": "Reduce repeated work",
+        "description": "Store only compact identifiers in the session and keep larger state server-side with lifecycle controls."
+      }
+    ]
+  }
+}

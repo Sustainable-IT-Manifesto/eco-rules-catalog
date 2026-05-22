@@ -1,0 +1,96 @@
+{
+  "category": "Computation",
+  "category_code": "CMP",
+  "layer": "code",
+  "enabled_by_default": true,
+  "metadata": {
+    "catalog_version": "0.4.0"
+  },
+  "severity": "warning",
+  "tier": 2,
+  "family": "Joomla",
+  "family_code": "JOOMLA",
+  "id": "ECO-CMP-JOOMLA-005",
+  "canonical_id": "ECO-CMP-JOOMLA-005",
+  "sequence": 5,
+  "legacy_id": "ECO-JOOMLA-005",
+  "title": "Large media served without optimization",
+  "summary": "Joomla templates or content fields serve oversized images or unoptimized media variants.",
+  "rationale": "Oversized media increases bandwidth, client CPU/GPU work, and carbon impact.",
+  "detection": {
+    "method": "ast",
+    "languages": [
+      "php"
+    ],
+    "parser": "php-ast"
+  },
+  "impact": {
+    "type": "network",
+    "confidence": 0.72,
+    "notes": "Impact increases on high-traffic routes, large datasets, frequently rendered pages, or repeated background work."
+  },
+  "remediation": {
+    "guidance": "Generate responsive variants, compress media, lazy-load below-the-fold content, and set cache headers.",
+    "tradeoffs": "Framework conventions, readability, caching correctness, and deployment topology should be considered before changing behavior."
+  },
+  "tags": [
+    "joomla",
+    "media",
+    "images"
+  ],
+  "ontology": {
+    "system_layers": [
+      "code"
+    ],
+    "resource_impacts": [
+      "network",
+      "storage"
+    ],
+    "detection_methods": [
+      "static_analysis"
+    ],
+    "remediation_patterns": [
+      "caching"
+    ]
+  },
+  "cost_dimensions": {
+    "compute": "medium",
+    "memory": "medium",
+    "network": "medium",
+    "storage": "medium",
+    "human_time": "medium",
+    "carbon": "medium",
+    "water": "low"
+  },
+  "amplification": {
+    "scales_with_users": true,
+    "scales_with_data_volume": true,
+    "scales_non_linearly": false
+  },
+  "temporal_behavior": {
+    "startup_only": false,
+    "steady_state": true,
+    "burst_sensitive": true,
+    "time_degradation": false
+  },
+  "runtime_evidence": [
+    "request traces",
+    "CPU profiles",
+    "allocation profiles",
+    "APM transaction timing"
+  ],
+  "examples": {
+    "pattern": [
+      {
+        "title": "Large media served without optimization",
+        "description": "Joomla templates or content fields serve oversized images or unoptimized media variants."
+      }
+    ],
+    "remediation": [
+      {
+        "title": "Reduce repeated work",
+        "description": "Generate responsive variants, compress media, lazy-load below-the-fold content, and set cache headers."
+      }
+    ]
+  }
+}
