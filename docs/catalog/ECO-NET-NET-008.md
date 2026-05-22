@@ -2,9 +2,9 @@
 
 **Name:** Over-fetching API fields
 
-**Category:** NET
+**Category:** Networking
 
-**Family:** NET
+**Family:** Network
 
 **Primary layer:** `network`
 
@@ -22,8 +22,7 @@ Returning unnecessary fields increases payload size and processing.
 
 ## Detection
 
-- **languages:**
-  - infra
+- **languages:** `infra`
 - **method:** trace
 
 ## Remediation
@@ -38,6 +37,10 @@ No pattern examples provided.
 ## Remediation examples
 
 No remediation examples provided.
+
+## Metadata
+
+- **catalog_version:** 0.4.0
 
 ## Navigation
 

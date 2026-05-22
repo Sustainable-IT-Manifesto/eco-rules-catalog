@@ -2,7 +2,7 @@
 
 **Name:** No batching of vector search queries
 
-**Category:** AIM
+**Category:** AI/ML
 
 **Family:** AI
 
@@ -22,8 +22,7 @@ Unbatched vector queries increase overhead and reduce throughput.
 
 ## Detection
 
-- **languages:**
-  - infra
+- **languages:** `infra`
 - **method:** trace
 
 ## Remediation
@@ -38,6 +37,10 @@ No pattern examples provided.
 ## Remediation examples
 
 No remediation examples provided.
+
+## Metadata
+
+- **catalog_version:** 0.4.0
 
 ## Navigation
 

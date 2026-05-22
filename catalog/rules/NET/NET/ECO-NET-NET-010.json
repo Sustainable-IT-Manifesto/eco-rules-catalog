@@ -35,5 +35,8 @@
     "pagination"
   ],
   "tier": 2,
-  "title": "Large payloads without pagination"
+  "title": "Large payloads without pagination",
+  "metadata": {
+    "catalog_version": "0.4.0"
+  }
 }

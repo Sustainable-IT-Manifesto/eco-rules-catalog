@@ -36,5 +36,8 @@
     "limits"
   ],
   "tier": 3,
-  "title": "No resource limits in containers"
+  "title": "No resource limits in containers",
+  "metadata": {
+    "catalog_version": "0.4.0"
+  }
 }

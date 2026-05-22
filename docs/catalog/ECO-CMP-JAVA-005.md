@@ -2,9 +2,9 @@
 
 **Name:** N+1 ORM query pattern
 
-**Category:** CMP
+**Category:** Computation
 
-**Family:** JAVA
+**Family:** Java
 
 **Primary layer:** `code`
 
@@ -22,8 +22,7 @@ ORM queries inside loops multiply DB calls.
 
 ## Detection
 
-- **languages:**
-  - java
+- **languages:** `java`
 - **method:** hybrid
 
 ## Remediation
@@ -38,6 +37,10 @@ No pattern examples provided.
 ## Remediation examples
 
 No remediation examples provided.
+
+## Metadata
+
+- **catalog_version:** 0.4.0
 
 ## Navigation
 

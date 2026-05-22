@@ -36,5 +36,8 @@
     "logging"
   ],
   "tier": 1,
-  "title": "Debug logging in production hot path"
+  "title": "Debug logging in production hot path",
+  "metadata": {
+    "catalog_version": "0.4.0"
+  }
 }

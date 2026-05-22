@@ -37,5 +37,8 @@
     "degradation"
   ],
   "tier": 3,
-  "title": "No graceful degradation strategy"
+  "title": "No graceful degradation strategy",
+  "metadata": {
+    "catalog_version": "0.4.0"
+  }
 }

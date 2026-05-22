@@ -28,8 +28,7 @@ Compose configurations that restart transient or low-value services indefinitely
 ## Remediation
 
 - **guidance:** Use restart policies intentionally and avoid infinite restart churn for services that should fail fast during development.
-- **examples:**
-  - Prefer clearer failure behavior for optional tooling containers.
+- **examples:** `Prefer clearer failure behavior for optional tooling containers.`
 
 ## Pattern examples
 
@@ -44,6 +43,7 @@ No remediation examples provided.
 - **status:** draft
 - **severity:** medium
 - **version:** 0.3.0-draft
+- **catalog_version:** 0.4.0
 
 ## Navigation
 

@@ -2,9 +2,9 @@
 
 **Name:** Unbounded cache growth
 
-**Category:** CMP
+**Category:** Computation
 
-**Family:** JAVA
+**Family:** Java
 
 **Primary layer:** `code`
 
@@ -22,8 +22,7 @@ Caches without limits grow until they become the problem.
 
 ## Detection
 
-- **languages:**
-  - java
+- **languages:** `java`
 - **method:** config
 
 ## Remediation
@@ -38,6 +37,10 @@ No pattern examples provided.
 ## Remediation examples
 
 No remediation examples provided.
+
+## Metadata
+
+- **catalog_version:** 0.4.0
 
 ## Navigation
 

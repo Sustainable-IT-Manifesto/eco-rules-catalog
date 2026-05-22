@@ -2,9 +2,9 @@
 
 **Name:** No data lifecycle governance
 
-**Category:** DAT
+**Category:** Data
 
-**Family:** DATA
+**Family:** Data
 
 **Primary layer:** `data`
 
@@ -22,8 +22,7 @@ Lack of lifecycle governance leads to perpetual growth and shadow datasets.
 
 ## Detection
 
-- **languages:**
-  - org
+- **languages:** `org`
 - **method:** config
 
 ## Remediation
@@ -38,6 +37,10 @@ No pattern examples provided.
 ## Remediation examples
 
 No remediation examples provided.
+
+## Metadata
+
+- **catalog_version:** 0.4.0
 
 ## Navigation
 

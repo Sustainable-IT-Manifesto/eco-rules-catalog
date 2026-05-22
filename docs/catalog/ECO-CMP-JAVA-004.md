@@ -2,9 +2,9 @@
 
 **Name:** Reflection in hot path
 
-**Category:** CMP
+**Category:** Computation
 
-**Family:** JAVA
+**Family:** Java
 
 **Primary layer:** `code`
 
@@ -22,8 +22,7 @@ Reflection adds overhead and can inflate latency and CPU usage.
 
 ## Detection
 
-- **languages:**
-  - java
+- **languages:** `java`
 - **method:** ast
 
 ## Remediation
@@ -38,6 +37,10 @@ No pattern examples provided.
 ## Remediation examples
 
 No remediation examples provided.
+
+## Metadata
+
+- **catalog_version:** 0.4.0
 
 ## Navigation
 

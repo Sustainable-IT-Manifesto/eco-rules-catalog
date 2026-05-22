@@ -35,5 +35,8 @@
     "polling"
   ],
   "tier": 2,
-  "title": "Excessive polling intervals"
+  "title": "Excessive polling intervals",
+  "metadata": {
+    "catalog_version": "0.4.0"
+  }
 }

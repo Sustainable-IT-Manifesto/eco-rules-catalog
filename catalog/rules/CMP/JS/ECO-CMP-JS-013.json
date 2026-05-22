@@ -37,5 +37,8 @@
     "compression"
   ],
   "tier": 2,
-  "title": "Uncompressed static assets"
+  "title": "Uncompressed static assets",
+  "metadata": {
+    "catalog_version": "0.4.0"
+  }
 }

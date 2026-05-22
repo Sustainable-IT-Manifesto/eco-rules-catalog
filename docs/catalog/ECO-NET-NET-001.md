@@ -2,9 +2,9 @@
 
 **Name:** Missing HTTP caching headers
 
-**Category:** NET
+**Category:** Networking
 
-**Family:** NET
+**Family:** Network
 
 **Primary layer:** `network`
 
@@ -22,9 +22,7 @@ Missing cache headers causes repeated downloads and wasted work.
 
 ## Detection
 
-- **languages:**
-  - infra
-  - org
+- **languages:** `infra`, `org`
 - **method:** trace
 
 ## Remediation
@@ -39,6 +37,10 @@ No pattern examples provided.
 ## Remediation examples
 
 No remediation examples provided.
+
+## Metadata
+
+- **catalog_version:** 0.4.0
 
 ## Navigation
 

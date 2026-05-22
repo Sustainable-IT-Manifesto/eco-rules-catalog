@@ -2,9 +2,9 @@
 
 **Name:** Synchronous filesystem calls in request path
 
-**Category:** CMP
+**Category:** Computation
 
-**Family:** JS
+**Family:** JavaScript
 
 **Primary layer:** `code`
 
@@ -22,8 +22,7 @@ Sync FS calls block the event loop and reduce concurrency.
 
 ## Detection
 
-- **languages:**
-  - javascript
+- **languages:** `javascript`
 - **method:** ast
 
 ## Remediation
@@ -38,6 +37,10 @@ No pattern examples provided.
 ## Remediation examples
 
 No remediation examples provided.
+
+## Metadata
+
+- **catalog_version:** 0.4.0
 
 ## Navigation
 

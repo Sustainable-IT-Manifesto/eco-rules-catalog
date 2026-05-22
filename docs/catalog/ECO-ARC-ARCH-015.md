@@ -2,9 +2,9 @@
 
 **Name:** Tight coupling across bounded contexts
 
-**Category:** ARC
+**Category:** Architecture
 
-**Family:** ARCH
+**Family:** Architecture
 
 **Primary layer:** `architecture`
 
@@ -22,8 +22,7 @@ Coupling increases coordination cost and failure propagation.
 
 ## Detection
 
-- **languages:**
-  - org
+- **languages:** `org`
 - **method:** hybrid
 
 ## Remediation
@@ -38,6 +37,10 @@ No pattern examples provided.
 ## Remediation examples
 
 No remediation examples provided.
+
+## Metadata
+
+- **catalog_version:** 0.4.0
 
 ## Navigation
 

@@ -2,9 +2,9 @@
 
 **Name:** Large heap allocation spikes
 
-**Category:** CMP
+**Category:** Computation
 
-**Family:** JAVA
+**Family:** Java
 
 **Primary layer:** `architecture`
 
@@ -22,8 +22,7 @@ Heap spikes increase GC pauses and tail latency.
 
 ## Detection
 
-- **languages:**
-  - java
+- **languages:** `java`
 - **method:** trace
 
 ## Remediation
@@ -38,6 +37,10 @@ No pattern examples provided.
 ## Remediation examples
 
 No remediation examples provided.
+
+## Metadata
+
+- **catalog_version:** 0.4.0
 
 ## Navigation
 

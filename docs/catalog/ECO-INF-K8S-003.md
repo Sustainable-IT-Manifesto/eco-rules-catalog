@@ -28,8 +28,7 @@ Health probes that run more often than necessary or do expensive work can create
 ## Remediation
 
 - **guidance:** Tune probe frequency and probe implementation so checks are lightweight and proportional to real operational need.
-- **examples:**
-  - Avoid high-frequency probes that trigger full dependency checks on every interval.
+- **examples:** `Avoid high-frequency probes that trigger full dependency checks on every interval.`
 
 ## Pattern examples
 
@@ -44,6 +43,7 @@ No remediation examples provided.
 - **status:** draft
 - **severity:** medium
 - **version:** 0.3.0-draft
+- **catalog_version:** 0.4.0
 
 ## Navigation
 

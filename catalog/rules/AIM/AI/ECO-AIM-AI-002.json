@@ -37,5 +37,8 @@
     "batching"
   ],
   "tier": 2,
-  "title": "No inference batching"
+  "title": "No inference batching",
+  "metadata": {
+    "catalog_version": "0.4.0"
+  }
 }

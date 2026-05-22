@@ -25,7 +25,7 @@
       "architecture"
     ]
   },
-  "rationale": "You can’t reduce what you don’t see.",
+  "rationale": "You can\u2019t reduce what you don\u2019t see.",
   "remediation": {
     "guidance": "Instrument CPU/mem/QPS/latency; add dashboards and alerts.",
     "tradeoffs": "Telemetry cost; requires curation."
@@ -37,5 +37,8 @@
     "metrics"
   ],
   "tier": 4,
-  "title": "No observability on utilization"
+  "title": "No observability on utilization",
+  "metadata": {
+    "catalog_version": "0.4.0"
+  }
 }

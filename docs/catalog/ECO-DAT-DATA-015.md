@@ -2,9 +2,9 @@
 
 **Name:** Shadow data stores outside governance
 
-**Category:** DAT
+**Category:** Data
 
-**Family:** DATA
+**Family:** Data
 
 **Primary layer:** `data`
 
@@ -22,8 +22,7 @@ Unofficial copies create duplicated storage and compliance risk.
 
 ## Detection
 
-- **languages:**
-  - org
+- **languages:** `org`
 - **method:** hybrid
 
 ## Remediation
@@ -38,6 +37,10 @@ No pattern examples provided.
 ## Remediation examples
 
 No remediation examples provided.
+
+## Metadata
+
+- **catalog_version:** 0.4.0
 
 ## Navigation
 

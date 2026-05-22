@@ -37,5 +37,8 @@
     "timeouts"
   ],
   "tier": 2,
-  "title": "Missing network timeout"
+  "title": "Missing network timeout",
+  "metadata": {
+    "catalog_version": "0.4.0"
+  }
 }

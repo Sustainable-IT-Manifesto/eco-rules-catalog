@@ -37,5 +37,8 @@
     "latency"
   ],
   "tier": 2,
-  "title": "Blocking I/O inside async context"
+  "title": "Blocking I/O inside async context",
+  "metadata": {
+    "catalog_version": "0.4.0"
+  }
 }

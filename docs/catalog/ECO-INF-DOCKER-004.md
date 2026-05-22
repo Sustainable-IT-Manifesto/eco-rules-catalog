@@ -28,8 +28,7 @@ Docker image layers that retain apt, apk, pip, npm, or similar caches increase s
 ## Remediation
 
 - **guidance:** Clear package manager caches in the same layer where packages are installed, or use build-stage-only installs where possible.
-- **examples:**
-  - Combine install and cleanup in a single RUN instruction so caches do not persist into a committed layer.
+- **examples:** `Combine install and cleanup in a single RUN instruction so caches do not persist into a committed layer.`
 
 ## Pattern examples
 
@@ -44,6 +43,7 @@ No remediation examples provided.
 - **status:** draft
 - **severity:** medium
 - **version:** 0.3.0-draft
+- **catalog_version:** 0.4.0
 
 ## Navigation
 

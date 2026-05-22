@@ -19,7 +19,7 @@
   },
   "layer": "process",
   "legacy_id": "ECO-PROC-003",
-  "rationale": "If teams can’t see cost per service, they can’t act on it.",
+  "rationale": "If teams can\u2019t see cost per service, they can\u2019t act on it.",
   "remediation": {
     "guidance": "Implement cost allocation, tagging, and service-level chargeback/showback.",
     "tradeoffs": "Org/process change."
@@ -36,5 +36,8 @@
     "system_layers": [
       "process"
     ]
+  },
+  "metadata": {
+    "catalog_version": "0.4.0"
   }
 }

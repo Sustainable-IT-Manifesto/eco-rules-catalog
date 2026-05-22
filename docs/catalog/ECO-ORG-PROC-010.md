@@ -2,9 +2,9 @@
 
 **Name:** No hardware refresh sustainability policy
 
-**Category:** ORG
+**Category:** Organizational
 
-**Family:** PROC
+**Family:** Process
 
 **Primary layer:** `process`
 
@@ -22,8 +22,7 @@ Hardware lifecycle without sustainability policy increases e-waste risk.
 
 ## Detection
 
-- **languages:**
-  - org
+- **languages:** `org`
 - **method:** config
 
 ## Remediation
@@ -38,6 +37,10 @@ No pattern examples provided.
 ## Remediation examples
 
 No remediation examples provided.
+
+## Metadata
+
+- **catalog_version:** 0.4.0
 
 ## Navigation
 

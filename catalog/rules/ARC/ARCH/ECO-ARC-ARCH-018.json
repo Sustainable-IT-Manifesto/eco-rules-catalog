@@ -35,5 +35,8 @@
     "cold-start"
   ],
   "tier": 2,
-  "title": "No cold-start optimization"
+  "title": "No cold-start optimization",
+  "metadata": {
+    "catalog_version": "0.4.0"
+  }
 }

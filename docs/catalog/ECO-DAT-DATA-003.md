@@ -2,9 +2,9 @@
 
 **Name:** Large unused indexes
 
-**Category:** DAT
+**Category:** Data
 
-**Family:** DATA
+**Family:** Data
 
 **Primary layer:** `data`
 
@@ -22,8 +22,7 @@ Unused indexes waste storage and slow writes.
 
 ## Detection
 
-- **languages:**
-  - database
+- **languages:** `database`
 - **method:** query
 
 ## Remediation
@@ -38,6 +37,10 @@ No pattern examples provided.
 ## Remediation examples
 
 No remediation examples provided.
+
+## Metadata
+
+- **catalog_version:** 0.4.0
 
 ## Navigation
 

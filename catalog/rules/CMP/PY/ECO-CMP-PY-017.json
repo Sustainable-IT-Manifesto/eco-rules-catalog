@@ -36,5 +36,8 @@
     "memory"
   ],
   "tier": 2,
-  "title": "Large object retained in global scope"
+  "title": "Large object retained in global scope",
+  "metadata": {
+    "catalog_version": "0.4.0"
+  }
 }

@@ -2,7 +2,7 @@
 
 **Name:** No model quantization
 
-**Category:** AIM
+**Category:** AI/ML
 
 **Family:** AI
 
@@ -22,8 +22,7 @@ Failure to quantize when appropriate wastes inference compute.
 
 ## Detection
 
-- **languages:**
-  - infra
+- **languages:** `infra`
 - **method:** config
 
 ## Remediation
@@ -38,6 +37,10 @@ No pattern examples provided.
 ## Remediation examples
 
 No remediation examples provided.
+
+## Metadata
+
+- **catalog_version:** 0.4.0
 
 ## Navigation
 

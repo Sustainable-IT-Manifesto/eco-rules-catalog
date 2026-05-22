@@ -36,5 +36,8 @@
     "scaling"
   ],
   "tier": 3,
-  "title": "Stateful services blocking scaling"
+  "title": "Stateful services blocking scaling",
+  "metadata": {
+    "catalog_version": "0.4.0"
+  }
 }

@@ -3,46 +3,90 @@
   "title": "Eco Rule",
   "type": "object",
   "properties": {
-    "id": { "type": "string" },
-    "name": { "type": "string" },
-    "title": { "type": "string" },
-    "description": { "type": "string" },
-    "summary": { "type": "string" },
-    "category_code": { "type": "string" },
-    "family_code": { "type": "string" },
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "summary": {
+      "type": "string"
+    },
+    "category_code": {
+      "type": "string"
+    },
+    "family_code": {
+      "type": "string"
+    },
     "layer": {
       "type": "string",
-      "enum": ["ai", "architecture", "code", "data", "network", "process"]
+      "enum": [
+        "ai",
+        "architecture",
+        "code",
+        "data",
+        "network",
+        "process"
+      ]
     },
     "ontology": {
       "type": "object",
       "properties": {
-        "category": { "type": "string" },
-        "family": { "type": "string" },
+        "category": {
+          "type": "string"
+        },
+        "family": {
+          "type": "string"
+        },
         "system_layers": {
           "type": "array",
           "items": {
             "type": "string",
-            "enum": ["ai", "architecture", "code", "data", "network", "process"]
+            "enum": [
+              "ai",
+              "architecture",
+              "code",
+              "data",
+              "network",
+              "process"
+            ]
           }
         }
       },
       "additionalProperties": true
     },
-    "impact": { "type": "object" },
-    "detection": { "type": "object" },
-    "remediation": { "type": "object" },
-    "metadata": { "type": "object" },
+    "impact": {
+      "type": "object"
+    },
+    "detection": {
+      "type": "object"
+    },
+    "remediation": {
+      "type": "object"
+    },
+    "metadata": {
+      "type": "object"
+    },
     "examples": {
       "type": "object",
       "properties": {
         "pattern": {
           "type": "array",
-          "items": { "$ref": "#/$defs/exampleItem" }
+          "items": {
+            "$ref": "#/$defs/exampleItem"
+          }
         },
         "remediation": {
           "type": "array",
-          "items": { "$ref": "#/$defs/exampleItem" }
+          "items": {
+            "$ref": "#/$defs/exampleItem"
+          }
         }
       },
       "additionalProperties": false
@@ -99,18 +143,152 @@
         }
       },
       "additionalProperties": false
+    },
+    "cost_dimensions": {
+      "$ref": "#/$defs/costDimensions"
+    },
+    "amplification": {
+      "$ref": "#/$defs/amplification"
+    },
+    "temporal_behavior": {
+      "$ref": "#/$defs/temporalBehavior"
+    },
+    "runtime_evidence": {
+      "$ref": "#/$defs/runtimeEvidence"
+    },
+    "sustainability_priority": {
+      "$ref": "#/$defs/sustainabilityPriority"
     }
   },
-  "required": ["id", "layer"],
+  "required": [
+    "id",
+    "layer"
+  ],
   "additionalProperties": true,
   "$defs": {
     "exampleItem": {
       "type": "object",
       "properties": {
-        "title": { "type": "string" },
-        "description": { "type": "string" }
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
       },
-      "required": ["title", "description"],
+      "required": [
+        "title",
+        "description"
+      ],
+      "additionalProperties": false
+    },
+    "impactLevel": {
+      "type": "string",
+      "enum": [
+        "none",
+        "low",
+        "medium",
+        "high",
+        "unknown"
+      ]
+    },
+    "costDimensions": {
+      "type": "object",
+      "description": "Estimated relative impact across resource, operational, and sustainability dimensions. Values are qualitative by design for early catalog maturity.",
+      "properties": {
+        "compute": {
+          "$ref": "#/$defs/impactLevel"
+        },
+        "memory": {
+          "$ref": "#/$defs/impactLevel"
+        },
+        "network": {
+          "$ref": "#/$defs/impactLevel"
+        },
+        "storage": {
+          "$ref": "#/$defs/impactLevel"
+        },
+        "human_time": {
+          "$ref": "#/$defs/impactLevel"
+        },
+        "carbon": {
+          "$ref": "#/$defs/impactLevel"
+        },
+        "water": {
+          "$ref": "#/$defs/impactLevel"
+        }
+      },
+      "additionalProperties": false
+    },
+    "amplification": {
+      "type": "object",
+      "description": "How the rule finding may amplify as the system grows or changes.",
+      "properties": {
+        "scales_with_users": {
+          "type": "boolean"
+        },
+        "scales_with_data_volume": {
+          "type": "boolean"
+        },
+        "scales_non_linearly": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "temporalBehavior": {
+      "type": "object",
+      "description": "When the inefficiency appears or worsens over a system lifecycle.",
+      "properties": {
+        "startup_only": {
+          "type": "boolean"
+        },
+        "steady_state": {
+          "type": "boolean"
+        },
+        "burst_sensitive": {
+          "type": "boolean"
+        },
+        "time_degradation": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "runtimeEvidence": {
+      "type": "array",
+      "description": "Runtime or operational evidence that can confirm, prioritize, or refute the finding.",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "sustainabilityPriority": {
+      "type": "object",
+      "description": "Optional prioritization signals for reporting, dashboards, and remediation planning.",
+      "properties": {
+        "operational_cost": {
+          "$ref": "#/$defs/impactLevel"
+        },
+        "carbon": {
+          "$ref": "#/$defs/impactLevel"
+        },
+        "water": {
+          "$ref": "#/$defs/impactLevel"
+        },
+        "developer_productivity": {
+          "$ref": "#/$defs/impactLevel"
+        },
+        "reliability": {
+          "$ref": "#/$defs/impactLevel"
+        },
+        "customer_impact": {
+          "$ref": "#/$defs/impactLevel"
+        },
+        "scaling_risk": {
+          "$ref": "#/$defs/impactLevel"
+        }
+      },
       "additionalProperties": false
     }
   }

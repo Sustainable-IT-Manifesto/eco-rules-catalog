@@ -37,5 +37,8 @@
     "model-selection"
   ],
   "tier": 3,
-  "title": "Oversized model selection"
+  "title": "Oversized model selection",
+  "metadata": {
+    "catalog_version": "0.4.0"
+  }
 }

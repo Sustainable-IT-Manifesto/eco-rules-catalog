@@ -1,5 +1,6 @@
 {
-  "catalog_version": "0.2.0",
+  "catalog_version": "0.4.0",
+  "generated_at": "2026-05-21T15:43:00.384804Z",
   "license": "See LICENSE",
   "publisher": {
     "name": "Sustainable IT Manifesto Foundation",
@@ -7,6 +8,77 @@
   },
   "rule_id_namespace": "ECO",
   "rules": [
+    {
+      "id": "ECO-AIM-AGENT-001",
+      "canonical_id": "ECO-AIM-AGENT-001",
+      "title": "Unbounded agent tool-call loop",
+      "summary": "An agent can repeatedly call tools without a bounded budget, convergence check, or escalation path.",
+      "category": "AI/ML",
+      "category_code": "AIM",
+      "family": "AI Agents",
+      "family_code": "AGENT",
+      "layer": "ai",
+      "ontology": {
+        "category": "AI/ML",
+        "family": "AI Agents",
+        "system_layers": [
+          "ai"
+        ]
+      },
+      "impact": {
+        "type": "ai-compute",
+        "confidence": 0.8,
+        "notes": "Added as part of the 0.3.0 expansion to capture cross-system sustainability and operational waste."
+      },
+      "cost_dimensions": {
+        "compute": "high",
+        "memory": "medium",
+        "network": "high",
+        "storage": "low",
+        "human_time": "medium",
+        "carbon": "high",
+        "water": "medium"
+      },
+      "amplification": {
+        "scales_with_users": true,
+        "scales_with_data_volume": false,
+        "scales_non_linearly": true
+      },
+      "temporal_behavior": {
+        "startup_only": false,
+        "steady_state": true,
+        "burst_sensitive": true,
+        "time_degradation": false
+      },
+      "runtime_evidence": [
+        "agent traces",
+        "tool-call logs",
+        "LLM billing"
+      ],
+      "detection": {
+        "method": "static-or-runtime",
+        "confidence": 0.55,
+        "runtime_validation_required": true
+      },
+      "remediation": {
+        "guidance": "Add explicit budgets, loop detection, tool-call limits, and human escalation for non-converging tasks.",
+        "tradeoffs": "May require architecture, product, or operations review rather than a local code change."
+      },
+      "metadata": {
+        "catalog_version": "0.4.0",
+        "status": "draft",
+        "source": "catalog expansion recommendations applied 2026-05-21"
+      },
+      "severity": "warning",
+      "enabled_by_default": false,
+      "tier": 2,
+      "tags": [
+        "agent",
+        "tool-calls",
+        "loop"
+      ],
+      "_source_file": "rules/AIM/AGENT/ECO-AIM-AGENT-001.json"
+    },
     {
       "canonical_id": "ECO-AIM-AI-001",
       "category": "AI/ML",
@@ -47,7 +119,10 @@
       ],
       "tier": 3,
       "title": "Oversized model selection",
-      "_source_file": "catalog/rules/AIM/AI/ECO-AIM-AI-001.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/AIM/AI/ECO-AIM-AI-001.json"
     },
     {
       "canonical_id": "ECO-AIM-AI-002",
@@ -89,7 +164,10 @@
       ],
       "tier": 2,
       "title": "No inference batching",
-      "_source_file": "catalog/rules/AIM/AI/ECO-AIM-AI-002.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/AIM/AI/ECO-AIM-AI-002.json"
     },
     {
       "canonical_id": "ECO-AIM-AI-003",
@@ -130,7 +208,10 @@
       ],
       "tier": 2,
       "title": "Re-embedding unchanged data",
-      "_source_file": "catalog/rules/AIM/AI/ECO-AIM-AI-003.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/AIM/AI/ECO-AIM-AI-003.json"
     },
     {
       "canonical_id": "ECO-AIM-AI-004",
@@ -172,7 +253,10 @@
       ],
       "tier": 2,
       "title": "No prompt caching",
-      "_source_file": "catalog/rules/AIM/AI/ECO-AIM-AI-004.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/AIM/AI/ECO-AIM-AI-004.json"
     },
     {
       "canonical_id": "ECO-AIM-AI-005",
@@ -213,7 +297,10 @@
       ],
       "tier": 3,
       "title": "Always-on inference endpoints",
-      "_source_file": "catalog/rules/AIM/AI/ECO-AIM-AI-005.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/AIM/AI/ECO-AIM-AI-005.json"
     },
     {
       "canonical_id": "ECO-AIM-AI-006",
@@ -255,7 +342,10 @@
       ],
       "tier": 2,
       "title": "Unbounded context window usage",
-      "_source_file": "catalog/rules/AIM/AI/ECO-AIM-AI-006.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/AIM/AI/ECO-AIM-AI-006.json"
     },
     {
       "canonical_id": "ECO-AIM-AI-007",
@@ -296,7 +386,10 @@
       ],
       "tier": 3,
       "title": "No model quantization",
-      "_source_file": "catalog/rules/AIM/AI/ECO-AIM-AI-007.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/AIM/AI/ECO-AIM-AI-007.json"
     },
     {
       "canonical_id": "ECO-AIM-AI-008",
@@ -337,7 +430,10 @@
       ],
       "tier": 3,
       "title": "Re-training without drift detection",
-      "_source_file": "catalog/rules/AIM/AI/ECO-AIM-AI-008.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/AIM/AI/ECO-AIM-AI-008.json"
     },
     {
       "canonical_id": "ECO-AIM-AI-009",
@@ -378,7 +474,10 @@
       ],
       "tier": 3,
       "title": "No evaluation before scaling model",
-      "_source_file": "catalog/rules/AIM/AI/ECO-AIM-AI-009.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/AIM/AI/ECO-AIM-AI-009.json"
     },
     {
       "canonical_id": "ECO-AIM-AI-010",
@@ -419,7 +518,10 @@
       ],
       "tier": 3,
       "title": "Overly frequent fine-tuning cycles",
-      "_source_file": "catalog/rules/AIM/AI/ECO-AIM-AI-010.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/AIM/AI/ECO-AIM-AI-010.json"
     },
     {
       "canonical_id": "ECO-AIM-AI-011",
@@ -461,7 +563,10 @@
       ],
       "tier": 4,
       "title": "Storing all embeddings indefinitely",
-      "_source_file": "catalog/rules/AIM/AI/ECO-AIM-AI-011.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/AIM/AI/ECO-AIM-AI-011.json"
     },
     {
       "canonical_id": "ECO-AIM-AI-012",
@@ -502,7 +607,10 @@
       ],
       "tier": 3,
       "title": "Large model in low-SLA workload",
-      "_source_file": "catalog/rules/AIM/AI/ECO-AIM-AI-012.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/AIM/AI/ECO-AIM-AI-012.json"
     },
     {
       "canonical_id": "ECO-AIM-AI-013",
@@ -543,7 +651,10 @@
       ],
       "tier": 4,
       "title": "No GPU utilization monitoring",
-      "_source_file": "catalog/rules/AIM/AI/ECO-AIM-AI-013.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/AIM/AI/ECO-AIM-AI-013.json"
     },
     {
       "canonical_id": "ECO-AIM-AI-014",
@@ -584,7 +695,10 @@
       ],
       "tier": 2,
       "title": "Inefficient feature preprocessing pipelines",
-      "_source_file": "catalog/rules/AIM/AI/ECO-AIM-AI-014.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/AIM/AI/ECO-AIM-AI-014.json"
     },
     {
       "canonical_id": "ECO-AIM-AI-015",
@@ -625,7 +739,223 @@
       ],
       "tier": 2,
       "title": "No batching of vector search queries",
-      "_source_file": "catalog/rules/AIM/AI/ECO-AIM-AI-015.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/AIM/AI/ECO-AIM-AI-015.json"
+    },
+    {
+      "id": "ECO-AIM-PROMPT-001",
+      "canonical_id": "ECO-AIM-PROMPT-001",
+      "title": "Repeated static prompt context",
+      "summary": "Large static instructions or reference material are injected into every prompt instead of being cached, retrieved, or shortened.",
+      "category": "AI/ML",
+      "category_code": "AIM",
+      "family": "Prompt Construction",
+      "family_code": "PROMPT",
+      "layer": "ai",
+      "ontology": {
+        "category": "AI/ML",
+        "family": "Prompt Construction",
+        "system_layers": [
+          "ai"
+        ]
+      },
+      "impact": {
+        "type": "ai-compute",
+        "confidence": 0.8,
+        "notes": "Added as part of the 0.3.0 expansion to capture cross-system sustainability and operational waste."
+      },
+      "cost_dimensions": {
+        "compute": "high",
+        "memory": "medium",
+        "network": "medium",
+        "storage": "low",
+        "human_time": "low",
+        "carbon": "high",
+        "water": "medium"
+      },
+      "amplification": {
+        "scales_with_users": true,
+        "scales_with_data_volume": false,
+        "scales_non_linearly": false
+      },
+      "temporal_behavior": {
+        "startup_only": false,
+        "steady_state": true,
+        "burst_sensitive": true,
+        "time_degradation": false
+      },
+      "runtime_evidence": [
+        "prompt logs",
+        "token usage",
+        "LLM billing"
+      ],
+      "detection": {
+        "method": "static-or-runtime",
+        "confidence": 0.55,
+        "runtime_validation_required": true
+      },
+      "remediation": {
+        "guidance": "Shorten stable instructions, use prompt caching where available, and retrieve only context needed for the task.",
+        "tradeoffs": "May require architecture, product, or operations review rather than a local code change."
+      },
+      "metadata": {
+        "catalog_version": "0.4.0",
+        "status": "draft",
+        "source": "catalog expansion recommendations applied 2026-05-21"
+      },
+      "severity": "warning",
+      "enabled_by_default": false,
+      "tier": 2,
+      "tags": [
+        "prompt",
+        "tokens",
+        "context"
+      ],
+      "_source_file": "rules/AIM/PROMPT/ECO-AIM-PROMPT-001.json"
+    },
+    {
+      "id": "ECO-AIM-RAG-001",
+      "canonical_id": "ECO-AIM-RAG-001",
+      "title": "Embedding regeneration without change detection",
+      "summary": "Embeddings are regenerated for unchanged content, wasting compute and increasing pipeline latency.",
+      "category": "AI/ML",
+      "category_code": "AIM",
+      "family": "Retrieval-Augmented Generation",
+      "family_code": "RAG",
+      "layer": "ai",
+      "ontology": {
+        "category": "AI/ML",
+        "family": "Retrieval-Augmented Generation",
+        "system_layers": [
+          "ai"
+        ]
+      },
+      "impact": {
+        "type": "ai-compute",
+        "confidence": 0.75,
+        "notes": "Added as part of the 0.3.0 expansion to capture cross-system sustainability and operational waste."
+      },
+      "cost_dimensions": {
+        "compute": "high",
+        "memory": "medium",
+        "network": "medium",
+        "storage": "medium",
+        "human_time": "low",
+        "carbon": "high",
+        "water": "medium"
+      },
+      "amplification": {
+        "scales_with_users": false,
+        "scales_with_data_volume": true,
+        "scales_non_linearly": false
+      },
+      "temporal_behavior": {
+        "startup_only": false,
+        "steady_state": true,
+        "burst_sensitive": true,
+        "time_degradation": false
+      },
+      "runtime_evidence": [
+        "embedding job logs",
+        "content hashes",
+        "vector DB writes"
+      ],
+      "detection": {
+        "method": "static-or-runtime",
+        "confidence": 0.55,
+        "runtime_validation_required": true
+      },
+      "remediation": {
+        "guidance": "Use content hashing, incremental indexing, and idempotent embedding pipelines.",
+        "tradeoffs": "May require architecture, product, or operations review rather than a local code change."
+      },
+      "metadata": {
+        "catalog_version": "0.4.0",
+        "status": "draft",
+        "source": "catalog expansion recommendations applied 2026-05-21"
+      },
+      "severity": "warning",
+      "enabled_by_default": false,
+      "tier": 2,
+      "tags": [
+        "rag",
+        "embeddings",
+        "vector"
+      ],
+      "_source_file": "rules/AIM/RAG/ECO-AIM-RAG-001.json"
+    },
+    {
+      "id": "ECO-AIM-RAG-002",
+      "canonical_id": "ECO-AIM-RAG-002",
+      "title": "Excessive retrieval fan-out",
+      "summary": "RAG retrieval queries too many sources, chunks, or indexes before ranking, increasing latency and inference context.",
+      "category": "AI/ML",
+      "category_code": "AIM",
+      "family": "Retrieval-Augmented Generation",
+      "family_code": "RAG",
+      "layer": "ai",
+      "ontology": {
+        "category": "AI/ML",
+        "family": "Retrieval-Augmented Generation",
+        "system_layers": [
+          "ai"
+        ]
+      },
+      "impact": {
+        "type": "ai-compute",
+        "confidence": 0.65,
+        "notes": "Added as part of the 0.3.0 expansion to capture cross-system sustainability and operational waste."
+      },
+      "cost_dimensions": {
+        "compute": "high",
+        "memory": "medium",
+        "network": "high",
+        "storage": "medium",
+        "human_time": "medium",
+        "carbon": "high",
+        "water": "medium"
+      },
+      "amplification": {
+        "scales_with_users": true,
+        "scales_with_data_volume": true,
+        "scales_non_linearly": true
+      },
+      "temporal_behavior": {
+        "startup_only": false,
+        "steady_state": true,
+        "burst_sensitive": true,
+        "time_degradation": false
+      },
+      "runtime_evidence": [
+        "retrieval traces",
+        "vector DB metrics",
+        "prompt token counts"
+      ],
+      "detection": {
+        "method": "static-or-runtime",
+        "confidence": 0.55,
+        "runtime_validation_required": true
+      },
+      "remediation": {
+        "guidance": "Tune top-k, prefiltering, reranking, chunking, and index design against answer quality and cost.",
+        "tradeoffs": "May require architecture, product, or operations review rather than a local code change."
+      },
+      "metadata": {
+        "catalog_version": "0.4.0",
+        "status": "draft",
+        "source": "catalog expansion recommendations applied 2026-05-21"
+      },
+      "severity": "warning",
+      "enabled_by_default": false,
+      "tier": 2,
+      "tags": [
+        "rag",
+        "retrieval",
+        "vector-search"
+      ],
+      "_source_file": "rules/AIM/RAG/ECO-AIM-RAG-002.json"
     },
     {
       "canonical_id": "ECO-ARC-ARCH-001",
@@ -668,7 +998,10 @@
       ],
       "tier": 3,
       "title": "Over-provisioned compute",
-      "_source_file": "catalog/rules/ARC/ARCH/ECO-ARC-ARCH-001.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/ARC/ARCH/ECO-ARC-ARCH-001.json"
     },
     {
       "canonical_id": "ECO-ARC-ARCH-002",
@@ -709,7 +1042,10 @@
       ],
       "tier": 3,
       "title": "Always-on low-traffic service",
-      "_source_file": "catalog/rules/ARC/ARCH/ECO-ARC-ARCH-002.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/ARC/ARCH/ECO-ARC-ARCH-002.json"
     },
     {
       "canonical_id": "ECO-ARC-ARCH-003",
@@ -750,7 +1086,10 @@
       ],
       "tier": 3,
       "title": "Long synchronous dependency chain",
-      "_source_file": "catalog/rules/ARC/ARCH/ECO-ARC-ARCH-003.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/ARC/ARCH/ECO-ARC-ARCH-003.json"
     },
     {
       "canonical_id": "ECO-ARC-ARCH-004",
@@ -790,7 +1129,10 @@
       ],
       "tier": 3,
       "title": "No autoscaling policy",
-      "_source_file": "catalog/rules/ARC/ARCH/ECO-ARC-ARCH-004.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/ARC/ARCH/ECO-ARC-ARCH-004.json"
     },
     {
       "canonical_id": "ECO-ARC-ARCH-005",
@@ -831,7 +1173,10 @@
       ],
       "tier": 3,
       "title": "No resource limits in containers",
-      "_source_file": "catalog/rules/ARC/ARCH/ECO-ARC-ARCH-005.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/ARC/ARCH/ECO-ARC-ARCH-005.json"
     },
     {
       "canonical_id": "ECO-ARC-ARCH-006",
@@ -872,7 +1217,10 @@
       ],
       "tier": 3,
       "title": "Unbounded message queues",
-      "_source_file": "catalog/rules/ARC/ARCH/ECO-ARC-ARCH-006.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/ARC/ARCH/ECO-ARC-ARCH-006.json"
     },
     {
       "canonical_id": "ECO-ARC-ARCH-007",
@@ -913,7 +1261,10 @@
       ],
       "tier": 3,
       "title": "Batch jobs run too frequently",
-      "_source_file": "catalog/rules/ARC/ARCH/ECO-ARC-ARCH-007.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/ARC/ARCH/ECO-ARC-ARCH-007.json"
     },
     {
       "canonical_id": "ECO-ARC-ARCH-008",
@@ -954,7 +1305,10 @@
       ],
       "tier": 3,
       "title": "Hot storage used for cold data",
-      "_source_file": "catalog/rules/ARC/ARCH/ECO-ARC-ARCH-008.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/ARC/ARCH/ECO-ARC-ARCH-008.json"
     },
     {
       "canonical_id": "ECO-ARC-ARCH-009",
@@ -996,7 +1350,10 @@
       ],
       "tier": 3,
       "title": "Duplicate services performing the same work",
-      "_source_file": "catalog/rules/ARC/ARCH/ECO-ARC-ARCH-009.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/ARC/ARCH/ECO-ARC-ARCH-009.json"
     },
     {
       "canonical_id": "ECO-ARC-ARCH-010",
@@ -1038,7 +1395,10 @@
       ],
       "tier": 4,
       "title": "No observability on utilization",
-      "_source_file": "catalog/rules/ARC/ARCH/ECO-ARC-ARCH-010.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/ARC/ARCH/ECO-ARC-ARCH-010.json"
     },
     {
       "canonical_id": "ECO-ARC-ARCH-011",
@@ -1079,7 +1439,10 @@
       ],
       "tier": 3,
       "title": "Excessive replica counts",
-      "_source_file": "catalog/rules/ARC/ARCH/ECO-ARC-ARCH-011.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/ARC/ARCH/ECO-ARC-ARCH-011.json"
     },
     {
       "canonical_id": "ECO-ARC-ARCH-012",
@@ -1121,7 +1484,10 @@
       ],
       "tier": 3,
       "title": "No graceful degradation strategy",
-      "_source_file": "catalog/rules/ARC/ARCH/ECO-ARC-ARCH-012.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/ARC/ARCH/ECO-ARC-ARCH-012.json"
     },
     {
       "canonical_id": "ECO-ARC-ARCH-013",
@@ -1161,7 +1527,10 @@
       ],
       "tier": 3,
       "title": "No caching layer for high-read workloads",
-      "_source_file": "catalog/rules/ARC/ARCH/ECO-ARC-ARCH-013.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/ARC/ARCH/ECO-ARC-ARCH-013.json"
     },
     {
       "canonical_id": "ECO-ARC-ARCH-014",
@@ -1202,7 +1571,10 @@
       ],
       "tier": 3,
       "title": "Stateful services blocking scaling",
-      "_source_file": "catalog/rules/ARC/ARCH/ECO-ARC-ARCH-014.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/ARC/ARCH/ECO-ARC-ARCH-014.json"
     },
     {
       "canonical_id": "ECO-ARC-ARCH-015",
@@ -1242,7 +1614,10 @@
       ],
       "tier": 3,
       "title": "Tight coupling across bounded contexts",
-      "_source_file": "catalog/rules/ARC/ARCH/ECO-ARC-ARCH-015.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/ARC/ARCH/ECO-ARC-ARCH-015.json"
     },
     {
       "canonical_id": "ECO-ARC-ARCH-016",
@@ -1282,7 +1657,10 @@
       ],
       "tier": 3,
       "title": "Multi-tenant workloads without isolation",
-      "_source_file": "catalog/rules/ARC/ARCH/ECO-ARC-ARCH-016.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/ARC/ARCH/ECO-ARC-ARCH-016.json"
     },
     {
       "canonical_id": "ECO-ARC-ARCH-017",
@@ -1323,7 +1701,10 @@
       ],
       "tier": 2,
       "title": "Inefficient container image size",
-      "_source_file": "catalog/rules/ARC/ARCH/ECO-ARC-ARCH-017.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/ARC/ARCH/ECO-ARC-ARCH-017.json"
     },
     {
       "canonical_id": "ECO-ARC-ARCH-018",
@@ -1363,7 +1744,10 @@
       ],
       "tier": 2,
       "title": "No cold-start optimization",
-      "_source_file": "catalog/rules/ARC/ARCH/ECO-ARC-ARCH-018.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/ARC/ARCH/ECO-ARC-ARCH-018.json"
     },
     {
       "canonical_id": "ECO-ARC-ARCH-019",
@@ -1403,7 +1787,10 @@
       ],
       "tier": 3,
       "title": "Overly aggressive autoscaling thresholds",
-      "_source_file": "catalog/rules/ARC/ARCH/ECO-ARC-ARCH-019.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/ARC/ARCH/ECO-ARC-ARCH-019.json"
     },
     {
       "canonical_id": "ECO-ARC-ARCH-020",
@@ -1444,7 +1831,10 @@
       ],
       "tier": 3,
       "title": "Underutilized GPU/accelerator resources",
-      "_source_file": "catalog/rules/ARC/ARCH/ECO-ARC-ARCH-020.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/ARC/ARCH/ECO-ARC-ARCH-020.json"
     },
     {
       "canonical_id": "ECO-CMP-JAVA-001",
@@ -1486,7 +1876,10 @@
       ],
       "tier": 1,
       "title": "Excessive object creation in hot path",
-      "_source_file": "catalog/rules/CMP/JAVA/ECO-CMP-JAVA-001.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/CMP/JAVA/ECO-CMP-JAVA-001.json"
     },
     {
       "canonical_id": "ECO-CMP-JAVA-002",
@@ -1528,7 +1921,10 @@
       ],
       "tier": 2,
       "title": "Unbounded cache growth",
-      "_source_file": "catalog/rules/CMP/JAVA/ECO-CMP-JAVA-002.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/CMP/JAVA/ECO-CMP-JAVA-002.json"
     },
     {
       "canonical_id": "ECO-CMP-JAVA-003",
@@ -1570,7 +1966,10 @@
       ],
       "tier": 2,
       "title": "Thread pool misconfiguration",
-      "_source_file": "catalog/rules/CMP/JAVA/ECO-CMP-JAVA-003.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/CMP/JAVA/ECO-CMP-JAVA-003.json"
     },
     {
       "canonical_id": "ECO-CMP-JAVA-004",
@@ -1611,7 +2010,10 @@
       ],
       "tier": 1,
       "title": "Reflection in hot path",
-      "_source_file": "catalog/rules/CMP/JAVA/ECO-CMP-JAVA-004.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/CMP/JAVA/ECO-CMP-JAVA-004.json"
     },
     {
       "canonical_id": "ECO-CMP-JAVA-005",
@@ -1653,7 +2055,10 @@
       ],
       "tier": 2,
       "title": "N+1 ORM query pattern",
-      "_source_file": "catalog/rules/CMP/JAVA/ECO-CMP-JAVA-005.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/CMP/JAVA/ECO-CMP-JAVA-005.json"
     },
     {
       "canonical_id": "ECO-CMP-JAVA-006",
@@ -1695,7 +2100,10 @@
       ],
       "tier": 2,
       "title": "Missing connection pooling",
-      "_source_file": "catalog/rules/CMP/JAVA/ECO-CMP-JAVA-006.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/CMP/JAVA/ECO-CMP-JAVA-006.json"
     },
     {
       "canonical_id": "ECO-CMP-JAVA-007",
@@ -1737,7 +2145,10 @@
       ],
       "tier": 2,
       "title": "Blocking calls in reactive pipeline",
-      "_source_file": "catalog/rules/CMP/JAVA/ECO-CMP-JAVA-007.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/CMP/JAVA/ECO-CMP-JAVA-007.json"
     },
     {
       "canonical_id": "ECO-CMP-JAVA-008",
@@ -1778,7 +2189,10 @@
       ],
       "tier": 2,
       "title": "Excessive synchronization contention",
-      "_source_file": "catalog/rules/CMP/JAVA/ECO-CMP-JAVA-008.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/CMP/JAVA/ECO-CMP-JAVA-008.json"
     },
     {
       "canonical_id": "ECO-CMP-JAVA-009",
@@ -1820,7 +2234,10 @@
       ],
       "tier": 2,
       "title": "Large heap allocation spikes",
-      "_source_file": "catalog/rules/CMP/JAVA/ECO-CMP-JAVA-009.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/CMP/JAVA/ECO-CMP-JAVA-009.json"
     },
     {
       "canonical_id": "ECO-CMP-JAVA-010",
@@ -1861,7 +2278,10 @@
       ],
       "tier": 1,
       "title": "Debug logging in production hot path",
-      "_source_file": "catalog/rules/CMP/JAVA/ECO-CMP-JAVA-010.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/CMP/JAVA/ECO-CMP-JAVA-010.json"
     },
     {
       "canonical_id": "ECO-CMP-JS-001",
@@ -1903,7 +2323,10 @@
       ],
       "tier": 2,
       "title": "Synchronous filesystem calls in request path",
-      "_source_file": "catalog/rules/CMP/JS/ECO-CMP-JS-001.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/CMP/JS/ECO-CMP-JS-001.json"
     },
     {
       "canonical_id": "ECO-CMP-JS-002",
@@ -1945,7 +2368,10 @@
       ],
       "tier": 2,
       "title": "Polling instead of events",
-      "_source_file": "catalog/rules/CMP/JS/ECO-CMP-JS-002.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/CMP/JS/ECO-CMP-JS-002.json"
     },
     {
       "canonical_id": "ECO-CMP-JS-003",
@@ -1987,7 +2413,10 @@
       ],
       "tier": 1,
       "title": "Large unoptimized bundles",
-      "_source_file": "catalog/rules/CMP/JS/ECO-CMP-JS-003.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/CMP/JS/ECO-CMP-JS-003.json"
     },
     {
       "canonical_id": "ECO-CMP-JS-004",
@@ -2029,7 +2458,10 @@
       ],
       "tier": 2,
       "title": "Memory leaks via event listeners",
-      "_source_file": "catalog/rules/CMP/JS/ECO-CMP-JS-004.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/CMP/JS/ECO-CMP-JS-004.json"
     },
     {
       "canonical_id": "ECO-CMP-JS-005",
@@ -2071,7 +2503,10 @@
       ],
       "tier": 2,
       "title": "Blocking crypto in event loop",
-      "_source_file": "catalog/rules/CMP/JS/ECO-CMP-JS-005.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/CMP/JS/ECO-CMP-JS-005.json"
     },
     {
       "canonical_id": "ECO-CMP-JS-006",
@@ -2113,7 +2548,10 @@
       ],
       "tier": 1,
       "title": "Over-fetching API responses",
-      "_source_file": "catalog/rules/CMP/JS/ECO-CMP-JS-006.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/CMP/JS/ECO-CMP-JS-006.json"
     },
     {
       "canonical_id": "ECO-CMP-JS-007",
@@ -2154,7 +2592,10 @@
       ],
       "tier": 2,
       "title": "Missing HTTP caching headers (client-side)",
-      "_source_file": "catalog/rules/CMP/JS/ECO-CMP-JS-007.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/CMP/JS/ECO-CMP-JS-007.json"
     },
     {
       "canonical_id": "ECO-CMP-JS-008",
@@ -2196,7 +2637,10 @@
       ],
       "tier": 1,
       "title": "Excessive DOM reflow",
-      "_source_file": "catalog/rules/CMP/JS/ECO-CMP-JS-008.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/CMP/JS/ECO-CMP-JS-008.json"
     },
     {
       "canonical_id": "ECO-CMP-JS-009",
@@ -2237,7 +2681,10 @@
       ],
       "tier": 2,
       "title": "Unbounded promise chains",
-      "_source_file": "catalog/rules/CMP/JS/ECO-CMP-JS-009.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/CMP/JS/ECO-CMP-JS-009.json"
     },
     {
       "canonical_id": "ECO-CMP-JS-010",
@@ -2278,7 +2725,10 @@
       ],
       "tier": 2,
       "title": "Missing request timeout",
-      "_source_file": "catalog/rules/CMP/JS/ECO-CMP-JS-010.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/CMP/JS/ECO-CMP-JS-010.json"
     },
     {
       "canonical_id": "ECO-CMP-JS-011",
@@ -2319,7 +2769,10 @@
       ],
       "tier": 1,
       "title": "Inefficient array transformations (multi-pass)",
-      "_source_file": "catalog/rules/CMP/JS/ECO-CMP-JS-011.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/CMP/JS/ECO-CMP-JS-011.json"
     },
     {
       "canonical_id": "ECO-CMP-JS-012",
@@ -2361,7 +2814,10 @@
       ],
       "tier": 2,
       "title": "Redundant API calls in component lifecycle",
-      "_source_file": "catalog/rules/CMP/JS/ECO-CMP-JS-012.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/CMP/JS/ECO-CMP-JS-012.json"
     },
     {
       "canonical_id": "ECO-CMP-JS-013",
@@ -2403,7 +2859,10 @@
       ],
       "tier": 2,
       "title": "Uncompressed static assets",
-      "_source_file": "catalog/rules/CMP/JS/ECO-CMP-JS-013.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/CMP/JS/ECO-CMP-JS-013.json"
     },
     {
       "canonical_id": "ECO-CMP-JS-014",
@@ -2444,7 +2903,10 @@
       ],
       "tier": 1,
       "title": "Client-side heavy computation without workers",
-      "_source_file": "catalog/rules/CMP/JS/ECO-CMP-JS-014.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/CMP/JS/ECO-CMP-JS-014.json"
     },
     {
       "canonical_id": "ECO-CMP-JS-015",
@@ -2485,7 +2947,10 @@
       ],
       "tier": 1,
       "title": "Recreating large objects per render",
-      "_source_file": "catalog/rules/CMP/JS/ECO-CMP-JS-015.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/CMP/JS/ECO-CMP-JS-015.json"
     },
     {
       "canonical_id": "ECO-CMP-PY-001",
@@ -2527,7 +2992,10 @@
       ],
       "tier": 1,
       "title": "String concatenation in loops",
-      "_source_file": "catalog/rules/CMP/PY/ECO-CMP-PY-001.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/CMP/PY/ECO-CMP-PY-001.json"
     },
     {
       "canonical_id": "ECO-CMP-PY-002",
@@ -2569,7 +3037,10 @@
       ],
       "tier": 2,
       "title": "Unbounded list growth",
-      "_source_file": "catalog/rules/CMP/PY/ECO-CMP-PY-002.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/CMP/PY/ECO-CMP-PY-002.json"
     },
     {
       "canonical_id": "ECO-CMP-PY-003",
@@ -2610,7 +3081,10 @@
       ],
       "tier": 1,
       "title": "Repeated invariant computation inside loop",
-      "_source_file": "catalog/rules/CMP/PY/ECO-CMP-PY-003.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/CMP/PY/ECO-CMP-PY-003.json"
     },
     {
       "canonical_id": "ECO-CMP-PY-004",
@@ -2652,7 +3126,10 @@
       ],
       "tier": 2,
       "title": "Blocking I/O inside async context",
-      "_source_file": "catalog/rules/CMP/PY/ECO-CMP-PY-004.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/CMP/PY/ECO-CMP-PY-004.json"
     },
     {
       "canonical_id": "ECO-CMP-PY-005",
@@ -2694,7 +3171,10 @@
       ],
       "tier": 2,
       "title": "N+1 database query pattern",
-      "_source_file": "catalog/rules/CMP/PY/ECO-CMP-PY-005.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/CMP/PY/ECO-CMP-PY-005.json"
     },
     {
       "canonical_id": "ECO-CMP-PY-006",
@@ -2736,7 +3216,10 @@
       ],
       "tier": 2,
       "title": "Missing network timeout",
-      "_source_file": "catalog/rules/CMP/PY/ECO-CMP-PY-006.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/CMP/PY/ECO-CMP-PY-006.json"
     },
     {
       "canonical_id": "ECO-CMP-PY-007",
@@ -2778,7 +3261,10 @@
       ],
       "tier": 2,
       "title": "Loading entire file into memory",
-      "_source_file": "catalog/rules/CMP/PY/ECO-CMP-PY-007.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/CMP/PY/ECO-CMP-PY-007.json"
     },
     {
       "canonical_id": "ECO-CMP-PY-008",
@@ -2820,7 +3306,10 @@
       ],
       "tier": 1,
       "title": "Excessive logging in hot path",
-      "_source_file": "catalog/rules/CMP/PY/ECO-CMP-PY-008.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/CMP/PY/ECO-CMP-PY-008.json"
     },
     {
       "canonical_id": "ECO-CMP-PY-009",
@@ -2862,7 +3351,10 @@
       ],
       "tier": 1,
       "title": "Repeated regex compilation",
-      "_source_file": "catalog/rules/CMP/PY/ECO-CMP-PY-009.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/CMP/PY/ECO-CMP-PY-009.json"
     },
     {
       "canonical_id": "ECO-CMP-PY-010",
@@ -2903,7 +3395,10 @@
       ],
       "tier": 1,
       "title": "Inefficient data structure choice",
-      "_source_file": "catalog/rules/CMP/PY/ECO-CMP-PY-010.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/CMP/PY/ECO-CMP-PY-010.json"
     },
     {
       "canonical_id": "ECO-CMP-PY-011",
@@ -2945,7 +3440,10 @@
       ],
       "tier": 1,
       "title": "Repeated JSON serialization cycles",
-      "_source_file": "catalog/rules/CMP/PY/ECO-CMP-PY-011.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/CMP/PY/ECO-CMP-PY-011.json"
     },
     {
       "canonical_id": "ECO-CMP-PY-012",
@@ -2987,7 +3485,10 @@
       ],
       "tier": 2,
       "title": "CPU-bound work in request thread",
-      "_source_file": "catalog/rules/CMP/PY/ECO-CMP-PY-012.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/CMP/PY/ECO-CMP-PY-012.json"
     },
     {
       "canonical_id": "ECO-CMP-PY-013",
@@ -3029,7 +3530,10 @@
       ],
       "tier": 1,
       "title": "Inefficient pandas row iteration",
-      "_source_file": "catalog/rules/CMP/PY/ECO-CMP-PY-013.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/CMP/PY/ECO-CMP-PY-013.json"
     },
     {
       "canonical_id": "ECO-CMP-PY-014",
@@ -3070,7 +3574,10 @@
       ],
       "tier": 1,
       "title": "Redundant environment variable lookups",
-      "_source_file": "catalog/rules/CMP/PY/ECO-CMP-PY-014.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/CMP/PY/ECO-CMP-PY-014.json"
     },
     {
       "canonical_id": "ECO-CMP-PY-015",
@@ -3112,7 +3619,10 @@
       ],
       "tier": 2,
       "title": "Recreating database connections per request",
-      "_source_file": "catalog/rules/CMP/PY/ECO-CMP-PY-015.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/CMP/PY/ECO-CMP-PY-015.json"
     },
     {
       "canonical_id": "ECO-CMP-PY-016",
@@ -3154,7 +3664,10 @@
       ],
       "tier": 2,
       "title": "No connection pooling",
-      "_source_file": "catalog/rules/CMP/PY/ECO-CMP-PY-016.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/CMP/PY/ECO-CMP-PY-016.json"
     },
     {
       "canonical_id": "ECO-CMP-PY-017",
@@ -3195,7 +3708,10 @@
       ],
       "tier": 2,
       "title": "Large object retained in global scope",
-      "_source_file": "catalog/rules/CMP/PY/ECO-CMP-PY-017.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/CMP/PY/ECO-CMP-PY-017.json"
     },
     {
       "canonical_id": "ECO-CMP-PY-018",
@@ -3236,7 +3752,10 @@
       ],
       "tier": 1,
       "title": "Recursive algorithm without safeguards",
-      "_source_file": "catalog/rules/CMP/PY/ECO-CMP-PY-018.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/CMP/PY/ECO-CMP-PY-018.json"
     },
     {
       "canonical_id": "ECO-CMP-PY-019",
@@ -3277,7 +3796,10 @@
       ],
       "tier": 2,
       "title": "Excessive thread spawning",
-      "_source_file": "catalog/rules/CMP/PY/ECO-CMP-PY-019.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/CMP/PY/ECO-CMP-PY-019.json"
     },
     {
       "canonical_id": "ECO-CMP-PY-020",
@@ -3319,7 +3841,294 @@
       ],
       "tier": 2,
       "title": "Synchronous subprocess invocation in hot path",
-      "_source_file": "catalog/rules/CMP/PY/ECO-CMP-PY-020.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/CMP/PY/ECO-CMP-PY-020.json"
+    },
+    {
+      "id": "ECO-CMP-UI-001",
+      "canonical_id": "ECO-CMP-UI-001",
+      "title": "Oversized frontend bundle",
+      "summary": "A frontend ships excessive JavaScript or unused dependencies that increase transfer, parsing, and device energy cost.",
+      "category": "Computation",
+      "category_code": "CMP",
+      "family": "Frontend/UI",
+      "family_code": "UI",
+      "layer": "code",
+      "ontology": {
+        "category": "Computation",
+        "family": "Frontend/UI",
+        "system_layers": [
+          "code"
+        ]
+      },
+      "impact": {
+        "type": "network",
+        "confidence": 0.75,
+        "notes": "Added as part of the 0.3.0 expansion to capture cross-system sustainability and operational waste."
+      },
+      "cost_dimensions": {
+        "compute": "medium",
+        "memory": "medium",
+        "network": "high",
+        "storage": "low",
+        "human_time": "medium",
+        "carbon": "medium",
+        "water": "low"
+      },
+      "amplification": {
+        "scales_with_users": true,
+        "scales_with_data_volume": false,
+        "scales_non_linearly": false
+      },
+      "temporal_behavior": {
+        "startup_only": false,
+        "steady_state": true,
+        "burst_sensitive": true,
+        "time_degradation": false
+      },
+      "runtime_evidence": [
+        "bundle analysis",
+        "RUM",
+        "Core Web Vitals"
+      ],
+      "detection": {
+        "method": "static-or-runtime",
+        "confidence": 0.55,
+        "runtime_validation_required": true
+      },
+      "remediation": {
+        "guidance": "Remove unused dependencies, split code, tree-shake, lazy-load, and set performance budgets.",
+        "tradeoffs": "May require architecture, product, or operations review rather than a local code change."
+      },
+      "metadata": {
+        "catalog_version": "0.4.0",
+        "status": "draft",
+        "source": "catalog expansion recommendations applied 2026-05-21"
+      },
+      "severity": "warning",
+      "enabled_by_default": false,
+      "tier": 2,
+      "tags": [
+        "frontend",
+        "javascript",
+        "bundle"
+      ],
+      "_source_file": "rules/CMP/UI/ECO-CMP-UI-001.json"
+    },
+    {
+      "id": "ECO-CMP-UI-002",
+      "canonical_id": "ECO-CMP-UI-002",
+      "title": "Excessive polling from client UI",
+      "summary": "Frontend code polls APIs frequently when event-driven, cached, or user-triggered updates would be sufficient.",
+      "category": "Computation",
+      "category_code": "CMP",
+      "family": "Frontend/UI",
+      "family_code": "UI",
+      "layer": "network",
+      "ontology": {
+        "category": "Computation",
+        "family": "Frontend/UI",
+        "system_layers": [
+          "network"
+        ]
+      },
+      "impact": {
+        "type": "network",
+        "confidence": 0.8,
+        "notes": "Added as part of the 0.3.0 expansion to capture cross-system sustainability and operational waste."
+      },
+      "cost_dimensions": {
+        "compute": "medium",
+        "memory": "low",
+        "network": "high",
+        "storage": "low",
+        "human_time": "low",
+        "carbon": "medium",
+        "water": "low"
+      },
+      "amplification": {
+        "scales_with_users": true,
+        "scales_with_data_volume": false,
+        "scales_non_linearly": false
+      },
+      "temporal_behavior": {
+        "startup_only": false,
+        "steady_state": true,
+        "burst_sensitive": true,
+        "time_degradation": false
+      },
+      "runtime_evidence": [
+        "browser network traces",
+        "API logs",
+        "RUM"
+      ],
+      "detection": {
+        "method": "static-or-runtime",
+        "confidence": 0.55,
+        "runtime_validation_required": true
+      },
+      "remediation": {
+        "guidance": "Replace tight polling with backoff, conditional requests, webhooks, push, or user-triggered refresh.",
+        "tradeoffs": "May require architecture, product, or operations review rather than a local code change."
+      },
+      "metadata": {
+        "catalog_version": "0.4.0",
+        "status": "draft",
+        "source": "catalog expansion recommendations applied 2026-05-21"
+      },
+      "severity": "warning",
+      "enabled_by_default": false,
+      "tier": 2,
+      "tags": [
+        "frontend",
+        "polling",
+        "api"
+      ],
+      "_source_file": "rules/CMP/UI/ECO-CMP-UI-002.json"
+    },
+    {
+      "id": "ECO-DAT-CACHE-001",
+      "canonical_id": "ECO-DAT-CACHE-001",
+      "title": "Missing cache for repeated expensive lookup",
+      "summary": "The same expensive query, API call, or computation is performed repeatedly when results could be safely cached.",
+      "category": "Data",
+      "category_code": "DAT",
+      "family": "Caching",
+      "family_code": "CACHE",
+      "layer": "data",
+      "ontology": {
+        "category": "Data",
+        "family": "Caching",
+        "system_layers": [
+          "data"
+        ]
+      },
+      "impact": {
+        "type": "compute",
+        "confidence": 0.75,
+        "notes": "Added as part of the 0.3.0 expansion to capture cross-system sustainability and operational waste."
+      },
+      "cost_dimensions": {
+        "compute": "high",
+        "memory": "medium",
+        "network": "medium",
+        "storage": "low",
+        "human_time": "low",
+        "carbon": "high",
+        "water": "low"
+      },
+      "amplification": {
+        "scales_with_users": true,
+        "scales_with_data_volume": true,
+        "scales_non_linearly": false
+      },
+      "temporal_behavior": {
+        "startup_only": false,
+        "steady_state": true,
+        "burst_sensitive": true,
+        "time_degradation": false
+      },
+      "runtime_evidence": [
+        "query traces",
+        "APM spans",
+        "flamegraphs"
+      ],
+      "detection": {
+        "method": "static-or-runtime",
+        "confidence": 0.55,
+        "runtime_validation_required": true
+      },
+      "remediation": {
+        "guidance": "Introduce bounded caching with explicit invalidation, freshness requirements, and observability.",
+        "tradeoffs": "May require architecture, product, or operations review rather than a local code change."
+      },
+      "metadata": {
+        "catalog_version": "0.4.0",
+        "status": "draft",
+        "source": "catalog expansion recommendations applied 2026-05-21"
+      },
+      "severity": "warning",
+      "enabled_by_default": false,
+      "tier": 2,
+      "tags": [
+        "cache",
+        "query",
+        "hot-path"
+      ],
+      "_source_file": "rules/DAT/CACHE/ECO-DAT-CACHE-001.json"
+    },
+    {
+      "id": "ECO-DAT-CACHE-002",
+      "canonical_id": "ECO-DAT-CACHE-002",
+      "title": "Cache stampede risk",
+      "summary": "Many workers may recompute the same expired value simultaneously, amplifying load during bursts.",
+      "category": "Data",
+      "category_code": "DAT",
+      "family": "Caching",
+      "family_code": "CACHE",
+      "layer": "architecture",
+      "ontology": {
+        "category": "Data",
+        "family": "Caching",
+        "system_layers": [
+          "architecture"
+        ]
+      },
+      "impact": {
+        "type": "resilience",
+        "confidence": 0.7,
+        "notes": "Added as part of the 0.3.0 expansion to capture cross-system sustainability and operational waste."
+      },
+      "cost_dimensions": {
+        "compute": "high",
+        "memory": "medium",
+        "network": "medium",
+        "storage": "low",
+        "human_time": "medium",
+        "carbon": "high",
+        "water": "low"
+      },
+      "amplification": {
+        "scales_with_users": true,
+        "scales_with_data_volume": false,
+        "scales_non_linearly": true
+      },
+      "temporal_behavior": {
+        "startup_only": false,
+        "steady_state": true,
+        "burst_sensitive": true,
+        "time_degradation": false
+      },
+      "runtime_evidence": [
+        "cache metrics",
+        "request bursts",
+        "backend saturation"
+      ],
+      "detection": {
+        "method": "static-or-runtime",
+        "confidence": 0.55,
+        "runtime_validation_required": true
+      },
+      "remediation": {
+        "guidance": "Use request coalescing, jittered expiration, stale-while-revalidate, or locks where appropriate.",
+        "tradeoffs": "May require architecture, product, or operations review rather than a local code change."
+      },
+      "metadata": {
+        "catalog_version": "0.4.0",
+        "status": "draft",
+        "source": "catalog expansion recommendations applied 2026-05-21"
+      },
+      "severity": "warning",
+      "enabled_by_default": false,
+      "tier": 2,
+      "tags": [
+        "cache",
+        "stampede",
+        "burst"
+      ],
+      "_source_file": "rules/DAT/CACHE/ECO-DAT-CACHE-002.json"
     },
     {
       "canonical_id": "ECO-DAT-DATA-001",
@@ -3361,7 +4170,10 @@
       ],
       "tier": 3,
       "title": "Duplicate stored data",
-      "_source_file": "catalog/rules/DAT/DATA/ECO-DAT-DATA-001.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/DAT/DATA/ECO-DAT-DATA-001.json"
     },
     {
       "canonical_id": "ECO-DAT-DATA-002",
@@ -3403,7 +4215,10 @@
       ],
       "tier": 4,
       "title": "Missing retention policy",
-      "_source_file": "catalog/rules/DAT/DATA/ECO-DAT-DATA-002.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/DAT/DATA/ECO-DAT-DATA-002.json"
     },
     {
       "canonical_id": "ECO-DAT-DATA-003",
@@ -3443,7 +4258,10 @@
       ],
       "tier": 3,
       "title": "Large unused indexes",
-      "_source_file": "catalog/rules/DAT/DATA/ECO-DAT-DATA-003.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/DAT/DATA/ECO-DAT-DATA-003.json"
     },
     {
       "canonical_id": "ECO-DAT-DATA-004",
@@ -3484,7 +4302,10 @@
       ],
       "tier": 4,
       "title": "Logs stored indefinitely",
-      "_source_file": "catalog/rules/DAT/DATA/ECO-DAT-DATA-004.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/DAT/DATA/ECO-DAT-DATA-004.json"
     },
     {
       "canonical_id": "ECO-DAT-DATA-005",
@@ -3525,7 +4346,10 @@
       ],
       "tier": 3,
       "title": "Full table scans without index",
-      "_source_file": "catalog/rules/DAT/DATA/ECO-DAT-DATA-005.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/DAT/DATA/ECO-DAT-DATA-005.json"
     },
     {
       "canonical_id": "ECO-DAT-DATA-006",
@@ -3565,7 +4389,10 @@
       ],
       "tier": 3,
       "title": "Excessive replication factor",
-      "_source_file": "catalog/rules/DAT/DATA/ECO-DAT-DATA-006.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/DAT/DATA/ECO-DAT-DATA-006.json"
     },
     {
       "canonical_id": "ECO-DAT-DATA-007",
@@ -3605,7 +4432,10 @@
       ],
       "tier": 3,
       "title": "No partitioning for large tables",
-      "_source_file": "catalog/rules/DAT/DATA/ECO-DAT-DATA-007.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/DAT/DATA/ECO-DAT-DATA-007.json"
     },
     {
       "canonical_id": "ECO-DAT-DATA-008",
@@ -3645,7 +4475,10 @@
       ],
       "tier": 4,
       "title": "Storing ephemeral data permanently",
-      "_source_file": "catalog/rules/DAT/DATA/ECO-DAT-DATA-008.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/DAT/DATA/ECO-DAT-DATA-008.json"
     },
     {
       "canonical_id": "ECO-DAT-DATA-009",
@@ -3686,7 +4519,10 @@
       ],
       "tier": 3,
       "title": "No archival tier strategy",
-      "_source_file": "catalog/rules/DAT/DATA/ECO-DAT-DATA-009.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/DAT/DATA/ECO-DAT-DATA-009.json"
     },
     {
       "canonical_id": "ECO-DAT-DATA-010",
@@ -3726,7 +4562,10 @@
       ],
       "tier": 3,
       "title": "Overly aggressive replication across regions",
-      "_source_file": "catalog/rules/DAT/DATA/ECO-DAT-DATA-010.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/DAT/DATA/ECO-DAT-DATA-010.json"
     },
     {
       "canonical_id": "ECO-DAT-DATA-011",
@@ -3767,7 +4606,10 @@
       ],
       "tier": 3,
       "title": "Lack of compression in object storage",
-      "_source_file": "catalog/rules/DAT/DATA/ECO-DAT-DATA-011.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/DAT/DATA/ECO-DAT-DATA-011.json"
     },
     {
       "canonical_id": "ECO-DAT-DATA-012",
@@ -3809,7 +4651,10 @@
       ],
       "tier": 3,
       "title": "Unbounded analytics queries",
-      "_source_file": "catalog/rules/DAT/DATA/ECO-DAT-DATA-012.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/DAT/DATA/ECO-DAT-DATA-012.json"
     },
     {
       "canonical_id": "ECO-DAT-DATA-013",
@@ -3849,7 +4694,10 @@
       ],
       "tier": 4,
       "title": "No data lifecycle governance",
-      "_source_file": "catalog/rules/DAT/DATA/ECO-DAT-DATA-013.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/DAT/DATA/ECO-DAT-DATA-013.json"
     },
     {
       "canonical_id": "ECO-DAT-DATA-014",
@@ -3889,7 +4737,10 @@
       ],
       "tier": 2,
       "title": "Stale feature flags accumulating",
-      "_source_file": "catalog/rules/DAT/DATA/ECO-DAT-DATA-014.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/DAT/DATA/ECO-DAT-DATA-014.json"
     },
     {
       "canonical_id": "ECO-DAT-DATA-015",
@@ -3929,7 +4780,82 @@
       ],
       "tier": 4,
       "title": "Shadow data stores outside governance",
-      "_source_file": "catalog/rules/DAT/DATA/ECO-DAT-DATA-015.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/DAT/DATA/ECO-DAT-DATA-015.json"
+    },
+    {
+      "id": "ECO-DAT-SER-001",
+      "canonical_id": "ECO-DAT-SER-001",
+      "title": "Repeated serialization/deserialization chain",
+      "summary": "Data is repeatedly converted between formats within the same request or processing path.",
+      "category": "Data",
+      "category_code": "DAT",
+      "family": "Serialization",
+      "family_code": "SER",
+      "layer": "data",
+      "ontology": {
+        "category": "Data",
+        "family": "Serialization",
+        "system_layers": [
+          "data"
+        ]
+      },
+      "impact": {
+        "type": "cpu",
+        "confidence": 0.7,
+        "notes": "Added as part of the 0.3.0 expansion to capture cross-system sustainability and operational waste."
+      },
+      "cost_dimensions": {
+        "compute": "high",
+        "memory": "high",
+        "network": "low",
+        "storage": "low",
+        "human_time": "low",
+        "carbon": "medium",
+        "water": "low"
+      },
+      "amplification": {
+        "scales_with_users": true,
+        "scales_with_data_volume": true,
+        "scales_non_linearly": false
+      },
+      "temporal_behavior": {
+        "startup_only": false,
+        "steady_state": true,
+        "burst_sensitive": true,
+        "time_degradation": false
+      },
+      "runtime_evidence": [
+        "CPU profile",
+        "allocation profile",
+        "code review"
+      ],
+      "detection": {
+        "method": "static-or-runtime",
+        "confidence": 0.55,
+        "runtime_validation_required": true
+      },
+      "remediation": {
+        "guidance": "Keep data in a canonical internal representation and serialize only at boundaries.",
+        "tradeoffs": "May require architecture, product, or operations review rather than a local code change."
+      },
+      "metadata": {
+        "catalog_version": "0.4.0",
+        "status": "draft",
+        "source": "catalog expansion recommendations applied 2026-05-21"
+      },
+      "severity": "warning",
+      "enabled_by_default": false,
+      "tier": 2,
+      "tags": [
+        "serialization",
+        "json",
+        "xml",
+        "allocations"
+      ],
+      "_source_file": "rules/DAT/SER/ECO-DAT-SER-001.json"
     },
     {
       "id": "ECO-INF-COMPOSE-001",
@@ -3965,9 +4891,10 @@
       "metadata": {
         "status": "draft",
         "severity": "medium",
-        "version": "0.3.0-draft"
+        "version": "0.3.0-draft",
+        "catalog_version": "0.4.0"
       },
-      "_source_file": "catalog/rules/INF/COMPOSE/ECO-INF-COMPOSE-001.json"
+      "_source_file": "rules/INF/COMPOSE/ECO-INF-COMPOSE-001.json"
     },
     {
       "id": "ECO-INF-COMPOSE-002",
@@ -4003,9 +4930,10 @@
       "metadata": {
         "status": "draft",
         "severity": "medium",
-        "version": "0.3.0-draft"
+        "version": "0.3.0-draft",
+        "catalog_version": "0.4.0"
       },
-      "_source_file": "catalog/rules/INF/COMPOSE/ECO-INF-COMPOSE-002.json"
+      "_source_file": "rules/INF/COMPOSE/ECO-INF-COMPOSE-002.json"
     },
     {
       "id": "ECO-INF-DOCKER-001",
@@ -4041,7 +4969,8 @@
       "metadata": {
         "status": "draft",
         "severity": "medium",
-        "version": "0.3.0-draft"
+        "version": "0.3.0-draft",
+        "catalog_version": "0.4.0"
       },
       "examples": {
         "pattern": [
@@ -4057,7 +4986,7 @@
           }
         ]
       },
-      "_source_file": "catalog/rules/INF/DOCKER/ECO-INF-DOCKER-001.json"
+      "_source_file": "rules/INF/DOCKER/ECO-INF-DOCKER-001.json"
     },
     {
       "id": "ECO-INF-DOCKER-002",
@@ -4093,9 +5022,10 @@
       "metadata": {
         "status": "draft",
         "severity": "medium",
-        "version": "0.3.0-draft"
+        "version": "0.3.0-draft",
+        "catalog_version": "0.4.0"
       },
-      "_source_file": "catalog/rules/INF/DOCKER/ECO-INF-DOCKER-002.json"
+      "_source_file": "rules/INF/DOCKER/ECO-INF-DOCKER-002.json"
     },
     {
       "id": "ECO-INF-DOCKER-003",
@@ -4131,7 +5061,8 @@
       "metadata": {
         "status": "draft",
         "severity": "medium",
-        "version": "0.3.0-draft"
+        "version": "0.3.0-draft",
+        "catalog_version": "0.4.0"
       },
       "scanner_override": {
         "scope": "repo",
@@ -4144,7 +5075,7 @@
           ".dockerignore"
         ]
       },
-      "_source_file": "catalog/rules/INF/DOCKER/ECO-INF-DOCKER-003.json"
+      "_source_file": "rules/INF/DOCKER/ECO-INF-DOCKER-003.json"
     },
     {
       "id": "ECO-INF-DOCKER-004",
@@ -4180,9 +5111,10 @@
       "metadata": {
         "status": "draft",
         "severity": "medium",
-        "version": "0.3.0-draft"
+        "version": "0.3.0-draft",
+        "catalog_version": "0.4.0"
       },
-      "_source_file": "catalog/rules/INF/DOCKER/ECO-INF-DOCKER-004.json"
+      "_source_file": "rules/INF/DOCKER/ECO-INF-DOCKER-004.json"
     },
     {
       "id": "ECO-INF-DOCKER-005",
@@ -4218,9 +5150,10 @@
       "metadata": {
         "status": "draft",
         "severity": "medium",
-        "version": "0.3.0-draft"
+        "version": "0.3.0-draft",
+        "catalog_version": "0.4.0"
       },
-      "_source_file": "catalog/rules/INF/DOCKER/ECO-INF-DOCKER-005.json"
+      "_source_file": "rules/INF/DOCKER/ECO-INF-DOCKER-005.json"
     },
     {
       "id": "ECO-INF-K8S-001",
@@ -4256,9 +5189,10 @@
       "metadata": {
         "status": "draft",
         "severity": "medium",
-        "version": "0.3.0-draft"
+        "version": "0.3.0-draft",
+        "catalog_version": "0.4.0"
       },
-      "_source_file": "catalog/rules/INF/K8S/ECO-INF-K8S-001.json"
+      "_source_file": "rules/INF/K8S/ECO-INF-K8S-001.json"
     },
     {
       "id": "ECO-INF-K8S-002",
@@ -4294,7 +5228,8 @@
       "metadata": {
         "status": "draft",
         "severity": "medium",
-        "version": "0.3.0-draft"
+        "version": "0.3.0-draft",
+        "catalog_version": "0.4.0"
       },
       "scanner_override": {
         "scope": "repo",
@@ -4303,7 +5238,7 @@
           "StatefulSet"
         ]
       },
-      "_source_file": "catalog/rules/INF/K8S/ECO-INF-K8S-002.json"
+      "_source_file": "rules/INF/K8S/ECO-INF-K8S-002.json"
     },
     {
       "id": "ECO-INF-K8S-003",
@@ -4339,9 +5274,10 @@
       "metadata": {
         "status": "draft",
         "severity": "medium",
-        "version": "0.3.0-draft"
+        "version": "0.3.0-draft",
+        "catalog_version": "0.4.0"
       },
-      "_source_file": "catalog/rules/INF/K8S/ECO-INF-K8S-003.json"
+      "_source_file": "rules/INF/K8S/ECO-INF-K8S-003.json"
     },
     {
       "id": "ECO-INF-K8S-004",
@@ -4378,9 +5314,10 @@
       "metadata": {
         "status": "draft",
         "severity": "medium",
-        "version": "0.3.0-draft"
+        "version": "0.3.0-draft",
+        "catalog_version": "0.4.0"
       },
-      "_source_file": "catalog/rules/INF/K8S/ECO-INF-K8S-004.json"
+      "_source_file": "rules/INF/K8S/ECO-INF-K8S-004.json"
     },
     {
       "id": "ECO-INF-K8S-005",
@@ -4416,9 +5353,10 @@
       "metadata": {
         "status": "draft",
         "severity": "medium",
-        "version": "0.3.0-draft"
+        "version": "0.3.0-draft",
+        "catalog_version": "0.4.0"
       },
-      "_source_file": "catalog/rules/INF/K8S/ECO-INF-K8S-005.json"
+      "_source_file": "rules/INF/K8S/ECO-INF-K8S-005.json"
     },
     {
       "canonical_id": "ECO-NET-NET-001",
@@ -4460,7 +5398,10 @@
       ],
       "tier": 2,
       "title": "Missing HTTP caching headers",
-      "_source_file": "catalog/rules/NET/NET/ECO-NET-NET-001.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/NET/NET/ECO-NET-NET-001.json"
     },
     {
       "canonical_id": "ECO-NET-NET-002",
@@ -4501,7 +5442,10 @@
       ],
       "tier": 2,
       "title": "No gzip/brotli compression",
-      "_source_file": "catalog/rules/NET/NET/ECO-NET-NET-002.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/NET/NET/ECO-NET-NET-002.json"
     },
     {
       "canonical_id": "ECO-NET-NET-003",
@@ -4542,7 +5486,10 @@
       ],
       "tier": 2,
       "title": "Chatty microservice communication",
-      "_source_file": "catalog/rules/NET/NET/ECO-NET-NET-003.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/NET/NET/ECO-NET-NET-003.json"
     },
     {
       "canonical_id": "ECO-NET-NET-004",
@@ -4583,7 +5530,10 @@
       ],
       "tier": 2,
       "title": "Redundant authentication calls",
-      "_source_file": "catalog/rules/NET/NET/ECO-NET-NET-004.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/NET/NET/ECO-NET-NET-004.json"
     },
     {
       "canonical_id": "ECO-NET-NET-005",
@@ -4627,7 +5577,10 @@
       ],
       "tier": 2,
       "title": "Missing timeouts",
-      "_source_file": "catalog/rules/NET/NET/ECO-NET-NET-005.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/NET/NET/ECO-NET-NET-005.json"
     },
     {
       "canonical_id": "ECO-NET-NET-006",
@@ -4668,7 +5621,10 @@
       ],
       "tier": 2,
       "title": "No connection reuse (keep-alive disabled)",
-      "_source_file": "catalog/rules/NET/NET/ECO-NET-NET-006.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/NET/NET/ECO-NET-NET-006.json"
     },
     {
       "canonical_id": "ECO-NET-NET-007",
@@ -4709,7 +5665,10 @@
       ],
       "tier": 2,
       "title": "Excessive retry storms",
-      "_source_file": "catalog/rules/NET/NET/ECO-NET-NET-007.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/NET/NET/ECO-NET-NET-007.json"
     },
     {
       "canonical_id": "ECO-NET-NET-008",
@@ -4750,7 +5709,10 @@
       ],
       "tier": 1,
       "title": "Over-fetching API fields",
-      "_source_file": "catalog/rules/NET/NET/ECO-NET-NET-008.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/NET/NET/ECO-NET-NET-008.json"
     },
     {
       "canonical_id": "ECO-NET-NET-009",
@@ -4791,7 +5753,10 @@
       ],
       "tier": 1,
       "title": "Under-fetching causing follow-up calls",
-      "_source_file": "catalog/rules/NET/NET/ECO-NET-NET-009.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/NET/NET/ECO-NET-NET-009.json"
     },
     {
       "canonical_id": "ECO-NET-NET-010",
@@ -4831,7 +5796,10 @@
       ],
       "tier": 2,
       "title": "Large payloads without pagination",
-      "_source_file": "catalog/rules/NET/NET/ECO-NET-NET-010.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/NET/NET/ECO-NET-NET-010.json"
     },
     {
       "canonical_id": "ECO-NET-NET-011",
@@ -4872,7 +5840,10 @@
       ],
       "tier": 3,
       "title": "No CDN usage for static content",
-      "_source_file": "catalog/rules/NET/NET/ECO-NET-NET-011.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/NET/NET/ECO-NET-NET-011.json"
     },
     {
       "canonical_id": "ECO-NET-NET-012",
@@ -4913,7 +5884,10 @@
       ],
       "tier": 2,
       "title": "No HTTP/2 or HTTP/3 where applicable",
-      "_source_file": "catalog/rules/NET/NET/ECO-NET-NET-012.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/NET/NET/ECO-NET-NET-012.json"
     },
     {
       "canonical_id": "ECO-NET-NET-013",
@@ -4953,7 +5927,10 @@
       ],
       "tier": 2,
       "title": "Excessive polling intervals",
-      "_source_file": "catalog/rules/NET/NET/ECO-NET-NET-013.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/NET/NET/ECO-NET-NET-013.json"
     },
     {
       "canonical_id": "ECO-NET-NET-014",
@@ -4994,7 +5971,10 @@
       ],
       "tier": 3,
       "title": "Synchronous cross-region calls",
-      "_source_file": "catalog/rules/NET/NET/ECO-NET-NET-014.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/NET/NET/ECO-NET-NET-014.json"
     },
     {
       "canonical_id": "ECO-NET-NET-015",
@@ -5036,7 +6016,437 @@
       ],
       "tier": 3,
       "title": "Missing circuit breaker patterns",
-      "_source_file": "catalog/rules/NET/NET/ECO-NET-NET-015.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/NET/NET/ECO-NET-NET-015.json"
+    },
+    {
+      "id": "ECO-OBS-LOG-001",
+      "canonical_id": "ECO-OBS-LOG-001",
+      "title": "Excessive production debug logging",
+      "summary": "Verbose debug logging remains enabled in production, increasing CPU, storage, network, and review cost.",
+      "category": "Observability & Telemetry",
+      "category_code": "OBS",
+      "family": "Logging",
+      "family_code": "LOG",
+      "layer": "process",
+      "ontology": {
+        "category": "Observability & Telemetry",
+        "family": "Logging",
+        "system_layers": [
+          "process"
+        ]
+      },
+      "impact": {
+        "type": "storage",
+        "confidence": 0.85,
+        "notes": "Added as part of the 0.3.0 expansion to capture cross-system sustainability and operational waste."
+      },
+      "cost_dimensions": {
+        "compute": "medium",
+        "memory": "low",
+        "network": "medium",
+        "storage": "high",
+        "human_time": "medium",
+        "carbon": "medium",
+        "water": "low"
+      },
+      "amplification": {
+        "scales_with_users": true,
+        "scales_with_data_volume": true,
+        "scales_non_linearly": false
+      },
+      "temporal_behavior": {
+        "startup_only": false,
+        "steady_state": true,
+        "burst_sensitive": true,
+        "time_degradation": false
+      },
+      "runtime_evidence": [
+        "log volume metrics",
+        "logging config",
+        "storage billing"
+      ],
+      "detection": {
+        "method": "static-or-runtime",
+        "confidence": 0.55,
+        "runtime_validation_required": true
+      },
+      "remediation": {
+        "guidance": "Set environment-specific log levels, sample noisy events, and apply retention controls.",
+        "tradeoffs": "May require architecture, product, or operations review rather than a local code change."
+      },
+      "metadata": {
+        "catalog_version": "0.4.0",
+        "status": "draft",
+        "source": "catalog expansion recommendations applied 2026-05-21"
+      },
+      "severity": "warning",
+      "enabled_by_default": false,
+      "tier": 2,
+      "tags": [
+        "logging",
+        "production",
+        "storage"
+      ],
+      "_source_file": "rules/OBS/LOG/ECO-OBS-LOG-001.json"
+    },
+    {
+      "id": "ECO-OBS-LOG-002",
+      "canonical_id": "ECO-OBS-LOG-002",
+      "title": "Large payload logging",
+      "summary": "Application logs capture full request, response, or message bodies where summaries or identifiers would be sufficient.",
+      "category": "Observability & Telemetry",
+      "category_code": "OBS",
+      "family": "Logging",
+      "family_code": "LOG",
+      "layer": "data",
+      "ontology": {
+        "category": "Observability & Telemetry",
+        "family": "Logging",
+        "system_layers": [
+          "data"
+        ]
+      },
+      "impact": {
+        "type": "storage",
+        "confidence": 0.75,
+        "notes": "Added as part of the 0.3.0 expansion to capture cross-system sustainability and operational waste."
+      },
+      "cost_dimensions": {
+        "compute": "medium",
+        "memory": "medium",
+        "network": "medium",
+        "storage": "high",
+        "human_time": "medium",
+        "carbon": "medium",
+        "water": "low"
+      },
+      "amplification": {
+        "scales_with_users": true,
+        "scales_with_data_volume": true,
+        "scales_non_linearly": false
+      },
+      "temporal_behavior": {
+        "startup_only": false,
+        "steady_state": true,
+        "burst_sensitive": true,
+        "time_degradation": false
+      },
+      "runtime_evidence": [
+        "log samples",
+        "storage billing",
+        "privacy review"
+      ],
+      "detection": {
+        "method": "static-or-runtime",
+        "confidence": 0.55,
+        "runtime_validation_required": true
+      },
+      "remediation": {
+        "guidance": "Log identifiers, sizes, hashes, or sampled payloads rather than full bodies, especially for large or sensitive data.",
+        "tradeoffs": "May require architecture, product, or operations review rather than a local code change."
+      },
+      "metadata": {
+        "catalog_version": "0.4.0",
+        "status": "draft",
+        "source": "catalog expansion recommendations applied 2026-05-21"
+      },
+      "severity": "warning",
+      "enabled_by_default": false,
+      "tier": 2,
+      "tags": [
+        "logging",
+        "payload",
+        "privacy"
+      ],
+      "_source_file": "rules/OBS/LOG/ECO-OBS-LOG-002.json"
+    },
+    {
+      "id": "ECO-OBS-METRIC-001",
+      "canonical_id": "ECO-OBS-METRIC-001",
+      "title": "High-cardinality metric explosion",
+      "summary": "Metrics include unbounded labels such as user IDs, request IDs, or raw paths, causing storage and query amplification.",
+      "category": "Observability & Telemetry",
+      "category_code": "OBS",
+      "family": "Metrics",
+      "family_code": "METRIC",
+      "layer": "data",
+      "ontology": {
+        "category": "Observability & Telemetry",
+        "family": "Metrics",
+        "system_layers": [
+          "data"
+        ]
+      },
+      "impact": {
+        "type": "storage",
+        "confidence": 0.8,
+        "notes": "Added as part of the 0.3.0 expansion to capture cross-system sustainability and operational waste."
+      },
+      "cost_dimensions": {
+        "compute": "medium",
+        "memory": "medium",
+        "network": "medium",
+        "storage": "high",
+        "human_time": "medium",
+        "carbon": "medium",
+        "water": "low"
+      },
+      "amplification": {
+        "scales_with_users": true,
+        "scales_with_data_volume": true,
+        "scales_non_linearly": true
+      },
+      "temporal_behavior": {
+        "startup_only": false,
+        "steady_state": true,
+        "burst_sensitive": true,
+        "time_degradation": false
+      },
+      "runtime_evidence": [
+        "metrics backend cardinality",
+        "query latency",
+        "observability billing"
+      ],
+      "detection": {
+        "method": "static-or-runtime",
+        "confidence": 0.55,
+        "runtime_validation_required": true
+      },
+      "remediation": {
+        "guidance": "Bound label values, aggregate dimensions, normalize paths, and reject unbounded labels in review.",
+        "tradeoffs": "May require architecture, product, or operations review rather than a local code change."
+      },
+      "metadata": {
+        "catalog_version": "0.4.0",
+        "status": "draft",
+        "source": "catalog expansion recommendations applied 2026-05-21"
+      },
+      "severity": "warning",
+      "enabled_by_default": false,
+      "tier": 2,
+      "tags": [
+        "metrics",
+        "cardinality",
+        "observability"
+      ],
+      "_source_file": "rules/OBS/METRIC/ECO-OBS-METRIC-001.json"
+    },
+    {
+      "id": "ECO-OBS-TRACE-001",
+      "canonical_id": "ECO-OBS-TRACE-001",
+      "title": "Unsampled high-volume tracing",
+      "summary": "Tracing is enabled for high-volume paths without sampling, retention limits, or cardinality controls.",
+      "category": "Observability & Telemetry",
+      "category_code": "OBS",
+      "family": "Tracing",
+      "family_code": "TRACE",
+      "layer": "network",
+      "ontology": {
+        "category": "Observability & Telemetry",
+        "family": "Tracing",
+        "system_layers": [
+          "network"
+        ]
+      },
+      "impact": {
+        "type": "network",
+        "confidence": 0.75,
+        "notes": "Added as part of the 0.3.0 expansion to capture cross-system sustainability and operational waste."
+      },
+      "cost_dimensions": {
+        "compute": "medium",
+        "memory": "medium",
+        "network": "high",
+        "storage": "high",
+        "human_time": "medium",
+        "carbon": "medium",
+        "water": "low"
+      },
+      "amplification": {
+        "scales_with_users": true,
+        "scales_with_data_volume": false,
+        "scales_non_linearly": false
+      },
+      "temporal_behavior": {
+        "startup_only": false,
+        "steady_state": true,
+        "burst_sensitive": true,
+        "time_degradation": false
+      },
+      "runtime_evidence": [
+        "trace volume",
+        "collector CPU",
+        "observability billing"
+      ],
+      "detection": {
+        "method": "static-or-runtime",
+        "confidence": 0.55,
+        "runtime_validation_required": true
+      },
+      "remediation": {
+        "guidance": "Apply adaptive sampling, route-specific sampling, shorter retention, and cardinality controls.",
+        "tradeoffs": "May require architecture, product, or operations review rather than a local code change."
+      },
+      "metadata": {
+        "catalog_version": "0.4.0",
+        "status": "draft",
+        "source": "catalog expansion recommendations applied 2026-05-21"
+      },
+      "severity": "warning",
+      "enabled_by_default": false,
+      "tier": 2,
+      "tags": [
+        "tracing",
+        "observability",
+        "sampling"
+      ],
+      "_source_file": "rules/OBS/TRACE/ECO-OBS-TRACE-001.json"
+    },
+    {
+      "id": "ECO-OPS-SEC-001",
+      "canonical_id": "ECO-OPS-SEC-001",
+      "title": "Repeated token introspection on hot path",
+      "summary": "Every request performs remote token introspection or identity lookup without safe caching or local validation.",
+      "category": "Operations",
+      "category_code": "OPS",
+      "family": "Identity & Security Efficiency",
+      "family_code": "SEC",
+      "layer": "network",
+      "ontology": {
+        "category": "Operations",
+        "family": "Identity & Security Efficiency",
+        "system_layers": [
+          "network"
+        ]
+      },
+      "impact": {
+        "type": "network",
+        "confidence": 0.75,
+        "notes": "Added as part of the 0.3.0 expansion to capture cross-system sustainability and operational waste."
+      },
+      "cost_dimensions": {
+        "compute": "medium",
+        "memory": "low",
+        "network": "high",
+        "storage": "low",
+        "human_time": "medium",
+        "carbon": "medium",
+        "water": "low"
+      },
+      "amplification": {
+        "scales_with_users": true,
+        "scales_with_data_volume": false,
+        "scales_non_linearly": false
+      },
+      "temporal_behavior": {
+        "startup_only": false,
+        "steady_state": true,
+        "burst_sensitive": true,
+        "time_degradation": false
+      },
+      "runtime_evidence": [
+        "auth service metrics",
+        "request traces",
+        "latency profiles"
+      ],
+      "detection": {
+        "method": "static-or-runtime",
+        "confidence": 0.55,
+        "runtime_validation_required": true
+      },
+      "remediation": {
+        "guidance": "Use bounded token caching, local verification for signed tokens, and risk-based refresh policies.",
+        "tradeoffs": "May require architecture, product, or operations review rather than a local code change."
+      },
+      "metadata": {
+        "catalog_version": "0.4.0",
+        "status": "draft",
+        "source": "catalog expansion recommendations applied 2026-05-21"
+      },
+      "severity": "warning",
+      "enabled_by_default": false,
+      "tier": 2,
+      "tags": [
+        "security",
+        "identity",
+        "token",
+        "hot-path"
+      ],
+      "_source_file": "rules/OPS/SEC/ECO-OPS-SEC-001.json"
+    },
+    {
+      "id": "ECO-OPS-SEC-002",
+      "canonical_id": "ECO-OPS-SEC-002",
+      "title": "Secrets retrieval on every request",
+      "summary": "Application code fetches secrets from a remote secret store on each request instead of caching with rotation-aware controls.",
+      "category": "Operations",
+      "category_code": "OPS",
+      "family": "Identity & Security Efficiency",
+      "family_code": "SEC",
+      "layer": "code",
+      "ontology": {
+        "category": "Operations",
+        "family": "Identity & Security Efficiency",
+        "system_layers": [
+          "code"
+        ]
+      },
+      "impact": {
+        "type": "network",
+        "confidence": 0.7,
+        "notes": "Added as part of the 0.3.0 expansion to capture cross-system sustainability and operational waste."
+      },
+      "cost_dimensions": {
+        "compute": "medium",
+        "memory": "low",
+        "network": "high",
+        "storage": "low",
+        "human_time": "medium",
+        "carbon": "medium",
+        "water": "low"
+      },
+      "amplification": {
+        "scales_with_users": true,
+        "scales_with_data_volume": false,
+        "scales_non_linearly": false
+      },
+      "temporal_behavior": {
+        "startup_only": false,
+        "steady_state": true,
+        "burst_sensitive": true,
+        "time_degradation": false
+      },
+      "runtime_evidence": [
+        "secret manager metrics",
+        "request traces",
+        "code review"
+      ],
+      "detection": {
+        "method": "static-or-runtime",
+        "confidence": 0.55,
+        "runtime_validation_required": true
+      },
+      "remediation": {
+        "guidance": "Cache secrets safely in process with TTLs, rotation hooks, and least-privilege access.",
+        "tradeoffs": "May require architecture, product, or operations review rather than a local code change."
+      },
+      "metadata": {
+        "catalog_version": "0.4.0",
+        "status": "draft",
+        "source": "catalog expansion recommendations applied 2026-05-21"
+      },
+      "severity": "warning",
+      "enabled_by_default": false,
+      "tier": 2,
+      "tags": [
+        "security",
+        "secrets",
+        "hot-path"
+      ],
+      "_source_file": "rules/OPS/SEC/ECO-OPS-SEC-002.json"
     },
     {
       "canonical_id": "ECO-ORG-PROC-001",
@@ -5077,7 +6487,10 @@
           "process"
         ]
       },
-      "_source_file": "catalog/rules/ORG/PROC/ECO-ORG-PROC-001.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/ORG/PROC/ECO-ORG-PROC-001.json"
     },
     {
       "canonical_id": "ECO-ORG-PROC-002",
@@ -5118,7 +6531,10 @@
           "process"
         ]
       },
-      "_source_file": "catalog/rules/ORG/PROC/ECO-ORG-PROC-002.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/ORG/PROC/ECO-ORG-PROC-002.json"
     },
     {
       "canonical_id": "ECO-ORG-PROC-003",
@@ -5159,7 +6575,10 @@
           "process"
         ]
       },
-      "_source_file": "catalog/rules/ORG/PROC/ECO-ORG-PROC-003.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/ORG/PROC/ECO-ORG-PROC-003.json"
     },
     {
       "canonical_id": "ECO-ORG-PROC-004",
@@ -5200,7 +6619,10 @@
           "process"
         ]
       },
-      "_source_file": "catalog/rules/ORG/PROC/ECO-ORG-PROC-004.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/ORG/PROC/ECO-ORG-PROC-004.json"
     },
     {
       "canonical_id": "ECO-ORG-PROC-005",
@@ -5241,7 +6663,10 @@
           "process"
         ]
       },
-      "_source_file": "catalog/rules/ORG/PROC/ECO-ORG-PROC-005.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/ORG/PROC/ECO-ORG-PROC-005.json"
     },
     {
       "canonical_id": "ECO-ORG-PROC-006",
@@ -5282,7 +6707,10 @@
           "process"
         ]
       },
-      "_source_file": "catalog/rules/ORG/PROC/ECO-ORG-PROC-006.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/ORG/PROC/ECO-ORG-PROC-006.json"
     },
     {
       "canonical_id": "ECO-ORG-PROC-007",
@@ -5323,7 +6751,10 @@
           "process"
         ]
       },
-      "_source_file": "catalog/rules/ORG/PROC/ECO-ORG-PROC-007.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/ORG/PROC/ECO-ORG-PROC-007.json"
     },
     {
       "canonical_id": "ECO-ORG-PROC-008",
@@ -5364,7 +6795,10 @@
           "process"
         ]
       },
-      "_source_file": "catalog/rules/ORG/PROC/ECO-ORG-PROC-008.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/ORG/PROC/ECO-ORG-PROC-008.json"
     },
     {
       "canonical_id": "ECO-ORG-PROC-009",
@@ -5405,7 +6839,10 @@
           "process"
         ]
       },
-      "_source_file": "catalog/rules/ORG/PROC/ECO-ORG-PROC-009.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/ORG/PROC/ECO-ORG-PROC-009.json"
     },
     {
       "canonical_id": "ECO-ORG-PROC-010",
@@ -5446,7 +6883,10 @@
           "process"
         ]
       },
-      "_source_file": "catalog/rules/ORG/PROC/ECO-ORG-PROC-010.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/ORG/PROC/ECO-ORG-PROC-010.json"
     },
     {
       "canonical_id": "ECO-ORG-PROC-011",
@@ -5486,7 +6926,10 @@
           "process"
         ]
       },
-      "_source_file": "catalog/rules/ORG/PROC/ECO-ORG-PROC-011.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/ORG/PROC/ECO-ORG-PROC-011.json"
     },
     {
       "canonical_id": "ECO-ORG-PROC-012",
@@ -5527,7 +6970,10 @@
           "process"
         ]
       },
-      "_source_file": "catalog/rules/ORG/PROC/ECO-ORG-PROC-012.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/ORG/PROC/ECO-ORG-PROC-012.json"
     },
     {
       "canonical_id": "ECO-ORG-PROC-013",
@@ -5567,7 +7013,10 @@
           "process"
         ]
       },
-      "_source_file": "catalog/rules/ORG/PROC/ECO-ORG-PROC-013.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/ORG/PROC/ECO-ORG-PROC-013.json"
     },
     {
       "canonical_id": "ECO-ORG-PROC-014",
@@ -5607,7 +7056,10 @@
           "process"
         ]
       },
-      "_source_file": "catalog/rules/ORG/PROC/ECO-ORG-PROC-014.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/ORG/PROC/ECO-ORG-PROC-014.json"
     },
     {
       "canonical_id": "ECO-ORG-PROC-015",
@@ -5647,7 +7099,579 @@
           "process"
         ]
       },
-      "_source_file": "catalog/rules/ORG/PROC/ECO-ORG-PROC-015.json"
+      "metadata": {
+        "catalog_version": "0.4.0"
+      },
+      "_source_file": "rules/ORG/PROC/ECO-ORG-PROC-015.json"
+    },
+    {
+      "id": "ECO-ORG-PROC-016",
+      "canonical_id": "ECO-ORG-PROC-016",
+      "title": "No performance or sustainability budget",
+      "summary": "Teams ship features without explicit performance, cost, carbon, or resource budgets.",
+      "category": "Organizational",
+      "category_code": "ORG",
+      "family": "Process",
+      "family_code": "PROC",
+      "layer": "process",
+      "ontology": {
+        "category": "Organizational",
+        "family": "Process",
+        "system_layers": [
+          "process"
+        ]
+      },
+      "impact": {
+        "type": "process",
+        "confidence": 0.75,
+        "notes": "Added as part of the 0.3.0 expansion to capture cross-system sustainability and operational waste."
+      },
+      "cost_dimensions": {
+        "compute": "medium",
+        "memory": "medium",
+        "network": "medium",
+        "storage": "medium",
+        "human_time": "high",
+        "carbon": "high",
+        "water": "medium"
+      },
+      "amplification": {
+        "scales_with_users": true,
+        "scales_with_data_volume": true,
+        "scales_non_linearly": false
+      },
+      "temporal_behavior": {
+        "startup_only": false,
+        "steady_state": true,
+        "burst_sensitive": true,
+        "time_degradation": false
+      },
+      "runtime_evidence": [
+        "architecture review",
+        "SLOs",
+        "team standards"
+      ],
+      "detection": {
+        "method": "static-or-runtime",
+        "confidence": 0.55,
+        "runtime_validation_required": true
+      },
+      "remediation": {
+        "guidance": "Define lightweight budgets for latency, compute, data transfer, storage, cost, and sustainability-sensitive workloads.",
+        "tradeoffs": "May require architecture, product, or operations review rather than a local code change."
+      },
+      "metadata": {
+        "catalog_version": "0.4.0",
+        "status": "draft",
+        "source": "catalog expansion recommendations applied 2026-05-21"
+      },
+      "severity": "warning",
+      "enabled_by_default": false,
+      "tier": 2,
+      "tags": [
+        "governance",
+        "performance-budget",
+        "sustainability"
+      ],
+      "_source_file": "rules/ORG/PROC/ECO-ORG-PROC-016.json"
+    },
+    {
+      "id": "ECO-RES-DEG-001",
+      "canonical_id": "ECO-RES-DEG-001",
+      "title": "No degraded mode for optional dependencies",
+      "summary": "The system fails completely when optional dependencies such as recommendations, analytics, or enrichment are unavailable.",
+      "category": "Resilience & Reliability",
+      "category_code": "RES",
+      "family": "Graceful Degradation",
+      "family_code": "DEG",
+      "layer": "architecture",
+      "ontology": {
+        "category": "Resilience & Reliability",
+        "family": "Graceful Degradation",
+        "system_layers": [
+          "architecture"
+        ]
+      },
+      "impact": {
+        "type": "resilience",
+        "confidence": 0.75,
+        "notes": "Added as part of the 0.3.0 expansion to capture cross-system sustainability and operational waste."
+      },
+      "cost_dimensions": {
+        "compute": "medium",
+        "memory": "low",
+        "network": "medium",
+        "storage": "low",
+        "human_time": "high",
+        "carbon": "medium",
+        "water": "low"
+      },
+      "amplification": {
+        "scales_with_users": true,
+        "scales_with_data_volume": false,
+        "scales_non_linearly": true
+      },
+      "temporal_behavior": {
+        "startup_only": false,
+        "steady_state": true,
+        "burst_sensitive": true,
+        "time_degradation": false
+      },
+      "runtime_evidence": [
+        "architecture review",
+        "dependency traces",
+        "incident reports"
+      ],
+      "detection": {
+        "method": "static-or-runtime",
+        "confidence": 0.55,
+        "runtime_validation_required": true
+      },
+      "remediation": {
+        "guidance": "Classify dependencies by criticality and provide fallback, cached, or reduced-function behavior for non-critical services.",
+        "tradeoffs": "May require architecture, product, or operations review rather than a local code change."
+      },
+      "metadata": {
+        "catalog_version": "0.4.0",
+        "status": "draft",
+        "source": "catalog expansion recommendations applied 2026-05-21"
+      },
+      "severity": "warning",
+      "enabled_by_default": false,
+      "tier": 2,
+      "tags": [
+        "degraded-mode",
+        "dependencies",
+        "resilience"
+      ],
+      "_source_file": "rules/RES/DEG/ECO-RES-DEG-001.json"
+    },
+    {
+      "id": "ECO-RES-DR-001",
+      "canonical_id": "ECO-RES-DR-001",
+      "title": "Untested regional failover",
+      "summary": "A system claims regional resilience, but failover paths are not regularly tested under realistic conditions.",
+      "category": "Resilience & Reliability",
+      "category_code": "RES",
+      "family": "Disaster Recovery",
+      "family_code": "DR",
+      "layer": "process",
+      "ontology": {
+        "category": "Resilience & Reliability",
+        "family": "Disaster Recovery",
+        "system_layers": [
+          "process"
+        ]
+      },
+      "impact": {
+        "type": "resilience",
+        "confidence": 0.7,
+        "notes": "Added as part of the 0.3.0 expansion to capture cross-system sustainability and operational waste."
+      },
+      "cost_dimensions": {
+        "compute": "medium",
+        "memory": "low",
+        "network": "medium",
+        "storage": "medium",
+        "human_time": "high",
+        "carbon": "medium",
+        "water": "low"
+      },
+      "amplification": {
+        "scales_with_users": false,
+        "scales_with_data_volume": false,
+        "scales_non_linearly": true
+      },
+      "temporal_behavior": {
+        "startup_only": false,
+        "steady_state": true,
+        "burst_sensitive": true,
+        "time_degradation": false
+      },
+      "runtime_evidence": [
+        "DR test records",
+        "runbooks",
+        "incident history"
+      ],
+      "detection": {
+        "method": "static-or-runtime",
+        "confidence": 0.55,
+        "runtime_validation_required": true
+      },
+      "remediation": {
+        "guidance": "Schedule failover exercises, validate runbooks, measure recovery behavior, and retire false redundancy.",
+        "tradeoffs": "May require architecture, product, or operations review rather than a local code change."
+      },
+      "metadata": {
+        "catalog_version": "0.4.0",
+        "status": "draft",
+        "source": "catalog expansion recommendations applied 2026-05-21"
+      },
+      "severity": "warning",
+      "enabled_by_default": false,
+      "tier": 2,
+      "tags": [
+        "failover",
+        "dr",
+        "resilience"
+      ],
+      "_source_file": "rules/RES/DR/ECO-RES-DR-001.json"
+    },
+    {
+      "id": "ECO-RES-FAIL-001",
+      "canonical_id": "ECO-RES-FAIL-001",
+      "title": "Retry storm without backoff",
+      "summary": "Clients retry failures aggressively without exponential backoff, jitter, or circuit breaking.",
+      "category": "Resilience & Reliability",
+      "category_code": "RES",
+      "family": "Failure Handling",
+      "family_code": "FAIL",
+      "layer": "architecture",
+      "ontology": {
+        "category": "Resilience & Reliability",
+        "family": "Failure Handling",
+        "system_layers": [
+          "architecture"
+        ]
+      },
+      "impact": {
+        "type": "resilience",
+        "confidence": 0.85,
+        "notes": "Added as part of the 0.3.0 expansion to capture cross-system sustainability and operational waste."
+      },
+      "cost_dimensions": {
+        "compute": "high",
+        "memory": "medium",
+        "network": "high",
+        "storage": "low",
+        "human_time": "high",
+        "carbon": "high",
+        "water": "medium"
+      },
+      "amplification": {
+        "scales_with_users": true,
+        "scales_with_data_volume": false,
+        "scales_non_linearly": true
+      },
+      "temporal_behavior": {
+        "startup_only": false,
+        "steady_state": true,
+        "burst_sensitive": true,
+        "time_degradation": false
+      },
+      "runtime_evidence": [
+        "incident logs",
+        "request rates",
+        "dependency saturation"
+      ],
+      "detection": {
+        "method": "static-or-runtime",
+        "confidence": 0.55,
+        "runtime_validation_required": true
+      },
+      "remediation": {
+        "guidance": "Use exponential backoff, jitter, retry budgets, circuit breakers, and idempotency checks.",
+        "tradeoffs": "May require architecture, product, or operations review rather than a local code change."
+      },
+      "metadata": {
+        "catalog_version": "0.4.0",
+        "status": "draft",
+        "source": "catalog expansion recommendations applied 2026-05-21"
+      },
+      "severity": "warning",
+      "enabled_by_default": false,
+      "tier": 2,
+      "tags": [
+        "retry",
+        "backoff",
+        "resilience"
+      ],
+      "_source_file": "rules/RES/FAIL/ECO-RES-FAIL-001.json"
+    },
+    {
+      "id": "ECO-SUS-CARBON-001",
+      "canonical_id": "ECO-SUS-CARBON-001",
+      "title": "Carbon-insensitive workload placement",
+      "summary": "Workloads are deployed without considering regional carbon intensity or cleaner available regions.",
+      "category": "Sustainability & Environmental Impact",
+      "category_code": "SUS",
+      "family": "Carbon-Aware Computing",
+      "family_code": "CARBON",
+      "layer": "architecture",
+      "ontology": {
+        "category": "Sustainability & Environmental Impact",
+        "family": "Carbon-Aware Computing",
+        "system_layers": [
+          "architecture"
+        ]
+      },
+      "impact": {
+        "type": "carbon",
+        "confidence": 0.7,
+        "notes": "Added as part of the 0.3.0 expansion to capture cross-system sustainability and operational waste."
+      },
+      "cost_dimensions": {
+        "compute": "high",
+        "memory": "low",
+        "network": "medium",
+        "storage": "low",
+        "human_time": "medium",
+        "carbon": "high",
+        "water": "medium"
+      },
+      "amplification": {
+        "scales_with_users": true,
+        "scales_with_data_volume": true,
+        "scales_non_linearly": false
+      },
+      "temporal_behavior": {
+        "startup_only": false,
+        "steady_state": true,
+        "burst_sensitive": true,
+        "time_degradation": false
+      },
+      "runtime_evidence": [
+        "cloud region inventory",
+        "carbon intensity data",
+        "billing data"
+      ],
+      "detection": {
+        "method": "static-or-runtime",
+        "confidence": 0.55,
+        "runtime_validation_required": true
+      },
+      "remediation": {
+        "guidance": "Evaluate region placement against latency, compliance, resilience, carbon intensity, and water stress constraints.",
+        "tradeoffs": "May require architecture, product, or operations review rather than a local code change."
+      },
+      "metadata": {
+        "catalog_version": "0.4.0",
+        "status": "draft",
+        "source": "catalog expansion recommendations applied 2026-05-21"
+      },
+      "severity": "warning",
+      "enabled_by_default": false,
+      "tier": 2,
+      "tags": [
+        "carbon",
+        "region",
+        "cloud"
+      ],
+      "_source_file": "rules/SUS/CARBON/ECO-SUS-CARBON-001.json"
+    },
+    {
+      "id": "ECO-SUS-ENERGY-001",
+      "canonical_id": "ECO-SUS-ENERGY-001",
+      "title": "Always-on non-production environments",
+      "summary": "Development, test, preview, or demo environments remain powered continuously without an operational need.",
+      "category": "Sustainability & Environmental Impact",
+      "category_code": "SUS",
+      "family": "Energy Efficiency",
+      "family_code": "ENERGY",
+      "layer": "process",
+      "ontology": {
+        "category": "Sustainability & Environmental Impact",
+        "family": "Energy Efficiency",
+        "system_layers": [
+          "process"
+        ]
+      },
+      "impact": {
+        "type": "energy",
+        "confidence": 0.8,
+        "notes": "Added as part of the 0.3.0 expansion to capture cross-system sustainability and operational waste."
+      },
+      "cost_dimensions": {
+        "compute": "high",
+        "memory": "medium",
+        "network": "low",
+        "storage": "medium",
+        "human_time": "low",
+        "carbon": "high",
+        "water": "medium"
+      },
+      "amplification": {
+        "scales_with_users": false,
+        "scales_with_data_volume": false,
+        "scales_non_linearly": false
+      },
+      "temporal_behavior": {
+        "startup_only": false,
+        "steady_state": true,
+        "burst_sensitive": false,
+        "time_degradation": true
+      },
+      "runtime_evidence": [
+        "cloud inventory",
+        "schedules",
+        "billing data"
+      ],
+      "detection": {
+        "method": "static-or-runtime",
+        "confidence": 0.55,
+        "runtime_validation_required": true
+      },
+      "remediation": {
+        "guidance": "Add schedules, lifecycle policies, ephemeral environments, or automated shutdown for idle non-production resources.",
+        "tradeoffs": "May require architecture, product, or operations review rather than a local code change."
+      },
+      "metadata": {
+        "catalog_version": "0.4.0",
+        "status": "draft",
+        "source": "catalog expansion recommendations applied 2026-05-21"
+      },
+      "severity": "warning",
+      "enabled_by_default": false,
+      "tier": 2,
+      "tags": [
+        "energy",
+        "cloud",
+        "non-production"
+      ],
+      "_source_file": "rules/SUS/ENERGY/ECO-SUS-ENERGY-001.json"
+    },
+    {
+      "id": "ECO-SUS-HW-001",
+      "canonical_id": "ECO-SUS-HW-001",
+      "title": "Premature hardware refresh policy",
+      "summary": "Hardware is refreshed on a fixed schedule without utilization, repairability, reuse, or embodied-impact review.",
+      "category": "Sustainability & Environmental Impact",
+      "category_code": "SUS",
+      "family": "Hardware Lifecycle",
+      "family_code": "HW",
+      "layer": "process",
+      "ontology": {
+        "category": "Sustainability & Environmental Impact",
+        "family": "Hardware Lifecycle",
+        "system_layers": [
+          "process"
+        ]
+      },
+      "impact": {
+        "type": "embodied-impact",
+        "confidence": 0.6,
+        "notes": "Added as part of the 0.3.0 expansion to capture cross-system sustainability and operational waste."
+      },
+      "cost_dimensions": {
+        "compute": "low",
+        "memory": "low",
+        "network": "low",
+        "storage": "low",
+        "human_time": "medium",
+        "carbon": "high",
+        "water": "medium"
+      },
+      "amplification": {
+        "scales_with_users": false,
+        "scales_with_data_volume": false,
+        "scales_non_linearly": false
+      },
+      "temporal_behavior": {
+        "startup_only": false,
+        "steady_state": true,
+        "burst_sensitive": true,
+        "time_degradation": false
+      },
+      "runtime_evidence": [
+        "asset inventory",
+        "procurement policy",
+        "utilization data"
+      ],
+      "detection": {
+        "method": "static-or-runtime",
+        "confidence": 0.55,
+        "runtime_validation_required": true
+      },
+      "remediation": {
+        "guidance": "Base refresh decisions on reliability, security, workload fit, repairability, reuse, and embodied impact.",
+        "tradeoffs": "May require architecture, product, or operations review rather than a local code change."
+      },
+      "metadata": {
+        "catalog_version": "0.4.0",
+        "status": "draft",
+        "source": "catalog expansion recommendations applied 2026-05-21"
+      },
+      "severity": "warning",
+      "enabled_by_default": false,
+      "tier": 2,
+      "tags": [
+        "hardware",
+        "circular-economy",
+        "embodied-carbon"
+      ],
+      "_source_file": "rules/SUS/HW/ECO-SUS-HW-001.json"
+    },
+    {
+      "id": "ECO-SUS-WATER-001",
+      "canonical_id": "ECO-SUS-WATER-001",
+      "title": "Water-stress-blind AI inference placement",
+      "summary": "AI inference workloads are placed without considering regional water stress or cooling impact.",
+      "category": "Sustainability & Environmental Impact",
+      "category_code": "SUS",
+      "family": "Water-Aware Computing",
+      "family_code": "WATER",
+      "layer": "ai",
+      "ontology": {
+        "category": "Sustainability & Environmental Impact",
+        "family": "Water-Aware Computing",
+        "system_layers": [
+          "ai"
+        ]
+      },
+      "impact": {
+        "type": "water",
+        "confidence": 0.65,
+        "notes": "Added as part of the 0.3.0 expansion to capture cross-system sustainability and operational waste."
+      },
+      "cost_dimensions": {
+        "compute": "high",
+        "memory": "medium",
+        "network": "medium",
+        "storage": "low",
+        "human_time": "medium",
+        "carbon": "high",
+        "water": "high"
+      },
+      "amplification": {
+        "scales_with_users": true,
+        "scales_with_data_volume": false,
+        "scales_non_linearly": false
+      },
+      "temporal_behavior": {
+        "startup_only": false,
+        "steady_state": true,
+        "burst_sensitive": true,
+        "time_degradation": false
+      },
+      "runtime_evidence": [
+        "region inventory",
+        "AI usage metrics",
+        "water stress factors"
+      ],
+      "detection": {
+        "method": "static-or-runtime",
+        "confidence": 0.55,
+        "runtime_validation_required": true
+      },
+      "remediation": {
+        "guidance": "Consider region, model size, caching, batching, and workload scheduling to reduce water-stress-weighted impact.",
+        "tradeoffs": "May require architecture, product, or operations review rather than a local code change."
+      },
+      "metadata": {
+        "catalog_version": "0.4.0",
+        "status": "draft",
+        "source": "catalog expansion recommendations applied 2026-05-21"
+      },
+      "severity": "warning",
+      "enabled_by_default": false,
+      "tier": 2,
+      "tags": [
+        "ai",
+        "water",
+        "inference",
+        "region"
+      ],
+      "_source_file": "rules/SUS/WATER/ECO-SUS-WATER-001.json"
     }
   ],
   "tags": []

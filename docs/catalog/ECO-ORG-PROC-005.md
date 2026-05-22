@@ -2,9 +2,9 @@
 
 **Name:** Feature shipped without load testing
 
-**Category:** ORG
+**Category:** Organizational
 
-**Family:** PROC
+**Family:** Process
 
 **Primary layer:** `process`
 
@@ -22,8 +22,7 @@ Skipping load tests creates risk and often forces wasteful overprovisioning.
 
 ## Detection
 
-- **languages:**
-  - org
+- **languages:** `org`
 - **method:** config
 
 ## Remediation
@@ -38,6 +37,10 @@ No pattern examples provided.
 ## Remediation examples
 
 No remediation examples provided.
+
+## Metadata
+
+- **catalog_version:** 0.4.0
 
 ## Navigation
 

@@ -36,5 +36,8 @@
     "scheduling"
   ],
   "tier": 3,
-  "title": "Batch jobs run too frequently"
+  "title": "Batch jobs run too frequently",
+  "metadata": {
+    "catalog_version": "0.4.0"
+  }
 }

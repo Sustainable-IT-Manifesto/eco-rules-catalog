@@ -1,0 +1,70 @@
+{
+  "id": "ECO-RES-FAIL-001",
+  "canonical_id": "ECO-RES-FAIL-001",
+  "title": "Retry storm without backoff",
+  "summary": "Clients retry failures aggressively without exponential backoff, jitter, or circuit breaking.",
+  "category": "Resilience & Reliability",
+  "category_code": "RES",
+  "family": "Failure Handling",
+  "family_code": "FAIL",
+  "layer": "architecture",
+  "ontology": {
+    "category": "Resilience & Reliability",
+    "family": "Failure Handling",
+    "system_layers": [
+      "architecture"
+    ]
+  },
+  "impact": {
+    "type": "resilience",
+    "confidence": 0.85,
+    "notes": "Added as part of the 0.3.0 expansion to capture cross-system sustainability and operational waste."
+  },
+  "cost_dimensions": {
+    "compute": "high",
+    "memory": "medium",
+    "network": "high",
+    "storage": "low",
+    "human_time": "high",
+    "carbon": "high",
+    "water": "medium"
+  },
+  "amplification": {
+    "scales_with_users": true,
+    "scales_with_data_volume": false,
+    "scales_non_linearly": true
+  },
+  "temporal_behavior": {
+    "startup_only": false,
+    "steady_state": true,
+    "burst_sensitive": true,
+    "time_degradation": false
+  },
+  "runtime_evidence": [
+    "incident logs",
+    "request rates",
+    "dependency saturation"
+  ],
+  "detection": {
+    "method": "static-or-runtime",
+    "confidence": 0.55,
+    "runtime_validation_required": true
+  },
+  "remediation": {
+    "guidance": "Use exponential backoff, jitter, retry budgets, circuit breakers, and idempotency checks.",
+    "tradeoffs": "May require architecture, product, or operations review rather than a local code change."
+  },
+  "metadata": {
+    "catalog_version": "0.4.0",
+    "status": "draft",
+    "source": "catalog expansion recommendations applied 2026-05-21"
+  },
+  "severity": "warning",
+  "enabled_by_default": false,
+  "tier": 2,
+  "tags": [
+    "retry",
+    "backoff",
+    "resilience"
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "id": "ECO-SUS-ENERGY-001",
+  "canonical_id": "ECO-SUS-ENERGY-001",
+  "title": "Always-on non-production environments",
+  "summary": "Development, test, preview, or demo environments remain powered continuously without an operational need.",
+  "category": "Sustainability & Environmental Impact",
+  "category_code": "SUS",
+  "family": "Energy Efficiency",
+  "family_code": "ENERGY",
+  "layer": "process",
+  "ontology": {
+    "category": "Sustainability & Environmental Impact",
+    "family": "Energy Efficiency",
+    "system_layers": [
+      "process"
+    ]
+  },
+  "impact": {
+    "type": "energy",
+    "confidence": 0.8,
+    "notes": "Added as part of the 0.3.0 expansion to capture cross-system sustainability and operational waste."
+  },
+  "cost_dimensions": {
+    "compute": "high",
+    "memory": "medium",
+    "network": "low",
+    "storage": "medium",
+    "human_time": "low",
+    "carbon": "high",
+    "water": "medium"
+  },
+  "amplification": {
+    "scales_with_users": false,
+    "scales_with_data_volume": false,
+    "scales_non_linearly": false
+  },
+  "temporal_behavior": {
+    "startup_only": false,
+    "steady_state": true,
+    "burst_sensitive": false,
+    "time_degradation": true
+  },
+  "runtime_evidence": [
+    "cloud inventory",
+    "schedules",
+    "billing data"
+  ],
+  "detection": {
+    "method": "static-or-runtime",
+    "confidence": 0.55,
+    "runtime_validation_required": true
+  },
+  "remediation": {
+    "guidance": "Add schedules, lifecycle policies, ephemeral environments, or automated shutdown for idle non-production resources.",
+    "tradeoffs": "May require architecture, product, or operations review rather than a local code change."
+  },
+  "metadata": {
+    "catalog_version": "0.4.0",
+    "status": "draft",
+    "source": "catalog expansion recommendations applied 2026-05-21"
+  },
+  "severity": "warning",
+  "enabled_by_default": false,
+  "tier": 2,
+  "tags": [
+    "energy",
+    "cloud",
+    "non-production"
+  ]
+}

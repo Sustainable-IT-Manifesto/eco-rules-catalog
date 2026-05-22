@@ -2,7 +2,7 @@
 
 **Name:** Large model in low-SLA workload
 
-**Category:** AIM
+**Category:** AI/ML
 
 **Family:** AI
 
@@ -22,8 +22,7 @@ Using high-cost models where latency/quality needs are modest wastes resources.
 
 ## Detection
 
-- **languages:**
-  - org
+- **languages:** `org`
 - **method:** hybrid
 
 ## Remediation
@@ -38,6 +37,10 @@ No pattern examples provided.
 ## Remediation examples
 
 No remediation examples provided.
+
+## Metadata
+
+- **catalog_version:** 0.4.0
 
 ## Navigation
 

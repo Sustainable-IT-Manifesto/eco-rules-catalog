@@ -2,9 +2,9 @@
 
 **Name:** Stale feature flags accumulating
 
-**Category:** DAT
+**Category:** Data
 
-**Family:** DATA
+**Family:** Data
 
 **Primary layer:** `data`
 
@@ -22,8 +22,7 @@ Feature flags left indefinitely add complexity and runtime overhead.
 
 ## Detection
 
-- **languages:**
-  - org
+- **languages:** `org`
 - **method:** hybrid
 
 ## Remediation
@@ -38,6 +37,10 @@ No pattern examples provided.
 ## Remediation examples
 
 No remediation examples provided.
+
+## Metadata
+
+- **catalog_version:** 0.4.0
 
 ## Navigation
 

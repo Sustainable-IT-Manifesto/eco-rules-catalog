@@ -37,5 +37,8 @@
     "cpu"
   ],
   "tier": 1,
-  "title": "Inefficient pandas row iteration"
+  "title": "Inefficient pandas row iteration",
+  "metadata": {
+    "catalog_version": "0.4.0"
+  }
 }

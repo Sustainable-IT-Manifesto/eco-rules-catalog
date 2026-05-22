@@ -37,5 +37,8 @@
     "connections"
   ],
   "tier": 2,
-  "title": "Recreating database connections per request"
+  "title": "Recreating database connections per request",
+  "metadata": {
+    "catalog_version": "0.4.0"
+  }
 }

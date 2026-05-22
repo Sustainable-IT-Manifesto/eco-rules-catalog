@@ -1,0 +1,70 @@
+{
+  "id": "ECO-DAT-CACHE-001",
+  "canonical_id": "ECO-DAT-CACHE-001",
+  "title": "Missing cache for repeated expensive lookup",
+  "summary": "The same expensive query, API call, or computation is performed repeatedly when results could be safely cached.",
+  "category": "Data",
+  "category_code": "DAT",
+  "family": "Caching",
+  "family_code": "CACHE",
+  "layer": "data",
+  "ontology": {
+    "category": "Data",
+    "family": "Caching",
+    "system_layers": [
+      "data"
+    ]
+  },
+  "impact": {
+    "type": "compute",
+    "confidence": 0.75,
+    "notes": "Added as part of the 0.3.0 expansion to capture cross-system sustainability and operational waste."
+  },
+  "cost_dimensions": {
+    "compute": "high",
+    "memory": "medium",
+    "network": "medium",
+    "storage": "low",
+    "human_time": "low",
+    "carbon": "high",
+    "water": "low"
+  },
+  "amplification": {
+    "scales_with_users": true,
+    "scales_with_data_volume": true,
+    "scales_non_linearly": false
+  },
+  "temporal_behavior": {
+    "startup_only": false,
+    "steady_state": true,
+    "burst_sensitive": true,
+    "time_degradation": false
+  },
+  "runtime_evidence": [
+    "query traces",
+    "APM spans",
+    "flamegraphs"
+  ],
+  "detection": {
+    "method": "static-or-runtime",
+    "confidence": 0.55,
+    "runtime_validation_required": true
+  },
+  "remediation": {
+    "guidance": "Introduce bounded caching with explicit invalidation, freshness requirements, and observability.",
+    "tradeoffs": "May require architecture, product, or operations review rather than a local code change."
+  },
+  "metadata": {
+    "catalog_version": "0.4.0",
+    "status": "draft",
+    "source": "catalog expansion recommendations applied 2026-05-21"
+  },
+  "severity": "warning",
+  "enabled_by_default": false,
+  "tier": 2,
+  "tags": [
+    "cache",
+    "query",
+    "hot-path"
+  ]
+}

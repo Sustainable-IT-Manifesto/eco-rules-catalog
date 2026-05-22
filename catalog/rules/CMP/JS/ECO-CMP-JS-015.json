@@ -36,5 +36,8 @@
     "allocations"
   ],
   "tier": 1,
-  "title": "Recreating large objects per render"
+  "title": "Recreating large objects per render",
+  "metadata": {
+    "catalog_version": "0.4.0"
+  }
 }

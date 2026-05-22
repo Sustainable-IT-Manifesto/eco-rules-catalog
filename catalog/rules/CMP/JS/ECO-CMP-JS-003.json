@@ -37,5 +37,8 @@
     "frontend"
   ],
   "tier": 1,
-  "title": "Large unoptimized bundles"
+  "title": "Large unoptimized bundles",
+  "metadata": {
+    "catalog_version": "0.4.0"
+  }
 }

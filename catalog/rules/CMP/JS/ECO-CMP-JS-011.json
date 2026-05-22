@@ -36,5 +36,8 @@
     "cpu"
   ],
   "tier": 1,
-  "title": "Inefficient array transformations (multi-pass)"
+  "title": "Inefficient array transformations (multi-pass)",
+  "metadata": {
+    "catalog_version": "0.4.0"
+  }
 }

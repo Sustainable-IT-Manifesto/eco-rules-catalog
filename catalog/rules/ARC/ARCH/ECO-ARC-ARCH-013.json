@@ -35,5 +35,8 @@
     "caching"
   ],
   "tier": 3,
-  "title": "No caching layer for high-read workloads"
+  "title": "No caching layer for high-read workloads",
+  "metadata": {
+    "catalog_version": "0.4.0"
+  }
 }

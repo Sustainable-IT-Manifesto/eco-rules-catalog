@@ -36,5 +36,8 @@
     "promises"
   ],
   "tier": 2,
-  "title": "Unbounded promise chains"
+  "title": "Unbounded promise chains",
+  "metadata": {
+    "catalog_version": "0.4.0"
+  }
 }

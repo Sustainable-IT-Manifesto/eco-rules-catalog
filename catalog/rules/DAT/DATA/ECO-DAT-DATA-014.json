@@ -35,5 +35,8 @@
     "feature-flags"
   ],
   "tier": 2,
-  "title": "Stale feature flags accumulating"
+  "title": "Stale feature flags accumulating",
+  "metadata": {
+    "catalog_version": "0.4.0"
+  }
 }

@@ -2,9 +2,9 @@
 
 **Name:** Excessive object creation in hot path
 
-**Category:** CMP
+**Category:** Computation
 
-**Family:** JAVA
+**Family:** Java
 
 **Primary layer:** `code`
 
@@ -22,8 +22,7 @@ High allocation rates increase GC pressure and CPU cost.
 
 ## Detection
 
-- **languages:**
-  - java
+- **languages:** `java`
 - **method:** trace
 
 ## Remediation
@@ -38,6 +37,10 @@ No pattern examples provided.
 ## Remediation examples
 
 No remediation examples provided.
+
+## Metadata
+
+- **catalog_version:** 0.4.0
 
 ## Navigation
 

@@ -28,8 +28,7 @@ Using a large general-purpose base image when a smaller runtime image would suff
 ## Remediation
 
 - **guidance:** Prefer minimal runtime images that still meet operational needs.
-- **examples:**
-  - Use slim or distroless images when practical and compatible with debugging and support needs.
+- **examples:** `Use slim or distroless images when practical and compatible with debugging and support needs.`
 
 ## Pattern examples
 
@@ -44,6 +43,7 @@ No remediation examples provided.
 - **status:** draft
 - **severity:** medium
 - **version:** 0.3.0-draft
+- **catalog_version:** 0.4.0
 
 ## Navigation
 

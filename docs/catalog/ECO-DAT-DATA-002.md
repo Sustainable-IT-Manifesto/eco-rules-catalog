@@ -2,9 +2,9 @@
 
 **Name:** Missing retention policy
 
-**Category:** DAT
+**Category:** Data
 
-**Family:** DATA
+**Family:** Data
 
 **Primary layer:** `data`
 
@@ -22,9 +22,7 @@ No TTL/lifecycle policy causes unbounded data growth.
 
 ## Detection
 
-- **languages:**
-  - infra
-  - org
+- **languages:** `infra`, `org`
 - **method:** config
 
 ## Remediation
@@ -39,6 +37,10 @@ No pattern examples provided.
 ## Remediation examples
 
 No remediation examples provided.
+
+## Metadata
+
+- **catalog_version:** 0.4.0
 
 ## Navigation
 

@@ -2,9 +2,9 @@
 
 **Name:** No decommissioning workflow
 
-**Category:** ORG
+**Category:** Organizational
 
-**Family:** PROC
+**Family:** Process
 
 **Primary layer:** `process`
 
@@ -22,8 +22,7 @@ Without decommissioning, dead systems stay alive and waste resources.
 
 ## Detection
 
-- **languages:**
-  - org
+- **languages:** `org`
 - **method:** hybrid
 
 ## Remediation
@@ -38,6 +37,10 @@ No pattern examples provided.
 ## Remediation examples
 
 No remediation examples provided.
+
+## Metadata
+
+- **catalog_version:** 0.4.0
 
 ## Navigation
 

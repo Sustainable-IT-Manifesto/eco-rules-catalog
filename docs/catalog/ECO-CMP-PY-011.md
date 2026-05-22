@@ -2,9 +2,9 @@
 
 **Name:** Repeated JSON serialization cycles
 
-**Category:** CMP
+**Category:** Computation
 
-**Family:** PY
+**Family:** Python
 
 **Primary layer:** `code`
 
@@ -22,8 +22,7 @@ Serializing/deserializing repeatedly wastes CPU and increases latency.
 
 ## Detection
 
-- **languages:**
-  - python
+- **languages:** `python`
 - **method:** hybrid
 
 ## Remediation
@@ -38,6 +37,10 @@ No pattern examples provided.
 ## Remediation examples
 
 No remediation examples provided.
+
+## Metadata
+
+- **catalog_version:** 0.4.0
 
 ## Navigation
 

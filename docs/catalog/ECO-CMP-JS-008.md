@@ -2,9 +2,9 @@
 
 **Name:** Excessive DOM reflow
 
-**Category:** CMP
+**Category:** Computation
 
-**Family:** JS
+**Family:** JavaScript
 
 **Primary layer:** `code`
 
@@ -22,8 +22,7 @@ Layout thrashing increases CPU and drains battery.
 
 ## Detection
 
-- **languages:**
-  - javascript
+- **languages:** `javascript`
 - **method:** trace
 
 ## Remediation
@@ -38,6 +37,10 @@ No pattern examples provided.
 ## Remediation examples
 
 No remediation examples provided.
+
+## Metadata
+
+- **catalog_version:** 0.4.0
 
 ## Navigation
 

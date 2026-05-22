@@ -36,5 +36,8 @@
     "embeddings"
   ],
   "tier": 2,
-  "title": "Re-embedding unchanged data"
+  "title": "Re-embedding unchanged data",
+  "metadata": {
+    "catalog_version": "0.4.0"
+  }
 }

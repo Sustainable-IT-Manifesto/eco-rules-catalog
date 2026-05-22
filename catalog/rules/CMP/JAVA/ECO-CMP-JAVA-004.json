@@ -36,5 +36,8 @@
     "cpu"
   ],
   "tier": 1,
-  "title": "Reflection in hot path"
+  "title": "Reflection in hot path",
+  "metadata": {
+    "catalog_version": "0.4.0"
+  }
 }

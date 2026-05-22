@@ -36,5 +36,8 @@
     "latency"
   ],
   "tier": 3,
-  "title": "Long synchronous dependency chain"
+  "title": "Long synchronous dependency chain",
+  "metadata": {
+    "catalog_version": "0.4.0"
+  }
 }

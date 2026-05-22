@@ -2,9 +2,9 @@
 
 **Name:** Redundant API calls in component lifecycle
 
-**Category:** CMP
+**Category:** Computation
 
-**Family:** JS
+**Family:** JavaScript
 
 **Primary layer:** `network`
 
@@ -22,8 +22,7 @@ Repeated fetches on rerender waste network and CPU.
 
 ## Detection
 
-- **languages:**
-  - javascript
+- **languages:** `javascript`
 - **method:** trace
 
 ## Remediation
@@ -38,6 +37,10 @@ No pattern examples provided.
 ## Remediation examples
 
 No remediation examples provided.
+
+## Metadata
+
+- **catalog_version:** 0.4.0
 
 ## Navigation
 

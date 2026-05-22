@@ -2,9 +2,9 @@
 
 **Name:** No caching layer for high-read workloads
 
-**Category:** ARC
+**Category:** Architecture
 
-**Family:** ARCH
+**Family:** Architecture
 
 **Primary layer:** `architecture`
 
@@ -22,8 +22,7 @@ High-read systems without caching waste CPU and DB capacity.
 
 ## Detection
 
-- **languages:**
-  - infra
+- **languages:** `infra`
 - **method:** trace
 
 ## Remediation
@@ -38,6 +37,10 @@ No pattern examples provided.
 ## Remediation examples
 
 No remediation examples provided.
+
+## Metadata
+
+- **catalog_version:** 0.4.0
 
 ## Navigation
 

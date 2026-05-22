@@ -1,0 +1,70 @@
+{
+  "id": "ECO-OPS-SEC-002",
+  "canonical_id": "ECO-OPS-SEC-002",
+  "title": "Secrets retrieval on every request",
+  "summary": "Application code fetches secrets from a remote secret store on each request instead of caching with rotation-aware controls.",
+  "category": "Operations",
+  "category_code": "OPS",
+  "family": "Identity & Security Efficiency",
+  "family_code": "SEC",
+  "layer": "code",
+  "ontology": {
+    "category": "Operations",
+    "family": "Identity & Security Efficiency",
+    "system_layers": [
+      "code"
+    ]
+  },
+  "impact": {
+    "type": "network",
+    "confidence": 0.7,
+    "notes": "Added as part of the 0.3.0 expansion to capture cross-system sustainability and operational waste."
+  },
+  "cost_dimensions": {
+    "compute": "medium",
+    "memory": "low",
+    "network": "high",
+    "storage": "low",
+    "human_time": "medium",
+    "carbon": "medium",
+    "water": "low"
+  },
+  "amplification": {
+    "scales_with_users": true,
+    "scales_with_data_volume": false,
+    "scales_non_linearly": false
+  },
+  "temporal_behavior": {
+    "startup_only": false,
+    "steady_state": true,
+    "burst_sensitive": true,
+    "time_degradation": false
+  },
+  "runtime_evidence": [
+    "secret manager metrics",
+    "request traces",
+    "code review"
+  ],
+  "detection": {
+    "method": "static-or-runtime",
+    "confidence": 0.55,
+    "runtime_validation_required": true
+  },
+  "remediation": {
+    "guidance": "Cache secrets safely in process with TTLs, rotation hooks, and least-privilege access.",
+    "tradeoffs": "May require architecture, product, or operations review rather than a local code change."
+  },
+  "metadata": {
+    "catalog_version": "0.4.0",
+    "status": "draft",
+    "source": "catalog expansion recommendations applied 2026-05-21"
+  },
+  "severity": "warning",
+  "enabled_by_default": false,
+  "tier": 2,
+  "tags": [
+    "security",
+    "secrets",
+    "hot-path"
+  ]
+}

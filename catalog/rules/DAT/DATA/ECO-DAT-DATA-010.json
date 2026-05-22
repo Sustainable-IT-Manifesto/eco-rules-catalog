@@ -35,5 +35,8 @@
     "cross-region"
   ],
   "tier": 3,
-  "title": "Overly aggressive replication across regions"
+  "title": "Overly aggressive replication across regions",
+  "metadata": {
+    "catalog_version": "0.4.0"
+  }
 }

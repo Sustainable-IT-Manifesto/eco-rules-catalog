@@ -36,5 +36,8 @@
     "concurrency"
   ],
   "tier": 2,
-  "title": "Excessive thread spawning"
+  "title": "Excessive thread spawning",
+  "metadata": {
+    "catalog_version": "0.4.0"
+  }
 }

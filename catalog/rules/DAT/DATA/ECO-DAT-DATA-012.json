@@ -37,5 +37,8 @@
     "cost"
   ],
   "tier": 3,
-  "title": "Unbounded analytics queries"
+  "title": "Unbounded analytics queries",
+  "metadata": {
+    "catalog_version": "0.4.0"
+  }
 }

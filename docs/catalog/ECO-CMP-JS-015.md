@@ -2,9 +2,9 @@
 
 **Name:** Recreating large objects per render
 
-**Category:** CMP
+**Category:** Computation
 
-**Family:** JS
+**Family:** JavaScript
 
 **Primary layer:** `code`
 
@@ -22,8 +22,7 @@ Allocating large objects repeatedly increases GC churn and CPU.
 
 ## Detection
 
-- **languages:**
-  - javascript
+- **languages:** `javascript`
 - **method:** hybrid
 
 ## Remediation
@@ -38,6 +37,10 @@ No pattern examples provided.
 ## Remediation examples
 
 No remediation examples provided.
+
+## Metadata
+
+- **catalog_version:** 0.4.0
 
 ## Navigation
 

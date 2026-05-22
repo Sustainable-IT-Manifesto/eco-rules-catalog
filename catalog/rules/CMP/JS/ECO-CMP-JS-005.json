@@ -37,5 +37,8 @@
     "latency"
   ],
   "tier": 2,
-  "title": "Blocking crypto in event loop"
+  "title": "Blocking crypto in event loop",
+  "metadata": {
+    "catalog_version": "0.4.0"
+  }
 }

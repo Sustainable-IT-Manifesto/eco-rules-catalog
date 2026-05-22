@@ -37,5 +37,8 @@
     "memory"
   ],
   "tier": 2,
-  "title": "Unbounded cache growth"
+  "title": "Unbounded cache growth",
+  "metadata": {
+    "catalog_version": "0.4.0"
+  }
 }

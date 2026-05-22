@@ -2,9 +2,9 @@
 
 **Name:** No SLO-based scaling validation
 
-**Category:** ORG
+**Category:** Organizational
 
-**Family:** PROC
+**Family:** Process
 
 **Primary layer:** `process`
 
@@ -22,8 +22,7 @@ Scaling without SLO validation often leads to overprovisioning or fragility.
 
 ## Detection
 
-- **languages:**
-  - org
+- **languages:** `org`
 - **method:** config
 
 ## Remediation
@@ -38,6 +37,10 @@ No pattern examples provided.
 ## Remediation examples
 
 No remediation examples provided.
+
+## Metadata
+
+- **catalog_version:** 0.4.0
 
 ## Navigation
 

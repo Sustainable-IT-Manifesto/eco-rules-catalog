@@ -2,9 +2,9 @@
 
 **Name:** Excessive replication factor
 
-**Category:** DAT
+**Category:** Data
 
-**Family:** DATA
+**Family:** Data
 
 **Primary layer:** `data`
 
@@ -22,8 +22,7 @@ High replication increases storage and write amplification.
 
 ## Detection
 
-- **languages:**
-  - infra
+- **languages:** `infra`
 - **method:** config
 
 ## Remediation
@@ -38,6 +37,10 @@ No pattern examples provided.
 ## Remediation examples
 
 No remediation examples provided.
+
+## Metadata
+
+- **catalog_version:** 0.4.0
 
 ## Navigation
 

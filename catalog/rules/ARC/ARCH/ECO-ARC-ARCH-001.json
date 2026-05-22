@@ -38,5 +38,8 @@
     "carbon"
   ],
   "tier": 3,
-  "title": "Over-provisioned compute"
+  "title": "Over-provisioned compute",
+  "metadata": {
+    "catalog_version": "0.4.0"
+  }
 }

@@ -25,7 +25,7 @@
     "tradeoffs": "Estimation uncertainty."
   },
   "severity": "note",
-  "summary": "Without carbon signals, teams can’t optimize responsibly.",
+  "summary": "Without carbon signals, teams can\u2019t optimize responsibly.",
   "tags": [
     "carbon",
     "governance"
@@ -36,5 +36,8 @@
     "system_layers": [
       "process"
     ]
+  },
+  "metadata": {
+    "catalog_version": "0.4.0"
   }
 }

@@ -1,6 +1,6 @@
 {
-  "version": "0.2.0",
-  "generated_at": "2026-03-18",
+  "version": "0.4.0",
+  "generated_at": "2026-05-21",
   "id_pattern": "^ECO-[A-Z0-9]+-[A-Z0-9]+-[0-9]{3}$",
   "categories": {
     "CMP": {
@@ -67,7 +67,32 @@
       "description": "Inefficiencies in containerization, orchestration, platform configuration, and workload execution environment.",
       "status": "active",
       "aliases": []
-    }    
+    },
+    "SUS": {
+      "name": "Sustainability & Environmental Impact",
+      "description": "Explicit environmental impact concerns including carbon, energy, water, and hardware lifecycle effects.",
+      "status": "active",
+      "aliases": [
+        "GreenOps",
+        "Environmental Impact"
+      ]
+    },
+    "RES": {
+      "name": "Resilience & Reliability",
+      "description": "Inefficiencies and sustainability risks caused by fragile, failure-prone, or poorly validated systems.",
+      "status": "active",
+      "aliases": [
+        "Reliability"
+      ]
+    },
+    "OBS": {
+      "name": "Observability & Telemetry",
+      "description": "Waste and operational risk created by logging, tracing, metrics, and telemetry pipelines.",
+      "status": "active",
+      "aliases": [
+        "Telemetry"
+      ]
+    }
   },
   "families": {
     "PY": {
@@ -443,14 +468,26 @@
       "description": "Infrastructure inefficiencies in Dockerfiles, image construction, layering, build context, and runtime image composition.",
       "status": "active",
       "scanner_profile": {
-	"technologies": ["docker"],
-	"targets": ["file", "repo"],
-	"default_scope": "file",
-	"file_globs": ["**/Dockerfile", "**/Dockerfile.*"],
-	"file_names": ["Dockerfile"],
-	"path_hints": [],
-	"repo_signals": [".dockerignore"],
-	"parser": "dockerfile"
+        "technologies": [
+          "docker"
+        ],
+        "targets": [
+          "file",
+          "repo"
+        ],
+        "default_scope": "file",
+        "file_globs": [
+          "**/Dockerfile",
+          "**/Dockerfile.*"
+        ],
+        "file_names": [
+          "Dockerfile"
+        ],
+        "path_hints": [],
+        "repo_signals": [
+          ".dockerignore"
+        ],
+        "parser": "dockerfile"
       }
     },
     "COMPOSE": {
@@ -459,14 +496,28 @@
       "description": "Infrastructure inefficiencies in Docker Compose configurations, service definitions, restart behavior, and local stack composition.",
       "status": "active",
       "scanner_profile": {
-	"technologies": ["docker-compose"],
-	"targets": ["file"],
-	"default_scope": "file",
-	"file_globs": ["**/docker-compose.yml", "**/docker-compose.yaml", "**/compose.yml", "**/compose.yaml"],
-	"file_names": ["docker-compose.yml", "docker-compose.yaml", "compose.yml", "compose.yaml"],
-	"path_hints": [],
-	"repo_signals": [],
-	"parser": "yaml-compose"
+        "technologies": [
+          "docker-compose"
+        ],
+        "targets": [
+          "file"
+        ],
+        "default_scope": "file",
+        "file_globs": [
+          "**/docker-compose.yml",
+          "**/docker-compose.yaml",
+          "**/compose.yml",
+          "**/compose.yaml"
+        ],
+        "file_names": [
+          "docker-compose.yml",
+          "docker-compose.yaml",
+          "compose.yml",
+          "compose.yaml"
+        ],
+        "path_hints": [],
+        "repo_signals": [],
+        "parser": "yaml-compose"
       }
     },
     "K8S": {
@@ -475,16 +526,252 @@
       "description": "Infrastructure inefficiencies in Kubernetes manifests, workload sizing, scheduling, probes, sidecars, autoscaling, and deployment behavior.",
       "status": "active",
       "scanner_profile": {
-	"technologies": ["kubernetes"],
-	"targets": ["file", "manifest", "repo"],
-	"default_scope": "manifest",
-	"file_globs": ["**/*.yaml", "**/*.yml"],
-	"file_names": [],
-	"path_hints": ["k8s", "kubernetes", "manifests", "helm", "charts"],
-	"repo_signals": ["Chart.yaml", "values.yaml", "kustomization.yaml"],
-	"manifest_kinds": ["Deployment", "StatefulSet", "DaemonSet", "Job", "CronJob", "Pod", "Service", "Ingress", "HorizontalPodAutoscaler"],
-	"parser": "yaml-k8s"
+        "technologies": [
+          "kubernetes"
+        ],
+        "targets": [
+          "file",
+          "manifest",
+          "repo"
+        ],
+        "default_scope": "manifest",
+        "file_globs": [
+          "**/*.yaml",
+          "**/*.yml"
+        ],
+        "file_names": [],
+        "path_hints": [
+          "k8s",
+          "kubernetes",
+          "manifests",
+          "helm",
+          "charts"
+        ],
+        "repo_signals": [
+          "Chart.yaml",
+          "values.yaml",
+          "kustomization.yaml"
+        ],
+        "manifest_kinds": [
+          "Deployment",
+          "StatefulSet",
+          "DaemonSet",
+          "Job",
+          "CronJob",
+          "Pod",
+          "Service",
+          "Ingress",
+          "HorizontalPodAutoscaler"
+        ],
+        "parser": "yaml-k8s"
       }
+    },
+    "CARBON": {
+      "name": "Carbon-Aware Computing",
+      "category_code": "SUS",
+      "description": "Workload placement, scheduling, and architecture choices that increase carbon impact.",
+      "status": "active",
+      "aliases": []
+    },
+    "ENERGY": {
+      "name": "Energy Efficiency",
+      "category_code": "SUS",
+      "description": "Energy waste from always-on, overprovisioned, or poorly scheduled workloads.",
+      "status": "active",
+      "aliases": []
+    },
+    "WATER": {
+      "name": "Water-Aware Computing",
+      "category_code": "SUS",
+      "description": "Workload and infrastructure choices that increase water-stress impact.",
+      "status": "active",
+      "aliases": []
+    },
+    "HW": {
+      "name": "Hardware Lifecycle",
+      "category_code": "SUS",
+      "description": "Hardware lifecycle, refresh, reuse, and embodied-impact concerns.",
+      "status": "active",
+      "aliases": []
+    },
+    "CACHE": {
+      "name": "Caching",
+      "category_code": "DAT",
+      "description": "Caching design, invalidation, stampede, and repeated expensive lookup inefficiencies.",
+      "status": "active",
+      "aliases": [],
+      "scanner_profile": {
+        "technologies": [
+          "multi"
+        ],
+        "targets": [
+          "file",
+          "repo"
+        ],
+        "default_scope": "file",
+        "file_globs": [
+          "**/*.py",
+          "**/*.js",
+          "**/*.ts",
+          "**/*.java",
+          "**/*.go",
+          "**/*.cs"
+        ],
+        "file_names": [],
+        "path_hints": [],
+        "repo_signals": [],
+        "parser": "multi"
+      }
+    },
+    "SER": {
+      "name": "Serialization",
+      "category_code": "DAT",
+      "description": "Serialization, deserialization, transformation, and payload conversion inefficiencies.",
+      "status": "active",
+      "aliases": [],
+      "scanner_profile": {
+        "technologies": [
+          "multi"
+        ],
+        "targets": [
+          "file"
+        ],
+        "default_scope": "file",
+        "file_globs": [
+          "**/*.py",
+          "**/*.js",
+          "**/*.ts",
+          "**/*.java",
+          "**/*.go",
+          "**/*.cs"
+        ],
+        "file_names": [],
+        "path_hints": [],
+        "repo_signals": [],
+        "parser": "multi"
+      }
+    },
+    "UI": {
+      "name": "Frontend/UI",
+      "category_code": "CMP",
+      "description": "Frontend bundle, rendering, polling, asset, and hydration inefficiencies.",
+      "status": "active",
+      "aliases": [
+        "Frontend"
+      ],
+      "scanner_profile": {
+        "technologies": [
+          "javascript",
+          "typescript",
+          "react",
+          "vue",
+          "angular",
+          "nextjs"
+        ],
+        "targets": [
+          "file",
+          "manifest",
+          "repo"
+        ],
+        "default_scope": "repo",
+        "file_globs": [
+          "**/*.js",
+          "**/*.jsx",
+          "**/*.ts",
+          "**/*.tsx",
+          "**/*.vue",
+          "**/*.html",
+          "**/*.css"
+        ],
+        "file_names": [
+          "package.json",
+          "vite.config.js",
+          "next.config.js",
+          "webpack.config.js"
+        ],
+        "path_hints": [
+          "src",
+          "pages",
+          "app",
+          "components",
+          "public",
+          "assets"
+        ],
+        "repo_signals": [
+          "package.json"
+        ],
+        "parser": "js-ast"
+      }
+    },
+    "RAG": {
+      "name": "Retrieval-Augmented Generation",
+      "category_code": "AIM",
+      "description": "RAG pipeline, embedding, vector search, and retrieval context inefficiencies.",
+      "status": "active",
+      "aliases": []
+    },
+    "PROMPT": {
+      "name": "Prompt Construction",
+      "category_code": "AIM",
+      "description": "Prompt size, repeated context, and unnecessary token usage inefficiencies.",
+      "status": "active",
+      "aliases": []
+    },
+    "AGENT": {
+      "name": "AI Agents",
+      "category_code": "AIM",
+      "description": "Agent loop, tool-call, retry, and multi-agent coordination inefficiencies.",
+      "status": "active",
+      "aliases": []
+    },
+    "LOG": {
+      "name": "Logging",
+      "category_code": "OBS",
+      "description": "Logging volume, retention, payload, and production verbosity inefficiencies.",
+      "status": "active",
+      "aliases": []
+    },
+    "TRACE": {
+      "name": "Tracing",
+      "category_code": "OBS",
+      "description": "Distributed tracing, sampling, span cardinality, and retention inefficiencies.",
+      "status": "active",
+      "aliases": []
+    },
+    "METRIC": {
+      "name": "Metrics",
+      "category_code": "OBS",
+      "description": "Metric cardinality, duplication, collection, and retention inefficiencies.",
+      "status": "active",
+      "aliases": []
+    },
+    "FAIL": {
+      "name": "Failure Handling",
+      "category_code": "RES",
+      "description": "Failure behavior, retry storms, backoff, and circuit-breaker inefficiencies.",
+      "status": "active",
+      "aliases": []
+    },
+    "DR": {
+      "name": "Disaster Recovery",
+      "category_code": "RES",
+      "description": "Failover, disaster recovery, recovery testing, and region resilience concerns.",
+      "status": "active",
+      "aliases": []
+    },
+    "DEG": {
+      "name": "Graceful Degradation",
+      "category_code": "RES",
+      "description": "Degraded-mode behavior, optional dependency handling, and reduced-service operation.",
+      "status": "active",
+      "aliases": []
+    },
+    "SEC": {
+      "name": "Identity & Security Efficiency",
+      "category_code": "OPS",
+      "description": "Security and identity controls that create repeated, avoidable operational overhead.",
+      "status": "active",
+      "aliases": []
     }
   },
   "lifecycle_stages": [

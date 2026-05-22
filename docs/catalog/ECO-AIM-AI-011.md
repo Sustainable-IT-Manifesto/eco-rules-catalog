@@ -2,7 +2,7 @@
 
 **Name:** Storing all embeddings indefinitely
 
-**Category:** AIM
+**Category:** AI/ML
 
 **Family:** AI
 
@@ -22,8 +22,7 @@ Embedding stores without retention grow unbounded and expensive.
 
 ## Detection
 
-- **languages:**
-  - infra
+- **languages:** `infra`
 - **method:** config
 
 ## Remediation
@@ -38,6 +37,10 @@ No pattern examples provided.
 ## Remediation examples
 
 No remediation examples provided.
+
+## Metadata
+
+- **catalog_version:** 0.4.0
 
 ## Navigation
 

@@ -2,9 +2,9 @@
 
 **Name:** No connection pooling
 
-**Category:** CMP
+**Category:** Computation
 
-**Family:** PY
+**Family:** Python
 
 **Primary layer:** `architecture`
 
@@ -22,8 +22,7 @@ Lack of pooling increases connection churn, latency, and DB load.
 
 ## Detection
 
-- **languages:**
-  - python
+- **languages:** `python`
 - **method:** config
 
 ## Remediation
@@ -38,6 +37,10 @@ No pattern examples provided.
 ## Remediation examples
 
 No remediation examples provided.
+
+## Metadata
+
+- **catalog_version:** 0.4.0
 
 ## Navigation
 

@@ -2,9 +2,9 @@
 
 **Name:** Missing timeouts
 
-**Category:** NET
+**Category:** Networking
 
-**Family:** NET
+**Family:** Network
 
 **Primary layer:** `network`
 
@@ -22,11 +22,7 @@ Missing timeouts remove a critical reliability boundary for network calls.
 
 ## Detection
 
-- **languages:**
-  - python
-  - javascript
-  - java
-  - infra
+- **languages:** `python`, `javascript`, `java`, `infra`
 - **method:** hybrid
 
 ## Remediation
@@ -41,6 +37,10 @@ No pattern examples provided.
 ## Remediation examples
 
 No remediation examples provided.
+
+## Metadata
+
+- **catalog_version:** 0.4.0
 
 ## Navigation
 

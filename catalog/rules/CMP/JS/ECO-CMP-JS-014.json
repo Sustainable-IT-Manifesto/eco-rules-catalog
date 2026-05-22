@@ -36,5 +36,8 @@
     "web-workers"
   ],
   "tier": 1,
-  "title": "Client-side heavy computation without workers"
+  "title": "Client-side heavy computation without workers",
+  "metadata": {
+    "catalog_version": "0.4.0"
+  }
 }

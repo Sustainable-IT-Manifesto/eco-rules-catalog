@@ -35,5 +35,8 @@
     "multi-tenant"
   ],
   "tier": 3,
-  "title": "Multi-tenant workloads without isolation"
+  "title": "Multi-tenant workloads without isolation",
+  "metadata": {
+    "catalog_version": "0.4.0"
+  }
 }

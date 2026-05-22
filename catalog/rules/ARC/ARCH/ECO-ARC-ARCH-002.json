@@ -36,5 +36,8 @@
     "serverless"
   ],
   "tier": 3,
-  "title": "Always-on low-traffic service"
+  "title": "Always-on low-traffic service",
+  "metadata": {
+    "catalog_version": "0.4.0"
+  }
 }

@@ -24,7 +24,7 @@
       "code"
     ]
   },
-  "rationale": "Load config once; don’t pay the lookup tax repeatedly.",
+  "rationale": "Load config once; don\u2019t pay the lookup tax repeatedly.",
   "remediation": {
     "guidance": "Read env/config once during startup; pass config explicitly.",
     "tradeoffs": "Slight architecture changes."
@@ -36,5 +36,8 @@
     "config"
   ],
   "tier": 1,
-  "title": "Redundant environment variable lookups"
+  "title": "Redundant environment variable lookups",
+  "metadata": {
+    "catalog_version": "0.4.0"
+  }
 }

@@ -2,9 +2,9 @@
 
 **Name:** No graceful degradation strategy
 
-**Category:** ARC
+**Category:** Architecture
 
-**Family:** ARCH
+**Family:** Architecture
 
 **Primary layer:** `architecture`
 
@@ -22,9 +22,7 @@ Without degradation, overload becomes failure and waste.
 
 ## Detection
 
-- **languages:**
-  - org
-  - infra
+- **languages:** `org`, `infra`
 - **method:** hybrid
 
 ## Remediation
@@ -39,6 +37,10 @@ No pattern examples provided.
 ## Remediation examples
 
 No remediation examples provided.
+
+## Metadata
+
+- **catalog_version:** 0.4.0
 
 ## Navigation
 

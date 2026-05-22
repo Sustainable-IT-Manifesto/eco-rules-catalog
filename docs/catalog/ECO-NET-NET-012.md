@@ -2,9 +2,9 @@
 
 **Name:** No HTTP/2 or HTTP/3 where applicable
 
-**Category:** NET
+**Category:** Networking
 
-**Family:** NET
+**Family:** Network
 
 **Primary layer:** `network`
 
@@ -22,8 +22,7 @@ Older HTTP versions may reduce efficiency for multiplexed workloads.
 
 ## Detection
 
-- **languages:**
-  - infra
+- **languages:** `infra`
 - **method:** config
 
 ## Remediation
@@ -38,6 +37,10 @@ No pattern examples provided.
 ## Remediation examples
 
 No remediation examples provided.
+
+## Metadata
+
+- **catalog_version:** 0.4.0
 
 ## Navigation
 

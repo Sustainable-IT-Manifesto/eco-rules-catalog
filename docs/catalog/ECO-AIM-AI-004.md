@@ -2,7 +2,7 @@
 
 **Name:** No prompt caching
 
-**Category:** AIM
+**Category:** AI/ML
 
 **Family:** AI
 
@@ -22,9 +22,7 @@ Repeated prompts without caching waste tokens and compute.
 
 ## Detection
 
-- **languages:**
-  - org
-  - infra
+- **languages:** `org`, `infra`
 - **method:** hybrid
 
 ## Remediation
@@ -39,6 +37,10 @@ No pattern examples provided.
 ## Remediation examples
 
 No remediation examples provided.
+
+## Metadata
+
+- **catalog_version:** 0.4.0
 
 ## Navigation
 

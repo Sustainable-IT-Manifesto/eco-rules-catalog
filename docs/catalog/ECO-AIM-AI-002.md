@@ -2,7 +2,7 @@
 
 **Name:** No inference batching
 
-**Category:** AIM
+**Category:** AI/ML
 
 **Family:** AI
 
@@ -22,9 +22,7 @@ No batching increases per-request overhead and lowers throughput.
 
 ## Detection
 
-- **languages:**
-  - python
-  - infra
+- **languages:** `python`, `infra`
 - **method:** trace
 
 ## Remediation
@@ -39,6 +37,10 @@ No pattern examples provided.
 ## Remediation examples
 
 No remediation examples provided.
+
+## Metadata
+
+- **catalog_version:** 0.4.0
 
 ## Navigation
 

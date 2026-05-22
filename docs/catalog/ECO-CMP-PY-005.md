@@ -2,9 +2,9 @@
 
 **Name:** N+1 database query pattern
 
-**Category:** CMP
+**Category:** Computation
 
-**Family:** PY
+**Family:** Python
 
 **Primary layer:** `code`
 
@@ -22,8 +22,7 @@ Queries executed inside iteration multiply round trips and load.
 
 ## Detection
 
-- **languages:**
-  - python
+- **languages:** `python`
 - **method:** hybrid
 
 ## Remediation
@@ -38,6 +37,10 @@ No pattern examples provided.
 ## Remediation examples
 
 No remediation examples provided.
+
+## Metadata
+
+- **catalog_version:** 0.4.0
 
 ## Navigation
 

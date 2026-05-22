@@ -2,7 +2,7 @@
 
 **Name:** No GPU utilization monitoring
 
-**Category:** AIM
+**Category:** AI/ML
 
 **Family:** AI
 
@@ -22,8 +22,7 @@ Without GPU utilization metrics, accelerator waste stays invisible.
 
 ## Detection
 
-- **languages:**
-  - infra
+- **languages:** `infra`
 - **method:** config
 
 ## Remediation
@@ -38,6 +37,10 @@ No pattern examples provided.
 ## Remediation examples
 
 No remediation examples provided.
+
+## Metadata
+
+- **catalog_version:** 0.4.0
 
 ## Navigation
 

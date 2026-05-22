@@ -28,8 +28,7 @@ Shipping build-only tools in the final image increases image size and operationa
 ## Remediation
 
 - **guidance:** Keep build tooling in dedicated builder stages and ship only runtime dependencies.
-- **examples:**
-  - Copy built binaries or packaged assets into a clean runtime stage.
+- **examples:** `Copy built binaries or packaged assets into a clean runtime stage.`
 
 ## Pattern examples
 
@@ -44,6 +43,7 @@ No remediation examples provided.
 - **status:** draft
 - **severity:** medium
 - **version:** 0.3.0-draft
+- **catalog_version:** 0.4.0
 
 ## Navigation
 

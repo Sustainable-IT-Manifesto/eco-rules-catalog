@@ -36,5 +36,8 @@
     "images"
   ],
   "tier": 2,
-  "title": "Inefficient container image size"
+  "title": "Inefficient container image size",
+  "metadata": {
+    "catalog_version": "0.4.0"
+  }
 }

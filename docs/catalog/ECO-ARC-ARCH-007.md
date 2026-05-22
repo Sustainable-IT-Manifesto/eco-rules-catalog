@@ -2,9 +2,9 @@
 
 **Name:** Batch jobs run too frequently
 
-**Category:** ARC
+**Category:** Architecture
 
-**Family:** ARCH
+**Family:** Architecture
 
 **Primary layer:** `architecture`
 
@@ -22,8 +22,7 @@ Over-scheduling batch jobs wastes compute and increases cost.
 
 ## Detection
 
-- **languages:**
-  - infra
+- **languages:** `infra`
 - **method:** trace
 
 ## Remediation
@@ -38,6 +37,10 @@ No pattern examples provided.
 ## Remediation examples
 
 No remediation examples provided.
+
+## Metadata
+
+- **catalog_version:** 0.4.0
 
 ## Navigation
 

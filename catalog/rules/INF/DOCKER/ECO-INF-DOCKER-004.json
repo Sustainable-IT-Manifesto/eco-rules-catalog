@@ -32,6 +32,7 @@
   "metadata": {
     "status": "draft",
     "severity": "medium",
-    "version": "0.3.0-draft"
+    "version": "0.3.0-draft",
+    "catalog_version": "0.4.0"
   }
 }

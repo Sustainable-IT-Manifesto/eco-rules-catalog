@@ -1,0 +1,1928 @@
+{
+  "generated_at": "2026-05-21T15:43:59Z",
+  "input": "master.json",
+  "rule_count": 160,
+  "errors": [],
+  "warnings": [
+    {
+      "rule_id": "ECO-AIM-AGENT-001",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-AIM-AGENT-001",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-AIM-AGENT-001",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-AIM-AI-001",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-AIM-AI-001",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-AIM-AI-001",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-AIM-AI-002",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-AIM-AI-002",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-AIM-AI-002",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-AIM-AI-003",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-AIM-AI-003",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-AIM-AI-003",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-AIM-AI-004",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-AIM-AI-004",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-AIM-AI-004",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-AIM-AI-005",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-AIM-AI-005",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-AIM-AI-005",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-AIM-AI-006",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-AIM-AI-006",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-AIM-AI-006",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-AIM-AI-007",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-AIM-AI-007",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-AIM-AI-007",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-AIM-AI-008",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-AIM-AI-008",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-AIM-AI-008",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-AIM-AI-009",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-AIM-AI-009",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-AIM-AI-009",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-AIM-AI-010",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-AIM-AI-010",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-AIM-AI-010",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-AIM-AI-011",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-AIM-AI-011",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-AIM-AI-011",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-AIM-AI-012",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-AIM-AI-012",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-AIM-AI-012",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-AIM-AI-013",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-AIM-AI-013",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-AIM-AI-013",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-AIM-AI-014",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-AIM-AI-014",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-AIM-AI-014",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-AIM-AI-015",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-AIM-AI-015",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-AIM-AI-015",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-AIM-PROMPT-001",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-AIM-PROMPT-001",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-AIM-PROMPT-001",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-AIM-RAG-001",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-AIM-RAG-001",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-AIM-RAG-001",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-AIM-RAG-002",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-AIM-RAG-002",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-AIM-RAG-002",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-ARC-ARCH-001",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-ARC-ARCH-001",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-ARC-ARCH-001",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-ARC-ARCH-002",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-ARC-ARCH-002",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-ARC-ARCH-002",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-ARC-ARCH-003",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-ARC-ARCH-003",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-ARC-ARCH-003",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-ARC-ARCH-004",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-ARC-ARCH-004",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-ARC-ARCH-004",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-ARC-ARCH-005",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-ARC-ARCH-005",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-ARC-ARCH-005",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-ARC-ARCH-006",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-ARC-ARCH-006",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-ARC-ARCH-006",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-ARC-ARCH-007",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-ARC-ARCH-007",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-ARC-ARCH-007",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-ARC-ARCH-008",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-ARC-ARCH-008",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-ARC-ARCH-008",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-ARC-ARCH-009",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-ARC-ARCH-009",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-ARC-ARCH-009",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-ARC-ARCH-010",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-ARC-ARCH-010",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-ARC-ARCH-010",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-ARC-ARCH-011",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-ARC-ARCH-011",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-ARC-ARCH-011",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-ARC-ARCH-012",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-ARC-ARCH-012",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-ARC-ARCH-012",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-ARC-ARCH-013",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-ARC-ARCH-013",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-ARC-ARCH-013",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-ARC-ARCH-014",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-ARC-ARCH-014",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-ARC-ARCH-014",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-ARC-ARCH-015",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-ARC-ARCH-015",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-ARC-ARCH-015",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-ARC-ARCH-016",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-ARC-ARCH-016",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-ARC-ARCH-016",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-ARC-ARCH-017",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-ARC-ARCH-017",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-ARC-ARCH-017",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-ARC-ARCH-018",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-ARC-ARCH-018",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-ARC-ARCH-018",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-ARC-ARCH-019",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-ARC-ARCH-019",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-ARC-ARCH-019",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-ARC-ARCH-020",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-ARC-ARCH-020",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-ARC-ARCH-020",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-CMP-JAVA-001",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-CMP-JAVA-001",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-CMP-JAVA-001",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-CMP-JAVA-002",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-CMP-JAVA-002",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-CMP-JAVA-002",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-CMP-JAVA-003",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-CMP-JAVA-003",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-CMP-JAVA-003",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-CMP-JAVA-004",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-CMP-JAVA-004",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-CMP-JAVA-004",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-CMP-JAVA-005",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-CMP-JAVA-005",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-CMP-JAVA-005",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-CMP-JAVA-006",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-CMP-JAVA-006",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-CMP-JAVA-006",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-CMP-JAVA-007",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-CMP-JAVA-007",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-CMP-JAVA-007",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-CMP-JAVA-008",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-CMP-JAVA-008",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-CMP-JAVA-008",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-CMP-JAVA-009",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-CMP-JAVA-009",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-CMP-JAVA-009",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-CMP-JAVA-010",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-CMP-JAVA-010",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-CMP-JAVA-010",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-CMP-JS-001",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-CMP-JS-001",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-CMP-JS-001",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-CMP-JS-002",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-CMP-JS-002",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-CMP-JS-002",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-CMP-JS-003",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-CMP-JS-003",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-CMP-JS-003",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-CMP-JS-004",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-CMP-JS-004",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-CMP-JS-004",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-CMP-JS-005",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-CMP-JS-005",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-CMP-JS-005",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-CMP-JS-006",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-CMP-JS-006",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-CMP-JS-006",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-CMP-JS-007",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-CMP-JS-007",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-CMP-JS-007",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-CMP-JS-008",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-CMP-JS-008",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-CMP-JS-008",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-CMP-JS-009",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-CMP-JS-009",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-CMP-JS-009",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-CMP-JS-010",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-CMP-JS-010",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-CMP-JS-010",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-CMP-JS-011",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-CMP-JS-011",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-CMP-JS-011",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-CMP-JS-012",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-CMP-JS-012",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-CMP-JS-012",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-CMP-JS-013",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-CMP-JS-013",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-CMP-JS-013",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-CMP-JS-014",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-CMP-JS-014",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-CMP-JS-014",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-CMP-JS-015",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-CMP-JS-015",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-CMP-JS-015",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-CMP-PY-001",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-CMP-PY-001",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-CMP-PY-001",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-CMP-PY-002",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-CMP-PY-002",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-CMP-PY-002",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-CMP-PY-003",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-CMP-PY-003",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-CMP-PY-003",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-CMP-PY-004",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-CMP-PY-004",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-CMP-PY-004",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-CMP-PY-005",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-CMP-PY-005",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-CMP-PY-005",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-CMP-PY-006",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-CMP-PY-006",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-CMP-PY-006",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-CMP-PY-007",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-CMP-PY-007",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-CMP-PY-007",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-CMP-PY-008",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-CMP-PY-008",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-CMP-PY-008",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-CMP-PY-009",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-CMP-PY-009",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-CMP-PY-009",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-CMP-PY-010",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-CMP-PY-010",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-CMP-PY-010",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-CMP-PY-011",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-CMP-PY-011",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-CMP-PY-011",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-CMP-PY-012",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-CMP-PY-012",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-CMP-PY-012",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-CMP-PY-013",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-CMP-PY-013",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-CMP-PY-013",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-CMP-PY-014",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-CMP-PY-014",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-CMP-PY-014",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-CMP-PY-015",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-CMP-PY-015",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-CMP-PY-015",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-CMP-PY-016",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-CMP-PY-016",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-CMP-PY-016",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-CMP-PY-017",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-CMP-PY-017",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-CMP-PY-017",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-CMP-PY-018",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-CMP-PY-018",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-CMP-PY-018",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-CMP-PY-019",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-CMP-PY-019",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-CMP-PY-019",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-CMP-PY-020",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-CMP-PY-020",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-CMP-PY-020",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-CMP-UI-001",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-CMP-UI-001",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-CMP-UI-001",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-CMP-UI-002",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-CMP-UI-002",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-CMP-UI-002",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-DAT-CACHE-001",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-DAT-CACHE-001",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-DAT-CACHE-001",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-DAT-CACHE-002",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-DAT-CACHE-002",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-DAT-CACHE-002",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-DAT-DATA-001",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-DAT-DATA-001",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-DAT-DATA-001",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-DAT-DATA-002",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-DAT-DATA-002",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-DAT-DATA-002",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-DAT-DATA-003",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-DAT-DATA-003",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-DAT-DATA-003",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-DAT-DATA-004",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-DAT-DATA-004",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-DAT-DATA-004",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-DAT-DATA-005",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-DAT-DATA-005",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-DAT-DATA-005",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-DAT-DATA-006",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-DAT-DATA-006",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-DAT-DATA-006",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-DAT-DATA-007",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-DAT-DATA-007",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-DAT-DATA-007",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-DAT-DATA-008",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-DAT-DATA-008",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-DAT-DATA-008",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-DAT-DATA-009",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-DAT-DATA-009",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-DAT-DATA-009",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-DAT-DATA-010",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-DAT-DATA-010",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-DAT-DATA-010",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-DAT-DATA-011",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-DAT-DATA-011",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-DAT-DATA-011",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-DAT-DATA-012",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-DAT-DATA-012",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-DAT-DATA-012",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-DAT-DATA-013",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-DAT-DATA-013",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-DAT-DATA-013",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-DAT-DATA-014",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-DAT-DATA-014",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-DAT-DATA-014",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-DAT-DATA-015",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-DAT-DATA-015",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-DAT-DATA-015",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-DAT-SER-001",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-DAT-SER-001",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-DAT-SER-001",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-INF-COMPOSE-001",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-INF-COMPOSE-001",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-INF-COMPOSE-001",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-INF-COMPOSE-002",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-INF-COMPOSE-002",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-INF-COMPOSE-002",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-INF-DOCKER-001",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-INF-DOCKER-001",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-INF-DOCKER-001",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-INF-DOCKER-002",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-INF-DOCKER-002",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-INF-DOCKER-002",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-INF-DOCKER-003",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-INF-DOCKER-003",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-INF-DOCKER-003",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-INF-DOCKER-004",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-INF-DOCKER-004",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-INF-DOCKER-004",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-INF-DOCKER-005",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-INF-DOCKER-005",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-INF-DOCKER-005",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-INF-K8S-001",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-INF-K8S-001",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-INF-K8S-001",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-INF-K8S-002",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-INF-K8S-002",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-INF-K8S-002",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-INF-K8S-003",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-INF-K8S-003",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-INF-K8S-003",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-INF-K8S-004",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-INF-K8S-004",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-INF-K8S-004",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-INF-K8S-005",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-INF-K8S-005",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-INF-K8S-005",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-NET-NET-001",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-NET-NET-001",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-NET-NET-001",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-NET-NET-002",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-NET-NET-002",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-NET-NET-002",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-NET-NET-003",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-NET-NET-003",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-NET-NET-003",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-NET-NET-004",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-NET-NET-004",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-NET-NET-004",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-NET-NET-005",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-NET-NET-005",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-NET-NET-005",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-NET-NET-006",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-NET-NET-006",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-NET-NET-006",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-NET-NET-007",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-NET-NET-007",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-NET-NET-007",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-NET-NET-008",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-NET-NET-008",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-NET-NET-008",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-NET-NET-009",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-NET-NET-009",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-NET-NET-009",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-NET-NET-010",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-NET-NET-010",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-NET-NET-010",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-NET-NET-011",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-NET-NET-011",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-NET-NET-011",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-NET-NET-012",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-NET-NET-012",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-NET-NET-012",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-NET-NET-013",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-NET-NET-013",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-NET-NET-013",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-NET-NET-014",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-NET-NET-014",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-NET-NET-014",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-NET-NET-015",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-NET-NET-015",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-NET-NET-015",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-OBS-LOG-001",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-OBS-LOG-001",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-OBS-LOG-001",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-OBS-LOG-002",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-OBS-LOG-002",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-OBS-LOG-002",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-OBS-METRIC-001",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-OBS-METRIC-001",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-OBS-METRIC-001",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-OBS-TRACE-001",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-OBS-TRACE-001",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-OBS-TRACE-001",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-OPS-SEC-001",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-OPS-SEC-001",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-OPS-SEC-001",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-OPS-SEC-002",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-OPS-SEC-002",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-OPS-SEC-002",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-ORG-PROC-001",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-ORG-PROC-001",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-ORG-PROC-001",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-ORG-PROC-002",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-ORG-PROC-002",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-ORG-PROC-002",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-ORG-PROC-003",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-ORG-PROC-003",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-ORG-PROC-003",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-ORG-PROC-004",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-ORG-PROC-004",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-ORG-PROC-004",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-ORG-PROC-005",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-ORG-PROC-005",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-ORG-PROC-005",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-ORG-PROC-006",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-ORG-PROC-006",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-ORG-PROC-006",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-ORG-PROC-007",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-ORG-PROC-007",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-ORG-PROC-007",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-ORG-PROC-008",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-ORG-PROC-008",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-ORG-PROC-008",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-ORG-PROC-009",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-ORG-PROC-009",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-ORG-PROC-009",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-ORG-PROC-010",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-ORG-PROC-010",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-ORG-PROC-010",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-ORG-PROC-011",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-ORG-PROC-011",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-ORG-PROC-011",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-ORG-PROC-012",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-ORG-PROC-012",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-ORG-PROC-012",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-ORG-PROC-013",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-ORG-PROC-013",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-ORG-PROC-013",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-ORG-PROC-014",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-ORG-PROC-014",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-ORG-PROC-014",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-ORG-PROC-015",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-ORG-PROC-015",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-ORG-PROC-015",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-ORG-PROC-016",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-ORG-PROC-016",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-ORG-PROC-016",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-RES-DEG-001",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-RES-DEG-001",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-RES-DEG-001",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-RES-DR-001",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-RES-DR-001",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-RES-DR-001",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-RES-FAIL-001",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-RES-FAIL-001",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-RES-FAIL-001",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-SUS-CARBON-001",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-SUS-CARBON-001",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-SUS-CARBON-001",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-SUS-ENERGY-001",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-SUS-ENERGY-001",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-SUS-ENERGY-001",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-SUS-HW-001",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-SUS-HW-001",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-SUS-HW-001",
+      "message": "Missing ontology key: remediation_patterns"
+    },
+    {
+      "rule_id": "ECO-SUS-WATER-001",
+      "message": "Missing ontology key: resource_impacts"
+    },
+    {
+      "rule_id": "ECO-SUS-WATER-001",
+      "message": "Missing ontology key: detection_methods"
+    },
+    {
+      "rule_id": "ECO-SUS-WATER-001",
+      "message": "Missing ontology key: remediation_patterns"
+    }
+  ]
+}

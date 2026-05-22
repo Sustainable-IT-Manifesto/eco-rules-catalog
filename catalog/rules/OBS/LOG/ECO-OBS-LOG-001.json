@@ -1,0 +1,70 @@
+{
+  "id": "ECO-OBS-LOG-001",
+  "canonical_id": "ECO-OBS-LOG-001",
+  "title": "Excessive production debug logging",
+  "summary": "Verbose debug logging remains enabled in production, increasing CPU, storage, network, and review cost.",
+  "category": "Observability & Telemetry",
+  "category_code": "OBS",
+  "family": "Logging",
+  "family_code": "LOG",
+  "layer": "process",
+  "ontology": {
+    "category": "Observability & Telemetry",
+    "family": "Logging",
+    "system_layers": [
+      "process"
+    ]
+  },
+  "impact": {
+    "type": "storage",
+    "confidence": 0.85,
+    "notes": "Added as part of the 0.3.0 expansion to capture cross-system sustainability and operational waste."
+  },
+  "cost_dimensions": {
+    "compute": "medium",
+    "memory": "low",
+    "network": "medium",
+    "storage": "high",
+    "human_time": "medium",
+    "carbon": "medium",
+    "water": "low"
+  },
+  "amplification": {
+    "scales_with_users": true,
+    "scales_with_data_volume": true,
+    "scales_non_linearly": false
+  },
+  "temporal_behavior": {
+    "startup_only": false,
+    "steady_state": true,
+    "burst_sensitive": true,
+    "time_degradation": false
+  },
+  "runtime_evidence": [
+    "log volume metrics",
+    "logging config",
+    "storage billing"
+  ],
+  "detection": {
+    "method": "static-or-runtime",
+    "confidence": 0.55,
+    "runtime_validation_required": true
+  },
+  "remediation": {
+    "guidance": "Set environment-specific log levels, sample noisy events, and apply retention controls.",
+    "tradeoffs": "May require architecture, product, or operations review rather than a local code change."
+  },
+  "metadata": {
+    "catalog_version": "0.4.0",
+    "status": "draft",
+    "source": "catalog expansion recommendations applied 2026-05-21"
+  },
+  "severity": "warning",
+  "enabled_by_default": false,
+  "tier": 2,
+  "tags": [
+    "logging",
+    "production",
+    "storage"
+  ]
+}

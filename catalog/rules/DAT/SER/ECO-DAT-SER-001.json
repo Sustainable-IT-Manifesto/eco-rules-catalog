@@ -1,0 +1,71 @@
+{
+  "id": "ECO-DAT-SER-001",
+  "canonical_id": "ECO-DAT-SER-001",
+  "title": "Repeated serialization/deserialization chain",
+  "summary": "Data is repeatedly converted between formats within the same request or processing path.",
+  "category": "Data",
+  "category_code": "DAT",
+  "family": "Serialization",
+  "family_code": "SER",
+  "layer": "data",
+  "ontology": {
+    "category": "Data",
+    "family": "Serialization",
+    "system_layers": [
+      "data"
+    ]
+  },
+  "impact": {
+    "type": "cpu",
+    "confidence": 0.7,
+    "notes": "Added as part of the 0.3.0 expansion to capture cross-system sustainability and operational waste."
+  },
+  "cost_dimensions": {
+    "compute": "high",
+    "memory": "high",
+    "network": "low",
+    "storage": "low",
+    "human_time": "low",
+    "carbon": "medium",
+    "water": "low"
+  },
+  "amplification": {
+    "scales_with_users": true,
+    "scales_with_data_volume": true,
+    "scales_non_linearly": false
+  },
+  "temporal_behavior": {
+    "startup_only": false,
+    "steady_state": true,
+    "burst_sensitive": true,
+    "time_degradation": false
+  },
+  "runtime_evidence": [
+    "CPU profile",
+    "allocation profile",
+    "code review"
+  ],
+  "detection": {
+    "method": "static-or-runtime",
+    "confidence": 0.55,
+    "runtime_validation_required": true
+  },
+  "remediation": {
+    "guidance": "Keep data in a canonical internal representation and serialize only at boundaries.",
+    "tradeoffs": "May require architecture, product, or operations review rather than a local code change."
+  },
+  "metadata": {
+    "catalog_version": "0.4.0",
+    "status": "draft",
+    "source": "catalog expansion recommendations applied 2026-05-21"
+  },
+  "severity": "warning",
+  "enabled_by_default": false,
+  "tier": 2,
+  "tags": [
+    "serialization",
+    "json",
+    "xml",
+    "allocations"
+  ]
+}

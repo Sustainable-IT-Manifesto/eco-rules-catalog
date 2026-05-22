@@ -24,7 +24,7 @@
       "ai"
     ]
   },
-  "rationale": "You can’t right-size accelerators without seeing utilization.",
+  "rationale": "You can\u2019t right-size accelerators without seeing utilization.",
   "remediation": {
     "guidance": "Add GPU metrics, dashboards, and alerts.",
     "tradeoffs": "Telemetry overhead."
@@ -36,5 +36,8 @@
     "observability"
   ],
   "tier": 4,
-  "title": "No GPU utilization monitoring"
+  "title": "No GPU utilization monitoring",
+  "metadata": {
+    "catalog_version": "0.4.0"
+  }
 }

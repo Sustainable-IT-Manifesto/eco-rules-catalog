@@ -35,5 +35,8 @@
     "indexes"
   ],
   "tier": 3,
-  "title": "Large unused indexes"
+  "title": "Large unused indexes",
+  "metadata": {
+    "catalog_version": "0.4.0"
+  }
 }

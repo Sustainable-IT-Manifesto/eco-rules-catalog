@@ -1,370 +1,135 @@
+#!/usr/bin/env python3
 from __future__ import annotations
-
-import json
+import argparse, json
 from pathlib import Path
 from collections import defaultdict
+from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
-MASTER = ROOT / "catalog" / "master.json"
-OUT_DIR = ROOT / "docs" / "catalog"
-EXAMPLES_DIR = ROOT / "examples"
-
-LAYER_ORDER = ["ai", "architecture", "code", "data", "network", "process"]
-LAYER_LABELS = {
-    "ai": "AI",
-    "architecture": "Architecture",
-    "code": "Code",
-    "data": "Data",
-    "network": "Network",
-    "process": "Process",
-}
-
-CATEGORY_LABELS = {
-    "AIM": "AI/ML",
-    "ARC": "Architecture",
-    "CMP": "Computation",
-    "DAT": "Data",
-    "INF": "Infrastructure",
-    "NET": "Networking",
-    "ORG": "Organizational",
-}
+DEFAULT_MASTER = ROOT / 'master.json'
+DEFAULT_OUT_DIR = ROOT / 'docs' / 'catalog'
+DEFAULT_EXAMPLES_DIR = ROOT / 'examples'
 
 
-def load_catalog() -> dict:
-    with MASTER.open("r", encoding="utf-8") as f:
-        return json.load(f)
-
+def load_json(path: Path) -> Any:
+    with path.open('r', encoding='utf-8') as f: return json.load(f)
 
 def get_rules(catalog: dict) -> list[dict]:
-    rules = catalog.get("rules", [])
-    return sorted(rules, key=lambda r: r.get("id", ""))
+    return sorted(catalog.get('rules', []), key=lambda r: r.get('id',''))
 
+def ensure_out(out: Path):
+    for sub in ['', 'layers', 'categories', 'examples']:
+        (out / sub).mkdir(parents=True, exist_ok=True)
 
-def ensure_out_dir() -> None:
-    OUT_DIR.mkdir(parents=True, exist_ok=True)
-    (OUT_DIR / "layers").mkdir(parents=True, exist_ok=True)
-    (OUT_DIR / "categories").mkdir(parents=True, exist_ok=True)
-    (OUT_DIR / "examples").mkdir(parents=True, exist_ok=True)
+def rule_name(rule): return rule.get('name') or rule.get('title') or rule.get('id','UNKNOWN')
+def category_name(rule): return str(rule.get('category') or rule.get('ontology',{}).get('category') or rule.get('category_code',''))
+def family_name(rule): return str(rule.get('family') or rule.get('ontology',{}).get('family') or rule.get('family_code',''))
+def rule_link(rule): return f"{rule.get('id','UNKNOWN')}.md"
 
+def summary_text(rule):
+    for key in ('summary','description','rationale'):
+        if rule.get(key):
+            text=' '.join(str(rule[key]).split())
+            return text[:220] + ('…' if len(text)>220 else '')
+    return 'No summary provided.'
 
-def category_name(rule: dict) -> str:
-    return str(rule.get("ontology", {}).get("category") or rule.get("category_code", ""))
+def fmt_value(v):
+    if isinstance(v, bool): return 'Yes' if v else 'No'
+    if isinstance(v, list): return ', '.join(f'`{x}`' for x in v) if v else 'None listed'
+    if isinstance(v, dict): return ', '.join(f'**{k}:** {fmt_value(val)}' for k,val in v.items()) if v else 'None listed'
+    return str(v)
 
+def add_kv_section(lines, title, data):
+    if not data: return
+    lines += [f'## {title}', '']
+    if isinstance(data, dict):
+        for k, v in data.items(): lines.append(f'- **{k}:** {fmt_value(v)}')
+    elif isinstance(data, list):
+        for item in data: lines.append(f'- {item}')
+    else:
+        lines.append(str(data))
+    lines.append('')
 
-def family_name(rule: dict) -> str:
-    return str(rule.get("ontology", {}).get("family") or rule.get("family_code", ""))
-
-
-def summary_text(rule: dict) -> str:
-    for key in ("summary", "description", "rationale"):
-        value = rule.get(key)
-        if value:
-            text = " ".join(str(value).split())
-            return text[:220] + ("…" if len(text) > 220 else "")
-    return "No summary provided."
-
-
-def rule_link(rule: dict) -> str:
-    return f"{rule.get('id', 'UNKNOWN')}.md"
-
-
-def example_detail_exists(rule_id: str) -> bool:
-    return (EXAMPLES_DIR / f"{rule_id}.md").exists()
-
-
-def copy_example_details(rules: list[dict]) -> None:
-    for rule in rules:
-        rid = rule.get("id", "UNKNOWN")
-        src = EXAMPLES_DIR / f"{rid}.md"
-        if src.exists():
-            dest = OUT_DIR / "examples" / f"{rid}.md"
-            dest.write_text(src.read_text(encoding="utf-8"), encoding="utf-8")
-
-
-def render_examples_block(items: list[dict], empty_text: str) -> list[str]:
-    if not items:
-        return [empty_text, ""]
-    lines = []
+def render_examples_block(items, empty):
+    if not items: return [empty, '']
+    lines=[]
     for item in items:
-        lines.append(f"### {item.get('title', 'Untitled example')}")
-        lines.append("")
-        lines.append(str(item.get("description", "")).strip())
-        lines.append("")
+        if isinstance(item, dict):
+            lines += [f"### {item.get('title','Untitled example')}", '', str(item.get('description','')).strip(), '']
+        else: lines += [f'- {item}', '']
     return lines
 
+def render_rule(rule, out_dir: Path, examples_dir: Path) -> str:
+    rid=rule.get('id','UNKNOWN'); ontology=rule.get('ontology',{})
+    lines=[f'# {rid}','',f'**Name:** {rule_name(rule)}','',f'**Category:** {category_name(rule)}','',f'**Family:** {family_name(rule)}','',f"**Primary layer:** `{rule.get('layer','unknown')}`",'',f"**System layers:** {fmt_value(ontology.get('system_layers', []))}",'','## Description','',rule.get('description') or rule.get('summary') or 'No description provided.','']
+    add_kv_section(lines, 'Impact', rule.get('impact'))
+    add_kv_section(lines, 'Detection', rule.get('detection'))
+    add_kv_section(lines, 'Remediation', rule.get('remediation'))
+    add_kv_section(lines, 'Cost Dimensions', rule.get('cost_dimensions'))
+    add_kv_section(lines, 'Amplification', rule.get('amplification'))
+    add_kv_section(lines, 'Temporal Behavior', rule.get('temporal_behavior'))
+    add_kv_section(lines, 'Runtime Evidence', rule.get('runtime_evidence'))
+    if rule.get('sustainability_priority') is not None:
+        lines += ['## Sustainability Priority','',f"**Priority:** {rule.get('sustainability_priority')} / 5",'']
+    examples=rule.get('examples',{})
+    if isinstance(examples, dict):
+        lines += ['## Pattern examples',''] + render_examples_block(examples.get('pattern',[]), 'No pattern examples provided.')
+        lines += ['## Remediation examples',''] + render_examples_block(examples.get('remediation',[]), 'No remediation examples provided.')
+    if (examples_dir / f'{rid}.md').exists():
+        lines += ['## Detailed example walkthrough','',f'- [Open detailed example](examples/{rid}.md)','']
+    add_kv_section(lines, 'Metadata', rule.get('metadata'))
+    lines += ['## Navigation','','- [Back to Human Catalog](index.md)','- [Back to Rule Browser](../rule-browser.md)','']
+    return '\n'.join(lines).rstrip()+'\n'
 
-def render_rule(rule: dict) -> str:
-    rid = rule.get("id", "UNKNOWN")
-    name = rule.get("name") or rule.get("title") or rid
-    description = rule.get("description") or rule.get("summary") or "No description provided."
-    layer = rule.get("layer", "unknown")
-    ontology = rule.get("ontology", {})
-    system_layers = ontology.get("system_layers", [])
-    category = category_name(rule)
-    family = family_name(rule)
+def copy_examples(rules, out, examples_dir):
+    for r in rules:
+        rid=r.get('id','UNKNOWN'); src=examples_dir / f'{rid}.md'
+        if src.exists(): (out/'examples'/f'{rid}.md').write_text(src.read_text(encoding='utf-8'), encoding='utf-8')
 
-    impact = rule.get("impact", {})
-    detection = rule.get("detection", {})
-    remediation = rule.get("remediation", {})
-    metadata = rule.get("metadata", {})
-    examples = rule.get("examples", {})
-    pattern_examples = examples.get("pattern", [])
-    remediation_examples = examples.get("remediation", [])
+def render_index(rules, catalog):
+    lines=['# Eco Rules Catalog (Human Readable)','',f"**Catalog version:** {catalog.get('catalog_version', catalog.get('version','unknown'))}",'',f'**Total rules:** {len(rules)}','','## Browse','','- [Rule Browser](../rule-browser.md)','- [Examples index](examples/index.md)','- [Layers](#layers)','- [Categories](#categories)','','## Rules','']
+    for r in rules: lines.append(f"- [{r.get('id','UNKNOWN')} — {rule_name(r)}]({rule_link(r)})")
+    lines.append('')
+    return '\n'.join(lines)
 
-    lines = [
-        f"# {rid}",
-        "",
-        f"**Name:** {name}",
-        "",
-        f"**Category:** {category}",
-        "",
-        f"**Family:** {family}",
-        "",
-        f"**Primary layer:** `{layer}`",
-        "",
-        f"**System layers:** {', '.join(f'`{x}`' for x in system_layers) if system_layers else 'None listed'}",
-        "",
-        "## Description",
-        "",
-        description,
-        "",
-    ]
+def group(rules, keyfn):
+    d=defaultdict(list)
+    for r in rules: d[keyfn(r)].append(r)
+    return {k:sorted(v,key=lambda r:r.get('id','')) for k,v in d.items()}
 
-    if impact:
-        lines += ["## Impact", ""]
-        for k, v in impact.items():
-            lines.append(f"- **{k}:** {v}")
-        lines.append("")
+def render_group(title, code, rules, back='../index.md'):
+    lines=[f'# {title} rules','',f'**Code:** `{code}`','',f'**Total rules:** {len(rules)}','',f'- [Back to Human Catalog]({back})','']
+    if not rules: return '\n'.join(lines+['No rules are currently listed.',''])
+    lines += ['## Rules','']
+    for r in rules:
+        lines += [f"### [{r.get('id','UNKNOWN')} — {rule_name(r)}](../{rule_link(r)})",'',summary_text(r),'',f"- Category: **{category_name(r)}**",f"- Family: **{family_name(r)}**",f"- Layer: **{r.get('layer','')}**",'']
+    return '\n'.join(lines)
 
-    if detection:
-        lines += ["## Detection", ""]
-        for k, v in detection.items():
-            if isinstance(v, list):
-                lines.append(f"- **{k}:**")
-                for item in v:
-                    lines.append(f"  - {item}")
-            else:
-                lines.append(f"- **{k}:** {v}")
-        lines.append("")
+def render_examples_index(rules, examples_dir):
+    lines=['# Examples index','','Rules with detailed example walkthroughs.','']; found=False
+    for r in rules:
+        rid=r.get('id','UNKNOWN')
+        if (examples_dir/f'{rid}.md').exists():
+            found=True; lines.append(f'- [{rid} — {rule_name(r)}]({rid}.md)')
+    if not found: lines.append('No detailed examples are currently available.')
+    lines.append(''); return '\n'.join(lines)
 
-    if remediation:
-        lines += ["## Remediation", ""]
-        for k, v in remediation.items():
-            if isinstance(v, list):
-                lines.append(f"- **{k}:**")
-                for item in v:
-                    lines.append(f"  - {item}")
-            else:
-                lines.append(f"- **{k}:** {v}")
-        lines.append("")
-
-    lines += ["## Pattern examples", ""]
-    lines += render_examples_block(pattern_examples, "No pattern examples provided.")
-    lines += ["## Remediation examples", ""]
-    lines += render_examples_block(remediation_examples, "No remediation examples provided.")
-
-    if example_detail_exists(rid):
-        lines += [
-            "## Detailed example walkthrough",
-            "",
-            f"- [Open detailed example](examples/{rid}.md)",
-            "",
-        ]
-
-    if metadata:
-        lines += ["## Metadata", ""]
-        for k, v in metadata.items():
-            lines.append(f"- **{k}:** {v}")
-        lines.append("")
-
-    lines += [
-        "## Navigation",
-        "",
-        "- [Back to Human Catalog](index.md)",
-        "- [Back to Rule Browser](../rule-browser.md)",
-        "",
-    ]
-    return "\n".join(lines).rstrip() + "\n"
-
-
-def write_rule_pages(rules: list[dict]) -> None:
-    for rule in rules:
-        out = OUT_DIR / rule_link(rule)
-        out.write_text(render_rule(rule), encoding="utf-8")
-
-
-def render_catalog_index(rules: list[dict]) -> str:
-    lines = [
-        "# Eco Rules Catalog (Human Readable)",
-        "",
-        f"**Total rules:** {len(rules)}",
-        "",
-        "## Browse",
-        "",
-        "- [Rule Browser](../rule-browser.md)",
-        "- [Examples index](examples/index.md)",
-	"- Layers",
-        "  - [AI layer](layers/ai.md)",
-        "  - [Architecture layer](layers/architecture.md)",
-        "  - [Code layer](layers/code.md)",
-        "  - [Data layer](layers/data.md)",
-        "  - [Network layer](layers/network.md)",
-        "  - [Process layer](layers/process.md)",
-	"- Categories",
-        "  - [AI/ML category](categories/aim.md)",
-        "  - [Architecture category](categories/arc.md)",
-        "  - [Computation category](categories/cmp.md)",
-        "  - [Data category](categories/dat.md)",
-        "  - [Infrastructure category](categories/inf.md)",
-        "  - [Networking category](categories/net.md)",
-        "  - [Organizational category](categories/org.md)",
-        "",
-        "## Rules",
-        "",
-    ]
-    for rule in rules:
-        rid = rule.get("id", "UNKNOWN")
-        name = rule.get("name") or rule.get("title") or rid
-        lines.append(f"- [{rid} — {name}]({rule_link(rule)})")
-    lines.append("")
-    return "\n".join(lines)
-
-
-def render_category_index(category_code: str, rules: list[dict]) -> str:
-    title = CATEGORY_LABELS.get(category_code, category_code)
-    lines = [
-        f"# {title} rules",
-        "",
-        f"**Category code:** `{category_code}`",
-        "",
-        f"**Total rules:** {len(rules)}",
-        "",
-        "- [Back to Human Catalog](../index.md)",
-        "- [Back to Rule Browser](../../rule-browser.md)",
-        "",
-    ]
-
-    if not rules:
-        lines += ["No rules are currently listed for this category.", ""]
-        return "\n".join(lines)
-
-    lines += ["## Rules", ""]
-    for rule in rules:
-        rid = rule.get("id", "UNKNOWN")
-        name = rule.get("name") or rule.get("title") or rid
-        summary = summary_text(rule)
-        lines.append(f"### [{rid} — {name}](../{rule_link(rule)})")
-        lines.append("")
-        lines.append(summary)
-        lines.append("")
-        lines.append(f"- Family: **{family_name(rule)}**")
-        lines.append(f"- Layer: **{rule.get('layer', '')}**")
-        lines.append("")
-    return "\n".join(lines)
-
-
-def group_by_layer(rules: list[dict]) -> dict[str, list[dict]]:
-    groups = defaultdict(list)
-    for rule in rules:
-        layer = str(rule.get("layer", "")).strip().lower()
-        groups[layer].append(rule)
-    for layer in groups:
-        groups[layer] = sorted(groups[layer], key=lambda r: r.get("id", ""))
-    return groups
-
-
-def group_by_category(rules: list[dict]) -> dict[str, list[dict]]:
-    groups = defaultdict(list)
-    for rule in rules:
-        code = str(rule.get("category_code", "")).strip().upper()
-        groups[code].append(rule)
-    for code in groups:
-        groups[code] = sorted(groups[code], key=lambda r: r.get("id", ""))
-    return groups
-
-
-def render_layer_index(layer: str, rules: list[dict]) -> str:
-    title = LAYER_LABELS.get(layer, layer.title())
-    lines = [
-        f"# {title} rules",
-        "",
-        f"**Total rules:** {len(rules)}",
-        "",
-        "- [Back to Human Catalog](../index.md)",
-        "- [Back to Rule Browser](../../rule-browser.md)",
-        "",
-    ]
-
-    if not rules:
-        lines += ["No rules are currently listed for this layer.", ""]
-        return "\n".join(lines)
-
-    lines += ["## Rules", ""]
-    for rule in rules:
-        rid = rule.get("id", "UNKNOWN")
-        name = rule.get("name") or rule.get("title") or rid
-        summary = summary_text(rule)
-        lines.append(f"### [{rid} — {name}](../{rule_link(rule)})")
-        lines.append("")
-        lines.append(summary)
-        lines.append("")
-        lines.append(f"- Category: **{category_name(rule)}**")
-        lines.append(f"- Family: **{family_name(rule)}**")
-        lines.append("")
-    return "\n".join(lines)
-
-
-def write_layer_indexes(rules: list[dict]) -> None:
-    groups = group_by_layer(rules)
-    for layer in LAYER_ORDER:
-        out = OUT_DIR / "layers" / f"{layer}.md"
-        out.write_text(render_layer_index(layer, groups.get(layer, [])), encoding="utf-8")
-
-
-def write_category_indexes(rules: list[dict]) -> None:
-    groups = group_by_category(rules)
-    for category_code in sorted(groups):
-        out = OUT_DIR / "categories" / f"{category_code.lower()}.md"
-        out.write_text(render_category_index(category_code, groups[category_code]), encoding="utf-8")
-
-
-def render_examples_index(rules: list[dict]) -> str:
-    lines = [
-        "# Examples index",
-        "",
-        "Rules with detailed example walkthroughs.",
-        "",
-    ]
-    found = False
-    for rule in rules:
-        rid = rule.get("id", "UNKNOWN")
-        if example_detail_exists(rid):
-            found = True
-            name = rule.get("name") or rule.get("title") or rid
-            lines.append(f"- [{rid} — {name}]({rid}.md)")
-    if not found:
-        lines += ["No detailed example files are currently available.", ""]
-    else:
-        lines.append("")
-    return "\n".join(lines)
-
-
-def main() -> None:
-    ensure_out_dir()
-    catalog = load_catalog()
-    rules = get_rules(catalog)
-
-    write_rule_pages(rules)
-    (OUT_DIR / "index.md").write_text(render_catalog_index(rules), encoding="utf-8")
-    write_layer_indexes(rules)
-    write_category_indexes(rules)
-    copy_example_details(rules)
-    (OUT_DIR / "examples" / "index.md").write_text(render_examples_index(rules), encoding="utf-8")
-
-    print(f"Generated {len(rules)} rule pages in {OUT_DIR}")
-    print(f"Generated layer indexes in {OUT_DIR / 'layers'}")
-    print(f"Generated examples index in {OUT_DIR / 'examples'}")
-
-
-if __name__ == "__main__":
-    main()
+def main():
+    ap=argparse.ArgumentParser(description='Generate human-readable Markdown catalog pages with v0.4.0 metadata sections.')
+    ap.add_argument('--in', dest='in_path', default=str(DEFAULT_MASTER))
+    ap.add_argument('--out', dest='out_dir', default=str(DEFAULT_OUT_DIR))
+    ap.add_argument('--examples-dir', default=str(DEFAULT_EXAMPLES_DIR))
+    args=ap.parse_args()
+    catalog=load_json(Path(args.in_path)); rules=get_rules(catalog); out=Path(args.out_dir); examples=Path(args.examples_dir)
+    ensure_out(out)
+    for r in rules: (out/rule_link(r)).write_text(render_rule(r,out,examples), encoding='utf-8')
+    (out/'index.md').write_text(render_index(rules,catalog), encoding='utf-8')
+    for layer, rs in group(rules, lambda r: str(r.get('layer','unknown')).lower()).items():
+        (out/'layers'/f'{layer}.md').write_text(render_group(layer.title(), layer, rs), encoding='utf-8')
+    for cat, rs in group(rules, lambda r: str(r.get('category_code','unc')).lower()).items():
+        (out/'categories'/f'{cat}.md').write_text(render_group(category_name(rs[0]) if rs else cat.upper(), cat.upper(), rs), encoding='utf-8')
+    copy_examples(rules,out,examples)
+    (out/'examples'/'index.md').write_text(render_examples_index(rules,examples), encoding='utf-8')
+    print(f'Generated {len(rules)} rule pages in {out}')
+    return 0
+if __name__ == '__main__': raise SystemExit(main())

@@ -37,5 +37,8 @@
     "allocations"
   ],
   "tier": 1,
-  "title": "Excessive object creation in hot path"
+  "title": "Excessive object creation in hot path",
+  "metadata": {
+    "catalog_version": "0.4.0"
+  }
 }

@@ -37,5 +37,8 @@
     "complexity"
   ],
   "tier": 3,
-  "title": "Duplicate services performing the same work"
+  "title": "Duplicate services performing the same work",
+  "metadata": {
+    "catalog_version": "0.4.0"
+  }
 }

@@ -2,9 +2,9 @@
 
 **Name:** No sustainability accountability owner
 
-**Category:** ORG
+**Category:** Organizational
 
-**Family:** PROC
+**Family:** Process
 
 **Primary layer:** `process`
 
@@ -22,8 +22,7 @@ Without ownership, sustainability work becomes optional and inconsistent.
 
 ## Detection
 
-- **languages:**
-  - org
+- **languages:** `org`
 - **method:** config
 
 ## Remediation
@@ -42,6 +41,10 @@ No remediation examples provided.
 ## Detailed example walkthrough
 
 - [Open detailed example](examples/ECO-ORG-PROC-015.md)
+
+## Metadata
+
+- **catalog_version:** 0.4.0
 
 ## Navigation
 

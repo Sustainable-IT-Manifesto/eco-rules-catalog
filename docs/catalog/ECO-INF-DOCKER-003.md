@@ -28,8 +28,7 @@ Without a properly scoped .dockerignore, source trees, artifacts, caches, and do
 ## Remediation
 
 - **guidance:** Add and maintain a .dockerignore tuned to the actual files required for the build.
-- **examples:**
-  - Exclude node_modules, .git, test outputs, local caches, and generated artifacts unless explicitly needed.
+- **examples:** `Exclude node_modules, .git, test outputs, local caches, and generated artifacts unless explicitly needed.`
 
 ## Pattern examples
 
@@ -44,6 +43,7 @@ No remediation examples provided.
 - **status:** draft
 - **severity:** medium
 - **version:** 0.3.0-draft
+- **catalog_version:** 0.4.0
 
 ## Navigation
 

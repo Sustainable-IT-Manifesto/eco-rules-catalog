@@ -28,8 +28,7 @@ Kubernetes workloads that omit or poorly size CPU and memory requests and limits
 ## Remediation
 
 - **guidance:** Set realistic requests and limits based on actual workload behavior and revise them as measurements improve.
-- **examples:**
-  - Use observed workload baselines instead of copy-pasted defaults.
+- **examples:** `Use observed workload baselines instead of copy-pasted defaults.`
 
 ## Pattern examples
 
@@ -44,6 +43,7 @@ No remediation examples provided.
 - **status:** draft
 - **severity:** medium
 - **version:** 0.3.0-draft
+- **catalog_version:** 0.4.0
 
 ## Navigation
 

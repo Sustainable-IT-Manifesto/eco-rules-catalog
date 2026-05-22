@@ -2,9 +2,9 @@
 
 **Name:** Inefficient pandas row iteration
 
-**Category:** CMP
+**Category:** Computation
 
-**Family:** PY
+**Family:** Python
 
 **Primary layer:** `code`
 
@@ -22,8 +22,7 @@ Row-wise pandas iteration is slow compared to vectorized operations.
 
 ## Detection
 
-- **languages:**
-  - python
+- **languages:** `python`
 - **method:** ast
 
 ## Remediation
@@ -38,6 +37,10 @@ No pattern examples provided.
 ## Remediation examples
 
 No remediation examples provided.
+
+## Metadata
+
+- **catalog_version:** 0.4.0
 
 ## Navigation
 

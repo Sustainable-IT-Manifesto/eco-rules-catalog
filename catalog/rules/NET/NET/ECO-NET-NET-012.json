@@ -36,5 +36,8 @@
     "http3"
   ],
   "tier": 2,
-  "title": "No HTTP/2 or HTTP/3 where applicable"
+  "title": "No HTTP/2 or HTTP/3 where applicable",
+  "metadata": {
+    "catalog_version": "0.4.0"
+  }
 }

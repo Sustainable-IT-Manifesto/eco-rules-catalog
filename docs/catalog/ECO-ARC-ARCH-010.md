@@ -2,9 +2,9 @@
 
 **Name:** No observability on utilization
 
-**Category:** ARC
+**Category:** Architecture
 
-**Family:** ARCH
+**Family:** Architecture
 
 **Primary layer:** `architecture`
 
@@ -22,9 +22,7 @@ Without utilization metrics, waste is invisible and persistent.
 
 ## Detection
 
-- **languages:**
-  - infra
-  - org
+- **languages:** `infra`, `org`
 - **method:** config
 
 ## Remediation
@@ -39,6 +37,10 @@ No pattern examples provided.
 ## Remediation examples
 
 No remediation examples provided.
+
+## Metadata
+
+- **catalog_version:** 0.4.0
 
 ## Navigation
 

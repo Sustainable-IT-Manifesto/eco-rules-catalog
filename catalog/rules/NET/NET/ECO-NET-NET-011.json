@@ -36,5 +36,8 @@
     "latency"
   ],
   "tier": 3,
-  "title": "No CDN usage for static content"
+  "title": "No CDN usage for static content",
+  "metadata": {
+    "catalog_version": "0.4.0"
+  }
 }

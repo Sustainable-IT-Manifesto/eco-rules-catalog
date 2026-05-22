@@ -36,5 +36,8 @@
     "keep-alive"
   ],
   "tier": 2,
-  "title": "No connection reuse (keep-alive disabled)"
+  "title": "No connection reuse (keep-alive disabled)",
+  "metadata": {
+    "catalog_version": "0.4.0"
+  }
 }

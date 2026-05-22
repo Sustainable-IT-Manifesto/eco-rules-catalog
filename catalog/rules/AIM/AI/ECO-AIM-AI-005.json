@@ -36,5 +36,8 @@
     "scale-to-zero"
   ],
   "tier": 3,
-  "title": "Always-on inference endpoints"
+  "title": "Always-on inference endpoints",
+  "metadata": {
+    "catalog_version": "0.4.0"
+  }
 }

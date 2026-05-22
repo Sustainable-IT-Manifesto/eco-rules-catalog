@@ -2,9 +2,9 @@
 
 **Name:** Missing circuit breaker patterns
 
-**Category:** NET
+**Category:** Networking
 
-**Family:** NET
+**Family:** Network
 
 **Primary layer:** `network`
 
@@ -22,9 +22,7 @@ Without circuit breakers, failures propagate and waste resources.
 
 ## Detection
 
-- **languages:**
-  - infra
-  - org
+- **languages:** `infra`, `org`
 - **method:** config
 
 ## Remediation
@@ -39,6 +37,10 @@ No pattern examples provided.
 ## Remediation examples
 
 No remediation examples provided.
+
+## Metadata
+
+- **catalog_version:** 0.4.0
 
 ## Navigation
 

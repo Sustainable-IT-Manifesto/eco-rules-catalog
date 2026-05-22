@@ -2,9 +2,9 @@
 
 **Name:** Recursive algorithm without safeguards
 
-**Category:** CMP
+**Category:** Computation
 
-**Family:** PY
+**Family:** Python
 
 **Primary layer:** `code`
 
@@ -22,8 +22,7 @@ Recursion without depth safeguards risks overhead and runtime errors.
 
 ## Detection
 
-- **languages:**
-  - python
+- **languages:** `python`
 - **method:** ast
 
 ## Remediation
@@ -38,6 +37,10 @@ No pattern examples provided.
 ## Remediation examples
 
 No remediation examples provided.
+
+## Metadata
+
+- **catalog_version:** 0.4.0
 
 ## Navigation
 

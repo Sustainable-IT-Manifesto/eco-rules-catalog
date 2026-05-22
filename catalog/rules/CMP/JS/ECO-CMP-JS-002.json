@@ -37,5 +37,8 @@
     "network"
   ],
   "tier": 2,
-  "title": "Polling instead of events"
+  "title": "Polling instead of events",
+  "metadata": {
+    "catalog_version": "0.4.0"
+  }
 }

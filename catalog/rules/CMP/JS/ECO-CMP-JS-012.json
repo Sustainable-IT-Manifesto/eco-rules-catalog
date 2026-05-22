@@ -37,5 +37,8 @@
     "network"
   ],
   "tier": 2,
-  "title": "Redundant API calls in component lifecycle"
+  "title": "Redundant API calls in component lifecycle",
+  "metadata": {
+    "catalog_version": "0.4.0"
+  }
 }

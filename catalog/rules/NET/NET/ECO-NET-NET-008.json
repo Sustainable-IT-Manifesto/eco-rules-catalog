@@ -36,5 +36,8 @@
     "payload"
   ],
   "tier": 1,
-  "title": "Over-fetching API fields"
+  "title": "Over-fetching API fields",
+  "metadata": {
+    "catalog_version": "0.4.0"
+  }
 }

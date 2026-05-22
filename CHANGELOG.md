@@ -6,6 +6,33 @@ The format is based on Keep a Changelog and follows semantic versioning (pre-1.0
 
 ---
 
+## v0.4.0 - 2026-05-21
+
+### Added
+
+- Formal schema definitions for `cost_dimensions`, `amplification`, `temporal_behavior`, `runtime_evidence`, and `sustainability_priority`.
+- Documentation for the new systems-level metadata fields.
+- Migration entry documenting the 0.4.0 schema formalization.
+
+### Changed
+
+- Updated catalog registry version from `0.3.0` to `0.4.0`.
+- Updated rule metadata catalog versions to `0.4.0`.
+- Promoted the 0.3.0 expansion into a more explicit systems intelligence release.
+
+### Compatibility
+
+- Existing 0.3.x rules remain structurally compatible.
+- Additional rule properties are still allowed so experimental metadata can continue to evolve.
+
+## v0.3.1 - 2026-05-21
+
+### Added
+
+- Sustainability, resilience, and observability categories.
+- New families for carbon, energy, water, hardware lifecycle, caching, serialization, frontend/UI, RAG, prompts, agents, security efficiency, logging, tracing, metrics, failure handling, disaster recovery, and graceful degradation.
+- Initial optional systems-level metadata fields.
+
 ## [v0.3.0] — Infrastructure and Scanner Model Update
 
 ### Added

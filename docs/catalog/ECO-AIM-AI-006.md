@@ -2,7 +2,7 @@
 
 **Name:** Unbounded context window usage
 
-**Category:** AIM
+**Category:** AI/ML
 
 **Family:** AI
 
@@ -22,9 +22,7 @@ Excessive context increases token cost and latency.
 
 ## Detection
 
-- **languages:**
-  - org
-  - infra
+- **languages:** `org`, `infra`
 - **method:** trace
 
 ## Remediation
@@ -39,6 +37,10 @@ No pattern examples provided.
 ## Remediation examples
 
 No remediation examples provided.
+
+## Metadata
+
+- **catalog_version:** 0.4.0
 
 ## Navigation
 

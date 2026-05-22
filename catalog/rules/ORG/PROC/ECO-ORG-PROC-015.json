@@ -35,5 +35,8 @@
     "system_layers": [
       "process"
     ]
+  },
+  "metadata": {
+    "catalog_version": "0.4.0"
   }
 }

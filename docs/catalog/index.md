@@ -1,29 +1,19 @@
 # Eco Rules Catalog (Human Readable)
 
-**Total rules:** 137
+**Catalog version:** 0.4.0
+
+**Total rules:** 160
 
 ## Browse
 
 - [Rule Browser](../rule-browser.md)
 - [Examples index](examples/index.md)
-- Layers
-  - [AI layer](layers/ai.md)
-  - [Architecture layer](layers/architecture.md)
-  - [Code layer](layers/code.md)
-  - [Data layer](layers/data.md)
-  - [Network layer](layers/network.md)
-  - [Process layer](layers/process.md)
-- Categories
-  - [AI/ML category](categories/aim.md)
-  - [Architecture category](categories/arc.md)
-  - [Computation category](categories/cmp.md)
-  - [Data category](categories/dat.md)
-  - [Infrastructure category](categories/inf.md)
-  - [Networking category](categories/net.md)
-  - [Organizational category](categories/org.md)
+- [Layers](#layers)
+- [Categories](#categories)
 
 ## Rules
 
+- [ECO-AIM-AGENT-001 — Unbounded agent tool-call loop](ECO-AIM-AGENT-001.md)
 - [ECO-AIM-AI-001 — Oversized model selection](ECO-AIM-AI-001.md)
 - [ECO-AIM-AI-002 — No inference batching](ECO-AIM-AI-002.md)
 - [ECO-AIM-AI-003 — Re-embedding unchanged data](ECO-AIM-AI-003.md)
@@ -39,6 +29,9 @@
 - [ECO-AIM-AI-013 — No GPU utilization monitoring](ECO-AIM-AI-013.md)
 - [ECO-AIM-AI-014 — Inefficient feature preprocessing pipelines](ECO-AIM-AI-014.md)
 - [ECO-AIM-AI-015 — No batching of vector search queries](ECO-AIM-AI-015.md)
+- [ECO-AIM-PROMPT-001 — Repeated static prompt context](ECO-AIM-PROMPT-001.md)
+- [ECO-AIM-RAG-001 — Embedding regeneration without change detection](ECO-AIM-RAG-001.md)
+- [ECO-AIM-RAG-002 — Excessive retrieval fan-out](ECO-AIM-RAG-002.md)
 - [ECO-ARC-ARCH-001 — Over-provisioned compute](ECO-ARC-ARCH-001.md)
 - [ECO-ARC-ARCH-002 — Always-on low-traffic service](ECO-ARC-ARCH-002.md)
 - [ECO-ARC-ARCH-003 — Long synchronous dependency chain](ECO-ARC-ARCH-003.md)
@@ -104,6 +97,10 @@
 - [ECO-CMP-PY-018 — Recursive algorithm without safeguards](ECO-CMP-PY-018.md)
 - [ECO-CMP-PY-019 — Excessive thread spawning](ECO-CMP-PY-019.md)
 - [ECO-CMP-PY-020 — Synchronous subprocess invocation in hot path](ECO-CMP-PY-020.md)
+- [ECO-CMP-UI-001 — Oversized frontend bundle](ECO-CMP-UI-001.md)
+- [ECO-CMP-UI-002 — Excessive polling from client UI](ECO-CMP-UI-002.md)
+- [ECO-DAT-CACHE-001 — Missing cache for repeated expensive lookup](ECO-DAT-CACHE-001.md)
+- [ECO-DAT-CACHE-002 — Cache stampede risk](ECO-DAT-CACHE-002.md)
 - [ECO-DAT-DATA-001 — Duplicate stored data](ECO-DAT-DATA-001.md)
 - [ECO-DAT-DATA-002 — Missing retention policy](ECO-DAT-DATA-002.md)
 - [ECO-DAT-DATA-003 — Large unused indexes](ECO-DAT-DATA-003.md)
@@ -119,6 +116,7 @@
 - [ECO-DAT-DATA-013 — No data lifecycle governance](ECO-DAT-DATA-013.md)
 - [ECO-DAT-DATA-014 — Stale feature flags accumulating](ECO-DAT-DATA-014.md)
 - [ECO-DAT-DATA-015 — Shadow data stores outside governance](ECO-DAT-DATA-015.md)
+- [ECO-DAT-SER-001 — Repeated serialization/deserialization chain](ECO-DAT-SER-001.md)
 - [ECO-INF-COMPOSE-001 — Overprovisioned default Compose stack](ECO-INF-COMPOSE-001.md)
 - [ECO-INF-COMPOSE-002 — Unbounded restart loops for noncritical services](ECO-INF-COMPOSE-002.md)
 - [ECO-INF-DOCKER-001 — Missing multi-stage builds](ECO-INF-DOCKER-001.md)
@@ -146,6 +144,12 @@
 - [ECO-NET-NET-013 — Excessive polling intervals](ECO-NET-NET-013.md)
 - [ECO-NET-NET-014 — Synchronous cross-region calls](ECO-NET-NET-014.md)
 - [ECO-NET-NET-015 — Missing circuit breaker patterns](ECO-NET-NET-015.md)
+- [ECO-OBS-LOG-001 — Excessive production debug logging](ECO-OBS-LOG-001.md)
+- [ECO-OBS-LOG-002 — Large payload logging](ECO-OBS-LOG-002.md)
+- [ECO-OBS-METRIC-001 — High-cardinality metric explosion](ECO-OBS-METRIC-001.md)
+- [ECO-OBS-TRACE-001 — Unsampled high-volume tracing](ECO-OBS-TRACE-001.md)
+- [ECO-OPS-SEC-001 — Repeated token introspection on hot path](ECO-OPS-SEC-001.md)
+- [ECO-OPS-SEC-002 — Secrets retrieval on every request](ECO-OPS-SEC-002.md)
 - [ECO-ORG-PROC-001 — No performance budget defined](ECO-ORG-PROC-001.md)
 - [ECO-ORG-PROC-002 — No baseline measurement](ECO-ORG-PROC-002.md)
 - [ECO-ORG-PROC-003 — No cost observability](ECO-ORG-PROC-003.md)
@@ -161,3 +165,11 @@
 - [ECO-ORG-PROC-013 — No capacity planning cadence](ECO-ORG-PROC-013.md)
 - [ECO-ORG-PROC-014 — No energy-efficient coding standards](ECO-ORG-PROC-014.md)
 - [ECO-ORG-PROC-015 — No sustainability accountability owner](ECO-ORG-PROC-015.md)
+- [ECO-ORG-PROC-016 — No performance or sustainability budget](ECO-ORG-PROC-016.md)
+- [ECO-RES-DEG-001 — No degraded mode for optional dependencies](ECO-RES-DEG-001.md)
+- [ECO-RES-DR-001 — Untested regional failover](ECO-RES-DR-001.md)
+- [ECO-RES-FAIL-001 — Retry storm without backoff](ECO-RES-FAIL-001.md)
+- [ECO-SUS-CARBON-001 — Carbon-insensitive workload placement](ECO-SUS-CARBON-001.md)
+- [ECO-SUS-ENERGY-001 — Always-on non-production environments](ECO-SUS-ENERGY-001.md)
+- [ECO-SUS-HW-001 — Premature hardware refresh policy](ECO-SUS-HW-001.md)
+- [ECO-SUS-WATER-001 — Water-stress-blind AI inference placement](ECO-SUS-WATER-001.md)

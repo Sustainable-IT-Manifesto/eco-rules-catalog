@@ -28,8 +28,7 @@ Workloads that carry heavy or redundant sidecars for logging, metrics, proxies, 
 ## Remediation
 
 - **guidance:** Use sidecars intentionally, consolidate where possible, and prefer shared platform capabilities when they reduce duplicated per-pod cost.
-- **examples:**
-  - Review whether the same capability can be provided once per node or per cluster instead of once per pod.
+- **examples:** `Review whether the same capability can be provided once per node or per cluster instead of once per pod.`
 
 ## Pattern examples
 
@@ -44,6 +43,7 @@ No remediation examples provided.
 - **status:** draft
 - **severity:** medium
 - **version:** 0.3.0-draft
+- **catalog_version:** 0.4.0
 
 ## Navigation
 

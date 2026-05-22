@@ -1,0 +1,70 @@
+{
+  "id": "ECO-DAT-CACHE-002",
+  "canonical_id": "ECO-DAT-CACHE-002",
+  "title": "Cache stampede risk",
+  "summary": "Many workers may recompute the same expired value simultaneously, amplifying load during bursts.",
+  "category": "Data",
+  "category_code": "DAT",
+  "family": "Caching",
+  "family_code": "CACHE",
+  "layer": "architecture",
+  "ontology": {
+    "category": "Data",
+    "family": "Caching",
+    "system_layers": [
+      "architecture"
+    ]
+  },
+  "impact": {
+    "type": "resilience",
+    "confidence": 0.7,
+    "notes": "Added as part of the 0.3.0 expansion to capture cross-system sustainability and operational waste."
+  },
+  "cost_dimensions": {
+    "compute": "high",
+    "memory": "medium",
+    "network": "medium",
+    "storage": "low",
+    "human_time": "medium",
+    "carbon": "high",
+    "water": "low"
+  },
+  "amplification": {
+    "scales_with_users": true,
+    "scales_with_data_volume": false,
+    "scales_non_linearly": true
+  },
+  "temporal_behavior": {
+    "startup_only": false,
+    "steady_state": true,
+    "burst_sensitive": true,
+    "time_degradation": false
+  },
+  "runtime_evidence": [
+    "cache metrics",
+    "request bursts",
+    "backend saturation"
+  ],
+  "detection": {
+    "method": "static-or-runtime",
+    "confidence": 0.55,
+    "runtime_validation_required": true
+  },
+  "remediation": {
+    "guidance": "Use request coalescing, jittered expiration, stale-while-revalidate, or locks where appropriate.",
+    "tradeoffs": "May require architecture, product, or operations review rather than a local code change."
+  },
+  "metadata": {
+    "catalog_version": "0.4.0",
+    "status": "draft",
+    "source": "catalog expansion recommendations applied 2026-05-21"
+  },
+  "severity": "warning",
+  "enabled_by_default": false,
+  "tier": 2,
+  "tags": [
+    "cache",
+    "stampede",
+    "burst"
+  ]
+}

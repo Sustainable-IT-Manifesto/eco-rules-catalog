@@ -36,5 +36,8 @@
     "compression"
   ],
   "tier": 2,
-  "title": "No gzip/brotli compression"
+  "title": "No gzip/brotli compression",
+  "metadata": {
+    "catalog_version": "0.4.0"
+  }
 }

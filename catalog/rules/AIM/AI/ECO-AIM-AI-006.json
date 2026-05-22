@@ -37,5 +37,8 @@
     "context-window"
   ],
   "tier": 2,
-  "title": "Unbounded context window usage"
+  "title": "Unbounded context window usage",
+  "metadata": {
+    "catalog_version": "0.4.0"
+  }
 }

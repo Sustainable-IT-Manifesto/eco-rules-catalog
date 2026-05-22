@@ -19,7 +19,7 @@
   },
   "layer": "process",
   "legacy_id": "ECO-PROC-005",
-  "rationale": "Without tests, teams overprovision “just in case.”",
+  "rationale": "Without tests, teams overprovision \u201cjust in case.\u201d",
   "remediation": {
     "guidance": "Add load tests and regression gates tied to SLOs.",
     "tradeoffs": "More pipeline time."
@@ -36,5 +36,8 @@
     "system_layers": [
       "process"
     ]
+  },
+  "metadata": {
+    "catalog_version": "0.4.0"
   }
 }

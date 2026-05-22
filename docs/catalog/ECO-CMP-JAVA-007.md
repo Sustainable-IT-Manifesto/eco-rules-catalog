@@ -2,9 +2,9 @@
 
 **Name:** Blocking calls in reactive pipeline
 
-**Category:** CMP
+**Category:** Computation
 
-**Family:** JAVA
+**Family:** Java
 
 **Primary layer:** `code`
 
@@ -22,8 +22,7 @@ Blocking in reactive code collapses concurrency and throughput.
 
 ## Detection
 
-- **languages:**
-  - java
+- **languages:** `java`
 - **method:** hybrid
 
 ## Remediation
@@ -38,6 +37,10 @@ No pattern examples provided.
 ## Remediation examples
 
 No remediation examples provided.
+
+## Metadata
+
+- **catalog_version:** 0.4.0
 
 ## Navigation
 

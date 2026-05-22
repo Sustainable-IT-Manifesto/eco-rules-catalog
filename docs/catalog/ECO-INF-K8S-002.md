@@ -28,8 +28,7 @@ When a workload is horizontally scalable, the absence of an HPA or equivalent sc
 ## Remediation
 
 - **guidance:** Use autoscaling where workloads and metrics support it, and tune target thresholds carefully.
-- **examples:**
-  - Deploy HPA for stateless services with clear CPU or custom metric signals.
+- **examples:** `Deploy HPA for stateless services with clear CPU or custom metric signals.`
 
 ## Pattern examples
 
@@ -44,6 +43,7 @@ No remediation examples provided.
 - **status:** draft
 - **severity:** medium
 - **version:** 0.3.0-draft
+- **catalog_version:** 0.4.0
 
 ## Navigation
 

@@ -28,8 +28,7 @@ Using latest or other floating tags reduces reproducibility and can increase unn
 ## Remediation
 
 - **guidance:** Pin images to explicit versions or digests and update them deliberately.
-- **examples:**
-  - Use immutable digests in production manifests when practical.
+- **examples:** `Use immutable digests in production manifests when practical.`
 
 ## Pattern examples
 
@@ -44,6 +43,7 @@ No remediation examples provided.
 - **status:** draft
 - **severity:** medium
 - **version:** 0.3.0-draft
+- **catalog_version:** 0.4.0
 
 ## Navigation
 

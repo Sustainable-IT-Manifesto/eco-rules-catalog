@@ -35,5 +35,8 @@
     "coupling"
   ],
   "tier": 3,
-  "title": "Tight coupling across bounded contexts"
+  "title": "Tight coupling across bounded contexts",
+  "metadata": {
+    "catalog_version": "0.4.0"
+  }
 }

@@ -36,5 +36,8 @@
     "pipelines"
   ],
   "tier": 2,
-  "title": "Inefficient feature preprocessing pipelines"
+  "title": "Inefficient feature preprocessing pipelines",
+  "metadata": {
+    "catalog_version": "0.4.0"
+  }
 }

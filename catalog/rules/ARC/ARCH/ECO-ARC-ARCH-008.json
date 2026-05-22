@@ -36,5 +36,8 @@
     "tiering"
   ],
   "tier": 3,
-  "title": "Hot storage used for cold data"
+  "title": "Hot storage used for cold data",
+  "metadata": {
+    "catalog_version": "0.4.0"
+  }
 }

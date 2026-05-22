@@ -36,5 +36,8 @@
     "caching"
   ],
   "tier": 2,
-  "title": "Redundant authentication calls"
+  "title": "Redundant authentication calls",
+  "metadata": {
+    "catalog_version": "0.4.0"
+  }
 }

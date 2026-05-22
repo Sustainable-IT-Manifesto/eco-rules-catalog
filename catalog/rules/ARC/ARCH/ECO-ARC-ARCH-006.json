@@ -36,5 +36,8 @@
     "backpressure"
   ],
   "tier": 3,
-  "title": "Unbounded message queues"
+  "title": "Unbounded message queues",
+  "metadata": {
+    "catalog_version": "0.4.0"
+  }
 }

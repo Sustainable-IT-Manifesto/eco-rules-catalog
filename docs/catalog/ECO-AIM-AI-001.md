@@ -2,7 +2,7 @@
 
 **Name:** Oversized model selection
 
-**Category:** AIM
+**Category:** AI/ML
 
 **Family:** AI
 
@@ -22,9 +22,7 @@ Using larger models than needed increases inference cost and emissions.
 
 ## Detection
 
-- **languages:**
-  - python
-  - infra
+- **languages:** `python`, `infra`
 - **method:** config
 
 ## Remediation
@@ -43,6 +41,10 @@ No remediation examples provided.
 ## Detailed example walkthrough
 
 - [Open detailed example](examples/ECO-AIM-AI-001.md)
+
+## Metadata
+
+- **catalog_version:** 0.4.0
 
 ## Navigation
 

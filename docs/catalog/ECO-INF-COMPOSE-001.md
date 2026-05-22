@@ -28,8 +28,7 @@ Compose files that always start optional databases, observability services, cach
 ## Remediation
 
 - **guidance:** Use profiles or separate compose overlays so services start only when needed.
-- **examples:**
-  - Make observability and auxiliary services opt-in rather than default.
+- **examples:** `Make observability and auxiliary services opt-in rather than default.`
 
 ## Pattern examples
 
@@ -44,6 +43,7 @@ No remediation examples provided.
 - **status:** draft
 - **severity:** medium
 - **version:** 0.3.0-draft
+- **catalog_version:** 0.4.0
 
 ## Navigation
 

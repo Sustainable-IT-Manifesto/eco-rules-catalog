@@ -25,7 +25,7 @@
     "tradeoffs": "Instrumentation effort."
   },
   "severity": "warning",
-  "summary": "Without baseline data, improvements can’t be validated.",
+  "summary": "Without baseline data, improvements can\u2019t be validated.",
   "tags": [
     "measurement",
     "baseline"
@@ -36,5 +36,8 @@
     "system_layers": [
       "process"
     ]
+  },
+  "metadata": {
+    "catalog_version": "0.4.0"
   }
 }

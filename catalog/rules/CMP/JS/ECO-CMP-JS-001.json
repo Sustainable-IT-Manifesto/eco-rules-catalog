@@ -37,5 +37,8 @@
     "blocking"
   ],
   "tier": 2,
-  "title": "Synchronous filesystem calls in request path"
+  "title": "Synchronous filesystem calls in request path",
+  "metadata": {
+    "catalog_version": "0.4.0"
+  }
 }

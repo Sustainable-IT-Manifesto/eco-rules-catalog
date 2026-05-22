@@ -36,5 +36,8 @@
     "tiering"
   ],
   "tier": 3,
-  "title": "No archival tier strategy"
+  "title": "No archival tier strategy",
+  "metadata": {
+    "catalog_version": "0.4.0"
+  }
 }

@@ -37,5 +37,8 @@
     "performance"
   ],
   "tier": 1,
-  "title": "Excessive DOM reflow"
+  "title": "Excessive DOM reflow",
+  "metadata": {
+    "catalog_version": "0.4.0"
+  }
 }

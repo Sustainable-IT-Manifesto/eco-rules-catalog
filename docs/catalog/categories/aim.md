@@ -1,18 +1,26 @@
 # AI/ML rules
 
-**Category code:** `AIM`
+**Code:** `AIM`
 
-**Total rules:** 15
+**Total rules:** 19
 
 - [Back to Human Catalog](../index.md)
-- [Back to Rule Browser](../../rule-browser.md)
 
 ## Rules
+
+### [ECO-AIM-AGENT-001 — Unbounded agent tool-call loop](../ECO-AIM-AGENT-001.md)
+
+An agent can repeatedly call tools without a bounded budget, convergence check, or escalation path.
+
+- Category: **AI/ML**
+- Family: **AI Agents**
+- Layer: **ai**
 
 ### [ECO-AIM-AI-001 — Oversized model selection](../ECO-AIM-AI-001.md)
 
 Using larger models than needed increases inference cost and emissions.
 
+- Category: **AI/ML**
 - Family: **AI**
 - Layer: **ai**
 
@@ -20,6 +28,7 @@ Using larger models than needed increases inference cost and emissions.
 
 No batching increases per-request overhead and lowers throughput.
 
+- Category: **AI/ML**
 - Family: **AI**
 - Layer: **ai**
 
@@ -27,6 +36,7 @@ No batching increases per-request overhead and lowers throughput.
 
 Recomputing embeddings for unchanged inputs wastes compute.
 
+- Category: **AI/ML**
 - Family: **AI**
 - Layer: **ai**
 
@@ -34,6 +44,7 @@ Recomputing embeddings for unchanged inputs wastes compute.
 
 Repeated prompts without caching waste tokens and compute.
 
+- Category: **AI/ML**
 - Family: **AI**
 - Layer: **ai**
 
@@ -41,6 +52,7 @@ Repeated prompts without caching waste tokens and compute.
 
 Always-on endpoints waste baseline compute when idle.
 
+- Category: **AI/ML**
 - Family: **AI**
 - Layer: **ai**
 
@@ -48,6 +60,7 @@ Always-on endpoints waste baseline compute when idle.
 
 Excessive context increases token cost and latency.
 
+- Category: **AI/ML**
 - Family: **AI**
 - Layer: **ai**
 
@@ -55,6 +68,7 @@ Excessive context increases token cost and latency.
 
 Failure to quantize when appropriate wastes inference compute.
 
+- Category: **AI/ML**
 - Family: **AI**
 - Layer: **ai**
 
@@ -62,6 +76,7 @@ Failure to quantize when appropriate wastes inference compute.
 
 Training without drift checks wastes compute and introduces risk.
 
+- Category: **AI/ML**
 - Family: **AI**
 - Layer: **ai**
 
@@ -69,6 +84,7 @@ Training without drift checks wastes compute and introduces risk.
 
 Scaling without evaluation wastes resources and can degrade outcomes.
 
+- Category: **AI/ML**
 - Family: **AI**
 - Layer: **ai**
 
@@ -76,6 +92,7 @@ Scaling without evaluation wastes resources and can degrade outcomes.
 
 Frequent tuning without clear value wastes compute.
 
+- Category: **AI/ML**
 - Family: **AI**
 - Layer: **ai**
 
@@ -83,6 +100,7 @@ Frequent tuning without clear value wastes compute.
 
 Embedding stores without retention grow unbounded and expensive.
 
+- Category: **AI/ML**
 - Family: **AI**
 - Layer: **ai**
 
@@ -90,6 +108,7 @@ Embedding stores without retention grow unbounded and expensive.
 
 Using high-cost models where latency/quality needs are modest wastes resources.
 
+- Category: **AI/ML**
 - Family: **AI**
 - Layer: **ai**
 
@@ -97,6 +116,7 @@ Using high-cost models where latency/quality needs are modest wastes resources.
 
 Without GPU utilization metrics, accelerator waste stays invisible.
 
+- Category: **AI/ML**
 - Family: **AI**
 - Layer: **ai**
 
@@ -104,6 +124,7 @@ Without GPU utilization metrics, accelerator waste stays invisible.
 
 Preprocessing waste increases training and inference cost.
 
+- Category: **AI/ML**
 - Family: **AI**
 - Layer: **ai**
 
@@ -111,5 +132,30 @@ Preprocessing waste increases training and inference cost.
 
 Unbatched vector queries increase overhead and reduce throughput.
 
+- Category: **AI/ML**
 - Family: **AI**
+- Layer: **ai**
+
+### [ECO-AIM-PROMPT-001 — Repeated static prompt context](../ECO-AIM-PROMPT-001.md)
+
+Large static instructions or reference material are injected into every prompt instead of being cached, retrieved, or shortened.
+
+- Category: **AI/ML**
+- Family: **Prompt Construction**
+- Layer: **ai**
+
+### [ECO-AIM-RAG-001 — Embedding regeneration without change detection](../ECO-AIM-RAG-001.md)
+
+Embeddings are regenerated for unchanged content, wasting compute and increasing pipeline latency.
+
+- Category: **AI/ML**
+- Family: **Retrieval-Augmented Generation**
+- Layer: **ai**
+
+### [ECO-AIM-RAG-002 — Excessive retrieval fan-out](../ECO-AIM-RAG-002.md)
+
+RAG retrieval queries too many sources, chunks, or indexes before ranking, increasing latency and inference context.
+
+- Category: **AI/ML**
+- Family: **Retrieval-Augmented Generation**
 - Layer: **ai**

@@ -36,5 +36,8 @@
     "cpu"
   ],
   "tier": 1,
-  "title": "Repeated invariant computation inside loop"
+  "title": "Repeated invariant computation inside loop",
+  "metadata": {
+    "catalog_version": "0.4.0"
+  }
 }

@@ -1,11 +1,10 @@
 # Infrastructure rules
 
-**Category code:** `INF`
+**Code:** `INF`
 
 **Total rules:** 12
 
 - [Back to Human Catalog](../index.md)
-- [Back to Rule Browser](../../rule-browser.md)
 
 ## Rules
 
@@ -13,6 +12,7 @@
 
 Starting every service by default in local or default compose profiles wastes local compute and encourages unnecessary background activity.
 
+- Category: **Infrastructure**
 - Family: **Docker Compose**
 - Layer: **process**
 
@@ -20,6 +20,7 @@ Starting every service by default in local or default compose profiles wastes lo
 
 Restarting noncritical services aggressively can create needless churn and repeated work.
 
+- Category: **Infrastructure**
 - Family: **Docker Compose**
 - Layer: **process**
 
@@ -27,6 +28,7 @@ Restarting noncritical services aggressively can create needless churn and repea
 
 Single-stage Docker builds often ship build tooling and temporary artifacts into runtime images, increasing image size and transfer cost.
 
+- Category: **Infrastructure**
 - Family: **Docker**
 - Layer: **process**
 
@@ -34,6 +36,7 @@ Single-stage Docker builds often ship build tooling and temporary artifacts into
 
 Heavy base images increase transfer, storage, and patching footprint without improving runtime value.
 
+- Category: **Infrastructure**
 - Family: **Docker**
 - Layer: **architecture**
 
@@ -41,6 +44,7 @@ Heavy base images increase transfer, storage, and patching footprint without imp
 
 Large build contexts increase build time, cache churn, and unnecessary transfer to the Docker daemon.
 
+- Category: **Infrastructure**
 - Family: **Docker**
 - Layer: **process**
 
@@ -48,6 +52,7 @@ Large build contexts increase build time, cache churn, and unnecessary transfer 
 
 Leaving package indexes and caches behind increases image size with no runtime benefit.
 
+- Category: **Infrastructure**
 - Family: **Docker**
 - Layer: **process**
 
@@ -55,6 +60,7 @@ Leaving package indexes and caches behind increases image size with no runtime b
 
 Runtime images should not carry compilers, package managers, or build-only tooling that is not needed after build.
 
+- Category: **Infrastructure**
 - Family: **Docker**
 - Layer: **process**
 
@@ -62,6 +68,7 @@ Runtime images should not carry compilers, package managers, or build-only tooli
 
 Containers without realistic requests and limits create waste, contention, or throttling.
 
+- Category: **Infrastructure**
 - Family: **Kubernetes**
 - Layer: **process**
 
@@ -69,6 +76,7 @@ Containers without realistic requests and limits create waste, contention, or th
 
 Workloads that can scale horizontally but do not use autoscaling can waste cluster capacity or under-serve demand.
 
+- Category: **Infrastructure**
 - Family: **Kubernetes**
 - Layer: **process**
 
@@ -76,6 +84,7 @@ Workloads that can scale horizontally but do not use autoscaling can waste clust
 
 Very frequent probes create unnecessary traffic and container work, especially at scale.
 
+- Category: **Infrastructure**
 - Family: **Kubernetes**
 - Layer: **process**
 
@@ -83,6 +92,7 @@ Very frequent probes create unnecessary traffic and container work, especially a
 
 Sidecars add useful capabilities, but they also add CPU, memory, storage, and network overhead.
 
+- Category: **Infrastructure**
 - Family: **Kubernetes**
 - Layer: **architecture**
 
@@ -90,5 +100,6 @@ Sidecars add useful capabilities, but they also add CPU, memory, storage, and ne
 
 Floating tags make deployments less predictable and can increase repeated pulls and churn.
 
+- Category: **Infrastructure**
 - Family: **Kubernetes**
 - Layer: **process**

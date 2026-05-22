@@ -2,9 +2,9 @@
 
 **Name:** Duplicate stored data
 
-**Category:** DAT
+**Category:** Data
 
-**Family:** DATA
+**Family:** Data
 
 **Primary layer:** `data`
 
@@ -22,9 +22,7 @@ Redundant data increases storage footprint and cost.
 
 ## Detection
 
-- **languages:**
-  - database
-  - infra
+- **languages:** `database`, `infra`
 - **method:** query
 
 ## Remediation
@@ -39,6 +37,10 @@ No pattern examples provided.
 ## Remediation examples
 
 No remediation examples provided.
+
+## Metadata
+
+- **catalog_version:** 0.4.0
 
 ## Navigation
 

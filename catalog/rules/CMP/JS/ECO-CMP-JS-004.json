@@ -37,5 +37,8 @@
     "leak"
   ],
   "tier": 2,
-  "title": "Memory leaks via event listeners"
+  "title": "Memory leaks via event listeners",
+  "metadata": {
+    "catalog_version": "0.4.0"
+  }
 }

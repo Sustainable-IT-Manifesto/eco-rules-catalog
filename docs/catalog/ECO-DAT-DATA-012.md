@@ -2,9 +2,9 @@
 
 **Name:** Unbounded analytics queries
 
-**Category:** DAT
+**Category:** Data
 
-**Family:** DATA
+**Family:** Data
 
 **Primary layer:** `data`
 
@@ -22,9 +22,7 @@ Unbounded queries cause runaway compute and unpredictable cost.
 
 ## Detection
 
-- **languages:**
-  - infra
-  - database
+- **languages:** `infra`, `database`
 - **method:** trace
 
 ## Remediation
@@ -39,6 +37,10 @@ No pattern examples provided.
 ## Remediation examples
 
 No remediation examples provided.
+
+## Metadata
+
+- **catalog_version:** 0.4.0
 
 ## Navigation
 

@@ -35,5 +35,8 @@
     "governance"
   ],
   "tier": 4,
-  "title": "No data lifecycle governance"
+  "title": "No data lifecycle governance",
+  "metadata": {
+    "catalog_version": "0.4.0"
+  }
 }

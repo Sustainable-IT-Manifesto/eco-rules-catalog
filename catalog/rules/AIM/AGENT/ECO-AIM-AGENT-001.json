@@ -1,0 +1,70 @@
+{
+  "id": "ECO-AIM-AGENT-001",
+  "canonical_id": "ECO-AIM-AGENT-001",
+  "title": "Unbounded agent tool-call loop",
+  "summary": "An agent can repeatedly call tools without a bounded budget, convergence check, or escalation path.",
+  "category": "AI/ML",
+  "category_code": "AIM",
+  "family": "AI Agents",
+  "family_code": "AGENT",
+  "layer": "ai",
+  "ontology": {
+    "category": "AI/ML",
+    "family": "AI Agents",
+    "system_layers": [
+      "ai"
+    ]
+  },
+  "impact": {
+    "type": "ai-compute",
+    "confidence": 0.8,
+    "notes": "Added as part of the 0.3.0 expansion to capture cross-system sustainability and operational waste."
+  },
+  "cost_dimensions": {
+    "compute": "high",
+    "memory": "medium",
+    "network": "high",
+    "storage": "low",
+    "human_time": "medium",
+    "carbon": "high",
+    "water": "medium"
+  },
+  "amplification": {
+    "scales_with_users": true,
+    "scales_with_data_volume": false,
+    "scales_non_linearly": true
+  },
+  "temporal_behavior": {
+    "startup_only": false,
+    "steady_state": true,
+    "burst_sensitive": true,
+    "time_degradation": false
+  },
+  "runtime_evidence": [
+    "agent traces",
+    "tool-call logs",
+    "LLM billing"
+  ],
+  "detection": {
+    "method": "static-or-runtime",
+    "confidence": 0.55,
+    "runtime_validation_required": true
+  },
+  "remediation": {
+    "guidance": "Add explicit budgets, loop detection, tool-call limits, and human escalation for non-converging tasks.",
+    "tradeoffs": "May require architecture, product, or operations review rather than a local code change."
+  },
+  "metadata": {
+    "catalog_version": "0.4.0",
+    "status": "draft",
+    "source": "catalog expansion recommendations applied 2026-05-21"
+  },
+  "severity": "warning",
+  "enabled_by_default": false,
+  "tier": 2,
+  "tags": [
+    "agent",
+    "tool-calls",
+    "loop"
+  ]
+}

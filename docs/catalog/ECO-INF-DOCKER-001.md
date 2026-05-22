@@ -28,8 +28,7 @@ Dockerfiles that combine build and runtime concerns into a single final image in
 ## Remediation
 
 - **guidance:** Separate build and runtime stages so only runtime assets ship in the final image.
-- **examples:**
-  - Use multi-stage builds with a builder stage and a minimal runtime stage.
+- **examples:** `Use multi-stage builds with a builder stage and a minimal runtime stage.`
 
 ## Pattern examples
 
@@ -48,6 +47,7 @@ Build assets in one stage, then copy only the required runtime artifacts into a 
 - **status:** draft
 - **severity:** medium
 - **version:** 0.3.0-draft
+- **catalog_version:** 0.4.0
 
 ## Navigation
 

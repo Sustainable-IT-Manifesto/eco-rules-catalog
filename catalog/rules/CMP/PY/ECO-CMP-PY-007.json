@@ -37,5 +37,8 @@
     "io"
   ],
   "tier": 2,
-  "title": "Loading entire file into memory"
+  "title": "Loading entire file into memory",
+  "metadata": {
+    "catalog_version": "0.4.0"
+  }
 }

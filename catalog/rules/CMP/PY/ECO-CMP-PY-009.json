@@ -37,5 +37,8 @@
     "cpu"
   ],
   "tier": 1,
-  "title": "Repeated regex compilation"
+  "title": "Repeated regex compilation",
+  "metadata": {
+    "catalog_version": "0.4.0"
+  }
 }
