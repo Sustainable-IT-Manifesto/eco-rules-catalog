@@ -2,15 +2,24 @@
 
 The Eco Rules Catalog is a SITM-owned standard for identifying, describing, and organizing software inefficiency.
 
-## 🚀 v0.3.0 — Infrastructure + Scanner Model
+## v0.4.0 - 2026-05-21
 
-The Eco Rules Catalog now includes infrastructure-level inefficiencies.
+### Added
 
-### New in this release
+- Formal schema definitions for `cost_dimensions`, `amplification`, `temporal_behavior`, `runtime_evidence`, and `sustainability_priority`.
+- Documentation for the new systems-level metadata fields.
+- Migration entry documenting the 0.4.0 schema formalization.
 
-- Infrastructure category (**INF**)
-- Docker, Compose, and Kubernetes rules
-- Cleaner scanner integration model
+### Changed
+
+- Updated catalog registry version from `0.3.0` to `0.4.0`.
+- Updated rule metadata catalog versions to `0.4.0`.
+- Promoted the 0.3.0 expansion into a more explicit systems intelligence release.
+
+### Compatibility
+
+- Existing 0.3.x rules remain structurally compatible.
+- Additional rule properties are still allowed so experimental metadata can continue to evolve.
 
 ### Why it matters
 
